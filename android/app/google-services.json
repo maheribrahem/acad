@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "744569389483",
+    "project_id": "islamicacad-114",
+    "storage_bucket": "islamicacad-114.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744569389483:android:f2c68228c64ec60fddd2ee",
+        "android_client_info": {
+          "package_name": "com.mycompany.acad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "744569389483-qo8s1qbpnc8g2fl6cf9l9k6ohkv2qvst.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNyogl_pewHYB2dJj5hwMdeH7ks3jHtpM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "744569389483-qo8s1qbpnc8g2fl6cf9l9k6ohkv2qvst.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "744569389483-krmt0nn6g5ge5uenr5l3onskno4ev2vu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.acad"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
