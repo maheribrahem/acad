@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>744569389483-krmt0nn6g5ge5uenr5l3onskno4ev2vu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.744569389483-krmt0nn6g5ge5uenr5l3onskno4ev2vu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBz-Y0KIkD0WQOZNGjQdZcKcGXf8PSrkPs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>744569389483</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mycompany.acad</string>
+	<key>PROJECT_ID</key>
+	<string>islamicacad-114</string>
+	<key>STORAGE_BUCKET</key>
+	<string>islamicacad-114.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:744569389483:ios:fbcffbdee0558bcdddd2ee</string>
+</dict>
+</plist>
