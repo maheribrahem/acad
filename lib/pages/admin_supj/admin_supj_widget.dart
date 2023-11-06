@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/lesson_decrip/lesson_decrip_widget.dart';
@@ -14,15 +13,12 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'admin_supj_model.dart';
@@ -30,10 +26,10 @@ export 'admin_supj_model.dart';
 
 class AdminSupjWidget extends StatefulWidget {
   const AdminSupjWidget({
-    Key? key,
+    super.key,
     this.output,
     required this.supjRef,
-  }) : super(key: key);
+  });
 
   final bool? output;
   final DocumentReference? supjRef;
@@ -63,8 +59,8 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(50.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -82,8 +78,8 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(50.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -101,8 +97,8 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(50.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -194,7 +190,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                   child: wrapWithModel(
                     model: _model.nav0Model,
                     updateCallback: () => setState(() {}),
-                    child: Nav0Widget(),
+                    child: const Nav0Widget(),
                   ),
                 )),
                 body: Container(
@@ -217,13 +213,13 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 35.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -245,7 +241,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                     child: wrapWithModel(
                                       model: _model.topbarModel,
                                       updateCallback: () => setState(() {}),
-                                      child: TopbarWidget(),
+                                      child: const TopbarWidget(),
                                     ),
                                   ),
                                 ],
@@ -259,25 +255,25 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                 children: [
                                   Flexible(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Flexible(
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.00, 1.00),
                                               child: Container(
                                                 height: 900.0,
-                                                constraints: BoxConstraints(
+                                                constraints: const BoxConstraints(
                                                   maxWidth: 700.0,
                                                 ),
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
-                                                  boxShadow: [
+                                                  boxShadow: const [
                                                     BoxShadow(
                                                       blurRadius: 4.0,
                                                       color: Color(0x320E151B),
@@ -285,7 +281,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                     )
                                                   ],
                                                   borderRadius:
-                                                      BorderRadius.only(
+                                                      const BorderRadius.only(
                                                     bottomLeft:
                                                         Radius.circular(0.0),
                                                     bottomRight:
@@ -302,7 +298,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   16.0,
@@ -343,11 +339,11 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                               ),
                                                               child: Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         -0.00,
                                                                         0.00),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -444,13 +440,13 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                 ),
                                                             ],
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 5.0)),
                                                       ),
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   5.0,
@@ -474,9 +470,9 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                               Container(
                                                                 width: 200.0,
                                                                 decoration:
-                                                                    BoxDecoration(),
+                                                                    const BoxDecoration(),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           0.0,
@@ -572,9 +568,9 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                               Container(
                                                                 width: 200.0,
                                                                 decoration:
-                                                                    BoxDecoration(),
+                                                                    const BoxDecoration(),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           0.0,
@@ -695,7 +691,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                               FlutterFlowTheme.of(context).primaryText,
                                                                         ),
                                                                       ),
-                                                                      duration: Duration(
+                                                                      duration: const Duration(
                                                                           milliseconds:
                                                                               4000),
                                                                       backgroundColor:
@@ -712,13 +708,13 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                 options:
                                                                     FFButtonOptions(
                                                                   height: 40.0,
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           24.0,
                                                                           0.0,
                                                                           24.0,
                                                                           0.0),
-                                                                  iconPadding: EdgeInsetsDirectional
+                                                                  iconPadding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -739,7 +735,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                   elevation:
                                                                       3.0,
                                                                   borderSide:
-                                                                      BorderSide(
+                                                                      const BorderSide(
                                                                     color: Colors
                                                                         .transparent,
                                                                     width: 1.0,
@@ -751,10 +747,10 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                 ),
                                                               ),
                                                             ]
-                                                                .divide(SizedBox(
+                                                                .divide(const SizedBox(
                                                                     height:
                                                                         5.0))
-                                                                .around(SizedBox(
+                                                                .around(const SizedBox(
                                                                     height:
                                                                         5.0)),
                                                           ),
@@ -764,7 +760,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -774,7 +770,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  Alignment(
+                                                                  const Alignment(
                                                                       0.0, 0),
                                                               child: TabBar(
                                                                 isScrollable:
@@ -866,15 +862,15 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                 ),
                                                                                 options: FFButtonOptions(
                                                                                   height: 40.0,
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                         fontFamily: 'Cairo',
                                                                                         color: Colors.white,
                                                                                       ),
                                                                                   elevation: 3.0,
-                                                                                  borderSide: BorderSide(
+                                                                                  borderSide: const BorderSide(
                                                                                     color: Colors.transparent,
                                                                                     width: 1.0,
                                                                                   ),
@@ -930,7 +926,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                       children: [
                                                                                         Expanded(
                                                                                           child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
                                                                                             child: InkWell(
                                                                                               splashColor: Colors.transparent,
                                                                                               focusColor: Colors.transparent,
@@ -957,7 +953,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                   width: double.infinity,
                                                                                                   decoration: BoxDecoration(
                                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                    boxShadow: [
+                                                                                                    boxShadow: const [
                                                                                                       BoxShadow(
                                                                                                         blurRadius: 4.0,
                                                                                                         color: Color(0x230E151B),
@@ -978,11 +974,11 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                         ),
                                                                                                       ),
                                                                                                       Align(
-                                                                                                        alignment: AlignmentDirectional(-0.90, 0.85),
+                                                                                                        alignment: const AlignmentDirectional(-0.90, 0.85),
                                                                                                         child: Container(
                                                                                                           width: 32.0,
                                                                                                           height: 32.0,
-                                                                                                          decoration: BoxDecoration(
+                                                                                                          decoration: const BoxDecoration(
                                                                                                             color: Colors.white,
                                                                                                             boxShadow: [
                                                                                                               BoxShadow(
@@ -993,7 +989,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                             ],
                                                                                                             shape: BoxShape.circle,
                                                                                                           ),
-                                                                                                          child: Icon(
+                                                                                                          child: const Icon(
                                                                                                             Icons.play_arrow_rounded,
                                                                                                             color: Color(0xFF14181B),
                                                                                                             size: 20.0,
@@ -1005,7 +1001,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                         children: [
                                                                                                           Padding(
-                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
+                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
                                                                                                             child: Column(
                                                                                                               mainAxisSize: MainAxisSize.min,
                                                                                                               mainAxisAlignment: MainAxisAlignment.center,
@@ -1015,10 +1011,10 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                                   children: [
                                                                                                                     Container(
-                                                                                                                      decoration: BoxDecoration(),
+                                                                                                                      decoration: const BoxDecoration(),
                                                                                                                       child: Container(
                                                                                                                         width: 50.0,
-                                                                                                                        decoration: BoxDecoration(),
+                                                                                                                        decoration: const BoxDecoration(),
                                                                                                                         child: wrapWithModel(
                                                                                                                           model: _model.lessonOrderModels.getModel(
                                                                                                                             lesonColumnActivitiesRecord.startTime!.toString(),
@@ -1036,7 +1032,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                                     ),
                                                                                                                     Container(
                                                                                                                       width: 100.0,
-                                                                                                                      decoration: BoxDecoration(),
+                                                                                                                      decoration: const BoxDecoration(),
                                                                                                                       child: LessonNameWidget(
                                                                                                                         key: Key('Key5rz_${lesonColumnIndex}_of_${lesonColumnActivitiesRecordList.length}'),
                                                                                                                         activiRef: lesonColumnActivitiesRecord.reference,
@@ -1044,7 +1040,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                                     ),
                                                                                                                     Container(
                                                                                                                       width: 100.0,
-                                                                                                                      decoration: BoxDecoration(),
+                                                                                                                      decoration: const BoxDecoration(),
                                                                                                                       child: LessonYoutubeWidget(
                                                                                                                         key: Key('Keygso_${lesonColumnIndex}_of_${lesonColumnActivitiesRecordList.length}'),
                                                                                                                         activiRef: lesonColumnActivitiesRecord.reference,
@@ -1057,7 +1053,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                                   children: [
                                                                                                                     Container(
                                                                                                                       width: 100.0,
-                                                                                                                      decoration: BoxDecoration(),
+                                                                                                                      decoration: const BoxDecoration(),
                                                                                                                       child: LessonTimeWidget(
                                                                                                                         key: Key('Keyvpl_${lesonColumnIndex}_of_${lesonColumnActivitiesRecordList.length}'),
                                                                                                                         activiRef: lesonColumnActivitiesRecord.reference,
@@ -1065,7 +1061,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                                     ),
                                                                                                                     Container(
                                                                                                                       width: 100.0,
-                                                                                                                      decoration: BoxDecoration(),
+                                                                                                                      decoration: const BoxDecoration(),
                                                                                                                       child: LessonDecripWidget(
                                                                                                                         key: Key('Key8uz_${lesonColumnIndex}_of_${lesonColumnActivitiesRecordList.length}'),
                                                                                                                         activiRef: lesonColumnActivitiesRecord.reference,
@@ -1075,13 +1071,13 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                                 ),
                                                                                                                 Container(
                                                                                                                   width: 100.0,
-                                                                                                                  decoration: BoxDecoration(),
+                                                                                                                  decoration: const BoxDecoration(),
                                                                                                                 ),
                                                                                                               ],
                                                                                                             ),
                                                                                                           ),
                                                                                                           Padding(
-                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                                                                                                             child: Column(
                                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                                               mainAxisAlignment: MainAxisAlignment.center,
@@ -1166,7 +1162,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                           ),
                                                                                                                         ),
-                                                                                                                        duration: Duration(milliseconds: 4000),
+                                                                                                                        duration: const Duration(milliseconds: 4000),
                                                                                                                         backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                                       ),
                                                                                                                     );
@@ -1180,22 +1176,22 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                                   options: FFButtonOptions(
                                                                                                                     width: 40.0,
                                                                                                                     height: 40.0,
-                                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 0.0, 0.0),
+                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 0.0, 0.0),
                                                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                                           fontFamily: 'Cairo',
                                                                                                                           color: Colors.white,
                                                                                                                         ),
                                                                                                                     elevation: 3.0,
-                                                                                                                    borderSide: BorderSide(
+                                                                                                                    borderSide: const BorderSide(
                                                                                                                       color: Colors.transparent,
                                                                                                                       width: 1.0,
                                                                                                                     ),
                                                                                                                     borderRadius: BorderRadius.circular(100.0),
                                                                                                                   ),
                                                                                                                 ),
-                                                                                                              ].divide(SizedBox(height: 10.0)),
+                                                                                                              ].divide(const SizedBox(height: 10.0)),
                                                                                                             ),
                                                                                                           ),
                                                                                                         ],
@@ -1214,7 +1210,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                               );
                                                                             },
                                                                           ),
-                                                                        ].divide(SizedBox(height: 5.0)).around(SizedBox(height: 5.0)),
+                                                                        ].divide(const SizedBox(height: 5.0)).around(const SizedBox(height: 5.0)),
                                                                       ),
                                                                     ),
                                                                   ),
@@ -1251,15 +1247,15 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                 ),
                                                                                 options: FFButtonOptions(
                                                                                   height: 40.0,
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                         fontFamily: 'Cairo',
                                                                                         color: Colors.white,
                                                                                       ),
                                                                                   elevation: 3.0,
-                                                                                  borderSide: BorderSide(
+                                                                                  borderSide: const BorderSide(
                                                                                     color: Colors.transparent,
                                                                                     width: 1.0,
                                                                                   ),
@@ -1320,7 +1316,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                               color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                             ),
                                                                                             child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
                                                                                               child: Material(
                                                                                                 color: Colors.transparent,
                                                                                                 elevation: 20.0,
@@ -1331,7 +1327,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                   width: double.infinity,
                                                                                                   decoration: BoxDecoration(
                                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                    boxShadow: [
+                                                                                                    boxShadow: const [
                                                                                                       BoxShadow(
                                                                                                         blurRadius: 4.0,
                                                                                                         color: Color(0x230E151B),
@@ -1351,11 +1347,11 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                         ),
                                                                                                       ),
                                                                                                       Align(
-                                                                                                        alignment: AlignmentDirectional(-0.90, 0.85),
+                                                                                                        alignment: const AlignmentDirectional(-0.90, 0.85),
                                                                                                         child: Container(
                                                                                                           width: 32.0,
                                                                                                           height: 32.0,
-                                                                                                          decoration: BoxDecoration(
+                                                                                                          decoration: const BoxDecoration(
                                                                                                             color: Colors.white,
                                                                                                             boxShadow: [
                                                                                                               BoxShadow(
@@ -1366,7 +1362,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                             ],
                                                                                                             shape: BoxShape.circle,
                                                                                                           ),
-                                                                                                          child: Align(
+                                                                                                          child: const Align(
                                                                                                             alignment: AlignmentDirectional(-0.00, 0.00),
                                                                                                             child: FaIcon(
                                                                                                               FontAwesomeIcons.clipboardCheck,
@@ -1377,7 +1373,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                         ),
                                                                                                       ),
                                                                                                       Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
+                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
                                                                                                         child: Column(
                                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                                           mainAxisAlignment: MainAxisAlignment.center,
@@ -1390,7 +1386,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                               children: [
                                                                                                                 Expanded(
                                                                                                                   child: Padding(
-                                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                                                                                                                     child: Column(
                                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -1405,7 +1401,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                                               ),
                                                                                                                         ),
                                                                                                                         Padding(
-                                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                                                           child: StreamBuilder<List<QbankRecord>>(
                                                                                                                             stream: queryQbankRecord(
                                                                                                                               queryBuilder: (qbankRecord) => qbankRecord.where(
@@ -1441,7 +1437,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                                           ),
                                                                                                                         ),
                                                                                                                         Padding(
-                                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                                                           child: Text(
                                                                                                                             'الوقت : ${testColumnActivitiesRecord.howLong.toString()}',
                                                                                                                             style: FlutterFlowTheme.of(context).labelSmall.override(
@@ -1453,7 +1449,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                                           ),
                                                                                                                         ),
                                                                                                                         Padding(
-                                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                                                           child: Text(
                                                                                                                             'المحاولات : ${testColumnActivitiesRecord.howMany.toString()}',
                                                                                                                             style: FlutterFlowTheme.of(context).labelSmall.override(
@@ -1550,7 +1546,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                                                 size: 40.0,
                                                                                                                               ),
                                                                                                                             ),
-                                                                                                                          ].divide(SizedBox(height: 5.0)).around(SizedBox(height: 5.0)),
+                                                                                                                          ].divide(const SizedBox(height: 5.0)).around(const SizedBox(height: 5.0)),
                                                                                                                         ),
                                                                                                                       ],
                                                                                                                     ),
@@ -1575,7 +1571,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                               );
                                                                             },
                                                                           ),
-                                                                        ].divide(SizedBox(height: 5.0)).around(SizedBox(height: 5.0)),
+                                                                        ].divide(const SizedBox(height: 5.0)).around(const SizedBox(height: 5.0)),
                                                                       ),
                                                                     ),
                                                                   ),
@@ -1595,12 +1591,12 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                             children: [
                                                                               Expanded(
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
                                                                                   child: Container(
                                                                                     width: double.infinity,
                                                                                     decoration: BoxDecoration(
                                                                                       color: Colors.white,
-                                                                                      boxShadow: [
+                                                                                      boxShadow: const [
                                                                                         BoxShadow(
                                                                                           blurRadius: 5.0,
                                                                                           color: Color(0x162D3A21),
@@ -1613,20 +1609,20 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
                                                                                           child: Row(
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             crossAxisAlignment: CrossAxisAlignment.start,
                                                                                             children: [
                                                                                               Expanded(
                                                                                                 child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                                   child: TextFormField(
                                                                                                     controller: _model.docNameController,
                                                                                                     focusNode: _model.docNameFocusNode,
                                                                                                     onChanged: (_) => EasyDebounce.debounce(
                                                                                                       '_model.docNameController',
-                                                                                                      Duration(milliseconds: 2000),
+                                                                                                      const Duration(milliseconds: 2000),
                                                                                                       () => setState(() {}),
                                                                                                     ),
                                                                                                     autofocus: true,
@@ -1640,7 +1636,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                       ),
                                                                                                       hintStyle: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                                             fontFamily: 'Plus Jakarta Sans',
-                                                                                                            color: Color(0xFF57636C),
+                                                                                                            color: const Color(0xFF57636C),
                                                                                                             fontSize: 12.0,
                                                                                                             fontWeight: FontWeight.w500,
                                                                                                           ),
@@ -1684,11 +1680,11 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                           topRight: Radius.circular(4.0),
                                                                                                         ),
                                                                                                       ),
-                                                                                                      contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 8.0, 12.0),
+                                                                                                      contentPadding: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 8.0, 12.0),
                                                                                                     ),
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Plus Jakarta Sans',
-                                                                                                          color: Color(0xFF14181B),
+                                                                                                          color: const Color(0xFF14181B),
                                                                                                           fontSize: 14.0,
                                                                                                           fontWeight: FontWeight.w500,
                                                                                                         ),
@@ -1700,13 +1696,13 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                               ),
                                                                                               Expanded(
                                                                                                 child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                                   child: TextFormField(
                                                                                                     controller: _model.docTypeController,
                                                                                                     focusNode: _model.docTypeFocusNode,
                                                                                                     onChanged: (_) => EasyDebounce.debounce(
                                                                                                       '_model.docTypeController',
-                                                                                                      Duration(milliseconds: 2000),
+                                                                                                      const Duration(milliseconds: 2000),
                                                                                                       () => setState(() {}),
                                                                                                     ),
                                                                                                     autofocus: true,
@@ -1720,7 +1716,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                       ),
                                                                                                       hintStyle: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                                             fontFamily: 'Plus Jakarta Sans',
-                                                                                                            color: Color(0xFF57636C),
+                                                                                                            color: const Color(0xFF57636C),
                                                                                                             fontSize: 12.0,
                                                                                                             fontWeight: FontWeight.w500,
                                                                                                           ),
@@ -1764,11 +1760,11 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                           topRight: Radius.circular(4.0),
                                                                                                         ),
                                                                                                       ),
-                                                                                                      contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 8.0, 12.0),
+                                                                                                      contentPadding: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 8.0, 12.0),
                                                                                                     ),
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Plus Jakarta Sans',
-                                                                                                          color: Color(0xFF14181B),
+                                                                                                          color: const Color(0xFF14181B),
                                                                                                           fontSize: 14.0,
                                                                                                           fontWeight: FontWeight.w500,
                                                                                                         ),
@@ -1781,13 +1777,13 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                             ],
                                                                                           ),
                                                                                         ),
-                                                                                        Divider(
+                                                                                        const Divider(
                                                                                           height: 12.0,
                                                                                           thickness: 2.0,
                                                                                           color: Color(0xFFE0E3E7),
                                                                                         ),
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 12.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 12.0),
                                                                                           child: Row(
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1796,13 +1792,13 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 children: [
                                                                                                   Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
                                                                                                     child: FlutterFlowIconButton(
                                                                                                       borderColor: Colors.transparent,
                                                                                                       borderRadius: 30.0,
                                                                                                       borderWidth: 1.0,
                                                                                                       buttonSize: 40.0,
-                                                                                                      icon: Icon(
+                                                                                                      icon: const Icon(
                                                                                                         Icons.edit_document,
                                                                                                         color: Color(0xFF57636C),
                                                                                                         size: 20.0,
@@ -1883,7 +1879,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                                         ),
                                                                                                       ),
-                                                                                                      duration: Duration(milliseconds: 4000),
+                                                                                                      duration: const Duration(milliseconds: 4000),
                                                                                                       backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                     ),
                                                                                                   );
@@ -1898,8 +1894,8 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                 options: FFButtonOptions(
                                                                                                   width: 90.0,
                                                                                                   height: 40.0,
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                         fontFamily: 'Plus Jakarta Sans',
@@ -1908,7 +1904,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                         fontWeight: FontWeight.w500,
                                                                                                       ),
                                                                                                   elevation: 2.0,
-                                                                                                  borderSide: BorderSide(
+                                                                                                  borderSide: const BorderSide(
                                                                                                     color: Colors.transparent,
                                                                                                     width: 1.0,
                                                                                                   ),
@@ -1968,7 +1964,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                       children: [
                                                                                         Expanded(
                                                                                           child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
                                                                                             child: InkWell(
                                                                                               splashColor: Colors.transparent,
                                                                                               focusColor: Colors.transparent,
@@ -1987,7 +1983,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                   width: double.infinity,
                                                                                                   decoration: BoxDecoration(
                                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                    boxShadow: [
+                                                                                                    boxShadow: const [
                                                                                                       BoxShadow(
                                                                                                         blurRadius: 4.0,
                                                                                                         color: Color(0x230E151B),
@@ -2007,11 +2003,11 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                         ),
                                                                                                       ),
                                                                                                       Align(
-                                                                                                        alignment: AlignmentDirectional(-0.90, 0.85),
+                                                                                                        alignment: const AlignmentDirectional(-0.90, 0.85),
                                                                                                         child: Container(
                                                                                                           width: 32.0,
                                                                                                           height: 32.0,
-                                                                                                          decoration: BoxDecoration(
+                                                                                                          decoration: const BoxDecoration(
                                                                                                             color: Colors.white,
                                                                                                             boxShadow: [
                                                                                                               BoxShadow(
@@ -2022,7 +2018,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                             ],
                                                                                                             shape: BoxShape.circle,
                                                                                                           ),
-                                                                                                          child: Icon(
+                                                                                                          child: const Icon(
                                                                                                             Icons.attach_file,
                                                                                                             color: Color(0xFF14181B),
                                                                                                             size: 20.0,
@@ -2030,7 +2026,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                                                         ),
                                                                                                       ),
                                                                                                       Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(130.0, 16.0, 12.0, 0.0),
+                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(130.0, 16.0, 12.0, 0.0),
                                                                                                         child: Column(
                                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                                           mainAxisAlignment: MainAxisAlignment.center,
@@ -2107,7 +2103,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                               );
                                                                             },
                                                                           ),
-                                                                        ].divide(SizedBox(height: 5.0)).around(SizedBox(height: 5.0)),
+                                                                        ].divide(const SizedBox(height: 5.0)).around(const SizedBox(height: 5.0)),
                                                                       ),
                                                                     ),
                                                                   ),
@@ -2115,7 +2111,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                     builder:
                                                                         (context) =>
                                                                             Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           8.0,
                                                                           8.0,
                                                                           0.0,
@@ -2346,7 +2342,7 @@ class _AdminSupjWidgetState extends State<AdminSupjWidget>
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        ].divide(SizedBox(height: 5.0)),
+                                                                        ].divide(const SizedBox(height: 5.0)),
                                                                       ),
                                                                     ),
                                                                   ),

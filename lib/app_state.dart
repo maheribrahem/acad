@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'flutter_flow/request_manager.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import 'backend/api_requests/api_manager.dart';
-import 'backend/supabase/supabase.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -29,22 +24,22 @@ class FFAppState extends ChangeNotifier {
 
   String _oldV = '1';
   String get oldV => _oldV;
-  set oldV(String _value) {
-    _oldV = _value;
+  set oldV(String value) {
+    _oldV = value;
   }
 
   DocumentReference? _newV =
       FirebaseFirestore.instance.doc('/version/31WZaqYs4oObBl9qto2k');
   DocumentReference? get newV => _newV;
-  set newV(DocumentReference? _value) {
-    _newV = _value;
+  set newV(DocumentReference? value) {
+    _newV = value;
   }
 
   String _currentURL =
       'https://file-examples.com/storage/fe1134defc6538ed39b8efa/2017/11/file_example_MP3_700KB.mp3';
   String get currentURL => _currentURL;
-  set currentURL(String _value) {
-    _currentURL = _value;
+  set currentURL(String value) {
+    _currentURL = value;
   }
 
   final _docsManager = StreamRequestManager<List<ActivitiesRecord>>();

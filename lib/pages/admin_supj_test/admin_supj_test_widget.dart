@@ -1,17 +1,13 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/nav0/nav0_widget.dart';
 import '/components/qand_a/qand_a_widget.dart';
 import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'admin_supj_test_model.dart';
@@ -19,10 +15,10 @@ export 'admin_supj_test_model.dart';
 
 class AdminSupjTestWidget extends StatefulWidget {
   const AdminSupjTestWidget({
-    Key? key,
+    super.key,
     this.output,
     required this.activRef,
-  }) : super(key: key);
+  });
 
   final bool? output;
   final DocumentReference? activRef;
@@ -88,7 +84,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
               child: wrapWithModel(
                 model: _model.nav0Model,
                 updateCallback: () => setState(() {}),
-                child: Nav0Widget(),
+                child: const Nav0Widget(),
               ),
             )),
             body: Container(
@@ -111,13 +107,13 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 35.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -139,7 +135,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                 child: wrapWithModel(
                                   model: _model.topbarModel,
                                   updateCallback: () => setState(() {}),
-                                  child: TopbarWidget(),
+                                  child: const TopbarWidget(),
                                 ),
                               ),
                             ],
@@ -153,7 +149,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                             children: [
                               Flexible(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -161,24 +157,24 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                       Flexible(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 1.00),
+                                              const AlignmentDirectional(0.00, 1.00),
                                           child: Container(
                                             height: 900.0,
-                                            constraints: BoxConstraints(
+                                            constraints: const BoxConstraints(
                                               maxWidth: 700.0,
                                             ),
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              boxShadow: [
+                                              boxShadow: const [
                                                 BoxShadow(
                                                   blurRadius: 4.0,
                                                   color: Color(0x320E151B),
                                                   offset: Offset(0.0, -2.0),
                                                 )
                                               ],
-                                              borderRadius: BorderRadius.only(
+                                              borderRadius: const BorderRadius.only(
                                                 bottomLeft:
                                                     Radius.circular(0.0),
                                                 bottomRight:
@@ -191,7 +187,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(16.0, 16.0,
                                                           16.0, 0.0),
                                                   child: Row(
@@ -227,12 +223,12 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                           ),
                                                           child: Align(
                                                             alignment:
-                                                                AlignmentDirectional(
+                                                                const AlignmentDirectional(
                                                                     -0.00,
                                                                     0.00),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -315,7 +311,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                         ],
                                                       ),
                                                     ].divide(
-                                                        SizedBox(width: 5.0)),
+                                                        const SizedBox(width: 5.0)),
                                                   ),
                                                 ),
                                                 StreamBuilder<ActivitiesRecord>(
@@ -349,7 +345,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     16.0,
@@ -371,7 +367,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                       .secondaryBackground,
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           0.0,
@@ -392,7 +388,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                         EasyDebounce
                                                                             .debounce(
                                                                       '_model.textController1',
-                                                                      Duration(
+                                                                      const Duration(
                                                                           milliseconds:
                                                                               2000),
                                                                       () async {
@@ -414,7 +410,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                               ),
                                                                             ),
                                                                             duration:
-                                                                                Duration(milliseconds: 4000),
+                                                                                const Duration(milliseconds: 4000),
                                                                             backgroundColor:
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                           ),
@@ -507,7 +503,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                       .secondaryBackground,
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           0.0,
@@ -529,7 +525,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                         EasyDebounce
                                                                             .debounce(
                                                                       '_model.textController2',
-                                                                      Duration(
+                                                                      const Duration(
                                                                           milliseconds:
                                                                               1000),
                                                                       () async {
@@ -551,7 +547,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                               ),
                                                                             ),
                                                                             duration:
-                                                                                Duration(milliseconds: 4000),
+                                                                                const Duration(milliseconds: 4000),
                                                                             backgroundColor:
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                           ),
@@ -652,7 +648,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                       .secondaryBackground,
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           0.0,
@@ -674,7 +670,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                         EasyDebounce
                                                                             .debounce(
                                                                       '_model.textController3',
-                                                                      Duration(
+                                                                      const Duration(
                                                                           milliseconds:
                                                                               1000),
                                                                       () async {
@@ -696,7 +692,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                               ),
                                                                             ),
                                                                             duration:
-                                                                                Duration(milliseconds: 4000),
+                                                                                const Duration(milliseconds: 4000),
                                                                             backgroundColor:
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                           ),
@@ -797,7 +793,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                       .secondaryBackground,
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           0.0,
@@ -819,7 +815,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                         EasyDebounce
                                                                             .debounce(
                                                                       '_model.textController4',
-                                                                      Duration(
+                                                                      const Duration(
                                                                           milliseconds:
                                                                               1000),
                                                                       () async {
@@ -841,7 +837,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                               ),
                                                                             ),
                                                                             duration:
-                                                                                Duration(milliseconds: 4000),
+                                                                                const Duration(milliseconds: 4000),
                                                                             backgroundColor:
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                           ),
@@ -957,8 +953,8 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                       (newValue) async {
                                                                     setState(() =>
                                                                         _model.switchValue =
-                                                                            newValue!);
-                                                                    if (newValue!) {
+                                                                            newValue);
+                                                                    if (newValue) {
                                                                       await widget
                                                                           .activRef!
                                                                           .update(
@@ -995,7 +991,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                 ),
                                                               ],
                                                             ),
-                                                          ].divide(SizedBox(
+                                                          ].divide(const SizedBox(
                                                               width: 5.0)),
                                                         ),
                                                       ),
@@ -1003,7 +999,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                   },
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(16.0, 16.0,
                                                           16.0, 0.0),
                                                   child: Row(
@@ -1048,12 +1044,12 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                           ),
                                                           child: Align(
                                                             alignment:
-                                                                AlignmentDirectional(
+                                                                const AlignmentDirectional(
                                                                     -0.00,
                                                                     0.00),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -1081,7 +1077,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        SizedBox(width: 5.0)),
+                                                        const SizedBox(width: 5.0)),
                                                   ),
                                                 ),
                                                 Expanded(
@@ -1144,7 +1140,7 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                     .center,
                                                             children: [
                                                               Padding(
-                                                                padding: EdgeInsetsDirectional
+                                                                padding: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         10.0,
                                                                         10.0,
@@ -1199,8 +1195,8 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                                                 qbankQbankRecord,
                                                                           ),
                                                                         ),
-                                                                      ].divide(SizedBox(width: 5.0)).around(
-                                                                              SizedBox(width: 5.0)),
+                                                                      ].divide(const SizedBox(width: 5.0)).around(
+                                                                              const SizedBox(width: 5.0)),
                                                                     ),
                                                                   ),
                                                                 ),
@@ -1213,9 +1209,9 @@ class _AdminSupjTestWidgetState extends State<AdminSupjTestWidget> {
                                                   ),
                                                 ),
                                               ]
-                                                  .divide(SizedBox(height: 5.0))
+                                                  .divide(const SizedBox(height: 5.0))
                                                   .around(
-                                                      SizedBox(height: 5.0)),
+                                                      const SizedBox(height: 5.0)),
                                             ),
                                           ),
                                         ),

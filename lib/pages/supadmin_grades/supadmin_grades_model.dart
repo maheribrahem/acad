@@ -1,23 +1,11 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/nav0/nav0_widget.dart';
-import '/components/profilecomp/profilecomp_widget.dart';
 import '/components/topbar/topbar_widget.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'supadmin_grades_widget.dart' show SupadminGradesWidget;
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 
 class SupadminGradesModel extends FlutterFlowModel<SupadminGradesWidget> {
   ///  Local state fields for this page.
@@ -49,18 +37,22 @@ class SupadminGradesModel extends FlutterFlowModel<SupadminGradesWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     topbarModel = createModel(context, () => TopbarModel());
     nav0Model = createModel(context, () => Nav0Model());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     topbarModel.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
 
-    listViewStreamSubscriptions1.forEach((s) => s?.cancel());
+    for (var s in listViewStreamSubscriptions1) {
+      s?.cancel();
+    }
     listViewPagingController1?.dispose();
 
     nav0Model.dispose();

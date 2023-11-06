@@ -3,16 +3,13 @@ import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'lang_model.dart';
 export 'lang_model.dart';
 
 class LangWidget extends StatefulWidget {
-  const LangWidget({Key? key}) : super(key: key);
+  const LangWidget({super.key});
 
   @override
   _LangWidgetState createState() => _LangWidgetState();
@@ -67,7 +64,7 @@ class _LangWidgetState extends State<LangWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: const AlignmentDirectional(0.00, 0.00),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -79,7 +76,7 @@ class _LangWidgetState extends State<LangWidget> {
                             borderColor: Colors.transparent,
                             dropdownIconColor: Colors.white,
                             borderRadius: 8.0,
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.normal,
                               fontSize: 13.0,

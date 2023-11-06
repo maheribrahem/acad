@@ -1,23 +1,19 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'quranupdate_model.dart';
 export 'quranupdate_model.dart';
 
 class QuranupdateWidget extends StatefulWidget {
   const QuranupdateWidget({
-    Key? key,
+    super.key,
     this.parameter1,
     required this.parameter3,
-  }) : super(key: key);
+  });
 
   final double? parameter1;
   final DocumentReference? parameter3;
@@ -59,13 +55,13 @@ class _QuranupdateWidgetState extends State<QuranupdateWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
       child: TextFormField(
         controller: _model.textController,
         focusNode: _model.textFieldFocusNode,
         onChanged: (_) => EasyDebounce.debounce(
           '_model.textController',
-          Duration(milliseconds: 1000),
+          const Duration(milliseconds: 1000),
           () async {
             await widget.parameter3!.update(createActivitiesProgressRecordData(
               grade: double.tryParse(_model.textController.text),
@@ -79,7 +75,7 @@ class _QuranupdateWidgetState extends State<QuranupdateWidget> {
                     color: FlutterFlowTheme.of(context).primaryText,
                   ),
                 ),
-                duration: Duration(milliseconds: 4000),
+                duration: const Duration(milliseconds: 4000),
                 backgroundColor: FlutterFlowTheme.of(context).secondary,
               ),
             );

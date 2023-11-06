@@ -10,16 +10,13 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -29,9 +26,9 @@ export 'mentor_admin_model.dart';
 
 class MentorAdminWidget extends StatefulWidget {
   const MentorAdminWidget({
-    Key? key,
+    super.key,
     this.output,
-  }) : super(key: key);
+  });
 
   final bool? output;
 
@@ -52,30 +49,19 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setAppLanguage(context, 'ar');
-      if (!((currentUserDisplayName != null && currentUserDisplayName != '') &&
-          (currentPhoneNumber != null && currentPhoneNumber != '') &&
-          (valueOrDefault(currentUserDocument?.gender, '') != null &&
-              valueOrDefault(currentUserDocument?.gender, '') != '') &&
-          (valueOrDefault(currentUserDocument?.fullname, '') != null &&
-              valueOrDefault(currentUserDocument?.fullname, '') != '') &&
-          (valueOrDefault(currentUserDocument?.state, '') != null &&
-              valueOrDefault(currentUserDocument?.state, '') != '') &&
-          (valueOrDefault(currentUserDocument?.city, '') != null &&
-              valueOrDefault(currentUserDocument?.city, '') != '') &&
-          (valueOrDefault(currentUserDocument?.schoolLevel, '') != null &&
-              valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
-          (valueOrDefault(currentUserDocument?.job, '') != null &&
-              valueOrDefault(currentUserDocument?.job, '') != '') &&
-          (valueOrDefault(currentUserDocument?.socialStatus, '') != null &&
-              valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
-          (valueOrDefault(currentUserDocument?.pastStudy, '') != null &&
-              valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
-          (valueOrDefault(currentUserDocument?.referral, '') != null &&
-              valueOrDefault(currentUserDocument?.referral, '') != '') &&
-          (valueOrDefault(currentUserDocument?.quranJuz, '') != null &&
-              valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
-          (valueOrDefault(currentUserDocument?.telegram, '') != null &&
-              valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
+      if (!((currentUserDisplayName != '') &&
+          (currentPhoneNumber != '') &&
+          (valueOrDefault(currentUserDocument?.gender, '') != '') &&
+          (valueOrDefault(currentUserDocument?.fullname, '') != '') &&
+          (valueOrDefault(currentUserDocument?.state, '') != '') &&
+          (valueOrDefault(currentUserDocument?.city, '') != '') &&
+          (valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
+          (valueOrDefault(currentUserDocument?.job, '') != '') &&
+          (valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
+          (valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
+          (valueOrDefault(currentUserDocument?.referral, '') != '') &&
+          (valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
+          (valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -90,7 +76,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                   : FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: ProfilecompWidget(),
+                child: const ProfilecompWidget(),
               ),
             ));
           },
@@ -140,7 +126,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
               child: wrapWithModel(
                 model: _model.nav0Model,
                 updateCallback: () => setState(() {}),
-                child: Nav0Widget(),
+                child: const Nav0Widget(),
               ),
             )),
             body: Container(
@@ -163,13 +149,13 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 35.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -191,7 +177,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                 child: wrapWithModel(
                                   model: _model.topbarModel,
                                   updateCallback: () => setState(() {}),
-                                  child: TopbarWidget(),
+                                  child: const TopbarWidget(),
                                 ),
                               ),
                             ],
@@ -212,13 +198,13 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
                                         height: 100.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 12.0, 12.0, 12.0),
                                                 child: AuthUserStreamWidget(
@@ -282,7 +268,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                         ),
                                                         child: Container(
                                                           constraints:
-                                                              BoxConstraints(
+                                                              const BoxConstraints(
                                                             maxWidth: 700.0,
                                                           ),
                                                           decoration:
@@ -290,7 +276,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryBackground,
-                                                            boxShadow: [
+                                                            boxShadow: const [
                                                               BoxShadow(
                                                                 blurRadius: 4.0,
                                                                 color: Color(
@@ -321,7 +307,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                               14.0),
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -333,7 +319,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                             .max,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             12.0,
                                                                             12.0,
                                                                             12.0,
@@ -355,7 +341,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                   BoxShadow(
                                                                                     blurRadius: 4.0,
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    offset: Offset(0.0, 2.0),
+                                                                                    offset: const Offset(0.0, 2.0),
                                                                                   )
                                                                                 ],
                                                                                 shape: BoxShape.circle,
@@ -379,12 +365,12 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                             '.',
                                                                                           ),
                                                                                           image: NetworkImage(
-                                                                                            mesangerUsersRecord!.photoUrl,
+                                                                                            mesangerUsersRecord.photoUrl,
                                                                                           ),
                                                                                           fit: BoxFit.contain,
                                                                                         ),
                                                                                         allowRotation: false,
-                                                                                        tag: mesangerUsersRecord!.photoUrl,
+                                                                                        tag: mesangerUsersRecord.photoUrl,
                                                                                         useHeroAnimation: true,
                                                                                       ),
                                                                                     ),
@@ -400,7 +386,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                         '.',
                                                                                       ),
                                                                                       image: NetworkImage(
-                                                                                        mesangerUsersRecord!.photoUrl,
+                                                                                        mesangerUsersRecord.photoUrl,
                                                                                       ),
                                                                                       width: 35.0,
                                                                                       height: 35.0,
@@ -416,9 +402,9 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                                                 children: [
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                     child: Text(
-                                                                                      mesangerUsersRecord!.fullname,
+                                                                                      mesangerUsersRecord.fullname,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Plus Jakarta Sans',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
@@ -428,9 +414,9 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                     child: Text(
-                                                                                      mesangerUsersRecord!.phoneNumber,
+                                                                                      mesangerUsersRecord.phoneNumber,
                                                                                       style: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                             fontFamily: 'Plus Jakarta Sans',
                                                                                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -447,14 +433,14 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                   child: InkWell(
                                                                                     splashColor: Colors.transparent,
                                                                                     focusColor: Colors.transparent,
                                                                                     hoverColor: Colors.transparent,
                                                                                     highlightColor: Colors.transparent,
                                                                                     onTap: () async {
-                                                                                      await launchURL(mesangerUsersRecord!.telegram);
+                                                                                      await launchURL(mesangerUsersRecord.telegram);
                                                                                     },
                                                                                     child: FaIcon(
                                                                                       FontAwesomeIcons.telegramPlane,
@@ -464,7 +450,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                   child: InkWell(
                                                                                     splashColor: Colors.transparent,
                                                                                     focusColor: Colors.transparent,
@@ -473,9 +459,9 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                     onTap: () async {
                                                                                       await launchUrl(Uri(
                                                                                         scheme: 'tel',
-                                                                                        path: mesangerUsersRecord!.phoneNumber,
+                                                                                        path: mesangerUsersRecord.phoneNumber,
                                                                                       ));
-                                                                                      await Clipboard.setData(ClipboardData(text: mesangerUsersRecord!.phoneNumber));
+                                                                                      await Clipboard.setData(ClipboardData(text: mesangerUsersRecord.phoneNumber));
                                                                                     },
                                                                                     child: FaIcon(
                                                                                       FontAwesomeIcons.phoneSquareAlt,
@@ -486,7 +472,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                 ),
                                                                               ],
                                                                             ),
-                                                                          ].divide(SizedBox(width: 5.0)),
+                                                                          ].divide(const SizedBox(width: 5.0)),
                                                                         ),
                                                                       ),
                                                                       Divider(
@@ -497,7 +483,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryText,
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         height:
                                                                             5.0)),
                                                                   ),
@@ -552,7 +538,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                           )
                                                                                           .where(
                                                                                             'mentor',
-                                                                                            isEqualTo: mesangerUsersRecord?.reference,
+                                                                                            isEqualTo: mesangerUsersRecord.reference,
                                                                                           )
                                                                                           .orderBy('sendTime', descending: true),
                                                                                     ),
@@ -579,12 +565,12 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                         );
                                                                                       }
                                                                                       return ListView.separated(
-                                                                                        padding: EdgeInsets.symmetric(vertical: 5.0),
+                                                                                        padding: const EdgeInsets.symmetric(vertical: 5.0),
                                                                                         primary: false,
                                                                                         shrinkWrap: true,
                                                                                         scrollDirection: Axis.vertical,
                                                                                         itemCount: commentsDiscussionRecordList.length,
-                                                                                        separatorBuilder: (_, __) => SizedBox(height: 5.0),
+                                                                                        separatorBuilder: (_, __) => const SizedBox(height: 5.0),
                                                                                         itemBuilder: (context, commentsIndex) {
                                                                                           final commentsDiscussionRecord = commentsDiscussionRecordList[commentsIndex];
                                                                                           return StreamBuilder<UsersRecord>(
@@ -654,17 +640,17 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                                       crossAxisAlignment: CrossAxisAlignment.start,
                                                                                                       children: [
                                                                                                         Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                                           child: Container(
                                                                                                             constraints: BoxConstraints(
                                                                                                               maxWidth: MediaQuery.sizeOf(context).width * 0.75,
                                                                                                             ),
                                                                                                             decoration: BoxDecoration(
-                                                                                                              color: Color(0xFFE0E3E7),
+                                                                                                              color: const Color(0xFFE0E3E7),
                                                                                                               borderRadius: BorderRadius.circular(12.0),
                                                                                                             ),
                                                                                                             child: Padding(
-                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
                                                                                                               child: Column(
                                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -673,7 +659,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                                                     containerUsersRecord.displayName,
                                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                           fontFamily: 'Cairo',
-                                                                                                                          color: Color(0xFF14181B),
+                                                                                                                          color: const Color(0xFF14181B),
                                                                                                                           fontSize: 12.0,
                                                                                                                           fontWeight: FontWeight.bold,
                                                                                                                         ),
@@ -688,12 +674,12 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                                                     commentsDiscussionRecord.text,
                                                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                                                           fontFamily: 'Cairo',
-                                                                                                                          color: Color(0xFF14181B),
+                                                                                                                          color: const Color(0xFF14181B),
                                                                                                                           fontSize: 14.0,
                                                                                                                           fontWeight: FontWeight.normal,
                                                                                                                         ),
                                                                                                                   ),
-                                                                                                                  if (commentsDiscussionRecord.doc != null && commentsDiscussionRecord.doc != '')
+                                                                                                                  if (commentsDiscussionRecord.doc != '')
                                                                                                                     InkWell(
                                                                                                                       splashColor: Colors.transparent,
                                                                                                                       focusColor: Colors.transparent,
@@ -708,7 +694,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                                                         size: 40.0,
                                                                                                                       ),
                                                                                                                     ),
-                                                                                                                  if (commentsDiscussionRecord.image != null && commentsDiscussionRecord.image != '')
+                                                                                                                  if (commentsDiscussionRecord.image != '')
                                                                                                                     InkWell(
                                                                                                                       splashColor: Colors.transparent,
                                                                                                                       focusColor: Colors.transparent,
@@ -754,7 +740,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                                           children: [
                                                                                                             Padding(
-                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 0.0, 0.0),
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 0.0, 0.0),
                                                                                                               child: Text(
                                                                                                                 dateTimeFormat(
                                                                                                                   'relative',
@@ -783,7 +769,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                     },
                                                                                   ),
                                                                                 ),
-                                                                              ].divide(SizedBox(height: 5.0)),
+                                                                              ].divide(const SizedBox(height: 5.0)),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -795,7 +781,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                             BoxDecoration(
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
-                                                                          boxShadow: [
+                                                                          boxShadow: const [
                                                                             BoxShadow(
                                                                               blurRadius: 5.0,
                                                                               color: Color(0x162D3A21),
@@ -817,7 +803,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -829,7 +815,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                         width: 50.0,
                                                                                         height: 50.0,
                                                                                         clipBehavior: Clip.antiAlias,
-                                                                                        decoration: BoxDecoration(
+                                                                                        decoration: const BoxDecoration(
                                                                                           shape: BoxShape.circle,
                                                                                         ),
                                                                                         child: Image.network(
@@ -837,17 +823,17 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                           fit: BoxFit.cover,
                                                                                         ),
                                                                                       ),
-                                                                                    ].divide(SizedBox(height: 5.0)).around(SizedBox(height: 5.0)),
+                                                                                    ].divide(const SizedBox(height: 5.0)).around(const SizedBox(height: 5.0)),
                                                                                   ),
                                                                                   Expanded(
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                       child: TextFormField(
                                                                                         controller: _model.commentController,
                                                                                         focusNode: _model.commentFocusNode,
                                                                                         onChanged: (_) => EasyDebounce.debounce(
                                                                                           '_model.commentController',
-                                                                                          Duration(milliseconds: 1000),
+                                                                                          const Duration(milliseconds: 1000),
                                                                                           () => setState(() {}),
                                                                                         ),
                                                                                         autofocus: true,
@@ -877,21 +863,21 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                             borderRadius: BorderRadius.circular(9.0),
                                                                                           ),
                                                                                           errorBorder: OutlineInputBorder(
-                                                                                            borderSide: BorderSide(
+                                                                                            borderSide: const BorderSide(
                                                                                               color: Color(0x00000000),
                                                                                               width: 1.0,
                                                                                             ),
                                                                                             borderRadius: BorderRadius.circular(9.0),
                                                                                           ),
                                                                                           focusedErrorBorder: OutlineInputBorder(
-                                                                                            borderSide: BorderSide(
+                                                                                            borderSide: const BorderSide(
                                                                                               color: Color(0x00000000),
                                                                                               width: 1.0,
                                                                                             ),
                                                                                             borderRadius: BorderRadius.circular(9.0),
                                                                                           ),
-                                                                                          contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 8.0, 12.0),
-                                                                                          prefixIcon: Icon(
+                                                                                          contentPadding: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 8.0, 12.0),
+                                                                                          prefixIcon: const Icon(
                                                                                             Icons.format_align_right_rounded,
                                                                                           ),
                                                                                         ),
@@ -911,7 +897,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 12.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 12.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -966,20 +952,20 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
 
                                                                                           await DiscussionRecord.collection.doc().set(createDiscussionRecordData(
                                                                                                 sender: currentUserReference,
-                                                                                                receiver: mesangerUsersRecord?.reference,
+                                                                                                receiver: mesangerUsersRecord.reference,
                                                                                                 mentoring: true,
                                                                                                 sendTime: getCurrentTimestamp,
-                                                                                                chattId: '${currentUserEmail}${mesangerUsersRecord?.email}',
+                                                                                                chattId: '$currentUserEmail${mesangerUsersRecord.email}',
                                                                                                 doc: _model.uploadedFileUrl1,
-                                                                                                mentor: mesangerUsersRecord?.reference,
+                                                                                                mentor: mesangerUsersRecord.reference,
                                                                                                 userA: currentUserReference,
                                                                                               ));
                                                                                           triggerPushNotification(
                                                                                             notificationTitle: 'رسالة جديدة  ',
-                                                                                            notificationText: 'رسالة جديدة من  ${currentUserDisplayName}',
+                                                                                            notificationText: 'رسالة جديدة من  $currentUserDisplayName',
                                                                                             notificationSound: 'default',
                                                                                             userRefs: [
-                                                                                              mesangerUsersRecord!.reference
+                                                                                              mesangerUsersRecord.reference
                                                                                             ],
                                                                                             initialPageName: 'mentorAdmin',
                                                                                             parameterData: {},
@@ -1041,20 +1027,20 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
 
                                                                                           await DiscussionRecord.collection.doc().set(createDiscussionRecordData(
                                                                                                 sender: currentUserReference,
-                                                                                                receiver: mesangerUsersRecord?.reference,
+                                                                                                receiver: mesangerUsersRecord.reference,
                                                                                                 mentoring: true,
                                                                                                 sendTime: getCurrentTimestamp,
-                                                                                                chattId: '${currentUserEmail}${mesangerUsersRecord?.email}',
+                                                                                                chattId: '$currentUserEmail${mesangerUsersRecord.email}',
                                                                                                 image: _model.uploadedFileUrl2,
-                                                                                                mentor: mesangerUsersRecord?.reference,
+                                                                                                mentor: mesangerUsersRecord.reference,
                                                                                                 userA: currentUserReference,
                                                                                               ));
                                                                                           triggerPushNotification(
                                                                                             notificationTitle: 'رسالة جديدة  ',
-                                                                                            notificationText: 'رسالة جديدة من  ${currentUserDisplayName}',
+                                                                                            notificationText: 'رسالة جديدة من  $currentUserDisplayName',
                                                                                             notificationSound: 'default',
                                                                                             userRefs: [
-                                                                                              mesangerUsersRecord!.reference
+                                                                                              mesangerUsersRecord.reference
                                                                                             ],
                                                                                             initialPageName: 'mentorAdmin',
                                                                                             parameterData: {},
@@ -1066,29 +1052,29 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                           size: 30.0,
                                                                                         ),
                                                                                       ),
-                                                                                    ].divide(SizedBox(width: 5.0)),
+                                                                                    ].divide(const SizedBox(width: 5.0)),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                                                                                     child: FFButtonWidget(
                                                                                       onPressed: () async {
-                                                                                        if (_model.commentController.text != null && _model.commentController.text != '') {
+                                                                                        if (_model.commentController.text != '') {
                                                                                           await DiscussionRecord.collection.doc().set(createDiscussionRecordData(
                                                                                                 text: _model.commentController.text,
                                                                                                 sender: currentUserReference,
-                                                                                                receiver: mesangerUsersRecord?.reference,
+                                                                                                receiver: mesangerUsersRecord.reference,
                                                                                                 mentoring: true,
                                                                                                 sendTime: getCurrentTimestamp,
-                                                                                                chattId: '${currentUserEmail}${mesangerUsersRecord?.email}',
+                                                                                                chattId: '$currentUserEmail${mesangerUsersRecord.email}',
                                                                                                 userA: currentUserReference,
-                                                                                                mentor: mesangerUsersRecord?.reference,
+                                                                                                mentor: mesangerUsersRecord.reference,
                                                                                               ));
                                                                                           triggerPushNotification(
                                                                                             notificationTitle: 'رسالة جديدة  ',
-                                                                                            notificationText: 'رسالة جديدة من  ${currentUserDisplayName}',
+                                                                                            notificationText: 'رسالة جديدة من  $currentUserDisplayName',
                                                                                             notificationSound: 'default',
                                                                                             userRefs: [
-                                                                                              mesangerUsersRecord!.reference
+                                                                                              mesangerUsersRecord.reference
                                                                                             ],
                                                                                             initialPageName: 'mentorAdmin',
                                                                                             parameterData: {},
@@ -1104,8 +1090,8 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                       options: FFButtonOptions(
                                                                                         width: 90.0,
                                                                                         height: 40.0,
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                               fontFamily: 'Cairo',
@@ -1114,7 +1100,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                               fontWeight: FontWeight.w500,
                                                                                             ),
                                                                                         elevation: 2.0,
-                                                                                        borderSide: BorderSide(
+                                                                                        borderSide: const BorderSide(
                                                                                           color: Colors.transparent,
                                                                                           width: 1.0,
                                                                                         ),
@@ -1125,7 +1111,7 @@ class _MentorAdminWidgetState extends State<MentorAdminWidget> {
                                                                                 ],
                                                                               ),
                                                                             ),
-                                                                          ].divide(SizedBox(height: 5.0)),
+                                                                          ].divide(const SizedBox(height: 5.0)),
                                                                         ),
                                                                       ),
                                                                     ],

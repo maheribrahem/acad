@@ -1,5 +1,4 @@
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/nav0/nav0_widget.dart';
 import '/components/settings/settings_widget.dart';
 import '/components/topbar/topbar_widget.dart';
@@ -9,13 +8,11 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'admin_copy_model.dart';
@@ -23,9 +20,9 @@ export 'admin_copy_model.dart';
 
 class AdminCopyWidget extends StatefulWidget {
   const AdminCopyWidget({
-    Key? key,
+    super.key,
     this.output,
-  }) : super(key: key);
+  });
 
   final bool? output;
 
@@ -111,7 +108,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                   child: wrapWithModel(
                     model: _model.nav0Model,
                     updateCallback: () => setState(() {}),
-                    child: Nav0Widget(),
+                    child: const Nav0Widget(),
                   ),
                 )),
                 body: Container(
@@ -134,13 +131,13 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 35.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -162,7 +159,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                     child: wrapWithModel(
                                       model: _model.topbarModel,
                                       updateCallback: () => setState(() {}),
-                                      child: TopbarWidget(),
+                                      child: const TopbarWidget(),
                                     ),
                                   ),
                                 ],
@@ -180,16 +177,16 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 10.0, 10.0, 10.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   1.0,
                                               height: 100.0,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 50.0, 0.0, 0.0),
                                                 child: Column(
@@ -287,10 +284,10 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                         ),
                                                                   ),
                                                                 ]
-                                                                    .divide(SizedBox(
+                                                                    .divide(const SizedBox(
                                                                         height:
                                                                             5.0))
-                                                                    .around(SizedBox(
+                                                                    .around(const SizedBox(
                                                                         height:
                                                                             5.0)),
                                                               ),
@@ -358,10 +355,10 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                       ),
                                                                 ),
                                                               ]
-                                                                  .divide(SizedBox(
+                                                                  .divide(const SizedBox(
                                                                       height:
                                                                           5.0))
-                                                                  .around(SizedBox(
+                                                                  .around(const SizedBox(
                                                                       height:
                                                                           5.0)),
                                                             ),
@@ -405,7 +402,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                         .viewInsetsOf(
                                                                             context),
                                                                     child:
-                                                                        SettingsWidget(),
+                                                                        const SettingsWidget(),
                                                                   ),
                                                                 ));
                                                               },
@@ -461,10 +458,10 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                       ),
                                                                 ),
                                                               ]
-                                                                  .divide(SizedBox(
+                                                                  .divide(const SizedBox(
                                                                       height:
                                                                           5.0))
-                                                                  .around(SizedBox(
+                                                                  .around(const SizedBox(
                                                                       height:
                                                                           5.0)),
                                                             ),
@@ -531,10 +528,10 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                       ),
                                                                 ),
                                                               ]
-                                                                  .divide(SizedBox(
+                                                                  .divide(const SizedBox(
                                                                       height:
                                                                           5.0))
-                                                                  .around(SizedBox(
+                                                                  .around(const SizedBox(
                                                                       height:
                                                                           5.0)),
                                                             ),
@@ -589,10 +586,10 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                     ),
                                                               ),
                                                             ]
-                                                                .divide(SizedBox(
+                                                                .divide(const SizedBox(
                                                                     height:
                                                                         5.0))
-                                                                .around(SizedBox(
+                                                                .around(const SizedBox(
                                                                     height:
                                                                         5.0)),
                                                           ),
@@ -646,10 +643,10 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                     ),
                                                               ),
                                                             ]
-                                                                .divide(SizedBox(
+                                                                .divide(const SizedBox(
                                                                     height:
                                                                         5.0))
-                                                                .around(SizedBox(
+                                                                .around(const SizedBox(
                                                                     height:
                                                                         5.0)),
                                                           ),
@@ -658,7 +655,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                     ),
                                                     Container(
                                                       decoration:
-                                                          BoxDecoration(),
+                                                          const BoxDecoration(),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -713,7 +710,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                           .data!;
                                                                   return Container(
                                                                     decoration:
-                                                                        BoxDecoration(),
+                                                                        const BoxDecoration(),
                                                                     child: FlutterFlowDropDown<
                                                                         String>(
                                                                       controller: _model
@@ -776,7 +773,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                           2.0,
                                                                       borderRadius:
                                                                           8.0,
-                                                                      margin: EdgeInsetsDirectional.fromSTEB(
+                                                                      margin: const EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           4.0,
                                                                           16.0,
@@ -800,9 +797,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                 null &&
                                                             _model.dropDownValue !=
                                                                 '') &&
-                                                        (adminCopyActivitiesProgressRecordList
-                                                                .length >=
-                                                            1))
+                                                        (adminCopyActivitiesProgressRecordList.isNotEmpty))
                                                       FFButtonWidget(
                                                         onPressed: () async {
                                                           await actions
@@ -826,7 +821,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                       .primaryText,
                                                                 ),
                                                               ),
-                                                              duration: Duration(
+                                                              duration: const Duration(
                                                                   milliseconds:
                                                                       4000),
                                                               backgroundColor:
@@ -842,14 +837,14 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                             FFButtonOptions(
                                                           height: 40.0,
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       24.0,
                                                                       0.0,
                                                                       24.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -870,7 +865,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                   ),
                                                           elevation: 3.0,
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Colors
                                                                 .transparent,
                                                             width: 1.0,
@@ -909,7 +904,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                             snapshot.data!;
                                                         return Container(
                                                           decoration:
-                                                              BoxDecoration(),
+                                                              const BoxDecoration(),
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -917,7 +912,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                             children: [
                                                               Container(
                                                                 decoration:
-                                                                    BoxDecoration(),
+                                                                    const BoxDecoration(),
                                                                 child: StreamBuilder<
                                                                     List<
                                                                         CategRecord>>(
@@ -980,12 +975,12 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                               FFButtonOptions(
                                                                             height:
                                                                                 40.0,
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 24.0,
                                                                                 0.0,
                                                                                 24.0,
                                                                                 0.0),
-                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -999,7 +994,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                             elevation:
                                                                                 3.0,
                                                                             borderSide:
-                                                                                BorderSide(
+                                                                                const BorderSide(
                                                                               color: Colors.transparent,
                                                                               width: 1.0,
                                                                             ),
@@ -1007,7 +1002,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                                 BorderRadius.circular(8.0),
                                                                           ),
                                                                         );
-                                                                      }).divide(SizedBox(
+                                                                      }).divide(const SizedBox(
                                                                           height:
                                                                               10.0)),
                                                                     );
@@ -1079,12 +1074,12 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                             FFButtonOptions(
                                                                           height:
                                                                               40.0,
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               24.0,
                                                                               0.0,
                                                                               24.0,
                                                                               0.0),
-                                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,
@@ -1100,7 +1095,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                           elevation:
                                                                               3.0,
                                                                           borderSide:
-                                                                              BorderSide(
+                                                                              const BorderSide(
                                                                             color:
                                                                                 Colors.transparent,
                                                                             width:
@@ -1110,7 +1105,7 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                               BorderRadius.circular(8.0),
                                                                         ),
                                                                       );
-                                                                    }).divide(SizedBox(
+                                                                    }).divide(const SizedBox(
                                                                         height:
                                                                             10.0)),
                                                                   );
@@ -1123,8 +1118,8 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          SizedBox(height: 5.0))
-                                                      .around(SizedBox(
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
                                                           height: 5.0)),
                                                 ),
                                               ),

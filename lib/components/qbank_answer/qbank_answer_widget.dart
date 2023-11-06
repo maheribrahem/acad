@@ -6,24 +6,21 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'qbank_answer_model.dart';
 export 'qbank_answer_model.dart';
 
 class QbankAnswerWidget extends StatefulWidget {
   const QbankAnswerWidget({
-    Key? key,
+    super.key,
     this.parameter1,
     required this.qBankRef,
     this.emptyAnswer,
     this.answer,
     required this.activiRef,
-  }) : super(key: key);
+  });
 
   final List<String>? parameter1;
   final DocumentReference? qBankRef;
@@ -91,7 +88,7 @@ class _QbankAnswerWidgetState extends State<QbankAnswerWidget> {
         }
         List<QbankAttemptsRow> containerQbankAttemptsRowList = snapshot.data!;
         return Container(
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
           child: StreamBuilder<QbankRecord>(
             stream: QbankRecord.getDocument(widget.qBankRef!),
             builder: (context, snapshot) {
@@ -110,14 +107,14 @@ class _QbankAnswerWidgetState extends State<QbankAnswerWidget> {
               }
               final containerQbankRecord = snapshot.data!;
               return Container(
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: FlutterFlowChoiceChips(
                   options: widget.parameter1!
                       .map((label) => ChipData(label))
                       .toList(),
                   onChanged: (val) async {
                     setState(() => _model.choiceChipsValue = val?.first);
-                    if (containerQbankAttemptsRowList.length > 0) {
+                    if (containerQbankAttemptsRowList.isNotEmpty) {
                       await QbankAttemptsTable().update(
                         data: {
                           'QbankAnswer': _model.choiceChipsValue,
@@ -165,7 +162,7 @@ class _QbankAnswerWidgetState extends State<QbankAnswerWidget> {
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                   unselectedChipStyle: ChipStyle(
-                    backgroundColor: Color(0x00000000),
+                    backgroundColor: const Color(0x00000000),
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Cairo',
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -184,7 +181,7 @@ class _QbankAnswerWidgetState extends State<QbankAnswerWidget> {
                   controller: _model.choiceChipsValueController ??=
                       FormFieldController<List<String>>(
                     [
-                      containerQbankAttemptsRowList.length > 0
+                      containerQbankAttemptsRowList.isNotEmpty
                           ? containerQbankAttemptsRowList.first.qbankAnswer!
                           : ''
                     ],

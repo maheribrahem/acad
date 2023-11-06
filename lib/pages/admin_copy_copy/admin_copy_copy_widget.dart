@@ -1,16 +1,10 @@
-import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/nav0/nav0_widget.dart';
 import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'admin_copy_copy_model.dart';
@@ -18,9 +12,9 @@ export 'admin_copy_copy_model.dart';
 
 class AdminCopyCopyWidget extends StatefulWidget {
   const AdminCopyCopyWidget({
-    Key? key,
+    super.key,
     this.output,
-  }) : super(key: key);
+  });
 
   final bool? output;
 
@@ -82,7 +76,7 @@ class _AdminCopyCopyWidgetState extends State<AdminCopyCopyWidget> {
               child: wrapWithModel(
                 model: _model.nav0Model,
                 updateCallback: () => setState(() {}),
-                child: Nav0Widget(),
+                child: const Nav0Widget(),
               ),
             )),
             body: Container(
@@ -105,13 +99,13 @@ class _AdminCopyCopyWidgetState extends State<AdminCopyCopyWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 35.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -133,7 +127,7 @@ class _AdminCopyCopyWidgetState extends State<AdminCopyCopyWidget> {
                                 child: wrapWithModel(
                                   model: _model.topbarModel,
                                   updateCallback: () => setState(() {}),
-                                  child: TopbarWidget(),
+                                  child: const TopbarWidget(),
                                 ),
                               ),
                             ],
@@ -150,14 +144,14 @@ class _AdminCopyCopyWidgetState extends State<AdminCopyCopyWidget> {
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             10.0, 10.0, 10.0, 10.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   1.0,
                                           height: 100.0,
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                         ),
                                       ),
                                     ),

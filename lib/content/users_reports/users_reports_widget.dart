@@ -1,20 +1,16 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/nav0/nav0_widget.dart';
 import '/components/profilecomp/profilecomp_widget.dart';
 import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -23,9 +19,9 @@ export 'users_reports_model.dart';
 
 class UsersReportsWidget extends StatefulWidget {
   const UsersReportsWidget({
-    Key? key,
+    super.key,
     this.inspection,
-  }) : super(key: key);
+  });
 
   final DocumentReference? inspection;
 
@@ -47,30 +43,19 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setAppLanguage(context, 'ar');
-      if (!((currentUserDisplayName != null && currentUserDisplayName != '') &&
-          (currentPhoneNumber != null && currentPhoneNumber != '') &&
-          (valueOrDefault(currentUserDocument?.gender, '') != null &&
-              valueOrDefault(currentUserDocument?.gender, '') != '') &&
-          (valueOrDefault(currentUserDocument?.fullname, '') != null &&
-              valueOrDefault(currentUserDocument?.fullname, '') != '') &&
-          (valueOrDefault(currentUserDocument?.state, '') != null &&
-              valueOrDefault(currentUserDocument?.state, '') != '') &&
-          (valueOrDefault(currentUserDocument?.city, '') != null &&
-              valueOrDefault(currentUserDocument?.city, '') != '') &&
-          (valueOrDefault(currentUserDocument?.schoolLevel, '') != null &&
-              valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
-          (valueOrDefault(currentUserDocument?.job, '') != null &&
-              valueOrDefault(currentUserDocument?.job, '') != '') &&
-          (valueOrDefault(currentUserDocument?.socialStatus, '') != null &&
-              valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
-          (valueOrDefault(currentUserDocument?.pastStudy, '') != null &&
-              valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
-          (valueOrDefault(currentUserDocument?.referral, '') != null &&
-              valueOrDefault(currentUserDocument?.referral, '') != '') &&
-          (valueOrDefault(currentUserDocument?.quranJuz, '') != null &&
-              valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
-          (valueOrDefault(currentUserDocument?.telegram, '') != null &&
-              valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
+      if (!((currentUserDisplayName != '') &&
+          (currentPhoneNumber != '') &&
+          (valueOrDefault(currentUserDocument?.gender, '') != '') &&
+          (valueOrDefault(currentUserDocument?.fullname, '') != '') &&
+          (valueOrDefault(currentUserDocument?.state, '') != '') &&
+          (valueOrDefault(currentUserDocument?.city, '') != '') &&
+          (valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
+          (valueOrDefault(currentUserDocument?.job, '') != '') &&
+          (valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
+          (valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
+          (valueOrDefault(currentUserDocument?.referral, '') != '') &&
+          (valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
+          (valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -85,7 +70,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                   : FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: ProfilecompWidget(),
+                child: const ProfilecompWidget(),
               ),
             ));
           },
@@ -165,7 +150,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                   child: wrapWithModel(
                     model: _model.nav0Model,
                     updateCallback: () => setState(() {}),
-                    child: Nav0Widget(),
+                    child: const Nav0Widget(),
                   ),
                 )),
                 body: Container(
@@ -188,13 +173,13 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 35.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -216,7 +201,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                     child: wrapWithModel(
                                       model: _model.topbarModel,
                                       updateCallback: () => setState(() {}),
-                                      child: TopbarWidget(),
+                                      child: const TopbarWidget(),
                                     ),
                                   ),
                                 ],
@@ -230,25 +215,25 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                 children: [
                                   Flexible(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Flexible(
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.00, 1.00),
                                               child: Container(
                                                 height: 900.0,
-                                                constraints: BoxConstraints(
+                                                constraints: const BoxConstraints(
                                                   maxWidth: 700.0,
                                                 ),
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBackground,
-                                                  boxShadow: [
+                                                  boxShadow: const [
                                                     BoxShadow(
                                                       blurRadius: 4.0,
                                                       color: Color(0x320E151B),
@@ -256,7 +241,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                     )
                                                   ],
                                                   borderRadius:
-                                                      BorderRadius.only(
+                                                      const BorderRadius.only(
                                                     bottomLeft:
                                                         Radius.circular(0.0),
                                                     bottomRight:
@@ -273,7 +258,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   16.0,
@@ -313,11 +298,11 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                               ),
                                                               child: Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         -0.00,
                                                                         0.00),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -379,7 +364,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                         .data!;
                                                                 return Container(
                                                                   decoration:
-                                                                      BoxDecoration(),
+                                                                      const BoxDecoration(),
                                                                   child: Text(
                                                                     containerUsersRecord
                                                                         .displayName,
@@ -390,14 +375,14 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                 );
                                                               },
                                                             ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 5.0)),
                                                       ),
                                                     ),
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -407,7 +392,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  Alignment(
+                                                                  const Alignment(
                                                                       0.0, 0),
                                                               child: TabBar(
                                                                 isScrollable:
@@ -523,7 +508,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
                                                                                   Container(
-                                                                                    decoration: BoxDecoration(),
+                                                                                    decoration: const BoxDecoration(),
                                                                                     child: StreamBuilder<List<SupjRecord>>(
                                                                                       stream: querySupjRecord(
                                                                                         queryBuilder: (supjRecord) => supjRecord.where(
@@ -547,7 +532,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                         }
                                                                                         List<SupjRecord> supjSupjRecordList = snapshot.data!;
                                                                                         return Container(
-                                                                                          decoration: BoxDecoration(),
+                                                                                          decoration: const BoxDecoration(),
                                                                                           child: StreamBuilder<List<ActivitiesRecord>>(
                                                                                             stream: queryActivitiesRecord(
                                                                                               queryBuilder: (activitiesRecord) => activitiesRecord.whereIn('supjRef', supjSupjRecordList.map((e) => e.reference).toList()),
@@ -568,7 +553,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                               }
                                                                                               List<ActivitiesRecord> activiActivitiesRecordList = snapshot.data!;
                                                                                               return Container(
-                                                                                                decoration: BoxDecoration(),
+                                                                                                decoration: const BoxDecoration(),
                                                                                                 child: Column(
                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                   children: [
@@ -592,7 +577,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                               desktop: false,
                                                                                                             ))
                                                                                                           Padding(
-                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                                                                                                             child: FutureBuilder<List<ActivitiesProgressRow>>(
                                                                                                               future: ActivitiesProgressTable().queryRows(
                                                                                                                 queryFn: (q) => q
@@ -655,7 +640,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                       }
                                                                                                                       List<ActivitiesProgressRow> containertestActivitiesProgressRowList = snapshot.data!;
                                                                                                                       return Container(
-                                                                                                                        decoration: BoxDecoration(),
+                                                                                                                        decoration: const BoxDecoration(),
                                                                                                                         child: FutureBuilder<List<ActivitiesProgressRow>>(
                                                                                                                           future: ActivitiesProgressTable().queryRows(
                                                                                                                             queryFn: (q) => q
@@ -684,15 +669,15 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                             }
                                                                                                                             List<ActivitiesProgressRow> containerAttendActivitiesProgressRowList = snapshot.data!;
                                                                                                                             return Container(
-                                                                                                                              decoration: BoxDecoration(),
+                                                                                                                              decoration: const BoxDecoration(),
                                                                                                                               child: Container(
-                                                                                                                                decoration: BoxDecoration(),
+                                                                                                                                decoration: const BoxDecoration(),
                                                                                                                                 child: Padding(
-                                                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                                                                                                                                   child: Column(
                                                                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                                                                     children: [
-                                                                                                                                      if ((containerFinalsActivitiesProgressRowList.where((e) => e.isSeen!).toList().length < 1) && (containerFinalsActivitiesProgressRowList.where((e) => e.isAttended!).toList().length < 1))
+                                                                                                                                      if ((containerFinalsActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerFinalsActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
                                                                                                                                         CircularPercentIndicator(
                                                                                                                                           percent: 0.0,
                                                                                                                                           radius: 37.5,
@@ -708,7 +693,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                                             style: FlutterFlowTheme.of(context).headlineSmall,
                                                                                                                                           ),
                                                                                                                                         ),
-                                                                                                                                      if ((containerFinalsActivitiesProgressRowList.where((e) => e.isSeen!).toList().length >= 1) || (containerFinalsActivitiesProgressRowList.where((e) => e.isAttended!).toList().length >= 1))
+                                                                                                                                      if ((containerFinalsActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerFinalsActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
                                                                                                                                         CircularPercentIndicator(
                                                                                                                                           percent: 1 + 1,
                                                                                                                                           radius: 37.5,
@@ -763,7 +748,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                       clipBehavior: Clip.none,
                                                                                                       children: [
                                                                                                         Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                                                                                                           child: FutureBuilder<List<ActivitiesProgressRow>>(
                                                                                                             future: ActivitiesProgressTable().queryRows(
                                                                                                               queryFn: (q) => q
@@ -799,13 +784,13 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                   borderRadius: BorderRadius.circular(18.0),
                                                                                                                 ),
                                                                                                                 child: Container(
-                                                                                                                  decoration: BoxDecoration(),
+                                                                                                                  decoration: const BoxDecoration(),
                                                                                                                   child: Padding(
-                                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                                                                                                                     child: Column(
                                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                                       children: [
-                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().length < 1) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().length < 1))
+                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
                                                                                                                           CircularPercentIndicator(
                                                                                                                             percent: 0.0,
                                                                                                                             radius: 37.5,
@@ -821,7 +806,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                               style: FlutterFlowTheme.of(context).headlineSmall,
                                                                                                                             ),
                                                                                                                           ),
-                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().length >= 1) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().length >= 1))
+                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
                                                                                                                           CircularPercentIndicator(
                                                                                                                             percent: functions.attendanceGrade(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.type == 'test').toList().length.toDouble(), 0.0)!,
                                                                                                                             radius: 37.5,
@@ -858,7 +843,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                           ),
                                                                                                         ),
                                                                                                         Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                                                                                                           child: FutureBuilder<List<ActivitiesProgressRow>>(
                                                                                                             future: ActivitiesProgressTable().queryRows(
                                                                                                               queryFn: (q) => q
@@ -894,13 +879,13 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                   borderRadius: BorderRadius.circular(18.0),
                                                                                                                 ),
                                                                                                                 child: Container(
-                                                                                                                  decoration: BoxDecoration(),
+                                                                                                                  decoration: const BoxDecoration(),
                                                                                                                   child: Padding(
-                                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                                                                                                                     child: Column(
                                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                                       children: [
-                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().length < 1) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().length < 1))
+                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
                                                                                                                           CircularPercentIndicator(
                                                                                                                             percent: 0.0,
                                                                                                                             radius: 37.5,
@@ -916,7 +901,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                               style: FlutterFlowTheme.of(context).headlineSmall,
                                                                                                                             ),
                                                                                                                           ),
-                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().length >= 1) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().length >= 1))
+                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
                                                                                                                           CircularPercentIndicator(
                                                                                                                             percent: functions.attendanceGrade(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.type == 'test').toList().length.toDouble(), 0.0)!,
                                                                                                                             radius: 37.5,
@@ -953,7 +938,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                           ),
                                                                                                         ),
                                                                                                         Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                                                                                                           child: FutureBuilder<List<ActivitiesProgressRow>>(
                                                                                                             future: ActivitiesProgressTable().queryRows(
                                                                                                               queryFn: (q) => q
@@ -989,13 +974,13 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                   borderRadius: BorderRadius.circular(18.0),
                                                                                                                 ),
                                                                                                                 child: Container(
-                                                                                                                  decoration: BoxDecoration(),
+                                                                                                                  decoration: const BoxDecoration(),
                                                                                                                   child: Padding(
-                                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                                                                                                                     child: Column(
                                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                                       children: [
-                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().length < 1) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().length < 1))
+                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
                                                                                                                           CircularPercentIndicator(
                                                                                                                             percent: 0.0,
                                                                                                                             radius: 37.5,
@@ -1011,7 +996,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                               style: FlutterFlowTheme.of(context).headlineSmall,
                                                                                                                             ),
                                                                                                                           ),
-                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().length >= 1) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().length >= 1))
+                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
                                                                                                                           CircularPercentIndicator(
                                                                                                                             percent: functions.attendanceGrade(activiActivitiesRecordList.where((e) => e.type == 'lesson').toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().length.toDouble())!,
                                                                                                                             radius: 37.5,
@@ -1048,7 +1033,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                           ),
                                                                                                         ),
                                                                                                         Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                                                                                                           child: Container(
                                                                                                             width: 100.0,
                                                                                                             height: 130.0,
@@ -1057,11 +1042,11 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                               borderRadius: BorderRadius.circular(18.0),
                                                                                                             ),
                                                                                                             child: Padding(
-                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                                                                                                               child: Column(
                                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                                 children: [
-                                                                                                                  if (usersReportsActivitiesProgressRowList.where((e) => e.categID == columnCategRecord.reference.id).toList().length <= 0)
+                                                                                                                  if (usersReportsActivitiesProgressRowList.where((e) => e.categID == columnCategRecord.reference.id).toList().isEmpty)
                                                                                                                     CircularPercentIndicator(
                                                                                                                       percent: 0.0,
                                                                                                                       radius: 37.5,
@@ -1080,7 +1065,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                             ),
                                                                                                                       ),
                                                                                                                     ),
-                                                                                                                  if (usersReportsActivitiesProgressRowList.where((e) => e.categID == columnCategRecord.reference.id).toList().length >= 1)
+                                                                                                                  if (usersReportsActivitiesProgressRowList.where((e) => e.categID == columnCategRecord.reference.id).toList().isNotEmpty)
                                                                                                                     CircularPercentIndicator(
                                                                                                                       percent: usersReportsActivitiesProgressRowList.where((e) => (e.categID == columnCategRecord.reference.id) && (e.type == 'quran')).toList().first.grade! / 100,
                                                                                                                       radius: 37.5,
@@ -1124,7 +1109,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                   ),
                                                                                 ],
                                                                               );
-                                                                            }).divide(SizedBox(height: 50.0)),
+                                                                            }).divide(const SizedBox(height: 50.0)),
                                                                           ),
                                                                         );
                                                                       },
@@ -1135,7 +1120,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                         (context) =>
                                                                             Container(
                                                                       decoration:
-                                                                          BoxDecoration(),
+                                                                          const BoxDecoration(),
                                                                       child: StreamBuilder<
                                                                           List<
                                                                               CategRecord>>(
@@ -1245,18 +1230,18 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                 }
                                                                                                 List<ActivitiesRecord> testRefsActivitiesRecordList = snapshot.data!;
                                                                                                 return Container(
-                                                                                                  decoration: BoxDecoration(),
+                                                                                                  decoration: const BoxDecoration(),
                                                                                                   child: Visibility(
-                                                                                                    visible: testRefsActivitiesRecordList.length >= 1,
+                                                                                                    visible: testRefsActivitiesRecordList.isNotEmpty,
                                                                                                     child: Row(
                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                       mainAxisAlignment: MainAxisAlignment.center,
                                                                                                       children: [
                                                                                                         Flexible(
                                                                                                           child: Container(
-                                                                                                            decoration: BoxDecoration(),
+                                                                                                            decoration: const BoxDecoration(),
                                                                                                             child: Padding(
-                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                               child: StreamBuilder<List<ActivitiesRecord>>(
                                                                                                                 stream: queryActivitiesRecord(
                                                                                                                   queryBuilder: (activitiesRecord) => activitiesRecord
@@ -1294,7 +1279,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                       borderRadius: BorderRadius.circular(14.0),
                                                                                                                     ),
                                                                                                                     child: Visibility(
-                                                                                                                      visible: containerTestActivActivitiesRecordList.length >= 1,
+                                                                                                                      visible: containerTestActivActivitiesRecordList.isNotEmpty,
                                                                                                                       child: InkWell(
                                                                                                                         splashColor: Colors.transparent,
                                                                                                                         focusColor: Colors.transparent,
@@ -1306,16 +1291,16 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                                 builder: (alertDialogContext) {
                                                                                                                                   return WebViewAware(
                                                                                                                                       child: AlertDialog(
-                                                                                                                                    title: Text('تنبيه'),
-                                                                                                                                    content: Text('هذا الاختبار نهائي ولا يحتوي إلا على محاولة واحدة ..... هل تريد الاستمرار'),
+                                                                                                                                    title: const Text('تنبيه'),
+                                                                                                                                    content: const Text('هذا الاختبار نهائي ولا يحتوي إلا على محاولة واحدة ..... هل تريد الاستمرار'),
                                                                                                                                     actions: [
                                                                                                                                       TextButton(
                                                                                                                                         onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                                                        child: Text('خروج'),
+                                                                                                                                        child: const Text('خروج'),
                                                                                                                                       ),
                                                                                                                                       TextButton(
                                                                                                                                         onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                                                        child: Text('استمرار'),
+                                                                                                                                        child: const Text('استمرار'),
                                                                                                                                       ),
                                                                                                                                     ],
                                                                                                                                   ));
@@ -1365,7 +1350,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                                             children: [
                                                                                                                               Padding(
-                                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                                                 child: Column(
                                                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1387,7 +1372,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                                   Row(
                                                                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                                                                     children: [
-                                                                                                                                      if ((containerTestActivActivitiesRecordList.length <= 0) || (usersReportsActivitiesProgressRowList.length <= 0))
+                                                                                                                                      if ((containerTestActivActivitiesRecordList.isEmpty) || (usersReportsActivitiesProgressRowList.isEmpty))
                                                                                                                                         CircularPercentIndicator(
                                                                                                                                           percent: 0.0,
                                                                                                                                           radius: 37.5,
@@ -1403,7 +1388,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                                             style: FlutterFlowTheme.of(context).headlineSmall,
                                                                                                                                           ),
                                                                                                                                         ),
-                                                                                                                                      if ((containerTestActivActivitiesRecordList.length >= 1) && (usersReportsActivitiesProgressRowList.length >= 1))
+                                                                                                                                      if ((containerTestActivActivitiesRecordList.isNotEmpty) && (usersReportsActivitiesProgressRowList.isNotEmpty))
                                                                                                                                         CircularPercentIndicator(
                                                                                                                                           percent: usersReportsActivitiesProgressRowList.where((e) => e.activitID == containerTestActivActivitiesRecordList.first.reference.id).toList().first.grade! > 1.0 ? 1.0 : usersReportsActivitiesProgressRowList.where((e) => e.activitID == containerTestActivActivitiesRecordList.first.reference.id).toList().first.grade!,
                                                                                                                                           radius: 37.5,
@@ -1499,7 +1484,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                             snapshot.data!;
                                                                         return Container(
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
                                                                               StreamBuilder<List<CategRecord>>(
                                                                             stream:
@@ -1574,9 +1559,9 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                   children: [
                                                                                                     Flexible(
                                                                                                       child: Container(
-                                                                                                        decoration: BoxDecoration(),
+                                                                                                        decoration: const BoxDecoration(),
                                                                                                         child: Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                           child: StreamBuilder<List<ActivitiesRecord>>(
                                                                                                             stream: queryActivitiesRecord(
                                                                                                               queryBuilder: (activitiesRecord) => activitiesRecord
@@ -1614,7 +1599,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                                   children: [
                                                                                                                     Padding(
-                                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                                       child: Column(
                                                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                                                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1627,7 +1612,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                                   fontWeight: FontWeight.bold,
                                                                                                                                 ),
                                                                                                                           ),
-                                                                                                                          if (usersReportsActivitiesProgressRowList.where((e) => e.supjID == columnSupjRecord.reference.id).toList().length >= 1)
+                                                                                                                          if (usersReportsActivitiesProgressRowList.where((e) => e.supjID == columnSupjRecord.reference.id).toList().isNotEmpty)
                                                                                                                             Row(
                                                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                                                               children: [
@@ -1660,7 +1645,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                                         fontWeight: FontWeight.bold,
                                                                                                                                       ),
                                                                                                                                 ),
-                                                                                                                              ].divide(SizedBox(width: 10.0)),
+                                                                                                                              ].divide(const SizedBox(width: 10.0)),
                                                                                                                             ),
                                                                                                                         ],
                                                                                                                       ),
@@ -1671,7 +1656,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                         Row(
                                                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                                                           children: [
-                                                                                                                            if (usersReportsActivitiesProgressRowList.where((e) => e.supjID == columnSupjRecord.reference.id).toList().length <= 0)
+                                                                                                                            if (usersReportsActivitiesProgressRowList.where((e) => e.supjID == columnSupjRecord.reference.id).toList().isEmpty)
                                                                                                                               CircularPercentIndicator(
                                                                                                                                 percent: 0.0,
                                                                                                                                 radius: 37.5,
@@ -1687,7 +1672,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                                   style: FlutterFlowTheme.of(context).headlineSmall,
                                                                                                                                 ),
                                                                                                                               ),
-                                                                                                                            if (usersReportsActivitiesProgressRowList.where((e) => e.supjID == columnSupjRecord.reference.id).toList().length >= 1)
+                                                                                                                            if (usersReportsActivitiesProgressRowList.where((e) => e.supjID == columnSupjRecord.reference.id).toList().isNotEmpty)
                                                                                                                               CircularPercentIndicator(
                                                                                                                                 percent: functions.attendanceGrade(usersReportsActivitiesProgressRowList.where((e) => e.supjID == columnSupjRecord.reference.id).toList().length.toDouble(), functions.sumList(usersReportsActivitiesProgressRowList.where((e) => e.supjID == columnSupjRecord.reference.id).toList().map((e) => e.grade).withoutNulls.toList()), 0.0)!,
                                                                                                                                 radius: 37.5,
@@ -1772,7 +1757,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                             snapshot.data!;
                                                                         return Container(
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
                                                                               StreamBuilder<List<CategRecord>>(
                                                                             stream:
@@ -1847,9 +1832,9 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                   children: [
                                                                                                     Flexible(
                                                                                                       child: Container(
-                                                                                                        decoration: BoxDecoration(),
+                                                                                                        decoration: const BoxDecoration(),
                                                                                                         child: Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                           child: StreamBuilder<List<ActivitiesRecord>>(
                                                                                                             stream: queryActivitiesRecord(
                                                                                                               queryBuilder: (activitiesRecord) => activitiesRecord
@@ -1887,7 +1872,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                                   children: [
                                                                                                                     Padding(
-                                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                                       child: Column(
                                                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                                                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -2002,7 +1987,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                 children: [
                                                                                   Flexible(
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                       child: Container(
                                                                                         decoration: BoxDecoration(
                                                                                           color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -2013,7 +1998,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                           children: [
                                                                                             Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                               child: Column(
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -2026,9 +2011,9 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                           fontWeight: FontWeight.bold,
                                                                                                         ),
                                                                                                   ),
-                                                                                                  if (usersReportsActivitiesProgressRowList.where((e) => e.categID == columnCategRecord.reference.id).toList().length >= 1)
+                                                                                                  if (usersReportsActivitiesProgressRowList.where((e) => e.categID == columnCategRecord.reference.id).toList().isNotEmpty)
                                                                                                     Container(
-                                                                                                      decoration: BoxDecoration(),
+                                                                                                      decoration: const BoxDecoration(),
                                                                                                       child: Text(
                                                                                                         'الدرجة : ${usersReportsActivitiesProgressRowList.where((e) => (e.categID == columnCategRecord.reference.id) && (e.type == 'quran')).toList().first.grade?.toString()}',
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium,
@@ -2040,7 +2025,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                             Column(
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               children: [
-                                                                                                if (usersReportsActivitiesProgressRowList.where((e) => e.categID == columnCategRecord.reference.id).toList().length >= 1)
+                                                                                                if (usersReportsActivitiesProgressRowList.where((e) => e.categID == columnCategRecord.reference.id).toList().isNotEmpty)
                                                                                                   Container(
                                                                                                     decoration: BoxDecoration(
                                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,

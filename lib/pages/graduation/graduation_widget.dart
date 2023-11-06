@@ -4,12 +4,9 @@ import '/components/profilecomp/profilecomp_widget.dart';
 import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'graduation_model.dart';
@@ -17,9 +14,9 @@ export 'graduation_model.dart';
 
 class GraduationWidget extends StatefulWidget {
   const GraduationWidget({
-    Key? key,
+    super.key,
     this.output,
-  }) : super(key: key);
+  });
 
   final bool? output;
 
@@ -40,30 +37,19 @@ class _GraduationWidgetState extends State<GraduationWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setAppLanguage(context, 'ar');
-      if (!((currentUserDisplayName != null && currentUserDisplayName != '') &&
-          (currentPhoneNumber != null && currentPhoneNumber != '') &&
-          (valueOrDefault(currentUserDocument?.gender, '') != null &&
-              valueOrDefault(currentUserDocument?.gender, '') != '') &&
-          (valueOrDefault(currentUserDocument?.fullname, '') != null &&
-              valueOrDefault(currentUserDocument?.fullname, '') != '') &&
-          (valueOrDefault(currentUserDocument?.state, '') != null &&
-              valueOrDefault(currentUserDocument?.state, '') != '') &&
-          (valueOrDefault(currentUserDocument?.city, '') != null &&
-              valueOrDefault(currentUserDocument?.city, '') != '') &&
-          (valueOrDefault(currentUserDocument?.schoolLevel, '') != null &&
-              valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
-          (valueOrDefault(currentUserDocument?.job, '') != null &&
-              valueOrDefault(currentUserDocument?.job, '') != '') &&
-          (valueOrDefault(currentUserDocument?.socialStatus, '') != null &&
-              valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
-          (valueOrDefault(currentUserDocument?.pastStudy, '') != null &&
-              valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
-          (valueOrDefault(currentUserDocument?.referral, '') != null &&
-              valueOrDefault(currentUserDocument?.referral, '') != '') &&
-          (valueOrDefault(currentUserDocument?.quranJuz, '') != null &&
-              valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
-          (valueOrDefault(currentUserDocument?.telegram, '') != null &&
-              valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
+      if (!((currentUserDisplayName != '') &&
+          (currentPhoneNumber != '') &&
+          (valueOrDefault(currentUserDocument?.gender, '') != '') &&
+          (valueOrDefault(currentUserDocument?.fullname, '') != '') &&
+          (valueOrDefault(currentUserDocument?.state, '') != '') &&
+          (valueOrDefault(currentUserDocument?.city, '') != '') &&
+          (valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
+          (valueOrDefault(currentUserDocument?.job, '') != '') &&
+          (valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
+          (valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
+          (valueOrDefault(currentUserDocument?.referral, '') != '') &&
+          (valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
+          (valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -78,7 +64,7 @@ class _GraduationWidgetState extends State<GraduationWidget> {
                   : FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: ProfilecompWidget(),
+                child: const ProfilecompWidget(),
               ),
             ));
           },
@@ -125,7 +111,7 @@ class _GraduationWidgetState extends State<GraduationWidget> {
               child: wrapWithModel(
                 model: _model.nav0Model,
                 updateCallback: () => setState(() {}),
-                child: Nav0Widget(),
+                child: const Nav0Widget(),
               ),
             )),
             body: Container(
@@ -148,13 +134,13 @@ class _GraduationWidgetState extends State<GraduationWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 35.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -176,13 +162,13 @@ class _GraduationWidgetState extends State<GraduationWidget> {
                                 child: wrapWithModel(
                                   model: _model.topbarModel,
                                   updateCallback: () => setState(() {}),
-                                  child: TopbarWidget(),
+                                  child: const TopbarWidget(),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        Expanded(
+                        const Expanded(
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,

@@ -4,24 +4,21 @@ import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'qbank_answer_copy2_model.dart';
 export 'qbank_answer_copy2_model.dart';
 
 class QbankAnswerCopy2Widget extends StatefulWidget {
   const QbankAnswerCopy2Widget({
-    Key? key,
+    super.key,
     this.parameter1,
     required this.qBankRef,
     this.emptyAnswer,
     this.answer,
     required this.activiRef,
-  }) : super(key: key);
+  });
 
   final List<String>? parameter1;
   final DocumentReference? qBankRef;
@@ -90,7 +87,7 @@ class _QbankAnswerCopy2WidgetState extends State<QbankAnswerCopy2Widget> {
         List<QbankAttemptsRecord> containerQbankAttemptsRecordList =
             snapshot.data!;
         return Container(
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
           child: StreamBuilder<QbankRecord>(
             stream: QbankRecord.getDocument(widget.qBankRef!),
             builder: (context, snapshot) {
@@ -109,17 +106,17 @@ class _QbankAnswerCopy2WidgetState extends State<QbankAnswerCopy2Widget> {
               }
               final containerQbankRecord = snapshot.data!;
               return Container(
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: FlutterFlowChoiceChips(
                   options: widget.parameter1!
                       .map((label) => ChipData(label))
                       .toList(),
                   onChanged: (val) async {
                     setState(() => _model.choiceChipsValue = val?.first);
-                    if (containerQbankAttemptsRecordList.length > 0) {
+                    if (containerQbankAttemptsRecordList.isNotEmpty) {
                       await containerQbankAttemptsRecordList.first.reference
                           .delete();
-                      if (containerQbankAttemptsRecordList.length > 0) {
+                      if (containerQbankAttemptsRecordList.isNotEmpty) {
                         await containerQbankAttemptsRecordList.first.reference
                             .delete();
 
@@ -171,7 +168,7 @@ class _QbankAnswerCopy2WidgetState extends State<QbankAnswerCopy2Widget> {
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                   unselectedChipStyle: ChipStyle(
-                    backgroundColor: Color(0x00000000),
+                    backgroundColor: const Color(0x00000000),
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Cairo',
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -190,7 +187,7 @@ class _QbankAnswerCopy2WidgetState extends State<QbankAnswerCopy2Widget> {
                   controller: _model.choiceChipsValueController ??=
                       FormFieldController<List<String>>(
                     [
-                      containerQbankAttemptsRecordList.length > 0
+                      containerQbankAttemptsRecordList.isNotEmpty
                           ? containerQbankAttemptsRecordList.first.qbankAnswer
                           : ''
                     ],

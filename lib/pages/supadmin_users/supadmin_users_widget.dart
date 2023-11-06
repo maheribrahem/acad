@@ -7,9 +7,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:badges/badges.dart' as badges;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -17,7 +15,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -27,10 +24,10 @@ export 'supadmin_users_model.dart';
 
 class SupadminUsersWidget extends StatefulWidget {
   const SupadminUsersWidget({
-    Key? key,
+    super.key,
     this.output,
     this.filter,
-  }) : super(key: key);
+  });
 
   final bool? output;
   final String? filter;
@@ -60,8 +57,8 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 100.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -79,8 +76,8 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 100.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -100,7 +97,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
     _model.textFieldFocusNode ??= FocusNode();
 
     _model.mentoorController ??= TextEditingController(
-        text: '${currentUserEmail}/${_model.textController1.text}');
+        text: '$currentUserEmail/${_model.textController1.text}');
     _model.mentoorFocusNode ??= FocusNode();
 
     setupAnimations(
@@ -174,7 +171,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                   child: wrapWithModel(
                     model: _model.nav0Model,
                     updateCallback: () => setState(() {}),
-                    child: Nav0Widget(),
+                    child: const Nav0Widget(),
                   ),
                 )),
                 body: Container(
@@ -197,13 +194,13 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 35.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -225,7 +222,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                     child: wrapWithModel(
                                       model: _model.topbarModel,
                                       updateCallback: () => setState(() {}),
-                                      child: TopbarWidget(),
+                                      child: const TopbarWidget(),
                                     ),
                                   ),
                                 ],
@@ -246,14 +243,14 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                     .width *
                                                 1.0,
                                             height: 100.0,
-                                            decoration: BoxDecoration(),
+                                            decoration: const BoxDecoration(),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           10.0, 0.0, 10.0, 0.0),
                                                   child: Row(
@@ -266,7 +263,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       5.0,
                                                                       5.0,
@@ -280,7 +277,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .secondaryBackground,
-                                                              boxShadow: [
+                                                              boxShadow: const [
                                                                 BoxShadow(
                                                                   blurRadius:
                                                                       0.0,
@@ -303,7 +300,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                       .max,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           8.0,
@@ -344,7 +341,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                                 shape: badges.BadgeShape.circle,
                                                                                 badgeColor: FlutterFlowTheme.of(context).primary,
                                                                                 elevation: 4.0,
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                                                                                 position: badges.BadgePosition.topEnd(),
                                                                                 animationType: badges.BadgeAnimationType.scale,
                                                                                 toAnimate: true,
@@ -373,7 +370,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                                 shape: badges.BadgeShape.circle,
                                                                                 badgeColor: FlutterFlowTheme.of(context).primary,
                                                                                 elevation: 4.0,
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                                                                                 position: badges.BadgePosition.topEnd(),
                                                                                 animationType: badges.BadgeAnimationType.scale,
                                                                                 toAnimate: true,
@@ -402,7 +399,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                                 shape: badges.BadgeShape.circle,
                                                                                 badgeColor: FlutterFlowTheme.of(context).primary,
                                                                                 elevation: 4.0,
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                                                                                 position: badges.BadgePosition.topEnd(),
                                                                                 animationType: badges.BadgeAnimationType.scale,
                                                                                 toAnimate: true,
@@ -413,14 +410,14 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                                 ),
                                                                               ),
                                                                             ),
-                                                                          ].divide(SizedBox(width: 10.0)).around(SizedBox(width: 10.0)),
+                                                                          ].divide(const SizedBox(width: 10.0)).around(const SizedBox(width: 10.0)),
                                                                         ),
                                                                       ),
                                                                     ],
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           8.0,
@@ -444,15 +441,15 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                               width: 44.0,
                                                                               height: 44.0,
                                                                               decoration: BoxDecoration(
-                                                                                color: Color(0x4C4B39EF),
+                                                                                color: const Color(0x4C4B39EF),
                                                                                 shape: BoxShape.circle,
                                                                                 border: Border.all(
-                                                                                  color: Color(0xFF4B39EF),
+                                                                                  color: const Color(0xFF4B39EF),
                                                                                   width: 2.0,
                                                                                 ),
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
                                                                                 child: AuthUserStreamWidget(
                                                                                   builder: (context) => ClipRRect(
                                                                                     borderRadius: BorderRadius.circular(40.0),
@@ -468,10 +465,10 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                             ),
                                                                             Flexible(
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                 child: AuthUserStreamWidget(
                                                                                   builder: (context) => GradientText(
-                                                                                    'مرحبا : ${currentUserDisplayName}',
+                                                                                    'مرحبا : $currentUserDisplayName',
                                                                                     style: FlutterFlowTheme.of(context).bodyLarge.override(
                                                                                           fontFamily: 'Plus Jakarta Sans',
                                                                                           color: FlutterFlowTheme.of(context).primaryText,
@@ -495,7 +492,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           8.0,
@@ -570,7 +567,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                                 true,
                                                                             onChanged:
                                                                                 (newValue) async {
-                                                                              setState(() => _model.compValue = newValue!);
+                                                                              setState(() => _model.compValue = newValue);
                                                                             },
                                                                             activeColor:
                                                                                 FlutterFlowTheme.of(context).primary,
@@ -655,7 +652,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                                 true,
                                                                             onChanged:
                                                                                 (newValue) async {
-                                                                              setState(() => _model.checkedValue = newValue!);
+                                                                              setState(() => _model.checkedValue = newValue);
                                                                             },
                                                                             activeColor:
                                                                                 FlutterFlowTheme.of(context).primary,
@@ -740,7 +737,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                                 true,
                                                                             onChanged:
                                                                                 (newValue) async {
-                                                                              setState(() => _model.realValue = newValue!);
+                                                                              setState(() => _model.realValue = newValue);
                                                                             },
                                                                             activeColor:
                                                                                 FlutterFlowTheme.of(context).primary,
@@ -820,7 +817,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                                 true,
                                                                             onChanged:
                                                                                 (newValue) async {
-                                                                              setState(() => _model.notValue = newValue!);
+                                                                              setState(() => _model.notValue = newValue);
                                                                             },
                                                                             activeColor:
                                                                                 FlutterFlowTheme.of(context).primary,
@@ -837,7 +834,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           8.0,
@@ -859,16 +856,16 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                             width:
                                                                                 300.0,
                                                                             decoration:
-                                                                                BoxDecoration(),
+                                                                                const BoxDecoration(),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                                                                               child: TextFormField(
                                                                                 controller: _model.textController1,
                                                                                 focusNode: _model.textFieldFocusNode,
                                                                                 onChanged: (_) => EasyDebounce.debounce(
                                                                                   '_model.textController1',
-                                                                                  Duration(milliseconds: 1000),
+                                                                                  const Duration(milliseconds: 1000),
                                                                                   () => setState(() {}),
                                                                                 ),
                                                                                 autofocus: true,
@@ -907,7 +904,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                                     ),
                                                                                     borderRadius: BorderRadius.circular(8.0),
                                                                                   ),
-                                                                                  prefixIcon: Icon(
+                                                                                  prefixIcon: const Icon(
                                                                                     Icons.person_search_rounded,
                                                                                   ),
                                                                                 ),
@@ -936,15 +933,15 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                           ))
                                                                             Container(
                                                                               width: 200.0,
-                                                                              decoration: BoxDecoration(),
+                                                                              decoration: const BoxDecoration(),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                                                                                 child: TextFormField(
                                                                                   controller: _model.mentoorController,
                                                                                   focusNode: _model.mentoorFocusNode,
                                                                                   onChanged: (_) => EasyDebounce.debounce(
                                                                                     '_model.mentoorController',
-                                                                                    Duration(milliseconds: 1500),
+                                                                                    const Duration(milliseconds: 1500),
                                                                                     () => setState(() {}),
                                                                                   ),
                                                                                   autofocus: true,
@@ -1007,7 +1004,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 10.0,
                                                                 0.0, 0.0),
                                                     child: FutureBuilder<
@@ -1015,7 +1012,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                       future:
                                                           UsersRecord.search(
                                                         term:
-                                                            '${currentUserEmail}/${_model.textController1.text}',
+                                                            '$currentUserEmail/${_model.textController1.text}',
                                                       ),
                                                       builder:
                                                           (context, snapshot) {
@@ -1041,7 +1038,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                         // Customize what your widget looks like with no search results.
                                                         if (snapshot
                                                             .data!.isEmpty) {
-                                                          return Container(
+                                                          return const SizedBox(
                                                             height: 100,
                                                             child: Center(
                                                               child: Text(
@@ -1103,7 +1100,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             5.0,
@@ -1119,7 +1116,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryBackground,
-                                                                    boxShadow: [
+                                                                    boxShadow: const [
                                                                       BoxShadow(
                                                                         blurRadius:
                                                                             0.0,
@@ -1136,7 +1133,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             8.0,
                                                                             8.0,
@@ -1164,15 +1161,15 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                               width: 44.0,
                                                                               height: 44.0,
                                                                               decoration: BoxDecoration(
-                                                                                color: Color(0x4C4B39EF),
+                                                                                color: const Color(0x4C4B39EF),
                                                                                 shape: BoxShape.circle,
                                                                                 border: Border.all(
-                                                                                  color: Color(0xFF4B39EF),
+                                                                                  color: const Color(0xFF4B39EF),
                                                                                   width: 2.0,
                                                                                 ),
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
                                                                                 child: ClipRRect(
                                                                                   borderRadius: BorderRadius.circular(40.0),
                                                                                   child: Image.network(
@@ -1190,7 +1187,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                               children: [
                                                                                 Flexible(
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                     child: Text(
                                                                                       listViewUsersRecord.displayName.maybeHandleOverflow(
                                                                                         maxChars: 13,
@@ -1206,7 +1203,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 0.0, 0.0),
                                                                                   child: InkWell(
                                                                                     splashColor: Colors.transparent,
                                                                                     focusColor: Colors.transparent,
@@ -1241,7 +1238,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                                 ),
                                                                               ],
                                                                             ),
-                                                                          ].divide(SizedBox(width: 5.0)),
+                                                                          ].divide(const SizedBox(width: 5.0)),
                                                                         ),
                                                                         Flexible(
                                                                           child:
@@ -1402,7 +1399,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                             clipBehavior:
                                                                                 Clip.antiAliasWithSaveLayer,
                                                                             color:
-                                                                                Color(0xFFF1F4F8),
+                                                                                const Color(0xFFF1F4F8),
                                                                             elevation:
                                                                                 1.0,
                                                                             shape:
@@ -1410,7 +1407,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                               borderRadius: BorderRadius.circular(40.0),
                                                                             ),
                                                                             child:
-                                                                                Padding(
+                                                                                const Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
                                                                               child: Icon(
                                                                                 Icons.keyboard_arrow_right_rounded,
@@ -1420,7 +1417,7 @@ class _SupadminUsersWidgetState extends State<SupadminUsersWidget>
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                      ].divide(SizedBox(
+                                                                      ].divide(const SizedBox(
                                                                               width: 5.0)),
                                                                     ),
                                                                   ),

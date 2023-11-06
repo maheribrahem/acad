@@ -1,22 +1,19 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'lesson_time_model.dart';
 export 'lesson_time_model.dart';
 
 class LessonTimeWidget extends StatefulWidget {
   const LessonTimeWidget({
-    Key? key,
+    super.key,
     required this.activiRef,
-  }) : super(key: key);
+  });
 
   final DocumentReference? activiRef;
 
@@ -55,7 +52,7 @@ class _LessonTimeWidgetState extends State<LessonTimeWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
       child: StreamBuilder<ActivitiesRecord>(
         stream: ActivitiesRecord.getDocument(widget.activiRef!),
         builder: (context, snapshot) {
@@ -80,7 +77,7 @@ class _LessonTimeWidgetState extends State<LessonTimeWidget> {
             focusNode: _model.textFieldFocusNode,
             onChanged: (_) => EasyDebounce.debounce(
               '_model.textController',
-              Duration(milliseconds: 1000),
+              const Duration(milliseconds: 1000),
               () async {
                 await widget.activiRef!.update(createActivitiesRecordData(
                   time: _model.textController.text,

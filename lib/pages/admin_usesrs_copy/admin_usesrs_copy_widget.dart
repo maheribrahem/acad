@@ -9,9 +9,7 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -19,7 +17,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -29,9 +26,9 @@ export 'admin_usesrs_copy_model.dart';
 
 class AdminUsesrsCopyWidget extends StatefulWidget {
   const AdminUsesrsCopyWidget({
-    Key? key,
+    super.key,
     this.output,
-  }) : super(key: key);
+  });
 
   final bool? output;
 
@@ -60,8 +57,8 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 100.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -79,8 +76,8 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 100.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -100,7 +97,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
     _model.textFieldFocusNode ??= FocusNode();
 
     _model.mentoorController ??= TextEditingController(
-        text: '${currentUserEmail}/${_model.textController1.text}');
+        text: '$currentUserEmail/${_model.textController1.text}');
     _model.mentoorFocusNode ??= FocusNode();
 
     setupAnimations(
@@ -176,7 +173,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                   child: wrapWithModel(
                     model: _model.nav0Model,
                     updateCallback: () => setState(() {}),
-                    child: Nav0Widget(),
+                    child: const Nav0Widget(),
                   ),
                 )),
                 body: Container(
@@ -199,13 +196,13 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 35.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -227,7 +224,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                     child: wrapWithModel(
                                       model: _model.topbarModel,
                                       updateCallback: () => setState(() {}),
-                                      child: TopbarWidget(),
+                                      child: const TopbarWidget(),
                                     ),
                                   ),
                                 ],
@@ -248,14 +245,14 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                     .width *
                                                 1.0,
                                             height: 100.0,
-                                            decoration: BoxDecoration(),
+                                            decoration: const BoxDecoration(),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           10.0, 0.0, 10.0, 0.0),
                                                   child: Row(
@@ -268,7 +265,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       5.0,
                                                                       5.0,
@@ -282,7 +279,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .secondaryBackground,
-                                                              boxShadow: [
+                                                              boxShadow: const [
                                                                 BoxShadow(
                                                                   blurRadius:
                                                                       0.0,
@@ -305,7 +302,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                       .max,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           8.0,
@@ -330,16 +327,16 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                                 44.0,
                                                                             decoration:
                                                                                 BoxDecoration(
-                                                                              color: Color(0x4C4B39EF),
+                                                                              color: const Color(0x4C4B39EF),
                                                                               shape: BoxShape.circle,
                                                                               border: Border.all(
-                                                                                color: Color(0xFF4B39EF),
+                                                                                color: const Color(0xFF4B39EF),
                                                                                 width: 2.0,
                                                                               ),
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
                                                                               child: AuthUserStreamWidget(
                                                                                 builder: (context) => ClipRRect(
                                                                                   borderRadius: BorderRadius.circular(40.0),
@@ -358,7 +355,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                       Flexible(
                                                                         child:
                                                                             Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               0.0,
@@ -367,7 +364,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                               AuthUserStreamWidget(
                                                                             builder: (context) =>
                                                                                 GradientText(
-                                                                              'مرحبا : ${currentUserDisplayName}'.maybeHandleOverflow(maxChars: 15),
+                                                                              'مرحبا : $currentUserDisplayName'.maybeHandleOverflow(maxChars: 15),
                                                                               style: FlutterFlowTheme.of(context).bodyLarge.override(
                                                                                     fontFamily: 'Plus Jakarta Sans',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
@@ -391,7 +388,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                         onChanged:
                                                                             (newValue) async {
                                                                           setState(() =>
-                                                                              _model.mentorrValue = newValue!);
+                                                                              _model.mentorrValue = newValue);
                                                                         },
                                                                         activeColor:
                                                                             FlutterFlowTheme.of(context).primary,
@@ -406,7 +403,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           8.0,
@@ -476,7 +473,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                                 true,
                                                                             onChanged:
                                                                                 (newValue) async {
-                                                                              setState(() => _model.compValue = newValue!);
+                                                                              setState(() => _model.compValue = newValue);
                                                                             },
                                                                             activeColor:
                                                                                 FlutterFlowTheme.of(context).primary,
@@ -556,7 +553,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                                 true,
                                                                             onChanged:
                                                                                 (newValue) async {
-                                                                              setState(() => _model.checkedValue = newValue!);
+                                                                              setState(() => _model.checkedValue = newValue);
                                                                             },
                                                                             activeColor:
                                                                                 FlutterFlowTheme.of(context).primary,
@@ -636,7 +633,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                                 true,
                                                                             onChanged:
                                                                                 (newValue) async {
-                                                                              setState(() => _model.realValue = newValue!);
+                                                                              setState(() => _model.realValue = newValue);
                                                                             },
                                                                             activeColor:
                                                                                 FlutterFlowTheme.of(context).primary,
@@ -712,7 +709,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                               Switch.adaptive(
                                                                                 value: _model.notValue ??= true,
                                                                                 onChanged: (newValue) async {
-                                                                                  setState(() => _model.notValue = newValue!);
+                                                                                  setState(() => _model.notValue = newValue);
                                                                                 },
                                                                                 activeColor: FlutterFlowTheme.of(context).primary,
                                                                                 activeTrackColor: FlutterFlowTheme.of(context).accent1,
@@ -727,7 +724,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           8.0,
@@ -752,15 +749,15 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                             children: [
                                                                               Container(
                                                                                 width: 300.0,
-                                                                                decoration: BoxDecoration(),
+                                                                                decoration: const BoxDecoration(),
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                                                                                   child: TextFormField(
                                                                                     controller: _model.textController1,
                                                                                     focusNode: _model.textFieldFocusNode,
                                                                                     onChanged: (_) => EasyDebounce.debounce(
                                                                                       '_model.textController1',
-                                                                                      Duration(milliseconds: 1000),
+                                                                                      const Duration(milliseconds: 1000),
                                                                                       () => setState(() {}),
                                                                                     ),
                                                                                     onFieldSubmitted: (_) async {
@@ -804,7 +801,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                                         ),
                                                                                         borderRadius: BorderRadius.circular(8.0),
                                                                                       ),
-                                                                                      prefixIcon: Icon(
+                                                                                      prefixIcon: const Icon(
                                                                                         Icons.person_search_rounded,
                                                                                       ),
                                                                                     ),
@@ -821,9 +818,9 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                             children: [
                                                                               Container(
                                                                                 width: 300.0,
-                                                                                decoration: BoxDecoration(),
+                                                                                decoration: const BoxDecoration(),
                                                                                 child: Container(
-                                                                                  decoration: BoxDecoration(),
+                                                                                  decoration: const BoxDecoration(),
                                                                                   child: StreamBuilder<List<MentorsRecord>>(
                                                                                     stream: queryMentorsRecord(
                                                                                       limit: 10,
@@ -875,7 +872,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                                         borderColor: FlutterFlowTheme.of(context).primary,
                                                                                         borderWidth: 2.0,
                                                                                         borderRadius: 8.0,
-                                                                                        margin: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                                                                                        margin: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                                                                                         hidesUnderline: true,
                                                                                         isSearchable: false,
                                                                                         isMultiSelect: false,
@@ -886,7 +883,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        ].divide(SizedBox(height: 5.0)).around(SizedBox(height: 5.0)),
+                                                                        ].divide(const SizedBox(height: 5.0)).around(const SizedBox(height: 5.0)),
                                                                       ),
                                                                       Column(
                                                                         mainAxisSize:
@@ -906,15 +903,15 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                           ))
                                                                             Container(
                                                                               width: 200.0,
-                                                                              decoration: BoxDecoration(),
+                                                                              decoration: const BoxDecoration(),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                                                                                 child: TextFormField(
                                                                                   controller: _model.mentoorController,
                                                                                   focusNode: _model.mentoorFocusNode,
                                                                                   onChanged: (_) => EasyDebounce.debounce(
                                                                                     '_model.mentoorController',
-                                                                                    Duration(milliseconds: 1500),
+                                                                                    const Duration(milliseconds: 1500),
                                                                                     () => setState(() {}),
                                                                                   ),
                                                                                   autofocus: true,
@@ -977,7 +974,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 10.0,
                                                                 0.0, 0.0),
                                                     child: FutureBuilder<
@@ -985,7 +982,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                       future:
                                                           UsersRecord.search(
                                                         term:
-                                                            '${_model.textController1.text}',
+                                                            _model.textController1.text,
                                                       ),
                                                       builder:
                                                           (context, snapshot) {
@@ -1011,7 +1008,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                         // Customize what your widget looks like with no search results.
                                                         if (snapshot
                                                             .data!.isEmpty) {
-                                                          return Container(
+                                                          return const SizedBox(
                                                             height: 100,
                                                             child: Center(
                                                               child: Text(
@@ -1068,8 +1065,6 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                   } else if (_model
                                                                           .mentorrValue! &&
                                                                       (listViewUsersRecord.mentoor ==
-                                                                              null ||
-                                                                          listViewUsersRecord.mentoor ==
                                                                               '')) {
                                                                     return true;
                                                                   } else {
@@ -1080,7 +1075,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             5.0,
@@ -1095,7 +1090,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryBackground,
-                                                                    boxShadow: [
+                                                                    boxShadow: const [
                                                                       BoxShadow(
                                                                         blurRadius:
                                                                             0.0,
@@ -1112,7 +1107,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             8.0,
                                                                             8.0,
@@ -1138,15 +1133,15 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                               width: 44.0,
                                                                               height: 44.0,
                                                                               decoration: BoxDecoration(
-                                                                                color: Color(0x4C4B39EF),
+                                                                                color: const Color(0x4C4B39EF),
                                                                                 shape: BoxShape.circle,
                                                                                 border: Border.all(
-                                                                                  color: Color(0xFF4B39EF),
+                                                                                  color: const Color(0xFF4B39EF),
                                                                                   width: 2.0,
                                                                                 ),
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
                                                                                 child: ClipRRect(
                                                                                   borderRadius: BorderRadius.circular(40.0),
                                                                                   child: Image.network(
@@ -1163,7 +1158,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     listViewUsersRecord.displayName.maybeHandleOverflow(
                                                                                       maxChars: 13,
@@ -1178,7 +1173,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     listViewUsersRecord.email.maybeHandleOverflow(
                                                                                       maxChars: 13,
@@ -1192,7 +1187,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 0.0, 0.0),
                                                                                   child: InkWell(
                                                                                     splashColor: Colors.transparent,
                                                                                     focusColor: Colors.transparent,
@@ -1244,7 +1239,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                                   mainAxisAlignment: MainAxisAlignment.end,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                                                                                       child: Row(
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         children: [
@@ -1259,16 +1254,16 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                                                     builder: (alertDialogContext) {
                                                                                                       return WebViewAware(
                                                                                                           child: AlertDialog(
-                                                                                                        title: Text('حذف حساب'),
+                                                                                                        title: const Text('حذف حساب'),
                                                                                                         content: Text('هل أنت متأكد من حذف الحساب ${listViewUsersRecord.email}/${listViewUsersRecord.displayName}/${listViewUsersRecord.fullname}'),
                                                                                                         actions: [
                                                                                                           TextButton(
                                                                                                             onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                            child: Text('إلغاء'),
+                                                                                                            child: const Text('إلغاء'),
                                                                                                           ),
                                                                                                           TextButton(
                                                                                                             onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                            child: Text('تأكيد'),
+                                                                                                            child: const Text('تأكيد'),
                                                                                                           ),
                                                                                                         ],
                                                                                                       ));
@@ -1382,16 +1377,15 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                                       key: Key('Keye5m_${listViewIndex}_of_${listViewUsersRecordList.length}'),
                                                                                       user: listViewUsersRecord.reference,
                                                                                     ),
-                                                                                  ].divide(SizedBox(width: 5.0)).around(SizedBox(width: 5.0)),
+                                                                                  ].divide(const SizedBox(width: 5.0)).around(const SizedBox(width: 5.0)),
                                                                                 ),
                                                                               ),
                                                                             ],
                                                                           ),
                                                                         ),
-                                                                        if (adminUsesrsCopyActivitiesProgressRecordList.where((e) => e.user == listViewUsersRecord.reference).toList().length >=
-                                                                            1)
+                                                                        if (adminUsesrsCopyActivitiesProgressRecordList.where((e) => e.user == listViewUsersRecord.reference).toList().isNotEmpty)
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 10.0,
                                                                                 10.0,
                                                                                 10.0,
@@ -1448,7 +1442,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                             clipBehavior:
                                                                                 Clip.antiAliasWithSaveLayer,
                                                                             color:
-                                                                                Color(0xFFF1F4F8),
+                                                                                const Color(0xFFF1F4F8),
                                                                             elevation:
                                                                                 1.0,
                                                                             shape:
@@ -1456,7 +1450,7 @@ class _AdminUsesrsCopyWidgetState extends State<AdminUsesrsCopyWidget>
                                                                               borderRadius: BorderRadius.circular(40.0),
                                                                             ),
                                                                             child:
-                                                                                Padding(
+                                                                                const Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
                                                                               child: Icon(
                                                                                 Icons.keyboard_arrow_right_rounded,

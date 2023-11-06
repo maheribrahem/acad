@@ -4,24 +4,18 @@ import '/backend/firebase_storage/storage.dart';
 import '/components/nav0/nav0_widget.dart';
 import '/components/profilecomp/profilecomp_widget.dart';
 import '/components/topbar/topbar_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -30,11 +24,10 @@ export 'profile_copy_model.dart';
 
 class ProfileCopyWidget extends StatefulWidget {
   const ProfileCopyWidget({
-    Key? key,
+    super.key,
     String? oldV,
     this.newV,
-  })  : this.oldV = oldV ?? '3',
-        super(key: key);
+  })  : oldV = oldV ?? '3';
 
   final String oldV;
   final DocumentReference? newV;
@@ -58,30 +51,19 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setAppLanguage(context, 'ar');
       await Future.delayed(const Duration(milliseconds: 2500));
-      if ((currentUserDisplayName != null && currentUserDisplayName != '') &&
-          (currentPhoneNumber != null && currentPhoneNumber != '') &&
-          (valueOrDefault(currentUserDocument?.gender, '') != null &&
-              valueOrDefault(currentUserDocument?.gender, '') != '') &&
-          (valueOrDefault(currentUserDocument?.fullname, '') != null &&
-              valueOrDefault(currentUserDocument?.fullname, '') != '') &&
-          (valueOrDefault(currentUserDocument?.state, '') != null &&
-              valueOrDefault(currentUserDocument?.state, '') != '') &&
-          (valueOrDefault(currentUserDocument?.city, '') != null &&
-              valueOrDefault(currentUserDocument?.city, '') != '') &&
-          (valueOrDefault(currentUserDocument?.schoolLevel, '') != null &&
-              valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
-          (valueOrDefault(currentUserDocument?.job, '') != null &&
-              valueOrDefault(currentUserDocument?.job, '') != '') &&
-          (valueOrDefault(currentUserDocument?.socialStatus, '') != null &&
-              valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
-          (valueOrDefault(currentUserDocument?.pastStudy, '') != null &&
-              valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
-          (valueOrDefault(currentUserDocument?.referral, '') != null &&
-              valueOrDefault(currentUserDocument?.referral, '') != '') &&
-          (valueOrDefault(currentUserDocument?.quranJuz, '') != null &&
-              valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
-          (valueOrDefault(currentUserDocument?.telegram, '') != null &&
-              valueOrDefault(currentUserDocument?.telegram, '') != '')) {
+      if ((currentUserDisplayName != '') &&
+          (currentPhoneNumber != '') &&
+          (valueOrDefault(currentUserDocument?.gender, '') != '') &&
+          (valueOrDefault(currentUserDocument?.fullname, '') != '') &&
+          (valueOrDefault(currentUserDocument?.state, '') != '') &&
+          (valueOrDefault(currentUserDocument?.city, '') != '') &&
+          (valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
+          (valueOrDefault(currentUserDocument?.job, '') != '') &&
+          (valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
+          (valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
+          (valueOrDefault(currentUserDocument?.referral, '') != '') &&
+          (valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
+          (valueOrDefault(currentUserDocument?.telegram, '') != '')) {
         return;
       }
 
@@ -99,7 +81,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                 : FocusScope.of(context).unfocus(),
             child: Padding(
               padding: MediaQuery.viewInsetsOf(context),
-              child: ProfilecompWidget(),
+              child: const ProfilecompWidget(),
             ),
           ));
         },
@@ -165,7 +147,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                   child: wrapWithModel(
                     model: _model.nav0Model,
                     updateCallback: () => setState(() {}),
-                    child: Nav0Widget(),
+                    child: const Nav0Widget(),
                   ),
                 )),
                 body: Container(
@@ -188,13 +170,13 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 35.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -216,7 +198,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                     child: wrapWithModel(
                                       model: _model.topbarModel,
                                       updateCallback: () => setState(() {}),
-                                      child: TopbarWidget(),
+                                      child: const TopbarWidget(),
                                     ),
                                   ),
                                 ],
@@ -237,24 +219,24 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                     .width *
                                                 1.0,
                                             height: 100.0,
-                                            constraints: BoxConstraints(
+                                            constraints: const BoxConstraints(
                                               maxWidth: 700.0,
                                             ),
-                                            decoration: BoxDecoration(),
+                                            decoration: const BoxDecoration(),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Expanded(
-                                                  child: Container(
+                                                  child: SizedBox(
                                                     height: 500.0,
                                                     child: Stack(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.0, -1.0),
                                                       children: [
                                                         Align(
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.00, 0.00),
                                                           child:
                                                               SingleChildScrollView(
@@ -267,7 +249,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                       .start,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           32.0,
@@ -283,7 +265,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                               context)
                                                                           .shaaad,
                                                                       borderRadius:
-                                                                          BorderRadius
+                                                                          const BorderRadius
                                                                               .only(
                                                                         bottomLeft:
                                                                             Radius.circular(0.0),
@@ -297,7 +279,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           8.0,
                                                                           0.0,
@@ -314,7 +296,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                               CrossAxisAlignment.start,
                                                                           children:
                                                                               [
-                                                                            Divider(
+                                                                            const Divider(
                                                                               height: 8.0,
                                                                               thickness: 4.0,
                                                                               indent: 140.0,
@@ -326,7 +308,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'ysbxmdv3' /* ملفك الشخصي */,
@@ -353,7 +335,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                         BoxShadow(
                                                                                           blurRadius: 4.0,
                                                                                           color: FlutterFlowTheme.of(context).primaryText,
-                                                                                          offset: Offset(0.0, 2.0),
+                                                                                          offset: const Offset(0.0, 2.0),
                                                                                         )
                                                                                       ],
                                                                                       shape: BoxShape.circle,
@@ -362,7 +344,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                       ),
                                                                                     ),
                                                                                     child: Align(
-                                                                                      alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                      alignment: const AlignmentDirectional(0.00, 0.00),
                                                                                       child: AuthUserStreamWidget(
                                                                                         builder: (context) => StreamBuilder<UsersRecord>(
                                                                                           stream: UsersRecord.getDocument(currentUserReference!),
@@ -447,12 +429,12 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                 width: 80.0,
                                                                                                 height: 80.0,
                                                                                                 clipBehavior: Clip.antiAlias,
-                                                                                                decoration: BoxDecoration(
+                                                                                                decoration: const BoxDecoration(
                                                                                                   shape: BoxShape.circle,
                                                                                                 ),
                                                                                                 child: CachedNetworkImage(
-                                                                                                  fadeInDuration: Duration(milliseconds: 500),
-                                                                                                  fadeOutDuration: Duration(milliseconds: 500),
+                                                                                                  fadeInDuration: const Duration(milliseconds: 500),
+                                                                                                  fadeOutDuration: const Duration(milliseconds: 500),
                                                                                                   imageUrl: valueOrDefault<String>(
                                                                                                     currentUserPhoto,
                                                                                                     'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/dark-mode-chat-xk2sj6/assets/ails754ngloi/uiAvatar@2x.png',
@@ -473,7 +455,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                   child: AuthUserStreamWidget(
                                                                                     builder: (context) => Text(
                                                                                       valueOrDefault<String>(
@@ -494,7 +476,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     valueOrDefault<String>(
                                                                                       currentUserEmail,
@@ -513,7 +495,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: AuthUserStreamWidget(
                                                                                     builder: (context) => Text(
                                                                                       currentPhoneNumber,
@@ -561,7 +543,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                     children: [
                                                                                       Flexible(
                                                                                         child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
                                                                                           child: StreamBuilder<List<UsersRecord>>(
                                                                                             stream: queryUsersRecord(
                                                                                               queryBuilder: (usersRecord) => usersRecord.where(
@@ -603,13 +585,13 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                       BoxShadow(
                                                                                                         blurRadius: 4.0,
                                                                                                         color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                        offset: Offset(0.0, 2.0),
+                                                                                                        offset: const Offset(0.0, 2.0),
                                                                                                       )
                                                                                                     ],
                                                                                                     borderRadius: BorderRadius.circular(14.0),
                                                                                                   ),
                                                                                                   child: Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
                                                                                                     child: Row(
                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                       children: [
@@ -629,7 +611,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                                       BoxShadow(
                                                                                                                         blurRadius: 4.0,
                                                                                                                         color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                                        offset: Offset(0.0, 2.0),
+                                                                                                                        offset: const Offset(0.0, 2.0),
                                                                                                                       )
                                                                                                                     ],
                                                                                                                     shape: BoxShape.circle,
@@ -653,12 +635,12 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                                                 '.',
                                                                                                                               ),
                                                                                                                               image: NetworkImage(
-                                                                                                                                containerUsersRecord!.photoUrl,
+                                                                                                                                containerUsersRecord.photoUrl,
                                                                                                                               ),
                                                                                                                               fit: BoxFit.contain,
                                                                                                                             ),
                                                                                                                             allowRotation: false,
-                                                                                                                            tag: containerUsersRecord!.photoUrl,
+                                                                                                                            tag: containerUsersRecord.photoUrl,
                                                                                                                             useHeroAnimation: true,
                                                                                                                           ),
                                                                                                                         ),
@@ -674,7 +656,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                                             '.',
                                                                                                                           ),
                                                                                                                           image: NetworkImage(
-                                                                                                                            containerUsersRecord!.photoUrl,
+                                                                                                                            containerUsersRecord.photoUrl,
                                                                                                                           ),
                                                                                                                           width: 50.0,
                                                                                                                           height: 50.0,
@@ -687,7 +669,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                               ),
                                                                                                               Expanded(
                                                                                                                 child: Padding(
-                                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                                                                                                                   child: Column(
                                                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                                                     children: [
@@ -696,7 +678,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                                         mainAxisAlignment: MainAxisAlignment.center,
                                                                                                                         children: [
                                                                                                                           Padding(
-                                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                                                             child: Text(
                                                                                                                               FFLocalizations.of(context).getText(
                                                                                                                                 'c0j7kc3z' /* بطاقة المشرف الدراسي: */,
@@ -715,9 +697,9 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                                                         children: [
                                                                                                                           Padding(
-                                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                                                             child: Text(
-                                                                                                                              containerUsersRecord!.fullname,
+                                                                                                                              containerUsersRecord.fullname,
                                                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                                     fontFamily: 'Cairo',
                                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
@@ -732,7 +714,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                                                         children: [
                                                                                                                           Padding(
-                                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                                                             child: Text(
                                                                                                                               FFLocalizations.of(context).getText(
                                                                                                                                 'aup1h5xa' /* مشرف دراسي */,
@@ -752,9 +734,9 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                                         children: [
                                                                                                                           Padding(
-                                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                                                             child: Text(
-                                                                                                                              containerUsersRecord!.phoneNumber,
+                                                                                                                              containerUsersRecord.phoneNumber,
                                                                                                                               style: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                                                                     fontFamily: 'Cairo',
                                                                                                                                     color: FlutterFlowTheme.of(context).secondaryText,
@@ -768,14 +750,14 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                                             mainAxisAlignment: MainAxisAlignment.center,
                                                                                                                             children: [
                                                                                                                               Padding(
-                                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                                                 child: InkWell(
                                                                                                                                   splashColor: Colors.transparent,
                                                                                                                                   focusColor: Colors.transparent,
                                                                                                                                   hoverColor: Colors.transparent,
                                                                                                                                   highlightColor: Colors.transparent,
                                                                                                                                   onTap: () async {
-                                                                                                                                    await launchURL(containerUsersRecord!.telegram);
+                                                                                                                                    await launchURL(containerUsersRecord.telegram);
                                                                                                                                   },
                                                                                                                                   child: FaIcon(
                                                                                                                                     FontAwesomeIcons.telegramPlane,
@@ -785,7 +767,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                                                 ),
                                                                                                                               ),
                                                                                                                               Padding(
-                                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                                                 child: InkWell(
                                                                                                                                   splashColor: Colors.transparent,
                                                                                                                                   focusColor: Colors.transparent,
@@ -794,9 +776,9 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                                                   onTap: () async {
                                                                                                                                     await launchUrl(Uri(
                                                                                                                                       scheme: 'tel',
-                                                                                                                                      path: containerUsersRecord!.phoneNumber,
+                                                                                                                                      path: containerUsersRecord.phoneNumber,
                                                                                                                                     ));
-                                                                                                                                    await Clipboard.setData(ClipboardData(text: containerUsersRecord!.phoneNumber));
+                                                                                                                                    await Clipboard.setData(ClipboardData(text: containerUsersRecord.phoneNumber));
                                                                                                                                   },
                                                                                                                                   child: FaIcon(
                                                                                                                                     FontAwesomeIcons.phoneSquareAlt,
@@ -806,7 +788,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                                                 ),
                                                                                                                               ),
                                                                                                                               Padding(
-                                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                                                 child: StreamBuilder<List<ChatsRecord>>(
                                                                                                                                   stream: queryChatsRecord(
                                                                                                                                     queryBuilder: (chatsRecord) => chatsRecord
@@ -816,7 +798,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                                                         )
                                                                                                                                         .where(
                                                                                                                                           'user_b',
-                                                                                                                                          isEqualTo: containerUsersRecord?.reference,
+                                                                                                                                          isEqualTo: containerUsersRecord.reference,
                                                                                                                                         ),
                                                                                                                                   ),
                                                                                                                                   builder: (context, snapshot) {
@@ -871,7 +853,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 0.0, 16.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 0.0, 16.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'w0hxe60r' /* إعدادات الحساب */,
@@ -885,13 +867,13 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                               ],
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
                                                                                   Flexible(
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
                                                                                       child: Container(
                                                                                         width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                         height: 60.0,
@@ -900,7 +882,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                           boxShadow: [
                                                                                             BoxShadow(
                                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                              offset: Offset(0.0, 1.0),
+                                                                                              offset: const Offset(0.0, 1.0),
                                                                                             )
                                                                                           ],
                                                                                           borderRadius: BorderRadius.circular(14.0),
@@ -915,7 +897,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                             context.pushNamed(
                                                                                               'ForgotPassword',
                                                                                               extra: <String, dynamic>{
-                                                                                                kTransitionInfoKey: TransitionInfo(
+                                                                                                kTransitionInfoKey: const TransitionInfo(
                                                                                                   hasTransition: true,
                                                                                                   transitionType: PageTransitionType.bottomToTop,
                                                                                                   duration: Duration(milliseconds: 60),
@@ -927,7 +909,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                             mainAxisSize: MainAxisSize.min,
                                                                                             children: [
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                                                                                                 child: Text(
                                                                                                   FFLocalizations.of(context).getText(
                                                                                                     '78vzxu7j' /* تغيير كلمة المرور */,
@@ -935,7 +917,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                   style: FlutterFlowTheme.of(context).titleSmall,
                                                                                                 ),
                                                                                               ),
-                                                                                              Expanded(
+                                                                                              const Expanded(
                                                                                                 child: Align(
                                                                                                   alignment: AlignmentDirectional(0.90, 0.00),
                                                                                                   child: Icon(
@@ -955,13 +937,13 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
                                                                                   Flexible(
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
                                                                                       child: Container(
                                                                                         width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                         height: 60.0,
@@ -970,7 +952,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                           boxShadow: [
                                                                                             BoxShadow(
                                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                              offset: Offset(0.0, 1.0),
+                                                                                              offset: const Offset(0.0, 1.0),
                                                                                             )
                                                                                           ],
                                                                                           borderRadius: BorderRadius.circular(14.0),
@@ -988,7 +970,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             children: [
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                                                                                                 child: Text(
                                                                                                   FFLocalizations.of(context).getText(
                                                                                                     '7ikdmbdo' /* تعديل بياناتك الشخصية */,
@@ -996,7 +978,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                   style: FlutterFlowTheme.of(context).titleSmall,
                                                                                                 ),
                                                                                               ),
-                                                                                              Expanded(
+                                                                                              const Expanded(
                                                                                                 child: Align(
                                                                                                   alignment: AlignmentDirectional(0.90, 0.00),
                                                                                                   child: Icon(
@@ -1016,13 +998,13 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
                                                                                   Flexible(
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
                                                                                       child: Container(
                                                                                         width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                         height: 60.0,
@@ -1031,7 +1013,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                           boxShadow: [
                                                                                             BoxShadow(
                                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                              offset: Offset(0.0, 1.0),
+                                                                                              offset: const Offset(0.0, 1.0),
                                                                                             )
                                                                                           ],
                                                                                           borderRadius: BorderRadius.circular(14.0),
@@ -1050,7 +1032,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                             mainAxisAlignment: MainAxisAlignment.center,
                                                                                             children: [
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                                                                                                 child: Text(
                                                                                                   FFLocalizations.of(context).getText(
                                                                                                     '2s3xa0eu' /* اذهب للقناة العامة */,
@@ -1060,7 +1042,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                               ),
                                                                                               Expanded(
                                                                                                 child: Align(
-                                                                                                  alignment: AlignmentDirectional(0.85, 0.00),
+                                                                                                  alignment: const AlignmentDirectional(0.85, 0.00),
                                                                                                   child: FaIcon(
                                                                                                     FontAwesomeIcons.telegramPlane,
                                                                                                     color: FlutterFlowTheme.of(context).primary,
@@ -1108,13 +1090,13 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                           children: [
                                                                                             Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
+                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
                                                                                               child: Row(
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 children: [
                                                                                                   Flexible(
                                                                                                     child: Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
                                                                                                       child: Container(
                                                                                                         width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                                         height: 60.0,
@@ -1123,7 +1105,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                           boxShadow: [
                                                                                                             BoxShadow(
                                                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                              offset: Offset(0.0, 1.0),
+                                                                                                              offset: const Offset(0.0, 1.0),
                                                                                                             )
                                                                                                           ],
                                                                                                           borderRadius: BorderRadius.circular(14.0),
@@ -1142,7 +1124,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                             mainAxisAlignment: MainAxisAlignment.center,
                                                                                                             children: [
                                                                                                               Padding(
-                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                                                                                                                 child: Text(
                                                                                                                   FFLocalizations.of(context).getText(
                                                                                                                     's62nhxdw' /* اذهب للقناة العامة */,
@@ -1152,7 +1134,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                               ),
                                                                                                               Expanded(
                                                                                                                 child: Align(
-                                                                                                                  alignment: AlignmentDirectional(0.85, 0.00),
+                                                                                                                  alignment: const AlignmentDirectional(0.85, 0.00),
                                                                                                                   child: FaIcon(
                                                                                                                     FontAwesomeIcons.telegramPlane,
                                                                                                                     color: FlutterFlowTheme.of(context).primary,
@@ -1166,17 +1148,17 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                       ),
                                                                                                     ),
                                                                                                   ),
-                                                                                                ].divide(SizedBox(width: 5.0)),
+                                                                                                ].divide(const SizedBox(width: 5.0)),
                                                                                               ),
                                                                                             ),
                                                                                             Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
+                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
                                                                                               child: Row(
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 children: [
                                                                                                   Flexible(
                                                                                                     child: Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
                                                                                                       child: Container(
                                                                                                         width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                                         height: 60.0,
@@ -1185,7 +1167,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                           boxShadow: [
                                                                                                             BoxShadow(
                                                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                              offset: Offset(0.0, 1.0),
+                                                                                                              offset: const Offset(0.0, 1.0),
                                                                                                             )
                                                                                                           ],
                                                                                                           borderRadius: BorderRadius.circular(14.0),
@@ -1212,7 +1194,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                             mainAxisAlignment: MainAxisAlignment.center,
                                                                                                             children: [
                                                                                                               Padding(
-                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                                                                                                                 child: Text(
                                                                                                                   FFLocalizations.of(context).getText(
                                                                                                                     'gzw5j170' /* اذهب للمجموعة التفاعلية */,
@@ -1222,7 +1204,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                               ),
                                                                                                               Expanded(
                                                                                                                 child: Align(
-                                                                                                                  alignment: AlignmentDirectional(0.85, 0.00),
+                                                                                                                  alignment: const AlignmentDirectional(0.85, 0.00),
                                                                                                                   child: FaIcon(
                                                                                                                     FontAwesomeIcons.telegramPlane,
                                                                                                                     color: FlutterFlowTheme.of(context).primary,
@@ -1239,7 +1221,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                 ],
                                                                                               ),
                                                                                             ),
-                                                                                          ].divide(SizedBox(height: 5.0)),
+                                                                                          ].divide(const SizedBox(height: 5.0)),
                                                                                         ),
                                                                                       ),
                                                                                   ],
@@ -1249,14 +1231,14 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                             if (valueOrDefault<bool>(currentUserDocument?.isSuper,
                                                                                 false))
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
                                                                                 child: AuthUserStreamWidget(
                                                                                   builder: (context) => Row(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     children: [
                                                                                       Flexible(
                                                                                         child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
                                                                                           child: StreamBuilder<List<UsersRecord>>(
                                                                                             stream: queryUsersRecord(),
                                                                                             builder: (context, snapshot) {
@@ -1282,7 +1264,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                   boxShadow: [
                                                                                                     BoxShadow(
                                                                                                       color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                      offset: Offset(0.0, 1.0),
+                                                                                                      offset: const Offset(0.0, 1.0),
                                                                                                     )
                                                                                                   ],
                                                                                                   borderRadius: BorderRadius.circular(14.0),
@@ -1303,7 +1285,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                                                     children: [
                                                                                                       Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                                                                                                         child: Text(
                                                                                                           FFLocalizations.of(context).getText(
                                                                                                             'xnbtou1z' /* تحميل بيانات الطلاب */,
@@ -1313,7 +1295,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                                       ),
                                                                                                       Expanded(
                                                                                                         child: Align(
-                                                                                                          alignment: AlignmentDirectional(0.85, 0.00),
+                                                                                                          alignment: const AlignmentDirectional(0.85, 0.00),
                                                                                                           child: Icon(
                                                                                                             Icons.cloud_download,
                                                                                                             color: FlutterFlowTheme.of(context).primary,
@@ -1333,7 +1315,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget>
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                          ].divide(SizedBox(height: 5.0)),
+                                                                          ].divide(const SizedBox(height: 5.0)),
                                                                         ),
                                                                       ),
                                                                     ),

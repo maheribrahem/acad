@@ -58,7 +58,7 @@ class UsersMentorStruct extends FFFirebaseStruct {
           ParamType.DocumentReference,
           false,
         ),
-        firestoreUtilData: FirestoreUtilData(
+        firestoreUtilData: const FirestoreUtilData(
           clearUnsetFields: false,
           create: true,
         ),

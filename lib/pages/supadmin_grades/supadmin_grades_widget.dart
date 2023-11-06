@@ -6,14 +6,12 @@ import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -22,9 +20,9 @@ export 'supadmin_grades_model.dart';
 
 class SupadminGradesWidget extends StatefulWidget {
   const SupadminGradesWidget({
-    Key? key,
+    super.key,
     this.output,
-  }) : super(key: key);
+  });
 
   final bool? output;
 
@@ -45,30 +43,19 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setAppLanguage(context, 'ar');
-      if (!((currentUserDisplayName != null && currentUserDisplayName != '') &&
-          (currentPhoneNumber != null && currentPhoneNumber != '') &&
-          (valueOrDefault(currentUserDocument?.gender, '') != null &&
-              valueOrDefault(currentUserDocument?.gender, '') != '') &&
-          (valueOrDefault(currentUserDocument?.fullname, '') != null &&
-              valueOrDefault(currentUserDocument?.fullname, '') != '') &&
-          (valueOrDefault(currentUserDocument?.state, '') != null &&
-              valueOrDefault(currentUserDocument?.state, '') != '') &&
-          (valueOrDefault(currentUserDocument?.city, '') != null &&
-              valueOrDefault(currentUserDocument?.city, '') != '') &&
-          (valueOrDefault(currentUserDocument?.schoolLevel, '') != null &&
-              valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
-          (valueOrDefault(currentUserDocument?.job, '') != null &&
-              valueOrDefault(currentUserDocument?.job, '') != '') &&
-          (valueOrDefault(currentUserDocument?.socialStatus, '') != null &&
-              valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
-          (valueOrDefault(currentUserDocument?.pastStudy, '') != null &&
-              valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
-          (valueOrDefault(currentUserDocument?.referral, '') != null &&
-              valueOrDefault(currentUserDocument?.referral, '') != '') &&
-          (valueOrDefault(currentUserDocument?.quranJuz, '') != null &&
-              valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
-          (valueOrDefault(currentUserDocument?.telegram, '') != null &&
-              valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
+      if (!((currentUserDisplayName != '') &&
+          (currentPhoneNumber != '') &&
+          (valueOrDefault(currentUserDocument?.gender, '') != '') &&
+          (valueOrDefault(currentUserDocument?.fullname, '') != '') &&
+          (valueOrDefault(currentUserDocument?.state, '') != '') &&
+          (valueOrDefault(currentUserDocument?.city, '') != '') &&
+          (valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
+          (valueOrDefault(currentUserDocument?.job, '') != '') &&
+          (valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
+          (valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
+          (valueOrDefault(currentUserDocument?.referral, '') != '') &&
+          (valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
+          (valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -83,7 +70,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                   : FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: ProfilecompWidget(),
+                child: const ProfilecompWidget(),
               ),
             ));
           },
@@ -133,7 +120,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
               child: wrapWithModel(
                 model: _model.nav0Model,
                 updateCallback: () => setState(() {}),
-                child: Nav0Widget(),
+                child: const Nav0Widget(),
               ),
             )),
             body: Container(
@@ -156,13 +143,13 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 35.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -184,7 +171,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                 child: wrapWithModel(
                                   model: _model.topbarModel,
                                   updateCallback: () => setState(() {}),
-                                  child: TopbarWidget(),
+                                  child: const TopbarWidget(),
                                 ),
                               ),
                             ],
@@ -205,7 +192,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
                                         height: 100.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -218,7 +205,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             0.00, 0.00),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
@@ -233,7 +220,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
-                                                        boxShadow: [
+                                                        boxShadow: const [
                                                           BoxShadow(
                                                             blurRadius: 3.0,
                                                             color: Color(
@@ -247,13 +234,13 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                 .circular(8.0),
                                                         border: Border.all(
                                                           color:
-                                                              Color(0xFFE0E3E7),
+                                                              const Color(0xFFE0E3E7),
                                                           width: 1.0,
                                                         ),
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     5.0,
                                                                     5.0,
@@ -301,13 +288,13 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                         Clip.none,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             16.0,
                                                                             0.0),
                                                                         child:
-                                                                            Container(
+                                                                            SizedBox(
                                                                           width:
                                                                               150.0,
                                                                           child:
@@ -319,7 +306,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                             onChanged: (_) =>
                                                                                 EasyDebounce.debounce(
                                                                               '_model.textController',
-                                                                              Duration(milliseconds: 1000),
+                                                                              const Duration(milliseconds: 1000),
                                                                               () => setState(() {}),
                                                                             ),
                                                                             textCapitalization:
@@ -346,27 +333,27 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                                 borderRadius: BorderRadius.circular(8.0),
                                                                               ),
                                                                               focusedBorder: OutlineInputBorder(
-                                                                                borderSide: BorderSide(
+                                                                                borderSide: const BorderSide(
                                                                                   color: Color(0x00000000),
                                                                                   width: 2.0,
                                                                                 ),
                                                                                 borderRadius: BorderRadius.circular(8.0),
                                                                               ),
                                                                               errorBorder: OutlineInputBorder(
-                                                                                borderSide: BorderSide(
+                                                                                borderSide: const BorderSide(
                                                                                   color: Color(0x00000000),
                                                                                   width: 2.0,
                                                                                 ),
                                                                                 borderRadius: BorderRadius.circular(8.0),
                                                                               ),
                                                                               focusedErrorBorder: OutlineInputBorder(
-                                                                                borderSide: BorderSide(
+                                                                                borderSide: const BorderSide(
                                                                                   color: Color(0x00000000),
                                                                                   width: 2.0,
                                                                                 ),
                                                                                 borderRadius: BorderRadius.circular(8.0),
                                                                               ),
-                                                                              prefixIcon: Icon(
+                                                                              prefixIcon: const Icon(
                                                                                 Icons.search_rounded,
                                                                                 color: Color(0xFF57636C),
                                                                                 size: 20.0,
@@ -439,7 +426,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                                   borderColor: FlutterFlowTheme.of(context).alternate,
                                                                                   borderWidth: 2.0,
                                                                                   borderRadius: 8.0,
-                                                                                  margin: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                                                                                  margin: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                                                                                   hidesUnderline: true,
                                                                                   isSearchable: false,
                                                                                   isMultiSelect: false,
@@ -455,7 +442,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             16.0,
@@ -476,7 +463,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                             4.0,
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryText,
-                                                                        offset: Offset(
+                                                                        offset: const Offset(
                                                                             4.0,
                                                                             4.0),
                                                                         spreadRadius:
@@ -484,7 +471,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                       )
                                                                     ],
                                                                     borderRadius:
-                                                                        BorderRadius
+                                                                        const BorderRadius
                                                                             .only(
                                                                       bottomLeft:
                                                                           Radius.circular(
@@ -502,7 +489,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             0.0,
@@ -595,9 +582,6 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                               ),
                                                               if (_model.textController
                                                                           .text ==
-                                                                      null ||
-                                                                  _model.textController
-                                                                          .text ==
                                                                       '')
                                                                 PagedListView<
                                                                     DocumentSnapshot<
@@ -609,7 +593,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                     UsersRecord
                                                                         .collection,
                                                                   ),
-                                                                  padding: EdgeInsets
+                                                                  padding: const EdgeInsets
                                                                       .symmetric(
                                                                           vertical:
                                                                               5.0),
@@ -623,7 +607,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                       Axis.vertical,
                                                                   separatorBuilder: (_,
                                                                           __) =>
-                                                                      SizedBox(
+                                                                      const SizedBox(
                                                                           height:
                                                                               5.0),
                                                                   builderDelegate:
@@ -676,7 +660,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                           .listViewPagingController1!
                                                                           .itemList![listViewIndex];
                                                                       return Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -710,7 +694,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              boxShadow: [
+                                                                              boxShadow: const [
                                                                                 BoxShadow(
                                                                                   blurRadius: 0.0,
                                                                                   color: Color(0xFFF1F4F8),
@@ -720,17 +704,17 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 12.0, 8.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 12.0, 8.0),
                                                                                     child: Row(
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                           child: ClipRRect(
                                                                                             borderRadius: BorderRadius.circular(40.0),
                                                                                             child: Image.network(
@@ -742,7 +726,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                                           ),
                                                                                         ),
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                           child: Column(
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             mainAxisAlignment: MainAxisAlignment.center,
@@ -750,7 +734,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                                             children: [
                                                                                               Container(
                                                                                                 width: 150.0,
-                                                                                                decoration: BoxDecoration(),
+                                                                                                decoration: const BoxDecoration(),
                                                                                                 child: Text(
                                                                                                   listViewUsersRecord.displayName,
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -830,9 +814,6 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                 ),
                                                               if (_model.textController
                                                                           .text !=
-                                                                      null &&
-                                                                  _model.textController
-                                                                          .text !=
                                                                       '')
                                                                 FutureBuilder<
                                                                     List<
@@ -874,7 +855,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                     if (snapshot
                                                                         .data!
                                                                         .isEmpty) {
-                                                                      return Container(
+                                                                      return const SizedBox(
                                                                         height:
                                                                             100,
                                                                         child:
@@ -886,7 +867,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                     }
                                                                     return ListView
                                                                         .separated(
-                                                                      padding: EdgeInsets.symmetric(
+                                                                      padding: const EdgeInsets.symmetric(
                                                                           vertical:
                                                                               5.0),
                                                                       shrinkWrap:
@@ -898,7 +879,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                               .length,
                                                                       separatorBuilder: (_,
                                                                               __) =>
-                                                                          SizedBox(
+                                                                          const SizedBox(
                                                                               height: 5.0),
                                                                       itemBuilder:
                                                                           (context,
@@ -906,7 +887,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                         final listViewUsersRecord =
                                                                             listViewUsersRecordList[listViewIndex];
                                                                         return Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,
@@ -938,7 +919,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                               width: MediaQuery.sizeOf(context).width * 1.0,
                                                                               decoration: BoxDecoration(
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                boxShadow: [
+                                                                                boxShadow: const [
                                                                                   BoxShadow(
                                                                                     blurRadius: 0.0,
                                                                                     color: Color(0xFFF1F4F8),
@@ -947,17 +928,17 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                                 ],
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 12.0, 8.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 12.0, 8.0),
                                                                                       child: Row(
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         children: [
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                             child: Column(
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               mainAxisAlignment: MainAxisAlignment.center,
@@ -965,7 +946,7 @@ class _SupadminGradesWidgetState extends State<SupadminGradesWidget> {
                                                                                               children: [
                                                                                                 Container(
                                                                                                   width: 150.0,
-                                                                                                  decoration: BoxDecoration(),
+                                                                                                  decoration: const BoxDecoration(),
                                                                                                   child: Text(
                                                                                                     listViewUsersRecord.displayName,
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(

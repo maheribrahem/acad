@@ -6,12 +6,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'users_data_model.dart';
@@ -19,9 +15,9 @@ export 'users_data_model.dart';
 
 class UsersDataWidget extends StatefulWidget {
   const UsersDataWidget({
-    Key? key,
+    super.key,
     required this.doc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? doc;
 
@@ -93,7 +89,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
         return Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color(0x7F101213),
           ),
           child: Column(
@@ -103,22 +99,22 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
               Flexible(
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+                      const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
                   child: Container(
                     width: double.infinity,
-                    constraints: BoxConstraints(
+                    constraints: const BoxConstraints(
                       maxWidth: 530.0,
                     ),
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           blurRadius: 4.0,
                           color: Color(0x33000000),
                           offset: Offset(0.0, 2.0),
                         )
                       ],
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(0.0),
                         bottomRight: Radius.circular(0.0),
                         topLeft: Radius.circular(16.0),
@@ -126,7 +122,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
+                      padding: const EdgeInsetsDirectional.fromSTEB(
                           16.0, 16.0, 16.0, 16.0),
                       child: SingleChildScrollView(
                         child: Column(
@@ -151,7 +147,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                   gradientType: GradientType.linear,
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 8.0, 8.0, 8.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -172,15 +168,15 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                               ],
                             ),
                             Container(
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                             ),
                             Container(
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 10.0, 10.0, 10.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -191,7 +187,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                           width: 70.0,
                                           height: 70.0,
                                           clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
                                           child: Image.network(
@@ -206,7 +202,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         2.0, 2.0, 2.0, 2.0),
                                                 child: Column(
@@ -331,7 +327,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 5.0, 5.0, 5.0),
                                                 child: Row(
@@ -342,7 +338,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   8.0,
@@ -350,7 +346,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                                                   8.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
-                                                          final _datePickedDate =
+                                                          final datePickedDate =
                                                               await showDatePicker(
                                                             context: context,
                                                             initialDate:
@@ -361,16 +357,16 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                                                 DateTime(2050),
                                                           );
 
-                                                          if (_datePickedDate !=
+                                                          if (datePickedDate !=
                                                               null) {
                                                             safeSetState(() {
                                                               _model.datePicked =
                                                                   DateTime(
-                                                                _datePickedDate
+                                                                datePickedDate
                                                                     .year,
-                                                                _datePickedDate
+                                                                datePickedDate
                                                                     .month,
-                                                                _datePickedDate
+                                                                datePickedDate
                                                                     .day,
                                                               );
                                                             });
@@ -387,14 +383,14 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                                           width: 80.0,
                                                           height: 45.0,
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
                                                                       0.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -421,7 +417,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                                                   ),
                                                           elevation: 3.0,
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Colors
                                                                 .transparent,
                                                             width: 1.0,
@@ -454,7 +450,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         2.0, 2.0, 2.0, 2.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -464,7 +460,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 5.0, 5.0, 5.0),
                                                 child: Container(
@@ -490,7 +486,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     5.0,
@@ -509,7 +505,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
@@ -572,7 +568,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                                             borderWidth: 0.0,
                                                             borderRadius: 0.0,
                                                             margin:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         12.0,
                                                                         4.0,
@@ -598,7 +594,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 5.0, 5.0, 5.0),
                                                 child: Container(
@@ -624,7 +620,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     5.0,
@@ -643,7 +639,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
@@ -846,7 +842,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                                             borderWidth: 0.0,
                                                             borderRadius: 0.0,
                                                             margin:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         12.0,
                                                                         4.0,
@@ -871,7 +867,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         2.0, 2.0, 2.0, 2.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -879,7 +875,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: TextFormField(
                                               controller:
@@ -976,7 +972,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         2.0, 2.0, 2.0, 2.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -984,7 +980,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: TextFormField(
                                               controller:
@@ -1077,7 +1073,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         2.0, 2.0, 2.0, 2.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -1085,7 +1081,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: TextFormField(
                                               controller:
@@ -1176,7 +1172,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         2.0, 2.0, 2.0, 2.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -1184,7 +1180,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: TextFormField(
                                               controller:
@@ -1275,7 +1271,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         2.0, 2.0, 2.0, 2.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -1283,7 +1279,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: TextFormField(
                                               controller:
@@ -1373,7 +1369,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         2.0, 2.0, 2.0, 2.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -1381,7 +1377,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: TextFormField(
                                               controller:
@@ -1471,7 +1467,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         2.0, 2.0, 2.0, 2.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -1479,7 +1475,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: TextFormField(
                                               controller:
@@ -1570,7 +1566,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         2.0, 2.0, 2.0, 2.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -1578,7 +1574,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: TextFormField(
                                               controller:
@@ -1672,7 +1668,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 8.0, 8.0, 8.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -1707,10 +1703,10 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                     options: FFButtonOptions(
                                       width: 130.0,
                                       height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).primary,
@@ -1720,7 +1716,7 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                             fontFamily: 'Cairo',
                                             color: Colors.white,
                                           ),
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),

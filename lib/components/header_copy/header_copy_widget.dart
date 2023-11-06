@@ -6,16 +6,14 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'header_copy_model.dart';
 export 'header_copy_model.dart';
 
 class HeaderCopyWidget extends StatefulWidget {
-  const HeaderCopyWidget({Key? key}) : super(key: key);
+  const HeaderCopyWidget({super.key});
 
   @override
   _HeaderCopyWidgetState createState() => _HeaderCopyWidgetState();
@@ -50,7 +48,7 @@ class _HeaderCopyWidgetState extends State<HeaderCopyWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 20.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 20.0),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -58,7 +56,7 @@ class _HeaderCopyWidgetState extends State<HeaderCopyWidget> {
           Expanded(
             flex: 12,
             child: Align(
-              alignment: AlignmentDirectional(0.00, 0.00),
+              alignment: const AlignmentDirectional(0.00, 0.00),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -68,9 +66,9 @@ class _HeaderCopyWidgetState extends State<HeaderCopyWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(-1.00, 1.00),
+                          alignment: const AlignmentDirectional(-1.00, 1.00),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 16.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -90,7 +88,7 @@ class _HeaderCopyWidgetState extends State<HeaderCopyWidget> {
                                         ))
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 12.0, 12.0, 12.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -102,7 +100,7 @@ class _HeaderCopyWidgetState extends State<HeaderCopyWidget> {
                                                 showModalBottomSheet(
                                                   isScrollControlled: true,
                                                   backgroundColor:
-                                                      Color(0x26000000),
+                                                      const Color(0x26000000),
                                                   context: context,
                                                   builder: (context) {
                                                     return WebViewAware(
@@ -110,7 +108,7 @@ class _HeaderCopyWidgetState extends State<HeaderCopyWidget> {
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child: Container(
+                                                      child: const SizedBox(
                                                         height: double.infinity,
                                                         child: Nav0Widget(),
                                                       ),
@@ -143,13 +141,13 @@ class _HeaderCopyWidgetState extends State<HeaderCopyWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(1.00, -1.00),
+                        alignment: const AlignmentDirectional(1.00, -1.00),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 12.0, 0.0),
                               child: Container(
                                 width: 50.0,
@@ -157,7 +155,7 @@ class _HeaderCopyWidgetState extends State<HeaderCopyWidget> {
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       blurRadius: 4.0,
                                       color: Color(0x33000000),
@@ -186,7 +184,7 @@ class _HeaderCopyWidgetState extends State<HeaderCopyWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 12.0, 0.0),
                               child: Container(
                                 width: 50.0,
@@ -194,7 +192,7 @@ class _HeaderCopyWidgetState extends State<HeaderCopyWidget> {
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       blurRadius: 4.0,
                                       color: Color(0x33000000),
@@ -220,7 +218,7 @@ class _HeaderCopyWidgetState extends State<HeaderCopyWidget> {
                                   badgeColor:
                                       FlutterFlowTheme.of(context).primary,
                                   elevation: 4.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 8.0, 8.0, 8.0),
                                   position: badges.BadgePosition.topEnd(),
                                   animationType:
@@ -279,7 +277,7 @@ class _HeaderCopyWidgetState extends State<HeaderCopyWidget> {
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      boxShadow: [
+                                      boxShadow: const [
                                         BoxShadow(
                                           blurRadius: 4.0,
                                           color: Color(0x33000000),

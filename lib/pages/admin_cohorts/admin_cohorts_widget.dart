@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/nav0/nav0_widget.dart';
 import '/components/topbar/topbar_widget.dart';
@@ -6,14 +5,12 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'admin_cohorts_model.dart';
@@ -21,9 +18,9 @@ export 'admin_cohorts_model.dart';
 
 class AdminCohortsWidget extends StatefulWidget {
   const AdminCohortsWidget({
-    Key? key,
+    super.key,
     this.output,
-  }) : super(key: key);
+  });
 
   final bool? output;
 
@@ -52,8 +49,8 @@ class _AdminCohortsWidgetState extends State<AdminCohortsWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(50.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -115,7 +112,7 @@ class _AdminCohortsWidgetState extends State<AdminCohortsWidget>
               child: wrapWithModel(
                 model: _model.nav0Model,
                 updateCallback: () => setState(() {}),
-                child: Nav0Widget(),
+                child: const Nav0Widget(),
               ),
             )),
             body: Container(
@@ -138,13 +135,13 @@ class _AdminCohortsWidgetState extends State<AdminCohortsWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 35.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -166,7 +163,7 @@ class _AdminCohortsWidgetState extends State<AdminCohortsWidget>
                                 child: wrapWithModel(
                                   model: _model.topbarModel,
                                   updateCallback: () => setState(() {}),
-                                  child: TopbarWidget(),
+                                  child: const TopbarWidget(),
                                 ),
                               ),
                             ],
@@ -193,10 +190,10 @@ class _AdminCohortsWidgetState extends State<AdminCohortsWidget>
                                     ),
                                     options: FFButtonOptions(
                                       height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           24.0, 0.0, 24.0, 0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).primary,
@@ -207,7 +204,7 @@ class _AdminCohortsWidgetState extends State<AdminCohortsWidget>
                                             color: Colors.white,
                                           ),
                                       elevation: 3.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
@@ -259,7 +256,7 @@ class _AdminCohortsWidgetState extends State<AdminCohortsWidget>
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 5.0, 5.0, 5.0),
                                                 child: Material(
@@ -276,7 +273,7 @@ class _AdminCohortsWidgetState extends State<AdminCohortsWidget>
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
-                                                      boxShadow: [
+                                                      boxShadow: const [
                                                         BoxShadow(
                                                           blurRadius: 4.0,
                                                           color:
@@ -302,7 +299,7 @@ class _AdminCohortsWidgetState extends State<AdminCohortsWidget>
                                                           children: [
                                                             Expanded(
                                                               child: Padding(
-                                                                padding: EdgeInsetsDirectional
+                                                                padding: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         10.0,
                                                                         10.0,
@@ -468,10 +465,10 @@ class _AdminCohortsWidgetState extends State<AdminCohortsWidget>
                                                                       ],
                                                                     ),
                                                                   ]
-                                                                      .divide(SizedBox(
+                                                                      .divide(const SizedBox(
                                                                           width:
                                                                               5.0))
-                                                                      .around(SizedBox(
+                                                                      .around(const SizedBox(
                                                                           width:
                                                                               5.0)),
                                                                 ),
@@ -479,7 +476,7 @@ class _AdminCohortsWidgetState extends State<AdminCohortsWidget>
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           10.0,
                                                                           10.0,
@@ -561,15 +558,15 @@ class _AdminCohortsWidgetState extends State<AdminCohortsWidget>
                                                                           30.0,
                                                                     ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     height:
                                                                         5.0)),
                                                               ),
                                                             ),
                                                           ]
-                                                              .divide(SizedBox(
+                                                              .divide(const SizedBox(
                                                                   width: 5.0))
-                                                              .around(SizedBox(
+                                                              .around(const SizedBox(
                                                                   width: 5.0)),
                                                         ),
                                                       ],
@@ -587,8 +584,8 @@ class _AdminCohortsWidgetState extends State<AdminCohortsWidget>
                                 },
                               ),
                             ]
-                                .divide(SizedBox(height: 5.0))
-                                .around(SizedBox(height: 5.0)),
+                                .divide(const SizedBox(height: 5.0))
+                                .around(const SizedBox(height: 5.0)),
                           ),
                         ),
                       ],

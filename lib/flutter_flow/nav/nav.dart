@@ -1,24 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import '/backend/supabase/supabase.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/backend/push_notifications/push_notifications_handler.dart'
     show PushNotificationsHandler;
 import '/index.dart';
-import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -83,23 +73,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? ProfileWidget() : AuthoWidget(),
+          appStateNotifier.loggedIn ? const ProfileWidget() : const AuthoWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? ProfileWidget() : AuthoWidget(),
+              appStateNotifier.loggedIn ? const ProfileWidget() : const AuthoWidget(),
         ),
         FFRoute(
           name: 'autho',
           path: '/autho',
-          builder: (context, params) => AuthoWidget(),
+          builder: (context, params) => const AuthoWidget(),
         ),
         FFRoute(
           name: 'ForgotPassword',
           path: '/forgotPassword',
-          builder: (context, params) => ForgotPasswordWidget(),
+          builder: (context, params) => const ForgotPasswordWidget(),
         ),
         FFRoute(
           name: 'profile',
@@ -125,7 +115,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'phone',
           path: '/phone',
-          builder: (context, params) => PhoneWidget(),
+          builder: (context, params) => const PhoneWidget(),
         ),
         FFRoute(
           name: 'templet',
@@ -159,7 +149,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'profilecom',
           path: '/profilecom',
           requireAuth: true,
-          builder: (context, params) => ProfilecomWidget(),
+          builder: (context, params) => const ProfilecomWidget(),
         ),
         FFRoute(
           name: 'admin',
@@ -287,7 +277,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'privacyAndPolicy',
           path: '/privacyAndPolicy',
-          builder: (context, params) => PrivacyAndPolicyWidget(),
+          builder: (context, params) => const PrivacyAndPolicyWidget(),
         ),
         FFRoute(
           name: 'supadminGrades',
@@ -309,7 +299,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'supadminquran',
           path: '/supadminquran',
           requireAuth: true,
-          builder: (context, params) => SupadminquranWidget(),
+          builder: (context, params) => const SupadminquranWidget(),
         ),
         FFRoute(
           name: 'testContent',
@@ -379,7 +369,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'usersReportsCopy',
           path: '/usersReportsCopy',
           requireAuth: true,
-          builder: (context, params) => UsersReportsCopyWidget(),
+          builder: (context, params) => const UsersReportsCopyWidget(),
         ),
         FFRoute(
           name: 'supadminGradesCopy',
@@ -610,7 +600,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

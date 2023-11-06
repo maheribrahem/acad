@@ -4,18 +4,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'answers_model.dart';
 export 'answers_model.dart';
 
 class AnswersWidget extends StatefulWidget {
   const AnswersWidget({
-    Key? key,
+    super.key,
     required this.order,
-  }) : super(key: key);
+  });
 
   final int? order;
 
@@ -97,7 +95,7 @@ class _AnswersWidgetState extends State<AnswersWidget> {
           borderColor: FlutterFlowTheme.of(context).secondaryText,
           borderWidth: 2.0,
           borderRadius: 8.0,
-          margin: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+          margin: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
           hidesUnderline: true,
           isSearchable: false,
           isMultiSelect: false,

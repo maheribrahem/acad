@@ -4,15 +4,12 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'topbar_model.dart';
 export 'topbar_model.dart';
 
 class TopbarWidget extends StatefulWidget {
-  const TopbarWidget({Key? key}) : super(key: key);
+  const TopbarWidget({super.key});
 
   @override
   _TopbarWidgetState createState() => _TopbarWidgetState();
@@ -47,21 +44,21 @@ class _TopbarWidgetState extends State<TopbarWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(1.00, -1.00),
+      alignment: const AlignmentDirectional(1.00, -1.00),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
               child: Container(
                 width: 50.0,
                 height: 50.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       blurRadius: 4.0,
                       color: Color(0x33000000),
@@ -88,13 +85,13 @@ class _TopbarWidgetState extends State<TopbarWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
               child: Container(
                 width: 50.0,
                 height: 50.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       blurRadius: 4.0,
                       color: Color(0x33000000),
@@ -117,7 +114,7 @@ class _TopbarWidgetState extends State<TopbarWidget> {
                   shape: badges.BadgeShape.circle,
                   badgeColor: FlutterFlowTheme.of(context).primary,
                   elevation: 4.0,
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                   position: badges.BadgePosition.topEnd(),
                   animationType: badges.BadgeAnimationType.scale,
                   toAnimate: true,
@@ -152,7 +149,7 @@ class _TopbarWidgetState extends State<TopbarWidget> {
                 height: 50.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       blurRadius: 4.0,
                       color: Color(0x33000000),

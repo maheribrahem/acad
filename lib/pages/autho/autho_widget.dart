@@ -10,13 +10,12 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'autho_model.dart';
 export 'autho_model.dart';
 
 class AuthoWidget extends StatefulWidget {
-  const AuthoWidget({Key? key}) : super(key: key);
+  const AuthoWidget({super.key});
 
   @override
   _AuthoWidgetState createState() => _AuthoWidgetState();
@@ -92,7 +91,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: MediaQuery.sizeOf(context).height * 1.0,
               decoration: BoxDecoration(
-                color: Color(0xFF14181B),
+                color: const Color(0xFF14181B),
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: Image.network(
@@ -104,7 +103,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
-                  color: Color(0x990F1113),
+                  color: const Color(0x990F1113),
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: Image.asset(
@@ -112,16 +111,16 @@ class _AuthoWidgetState extends State<AuthoWidget>
                     ).image,
                   ),
                   border: Border.all(
-                    color: Color(0x4D101213),
+                    color: const Color(0x4D101213),
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 16.0, 0.0, 20.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -140,18 +139,18 @@ class _AuthoWidgetState extends State<AuthoWidget>
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: 100.0,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 700.0,
                           ),
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Column(
                             children: [
                               Align(
-                                alignment: Alignment(0.0, 0),
+                                alignment: const Alignment(0.0, 0),
                                 child: TabBar(
                                   isScrollable: true,
-                                  labelColor: Color(0xFFF1F4F8),
-                                  unselectedLabelColor: Color(0xFFF1F4F8),
+                                  labelColor: const Color(0xFFF1F4F8),
+                                  unselectedLabelColor: const Color(0xFFF1F4F8),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).titleMedium,
                                   unselectedLabelStyle:
@@ -177,7 +176,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                   controller: _model.tabBarController,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           44.0, 0.0, 44.0, 0.0),
                                       child: SingleChildScrollView(
                                         primary: false,
@@ -185,12 +184,12 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 20.0, 0.0, 0.0),
                                               child: Autocomplete<String>(
                                                 initialValue:
-                                                    TextEditingValue(),
+                                                    const TextEditingValue(),
                                                 optionsBuilder:
                                                     (textEditingValue) {
                                                   if (textEditingValue.text ==
@@ -227,7 +226,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                 context)
                                                             .bodyMedium,
                                                     textHighlightStyle:
-                                                        TextStyle(),
+                                                        const TextStyle(),
                                                     elevation: 4.0,
                                                     optionBackgroundColor:
                                                         FlutterFlowTheme.of(
@@ -266,7 +265,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                     focusNode: focusNode,
                                                     onEditingComplete:
                                                         onEditingComplete,
-                                                    autofillHints: [
+                                                    autofillHints: const [
                                                       AutofillHints.email
                                                     ],
                                                     obscureText: false,
@@ -284,7 +283,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Lexend Deca',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF95A1AC),
                                                                 fontSize: 14.0,
                                                                 fontWeight:
@@ -298,7 +297,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Lexend Deca',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF95A1AC),
                                                                 fontSize: 14.0,
                                                                 fontWeight:
@@ -307,7 +306,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0x00000000),
                                                           width: 1.0,
@@ -318,7 +317,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0x00000000),
                                                           width: 1.0,
@@ -329,7 +328,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0x00000000),
                                                           width: 1.0,
@@ -340,7 +339,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0x00000000),
                                                           width: 1.0,
@@ -352,7 +351,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                       filled: true,
                                                       fillColor: Colors.white,
                                                       contentPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   24.0,
@@ -365,7 +364,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                         .override(
                                                           fontFamily: 'Cairo',
                                                           color:
-                                                              Color(0xFF0F1113),
+                                                              const Color(0xFF0F1113),
                                                         ),
                                                     minLines: 1,
                                                     validator: _model
@@ -376,12 +375,12 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 12.0, 0.0, 0.0),
                                               child: Autocomplete<String>(
                                                 initialValue:
-                                                    TextEditingValue(),
+                                                    const TextEditingValue(),
                                                 optionsBuilder:
                                                     (textEditingValue) {
                                                   if (textEditingValue.text ==
@@ -418,7 +417,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                 context)
                                                             .bodyMedium,
                                                     textHighlightStyle:
-                                                        TextStyle(),
+                                                        const TextStyle(),
                                                     elevation: 4.0,
                                                     optionBackgroundColor:
                                                         FlutterFlowTheme.of(
@@ -481,7 +480,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                           'profile',
                                                           context.mounted);
                                                     },
-                                                    autofillHints: [
+                                                    autofillHints: const [
                                                       AutofillHints.password
                                                     ],
                                                     obscureText: !_model
@@ -500,7 +499,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Lexend Deca',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF95A1AC),
                                                                 fontSize: 14.0,
                                                                 fontWeight:
@@ -514,7 +513,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Lexend Deca',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF95A1AC),
                                                                 fontSize: 14.0,
                                                                 fontWeight:
@@ -523,7 +522,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0x00000000),
                                                           width: 1.0,
@@ -534,7 +533,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0x00000000),
                                                           width: 1.0,
@@ -545,7 +544,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0x00000000),
                                                           width: 1.0,
@@ -556,7 +555,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0x00000000),
                                                           width: 1.0,
@@ -568,7 +567,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                       filled: true,
                                                       fillColor: Colors.white,
                                                       contentPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   24.0,
@@ -591,7 +590,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               : Icons
                                                                   .visibility_off_outlined,
                                                           color:
-                                                              Color(0xFF95A1AC),
+                                                              const Color(0xFF95A1AC),
                                                           size: 20.0,
                                                         ),
                                                       ),
@@ -602,7 +601,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                         .override(
                                                           fontFamily: 'Cairo',
                                                           color:
-                                                              Color(0xFF0F1113),
+                                                              const Color(0xFF0F1113),
                                                         ),
                                                     minLines: 1,
                                                     validator: _model
@@ -613,7 +612,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 24.0, 0.0, 0.0),
                                               child: FFButtonWidget(
@@ -647,11 +646,11 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                 options: FFButtonOptions(
                                                   width: 230.0,
                                                   height: 50.0,
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 0.0),
                                                   iconPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -671,7 +670,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                             FontWeight.normal,
                                                       ),
                                                   elevation: 3.0,
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
                                                   ),
@@ -679,7 +678,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 20.0, 0.0, 0.0),
                                               child: FFButtonWidget(
@@ -695,14 +694,14 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                 options: FFButtonOptions(
                                                   width: 170.0,
                                                   height: 40.0,
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 0.0),
                                                   iconPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
-                                                  color: Color(0x0039D2C0),
+                                                  color: const Color(0x0039D2C0),
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .titleMedium
@@ -727,7 +726,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 20.0, 0.0),
                                               child: Row(
@@ -737,7 +736,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 12.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -751,7 +750,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                           .titleSmall
                                                           .override(
                                                             fontFamily: 'Cairo',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xC8FFFFFF),
                                                           ),
                                                     ),
@@ -760,7 +759,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 16.0, 0.0, 8.0),
                                               child: Row(
@@ -815,7 +814,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryText,
-                                                        boxShadow: [
+                                                        boxShadow: const [
                                                           BoxShadow(
                                                             blurRadius: 5.0,
                                                             color: Color(
@@ -827,7 +826,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                         shape: BoxShape.circle,
                                                       ),
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.00, 0.00),
                                                       child: FaIcon(
                                                         FontAwesomeIcons.google,
@@ -867,14 +866,14 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                             containerOnOEoffRecordList =
                                             snapshot.data!;
                                         return Container(
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               if (!containerOnOEoffRecordList
                                                   .first.registration)
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           44.0, 0.0, 44.0, 0.0),
                                                   child: SingleChildScrollView(
@@ -885,7 +884,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       20.0,
@@ -922,7 +921,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Lexend Deca',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF95A1AC),
                                                                         fontSize:
                                                                             14.0,
@@ -932,7 +931,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               enabledBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -945,7 +944,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -958,7 +957,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               errorBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -971,7 +970,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               focusedErrorBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -985,7 +984,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               fillColor:
                                                                   Colors.white,
                                                               contentPadding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           20.0,
                                                                           24.0,
@@ -998,7 +997,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF14181B),
                                                                   fontSize:
                                                                       14.0,
@@ -1015,7 +1014,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       12.0,
@@ -1053,7 +1052,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Lexend Deca',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF95A1AC),
                                                                         fontSize:
                                                                             14.0,
@@ -1063,7 +1062,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               enabledBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -1076,7 +1075,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -1089,7 +1088,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               errorBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -1102,7 +1101,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               focusedErrorBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -1116,7 +1115,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               fillColor:
                                                                   Colors.white,
                                                               contentPadding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           20.0,
                                                                           24.0,
@@ -1140,7 +1139,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                           .visibility_outlined
                                                                       : Icons
                                                                           .visibility_off_outlined,
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF95A1AC),
                                                                   size: 20.0,
                                                                 ),
@@ -1152,7 +1151,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF14181B),
                                                                   fontSize:
                                                                       14.0,
@@ -1169,7 +1168,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       12.0,
@@ -1207,7 +1206,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Lexend Deca',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF95A1AC),
                                                                         fontSize:
                                                                             14.0,
@@ -1217,7 +1216,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               enabledBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -1230,7 +1229,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -1243,7 +1242,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               errorBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -1256,7 +1255,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               focusedErrorBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -1270,7 +1269,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               fillColor:
                                                                   Colors.white,
                                                               contentPadding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           20.0,
                                                                           24.0,
@@ -1294,7 +1293,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                           .visibility_outlined
                                                                       : Icons
                                                                           .visibility_off_outlined,
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF95A1AC),
                                                                   size: 20.0,
                                                                 ),
@@ -1306,7 +1305,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF14181B),
                                                                   fontSize:
                                                                       14.0,
@@ -1323,7 +1322,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       24.0,
@@ -1344,7 +1343,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                 ScaffoldMessenger.of(
                                                                         context)
                                                                     .showSnackBar(
-                                                                  SnackBar(
+                                                                  const SnackBar(
                                                                     content:
                                                                         Text(
                                                                       'Passwords don\'t match!',
@@ -1385,14 +1384,14 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                               width: 230.0,
                                                               height: 50.0,
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
                                                               iconPadding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1417,7 +1416,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                       ),
                                                               elevation: 3.0,
                                                               borderSide:
-                                                                  BorderSide(
+                                                                  const BorderSide(
                                                                 color: Colors
                                                                     .transparent,
                                                                 width: 1.0,
@@ -1427,7 +1426,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       20.0,
                                                                       20.0,
@@ -1443,7 +1442,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           12.0,
@@ -1465,7 +1464,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                           fontFamily:
                                                                               'Cairo',
                                                                           color:
-                                                                              Color(0xC8FFFFFF),
+                                                                              const Color(0xC8FFFFFF),
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1475,7 +1474,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       16.0,
@@ -1527,7 +1526,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryText,
-                                                                    boxShadow: [
+                                                                    boxShadow: const [
                                                                       BoxShadow(
                                                                         blurRadius:
                                                                             5.0,
@@ -1542,7 +1541,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                         .circle,
                                                                   ),
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           0.00,
                                                                           0.00),
                                                                   child: FaIcon(
@@ -1567,7 +1566,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(44.0, 0.0,
                                                                 44.0, 0.0),
                                                     child: Column(
@@ -1582,10 +1581,10 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                     .width *
                                                                 1.0,
                                                             decoration:
-                                                                BoxDecoration(),
+                                                                const BoxDecoration(),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           25.0,
@@ -1638,12 +1637,12 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                           FFButtonOptions(
                                                                         height:
                                                                             40.0,
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             24.0,
                                                                             0.0,
                                                                             24.0,
                                                                             0.0),
-                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -1659,7 +1658,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                         elevation:
                                                                             3.0,
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Colors.transparent,
                                                                           width:
@@ -1670,10 +1669,10 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                                       ),
                                                                     ),
                                                                   ]
-                                                                      .divide(SizedBox(
+                                                                      .divide(const SizedBox(
                                                                           height:
                                                                               10.0))
-                                                                      .around(SizedBox(
+                                                                      .around(const SizedBox(
                                                                           height:
                                                                               10.0)),
                                                                 ),

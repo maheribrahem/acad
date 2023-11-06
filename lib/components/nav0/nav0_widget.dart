@@ -5,25 +5,22 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'nav0_model.dart';
 export 'nav0_model.dart';
 
 class Nav0Widget extends StatefulWidget {
   const Nav0Widget({
-    Key? key,
+    super.key,
     this.navOne,
     this.navTwo,
     this.navThree,
     this.navFour,
     this.navFive,
     this.navSix,
-  }) : super(key: key);
+  });
 
   final Color? navOne;
   final Color? navTwo;
@@ -50,8 +47,8 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 350.ms,
-          begin: Offset(40.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(40.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -63,8 +60,8 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 350.ms,
-          begin: Offset(-40.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(-40.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -107,7 +104,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
       height: double.infinity,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             blurRadius: 0.0,
             color: Color(0x00090F13),
@@ -117,7 +114,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
         borderRadius: BorderRadius.circular(0.0),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(24.0, 32.0, 24.0, 0.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(24.0, 32.0, 24.0, 0.0),
         child: SingleChildScrollView(
           primary: false,
           child: Column(
@@ -125,7 +122,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -160,7 +157,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'esw15m16' /* القائمة */,
@@ -169,7 +166,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -179,7 +176,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                     context.pushNamed(
                       'homePage',
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.rightToLeft,
                           duration: Duration(milliseconds: 60),
@@ -192,7 +189,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                         child: Icon(
                           Icons.home_rounded,
                           color: FlutterFlowTheme.of(context).primaryText,
@@ -201,7 +198,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'a3sx8jjy' /* الرئيسية */,
@@ -219,7 +216,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -229,7 +226,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                     context.pushNamed(
                       'coursesMainP',
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 60),
@@ -242,7 +239,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                         child: FaIcon(
                           FontAwesomeIcons.chalkboardTeacher,
                           color: widget.navTwo,
@@ -251,7 +248,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             '1hseigfn' /* المقررات */,
@@ -268,7 +265,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -282,7 +279,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                         child: FaIcon(
                           FontAwesomeIcons.chartLine,
                           color: widget.navFour,
@@ -291,7 +288,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'q3lxl1sw' /* التقييمات */,
@@ -308,7 +305,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -322,7 +319,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                         child: Icon(
                           Icons.person,
                           color: widget.navSix,
@@ -331,7 +328,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'lakv1u0t' /* الملف الشخصي */,
@@ -348,7 +345,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -362,7 +359,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                         child: Icon(
                           FFIcons.kchat,
                           color: widget.navSix,
@@ -371,7 +368,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'pt9321zl' /* المشرف الدراسي */,
@@ -389,7 +386,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
               ),
               if (valueOrDefault<bool>(currentUserDocument?.isSuper, false))
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                   child: AuthUserStreamWidget(
                     builder: (context) => InkWell(
                       splashColor: Colors.transparent,
@@ -403,7 +400,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 8.0),
                             child: Icon(
                               Icons.admin_panel_settings,
@@ -412,7 +409,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -433,7 +430,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                 ),
               if (valueOrDefault<bool>(currentUserDocument?.isAdmin, false))
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                   child: AuthUserStreamWidget(
                     builder: (context) => InkWell(
                       splashColor: Colors.transparent,
@@ -447,7 +444,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 8.0),
                             child: Icon(
                               Icons.location_history_outlined,
@@ -456,7 +453,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -476,7 +473,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                   ),
                 ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -494,7 +491,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                         child: FaIcon(
                           FontAwesomeIcons.doorOpen,
                           color: widget.navSix,
@@ -503,7 +500,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             '25t3ycic' /* خروج */,
@@ -520,7 +517,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -529,7 +526,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 12.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -559,9 +556,9 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 12.0, 12.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -576,10 +573,10 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                                                   BorderRadius.circular(20.0),
                                             ),
                                             child: Stack(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               children: [
-                                                Align(
+                                                const Align(
                                                   alignment:
                                                       AlignmentDirectional(
                                                           0.95, 0.00),
@@ -597,7 +594,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           -0.85, 0.00),
                                                   child: Container(
                                                     width: 36.0,
@@ -607,7 +604,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .primaryText,
-                                                      boxShadow: [
+                                                      boxShadow: const [
                                                         BoxShadow(
                                                           blurRadius: 4.0,
                                                           color:
@@ -661,9 +658,9 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 12.0, 12.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
@@ -678,10 +675,10 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                                                   BorderRadius.circular(20.0),
                                             ),
                                             child: Stack(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               children: [
-                                                Align(
+                                                const Align(
                                                   alignment:
                                                       AlignmentDirectional(
                                                           -0.90, 0.00),
@@ -699,7 +696,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.90, 0.00),
                                                   child: Container(
                                                     width: 36.0,
@@ -709,7 +706,7 @@ class _Nav0WidgetState extends State<Nav0Widget> with TickerProviderStateMixin {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      boxShadow: [
+                                                      boxShadow: const [
                                                         BoxShadow(
                                                           blurRadius: 4.0,
                                                           color:

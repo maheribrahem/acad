@@ -1,24 +1,20 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'cohorts_page_model.dart';
 export 'cohorts_page_model.dart';
 
 class CohortsPageWidget extends StatefulWidget {
   const CohortsPageWidget({
-    Key? key,
+    super.key,
     required this.cohortsRef,
-  }) : super(key: key);
+  });
 
   final DocumentReference? cohortsRef;
 
@@ -106,13 +102,13 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 25.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     10.0, 10.0, 10.0, 10.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -142,7 +138,7 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 8.0, 0.0),
                                     child: TextFormField(
                                       controller:
@@ -153,7 +149,7 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                       focusNode: _model.cohortsNameFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.cohortsNameController',
-                                        Duration(milliseconds: 1000),
+                                        const Duration(milliseconds: 1000),
                                         () async {
                                           await widget.cohortsRef!
                                               .update(createCohortsRecordData(
@@ -173,7 +169,7 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                                 ),
                                               ),
                                               duration:
-                                                  Duration(milliseconds: 4000),
+                                                  const Duration(milliseconds: 4000),
                                               backgroundColor:
                                                   FlutterFlowTheme.of(context)
                                                       .secondary,
@@ -237,15 +233,15 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: <Widget>[]
-                                          .divide(SizedBox(width: 5.0))
-                                          .around(SizedBox(width: 5.0)),
+                                          .divide(const SizedBox(width: 5.0))
+                                          .around(const SizedBox(width: 5.0)),
                                     ),
                                   ),
                                 ],
@@ -311,7 +307,7 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                     ),
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             5.0, 5.0, 5.0, 5.0),
                                         child: FutureBuilder<List<UsersRecord>>(
                                           future: UsersRecord.search(
@@ -387,7 +383,7 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                                         // Customize what your widget looks like with no search results.
                                                         if (snapshot
                                                             .data!.isEmpty) {
-                                                          return Container(
+                                                          return const SizedBox(
                                                             height: 100,
                                                             child: Center(
                                                               child: Text(
@@ -474,7 +470,7 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -504,8 +500,8 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          SizedBox(height: 5.0))
-                                                      .around(SizedBox(
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
                                                           height: 5.0)),
                                                 ),
                                               ),
@@ -517,9 +513,9 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
-                                      decoration: BoxDecoration(),
+                                      decoration: const BoxDecoration(),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
                                         child: TextFormField(
                                           controller:
@@ -529,7 +525,7 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.cohortsUserController',
-                                            Duration(milliseconds: 1000),
+                                            const Duration(milliseconds: 1000),
                                             () => setState(() {}),
                                           ),
                                           obscureText: false,
@@ -635,7 +631,7 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                             containerUsersRecordList =
                                             snapshot.data!;
                                         return Container(
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child:
                                               StreamBuilder<List<UsersRecord>>(
                                             stream: queryUsersRecord(
@@ -688,7 +684,7 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                     ),
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             5.0, 5.0, 5.0, 5.0),
                                         child: FutureBuilder<List<UsersRecord>>(
                                           future: UsersRecord.search(
@@ -763,7 +759,7 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                                         // Customize what your widget looks like with no search results.
                                                         if (snapshot
                                                             .data!.isEmpty) {
-                                                          return Container(
+                                                          return const SizedBox(
                                                             height: 100,
                                                             child: Center(
                                                               child: Text(
@@ -849,7 +845,7 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -879,8 +875,8 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          SizedBox(height: 5.0))
-                                                      .around(SizedBox(
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
                                                           height: 5.0)),
                                                 ),
                                               ),
@@ -892,9 +888,9 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
-                                      decoration: BoxDecoration(),
+                                      decoration: const BoxDecoration(),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.usersController,
@@ -902,7 +898,7 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.usersController',
-                                            Duration(milliseconds: 1000),
+                                            const Duration(milliseconds: 1000),
                                             () => setState(() {}),
                                           ),
                                           obscureText: false,
@@ -975,8 +971,8 @@ class _CohortsPageWidgetState extends State<CohortsPageWidget> {
                           ),
                         ),
                       ]
-                          .divide(SizedBox(height: 5.0))
-                          .around(SizedBox(height: 5.0)),
+                          .divide(const SizedBox(height: 5.0))
+                          .around(const SizedBox(height: 5.0)),
                     ),
                   );
                 },

@@ -6,14 +6,12 @@ import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'supadmin_grades_copy_model.dart';
@@ -21,9 +19,9 @@ export 'supadmin_grades_copy_model.dart';
 
 class SupadminGradesCopyWidget extends StatefulWidget {
   const SupadminGradesCopyWidget({
-    Key? key,
+    super.key,
     this.output,
-  }) : super(key: key);
+  });
 
   final bool? output;
 
@@ -45,30 +43,19 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setAppLanguage(context, 'ar');
-      if (!((currentUserDisplayName != null && currentUserDisplayName != '') &&
-          (currentPhoneNumber != null && currentPhoneNumber != '') &&
-          (valueOrDefault(currentUserDocument?.gender, '') != null &&
-              valueOrDefault(currentUserDocument?.gender, '') != '') &&
-          (valueOrDefault(currentUserDocument?.fullname, '') != null &&
-              valueOrDefault(currentUserDocument?.fullname, '') != '') &&
-          (valueOrDefault(currentUserDocument?.state, '') != null &&
-              valueOrDefault(currentUserDocument?.state, '') != '') &&
-          (valueOrDefault(currentUserDocument?.city, '') != null &&
-              valueOrDefault(currentUserDocument?.city, '') != '') &&
-          (valueOrDefault(currentUserDocument?.schoolLevel, '') != null &&
-              valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
-          (valueOrDefault(currentUserDocument?.job, '') != null &&
-              valueOrDefault(currentUserDocument?.job, '') != '') &&
-          (valueOrDefault(currentUserDocument?.socialStatus, '') != null &&
-              valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
-          (valueOrDefault(currentUserDocument?.pastStudy, '') != null &&
-              valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
-          (valueOrDefault(currentUserDocument?.referral, '') != null &&
-              valueOrDefault(currentUserDocument?.referral, '') != '') &&
-          (valueOrDefault(currentUserDocument?.quranJuz, '') != null &&
-              valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
-          (valueOrDefault(currentUserDocument?.telegram, '') != null &&
-              valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
+      if (!((currentUserDisplayName != '') &&
+          (currentPhoneNumber != '') &&
+          (valueOrDefault(currentUserDocument?.gender, '') != '') &&
+          (valueOrDefault(currentUserDocument?.fullname, '') != '') &&
+          (valueOrDefault(currentUserDocument?.state, '') != '') &&
+          (valueOrDefault(currentUserDocument?.city, '') != '') &&
+          (valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
+          (valueOrDefault(currentUserDocument?.job, '') != '') &&
+          (valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
+          (valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
+          (valueOrDefault(currentUserDocument?.referral, '') != '') &&
+          (valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
+          (valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -83,7 +70,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                   : FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: ProfilecompWidget(),
+                child: const ProfilecompWidget(),
               ),
             ));
           },
@@ -133,7 +120,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
               child: wrapWithModel(
                 model: _model.nav0Model,
                 updateCallback: () => setState(() {}),
-                child: Nav0Widget(),
+                child: const Nav0Widget(),
               ),
             )),
             body: Container(
@@ -156,13 +143,13 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 35.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -184,7 +171,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                 child: wrapWithModel(
                                   model: _model.topbarModel,
                                   updateCallback: () => setState(() {}),
-                                  child: TopbarWidget(),
+                                  child: const TopbarWidget(),
                                 ),
                               ),
                             ],
@@ -205,7 +192,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
                                         height: 100.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -218,7 +205,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             0.00, 0.00),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
@@ -233,7 +220,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
-                                                        boxShadow: [
+                                                        boxShadow: const [
                                                           BoxShadow(
                                                             blurRadius: 3.0,
                                                             color: Color(
@@ -247,13 +234,13 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                 .circular(8.0),
                                                         border: Border.all(
                                                           color:
-                                                              Color(0xFFE0E3E7),
+                                                              const Color(0xFFE0E3E7),
                                                           width: 1.0,
                                                         ),
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     16.0,
@@ -279,14 +266,14 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                         .spaceBetween,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             16.0,
                                                                             0.0),
                                                                     child:
-                                                                        Container(
+                                                                        SizedBox(
                                                                       width:
                                                                           150.0,
                                                                       child:
@@ -299,7 +286,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                             (_) =>
                                                                                 EasyDebounce.debounce(
                                                                           '_model.textController',
-                                                                          Duration(
+                                                                          const Duration(
                                                                               milliseconds: 1000),
                                                                           () =>
                                                                               setState(() {}),
@@ -337,7 +324,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                           focusedBorder:
                                                                               OutlineInputBorder(
                                                                             borderSide:
-                                                                                BorderSide(
+                                                                                const BorderSide(
                                                                               color: Color(0x00000000),
                                                                               width: 2.0,
                                                                             ),
@@ -347,7 +334,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                           errorBorder:
                                                                               OutlineInputBorder(
                                                                             borderSide:
-                                                                                BorderSide(
+                                                                                const BorderSide(
                                                                               color: Color(0x00000000),
                                                                               width: 2.0,
                                                                             ),
@@ -357,7 +344,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                           focusedErrorBorder:
                                                                               OutlineInputBorder(
                                                                             borderSide:
-                                                                                BorderSide(
+                                                                                const BorderSide(
                                                                               color: Color(0x00000000),
                                                                               width: 2.0,
                                                                             ),
@@ -365,7 +352,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                                 BorderRadius.circular(8.0),
                                                                           ),
                                                                           prefixIcon:
-                                                                              Icon(
+                                                                              const Icon(
                                                                             Icons.search_rounded,
                                                                             color:
                                                                                 Color(0xFF57636C),
@@ -401,7 +388,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             16.0,
@@ -423,7 +410,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                             4.0,
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryText,
-                                                                        offset: Offset(
+                                                                        offset: const Offset(
                                                                             4.0,
                                                                             4.0),
                                                                         spreadRadius:
@@ -431,7 +418,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                       )
                                                                     ],
                                                                     borderRadius:
-                                                                        BorderRadius
+                                                                        const BorderRadius
                                                                             .only(
                                                                       bottomLeft:
                                                                           Radius.circular(
@@ -449,7 +436,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             0.0,
@@ -546,7 +533,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                                           borderColor: FlutterFlowTheme.of(context).alternate,
                                                                                           borderWidth: 2.0,
                                                                                           borderRadius: 8.0,
-                                                                                          margin: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                                                                                          margin: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                                                                                           hidesUnderline: true,
                                                                                           isSearchable: false,
                                                                                           isMultiSelect: false,
@@ -575,9 +562,8 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                             UsersRecord>>(
                                                                       future: UsersRecord
                                                                           .search(
-                                                                        term: _model.textController.text != null &&
-                                                                                _model.textController.text != ''
-                                                                            ? '${currentUserEmail},${_model.textController.text}'
+                                                                        term: _model.textController.text != ''
+                                                                            ? '$currentUserEmail,${_model.textController.text}'
                                                                             : '',
                                                                       ),
                                                                       builder:
@@ -605,7 +591,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                         if (snapshot
                                                                             .data!
                                                                             .isEmpty) {
-                                                                          return Container(
+                                                                          return const SizedBox(
                                                                             height:
                                                                                 100,
                                                                             child:
@@ -625,12 +611,12 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                                 List.generate(columnUsersRecordList.length, (columnIndex) {
                                                                               final columnUsersRecord = columnUsersRecordList[columnIndex];
                                                                               return Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                                                                                 child: Container(
                                                                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                    boxShadow: [
+                                                                                    boxShadow: const [
                                                                                       BoxShadow(
                                                                                         blurRadius: 0.0,
                                                                                         color: Color(0xFFF1F4F8),
@@ -639,19 +625,19 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                                     ],
                                                                                   ),
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                                                                                     child: Row(
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       children: [
                                                                                         Expanded(
                                                                                           flex: 4,
                                                                                           child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 12.0, 8.0),
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 12.0, 8.0),
                                                                                             child: Row(
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               children: [
                                                                                                 Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                                   child: ClipRRect(
                                                                                                     borderRadius: BorderRadius.circular(40.0),
                                                                                                     child: Image.network(
@@ -664,7 +650,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                                                 ),
                                                                                                 Expanded(
                                                                                                   child: Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                                     child: Column(
                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                       mainAxisAlignment: MainAxisAlignment.center,
@@ -710,7 +696,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                                               List<ActivitiesProgressRecord> rowActivitiesProgressRecordList = snapshot.data!;
                                                                                               // Customize what your widget looks like with no search results.
                                                                                               if (snapshot.data!.isEmpty) {
-                                                                                                return Container(
+                                                                                                return const SizedBox(
                                                                                                   height: 100,
                                                                                                   child: Center(
                                                                                                     child: Text('No results.'),
@@ -744,7 +730,7 @@ class _SupadminGradesCopyWidgetState extends State<SupadminGradesCopyWidget> {
                                                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                 ),
                                                                                                               ),
-                                                                                                              duration: Duration(milliseconds: 4000),
+                                                                                                              duration: const Duration(milliseconds: 4000),
                                                                                                               backgroundColor: FlutterFlowTheme.of(context).alternate,
                                                                                                             ),
                                                                                                           );

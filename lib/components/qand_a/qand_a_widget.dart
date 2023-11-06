@@ -1,26 +1,22 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/qoptions/qoptions_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'qand_a_model.dart';
 export 'qand_a_model.dart';
 
 class QandAWidget extends StatefulWidget {
   const QandAWidget({
-    Key? key,
+    super.key,
     this.parameter1,
     required this.qbankDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? parameter1;
   final QbankRecord? qbankDoc;
@@ -44,7 +40,7 @@ class _QandAWidgetState extends State<QandAWidget> {
     _model = createModel(context, () => QandAModel());
 
     _model.textController1 ??=
-        TextEditingController(text: widget.qbankDoc?.order?.toString());
+        TextEditingController(text: widget.qbankDoc?.order.toString());
     _model.textFieldFocusNode1 ??= FocusNode();
 
     _model.textController2 ??=
@@ -95,16 +91,16 @@ class _QandAWidgetState extends State<QandAWidget> {
                 children: [
                   Container(
                     width: 50.0,
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                       child: TextFormField(
                         controller: _model.textController1,
                         focusNode: _model.textFieldFocusNode1,
                         onChanged: (_) => EasyDebounce.debounce(
                           '_model.textController1',
-                          Duration(milliseconds: 2000),
+                          const Duration(milliseconds: 2000),
                           () async {
                             await widget.qbankDoc!.reference
                                 .update(createQbankRecordData(
@@ -120,7 +116,7 @@ class _QandAWidgetState extends State<QandAWidget> {
                                         .primaryText,
                                   ),
                                 ),
-                                duration: Duration(milliseconds: 4000),
+                                duration: const Duration(milliseconds: 4000),
                                 backgroundColor:
                                     FlutterFlowTheme.of(context).secondary,
                               ),
@@ -172,16 +168,16 @@ class _QandAWidgetState extends State<QandAWidget> {
                   ),
                   Container(
                     width: 200.0,
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                       child: TextFormField(
                         controller: _model.textController2,
                         focusNode: _model.textFieldFocusNode2,
                         onChanged: (_) => EasyDebounce.debounce(
                           '_model.textController2',
-                          Duration(milliseconds: 2000),
+                          const Duration(milliseconds: 2000),
                           () async {
                             await widget.qbankDoc!.reference
                                 .update(createQbankRecordData(
@@ -197,7 +193,7 @@ class _QandAWidgetState extends State<QandAWidget> {
                                         .primaryText,
                                   ),
                                 ),
-                                duration: Duration(milliseconds: 4000),
+                                duration: const Duration(milliseconds: 4000),
                                 backgroundColor:
                                     FlutterFlowTheme.of(context).secondary,
                               ),
@@ -267,7 +263,7 @@ class _QandAWidgetState extends State<QandAWidget> {
                                       FlutterFlowTheme.of(context).primaryText,
                                 ),
                               ),
-                              duration: Duration(milliseconds: 4000),
+                              duration: const Duration(milliseconds: 4000),
                               backgroundColor:
                                   FlutterFlowTheme.of(context).warning,
                             ),
@@ -279,12 +275,12 @@ class _QandAWidgetState extends State<QandAWidget> {
                           size: 40.0,
                         ),
                       ),
-                    ].divide(SizedBox(height: 5.0)),
+                    ].divide(const SizedBox(height: 5.0)),
                   ),
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     await widget.qbankDoc!.reference.update({
@@ -302,16 +298,16 @@ class _QandAWidgetState extends State<QandAWidget> {
                     size: 15.0,
                   ),
                   options: FFButtonOptions(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Cairo',
                           color: FlutterFlowTheme.of(context).primaryText,
                         ),
                     elevation: 3.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
@@ -321,7 +317,7 @@ class _QandAWidgetState extends State<QandAWidget> {
               ),
               Builder(
                 builder: (context) {
-                  final options = widget.qbankDoc?.options?.toList() ?? [];
+                  final options = widget.qbankDoc?.options.toList() ?? [];
                   return Column(
                     mainAxisSize: MainAxisSize.max,
                     children: List.generate(options.length, (optionsIndex) {
@@ -332,7 +328,7 @@ class _QandAWidgetState extends State<QandAWidget> {
                         children: [
                           Container(
                             width: 200.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: wrapWithModel(
                               model: _model.qoptionsModels.getModel(
                                 optionsIndex.toString(),
@@ -376,7 +372,7 @@ class _QandAWidgetState extends State<QandAWidget> {
                                               .primaryText,
                                         ),
                                       ),
-                                      duration: Duration(milliseconds: 4000),
+                                      duration: const Duration(milliseconds: 4000),
                                       backgroundColor:
                                           FlutterFlowTheme.of(context)
                                               .secondary,
@@ -417,7 +413,7 @@ class _QandAWidgetState extends State<QandAWidget> {
                                               .primaryText,
                                         ),
                                       ),
-                                      duration: Duration(milliseconds: 4000),
+                                      duration: const Duration(milliseconds: 4000),
                                       backgroundColor:
                                           FlutterFlowTheme.of(context).warning,
                                     ),
@@ -429,13 +425,13 @@ class _QandAWidgetState extends State<QandAWidget> {
                                   size: 30.0,
                                 ),
                               ),
-                            ].divide(SizedBox(height: 5.0)),
+                            ].divide(const SizedBox(height: 5.0)),
                           ),
                         ]
-                            .divide(SizedBox(width: 5.0))
-                            .around(SizedBox(width: 5.0)),
+                            .divide(const SizedBox(width: 5.0))
+                            .around(const SizedBox(width: 5.0)),
                       );
-                    }).divide(SizedBox(height: 10.0)),
+                    }).divide(const SizedBox(height: 10.0)),
                   );
                 },
               ),
@@ -443,7 +439,7 @@ class _QandAWidgetState extends State<QandAWidget> {
                 containerQbankRecord.answer,
                 style: FlutterFlowTheme.of(context).bodyMedium,
               ),
-            ].divide(SizedBox(height: 5.0)),
+            ].divide(const SizedBox(height: 5.0)),
           ),
         );
       },

@@ -1,23 +1,19 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'add_actiti_model.dart';
 export 'add_actiti_model.dart';
 
 class AddActitiWidget extends StatefulWidget {
   const AddActitiWidget({
-    Key? key,
+    super.key,
     this.activRef,
-  }) : super(key: key);
+  });
 
   final DocumentReference? activRef;
 
@@ -86,7 +82,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
               Flexible(
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
                   child: StreamBuilder<ActivitiesRecord>(
                     stream: ActivitiesRecord.getDocument(widget.activRef!),
                     builder: (context, snapshot) {
@@ -105,13 +101,13 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                       }
                       final isSetActivitiesRecord = snapshot.data!;
                       return Container(
-                        constraints: BoxConstraints(
+                        constraints: const BoxConstraints(
                           maxWidth: 700.0,
                         ),
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               blurRadius: 5.0,
                               color: Color(0x3D2D3A21),
@@ -124,7 +120,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 8.0, 8.0, 8.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -132,7 +128,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -168,7 +164,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 12.0, 12.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -180,7 +176,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 8.0, 8.0, 8.0),
                                               child: TextFormField(
                                                 controller: _model
@@ -194,7 +190,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.supjNameController1',
-                                                  Duration(milliseconds: 2000),
+                                                  const Duration(milliseconds: 2000),
                                                   () => setState(() {}),
                                                 ),
                                                 autofocus: true,
@@ -217,7 +213,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 12.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -237,7 +233,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -247,7 +243,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -257,7 +253,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -266,7 +262,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                             14.0),
                                                   ),
                                                   contentPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(16.0, 4.0,
                                                               8.0, 12.0),
                                                 ),
@@ -289,7 +285,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 8.0, 8.0, 8.0),
                                               child: TextFormField(
                                                 controller:
@@ -299,7 +295,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.addlessonController1',
-                                                  Duration(milliseconds: 2000),
+                                                  const Duration(milliseconds: 2000),
                                                   () => setState(() {}),
                                                 ),
                                                 autofocus: true,
@@ -322,7 +318,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 12.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -342,7 +338,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -352,7 +348,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -362,7 +358,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -371,7 +367,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                             14.0),
                                                   ),
                                                   contentPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(16.0, 4.0,
                                                               8.0, 12.0),
                                                 ),
@@ -396,7 +392,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 8.0, 8.0, 8.0),
                                               child: TextFormField(
                                                 controller: _model
@@ -410,7 +406,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.addlessonController2',
-                                                  Duration(milliseconds: 2000),
+                                                  const Duration(milliseconds: 2000),
                                                   () => setState(() {}),
                                                 ),
                                                 autofocus: true,
@@ -433,7 +429,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 12.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -453,7 +449,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -463,7 +459,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -473,7 +469,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -482,7 +478,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                             14.0),
                                                   ),
                                                   contentPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(16.0, 4.0,
                                                               8.0, 12.0),
                                                 ),
@@ -507,7 +503,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 8.0, 8.0, 8.0),
                                               child: TextFormField(
                                                 controller: _model
@@ -522,7 +518,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.addlessonController3',
-                                                  Duration(milliseconds: 2000),
+                                                  const Duration(milliseconds: 2000),
                                                   () => setState(() {}),
                                                 ),
                                                 autofocus: true,
@@ -545,7 +541,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 12.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -565,7 +561,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -575,7 +571,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -585,7 +581,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -594,7 +590,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                             14.0),
                                                   ),
                                                   contentPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(16.0, 4.0,
                                                               8.0, 12.0),
                                                 ),
@@ -633,7 +629,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                       .secondaryText,
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 4.0, 12.0, 12.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -642,9 +638,6 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                       FFButtonWidget(
                                         onPressed: () async {
                                           if (_model.addlessonController3
-                                                      .text !=
-                                                  null &&
-                                              _model.addlessonController3
                                                       .text !=
                                                   '') {
                                             await ActivitiesRecord.collection
@@ -676,10 +669,10 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                           width: 90.0,
                                           height: 40.0,
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
@@ -693,7 +686,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                           elevation: 2.0,
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),
@@ -717,14 +710,14 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
               Flexible(
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
                   child: Container(
-                    constraints: BoxConstraints(
+                    constraints: const BoxConstraints(
                       maxWidth: 700.0,
                     ),
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           blurRadius: 5.0,
                           color: Color(0x3D2D3A21),
@@ -737,14 +730,14 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 8.0, 8.0, 8.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     5.0, 5.0, 5.0, 5.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
@@ -780,7 +773,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 12.0, 12.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -792,7 +785,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 8.0, 8.0, 8.0),
                                           child: TextFormField(
                                             controller:
@@ -802,7 +795,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                             onChanged: (_) =>
                                                 EasyDebounce.debounce(
                                               '_model.supjNameController2',
-                                              Duration(milliseconds: 2000),
+                                              const Duration(milliseconds: 2000),
                                               () => setState(() {}),
                                             ),
                                             autofocus: true,
@@ -824,7 +817,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   .override(
                                                     fontFamily:
                                                         'Plus Jakarta Sans',
-                                                    color: Color(0xFF57636C),
+                                                    color: const Color(0xFF57636C),
                                                     fontSize: 12.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -839,7 +832,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -847,7 +840,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -856,7 +849,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -864,7 +857,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 4.0, 8.0, 12.0),
                                             ),
@@ -886,7 +879,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 8.0, 8.0, 8.0),
                                           child: TextFormField(
                                             controller:
@@ -896,7 +889,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                             onChanged: (_) =>
                                                 EasyDebounce.debounce(
                                               '_model.addlessonController4',
-                                              Duration(milliseconds: 2000),
+                                              const Duration(milliseconds: 2000),
                                               () => setState(() {}),
                                             ),
                                             autofocus: true,
@@ -918,7 +911,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   .override(
                                                     fontFamily:
                                                         'Plus Jakarta Sans',
-                                                    color: Color(0xFF57636C),
+                                                    color: const Color(0xFF57636C),
                                                     fontSize: 12.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -933,7 +926,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -941,7 +934,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -950,7 +943,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -958,7 +951,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 4.0, 8.0, 12.0),
                                             ),
@@ -982,7 +975,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 8.0, 8.0, 8.0),
                                           child: TextFormField(
                                             controller:
@@ -992,7 +985,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                             onChanged: (_) =>
                                                 EasyDebounce.debounce(
                                               '_model.addlessonController5',
-                                              Duration(milliseconds: 2000),
+                                              const Duration(milliseconds: 2000),
                                               () => setState(() {}),
                                             ),
                                             autofocus: true,
@@ -1014,7 +1007,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   .override(
                                                     fontFamily:
                                                         'Plus Jakarta Sans',
-                                                    color: Color(0xFF57636C),
+                                                    color: const Color(0xFF57636C),
                                                     fontSize: 12.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -1029,7 +1022,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1037,7 +1030,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1046,7 +1039,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1054,7 +1047,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 4.0, 8.0, 12.0),
                                             ),
@@ -1078,7 +1071,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 8.0, 8.0, 8.0),
                                           child: TextFormField(
                                             controller:
@@ -1088,7 +1081,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                             onChanged: (_) =>
                                                 EasyDebounce.debounce(
                                               '_model.addlessonController6',
-                                              Duration(milliseconds: 2000),
+                                              const Duration(milliseconds: 2000),
                                               () => setState(() {}),
                                             ),
                                             autofocus: true,
@@ -1110,7 +1103,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                   .override(
                                                     fontFamily:
                                                         'Plus Jakarta Sans',
-                                                    color: Color(0xFF57636C),
+                                                    color: const Color(0xFF57636C),
                                                     fontSize: 12.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -1125,7 +1118,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1133,7 +1126,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1142,7 +1135,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1150,7 +1143,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 4.0, 8.0, 12.0),
                                             ),
@@ -1185,7 +1178,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                               color: FlutterFlowTheme.of(context).secondaryText,
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 4.0, 12.0, 12.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -1194,8 +1187,6 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                   FFButtonWidget(
                                     onPressed: () async {
                                       if (_model.addlessonController6.text !=
-                                              null &&
-                                          _model.addlessonController6.text !=
                                               '') {
                                         await ActivitiesRecord.collection
                                             .doc()
@@ -1221,10 +1212,10 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                     options: FFButtonOptions(
                                       width: 90.0,
                                       height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).primary,
@@ -1237,7 +1228,7 @@ class _AddActitiWidgetState extends State<AddActitiWidget> {
                                             fontWeight: FontWeight.w600,
                                           ),
                                       elevation: 2.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),

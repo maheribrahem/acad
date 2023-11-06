@@ -29,7 +29,7 @@ import 'form_field_controller.dart';
 import 'package:flutter/material.dart';
 
 class FlutterFlowRadioButton extends StatefulWidget {
-  const FlutterFlowRadioButton({
+  const FlutterFlowRadioButton({super.key, 
     required this.options,
     required this.onChanged,
     required this.controller,
@@ -133,7 +133,7 @@ class RadioButtonBuilder<T> {
 }
 
 class RadioButton<T> extends StatelessWidget {
-  const RadioButton({
+  const RadioButton({super.key, 
     required this.description,
     required this.value,
     required this.groupValue,
@@ -194,7 +194,7 @@ class RadioButton<T> extends StatelessWidget {
 }
 
 class RadioGroup<T> extends StatelessWidget {
-  const RadioGroup.builder({
+  const RadioGroup.builder({super.key, 
     required this.groupValue,
     required this.onChanged,
     required this.items,
@@ -229,7 +229,7 @@ class RadioGroup<T> extends StatelessWidget {
   List<Widget> get _group => items.map(
         (item) {
           final radioButtonBuilder = itemBuilder(item);
-          return Container(
+          return SizedBox(
             height: optionHeight,
             width: optionWidth,
             child: RadioButton(

@@ -9,7 +9,7 @@ class QbankAttemptTable extends SupabaseTable<QbankAttemptRow> {
 }
 
 class QbankAttemptRow extends SupabaseDataRow {
-  QbankAttemptRow(Map<String, dynamic> data) : super(data);
+  QbankAttemptRow(super.data);
 
   @override
   SupabaseTable get table => QbankAttemptTable();

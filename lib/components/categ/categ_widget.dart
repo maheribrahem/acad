@@ -2,21 +2,16 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'categ_model.dart';
 export 'categ_model.dart';
 
 class CategWidget extends StatefulWidget {
   const CategWidget({
-    Key? key,
+    super.key,
     String? hide,
-  })  : this.hide = hide ?? '0',
-        super(key: key);
+  })  : hide = hide ?? '0';
 
   final String hide;
 
@@ -43,8 +38,8 @@ class _CategWidgetState extends State<CategWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 30.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -86,9 +81,9 @@ class _CategWidgetState extends State<CategWidget>
       mainAxisSize: MainAxisSize.max,
       children: [
         Container(
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -97,11 +92,11 @@ class _CategWidgetState extends State<CategWidget>
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                          const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                       child: Container(
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Color(0xFFF1F4F8),
                               offset: Offset(0.0, 1.0),
@@ -116,7 +111,7 @@ class _CategWidgetState extends State<CategWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 8.0, 12.0, 8.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -132,7 +127,7 @@ class _CategWidgetState extends State<CategWidget>
                                   ),
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 12.0, 12.0, 12.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -156,7 +151,7 @@ class _CategWidgetState extends State<CategWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 4.0, 0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
@@ -179,13 +174,13 @@ class _CategWidgetState extends State<CategWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 4.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 4.0, 0.0, 0.0),
                                                   child: Text(
@@ -211,7 +206,7 @@ class _CategWidgetState extends State<CategWidget>
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -226,7 +221,7 @@ class _CategWidgetState extends State<CategWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF57636C),
                                                             fontSize: 14.0,
                                                             fontWeight:
@@ -249,7 +244,7 @@ class _CategWidgetState extends State<CategWidget>
                                         value: _model.switchValue ??= true,
                                         onChanged: (newValue) async {
                                           setState(() =>
-                                              _model.switchValue = newValue!);
+                                              _model.switchValue = newValue);
                                         },
                                         activeColor:
                                             FlutterFlowTheme.of(context)
@@ -273,7 +268,7 @@ class _CategWidgetState extends State<CategWidget>
                               _model.switchValue == true,
                               false,
                             ))
-                              Padding(
+                              const Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 8.0, 12.0, 8.0),
                                 child: Row(

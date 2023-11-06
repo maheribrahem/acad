@@ -1,20 +1,15 @@
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'phone_model.dart';
 export 'phone_model.dart';
 
 class PhoneWidget extends StatefulWidget {
-  const PhoneWidget({Key? key}) : super(key: key);
+  const PhoneWidget({super.key});
 
   @override
   _PhoneWidgetState createState() => _PhoneWidgetState();
@@ -86,7 +81,7 @@ class _PhoneWidgetState extends State<PhoneWidget>
               ),
               style: FlutterFlowTheme.of(context).headlineSmall,
             ),
-            actions: [],
+            actions: const [],
             centerTitle: false,
             elevation: 0.0,
           ),
@@ -100,7 +95,7 @@ class _PhoneWidgetState extends State<PhoneWidget>
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'k3nt6gu4' /* Type in your phone number belo... */,
@@ -112,7 +107,7 @@ class _PhoneWidgetState extends State<PhoneWidget>
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 0.0),
                 child: TextFormField(
                   controller: _model.phoneNumberController,
                   focusNode: _model.phoneNumberFocusNode,
@@ -135,21 +130,21 @@ class _PhoneWidgetState extends State<PhoneWidget>
                       borderRadius: BorderRadius.circular(40.0),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Color(0x00000000),
                         width: 2.0,
                       ),
                       borderRadius: BorderRadius.circular(40.0),
                     ),
                     errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Color(0x00000000),
                         width: 2.0,
                       ),
                       borderRadius: BorderRadius.circular(40.0),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Color(0x00000000),
                         width: 2.0,
                       ),
@@ -158,11 +153,11 @@ class _PhoneWidgetState extends State<PhoneWidget>
                     filled: true,
                     fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                     contentPadding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Cairo',
-                        color: Color(0xFF0F1113),
+                        color: const Color(0xFF0F1113),
                       ),
                   maxLines: null,
                   keyboardType: TextInputType.phone,
@@ -171,7 +166,7 @@ class _PhoneWidgetState extends State<PhoneWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () {
                     print('Button-Login pressed ...');
@@ -182,16 +177,16 @@ class _PhoneWidgetState extends State<PhoneWidget>
                   options: FFButtonOptions(
                     width: 230.0,
                     height: 50.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Cairo',
                           color: Colors.white,
                         ),
                     elevation: 3.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),

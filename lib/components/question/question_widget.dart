@@ -3,20 +3,17 @@ import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'question_model.dart';
 export 'question_model.dart';
 
 class QuestionWidget extends StatefulWidget {
   const QuestionWidget({
-    Key? key,
+    super.key,
     required this.questions,
-  }) : super(key: key);
+  });
 
   final DocumentReference? questions;
 
@@ -85,7 +82,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -101,7 +98,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [

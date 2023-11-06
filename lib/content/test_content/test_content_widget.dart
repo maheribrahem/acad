@@ -7,13 +7,10 @@ import '/components/qbank_answer_copy/qbank_answer_copy_widget.dart';
 import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -22,9 +19,9 @@ export 'test_content_model.dart';
 
 class TestContentWidget extends StatefulWidget {
   const TestContentWidget({
-    Key? key,
+    super.key,
     required this.testRef,
-  }) : super(key: key);
+  });
 
   final DocumentReference? testRef;
 
@@ -99,7 +96,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                   child: wrapWithModel(
                     model: _model.nav0Model,
                     updateCallback: () => setState(() {}),
-                    child: Nav0Widget(),
+                    child: const Nav0Widget(),
                   ),
                 )),
                 body: FutureBuilder<List<ActivitiesProgressRow>>(
@@ -135,7 +132,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                     List<ActivitiesProgressRow>
                         containerActivitiesProgressRowList = snapshot.data!;
                     return Container(
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Container(
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -154,14 +151,14 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 35.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 0.0, 0.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
@@ -186,7 +183,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                             model: _model.topbarModel,
                                             updateCallback: () =>
                                                 setState(() {}),
-                                            child: TopbarWidget(),
+                                            child: const TopbarWidget(),
                                           ),
                                         ),
                                       ],
@@ -194,9 +191,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                   ),
                                   Builder(
                                     builder: (context) {
-                                      if (containerActivitiesProgressRowList
-                                              .length <
-                                          1) {
+                                      if (containerActivitiesProgressRowList.isEmpty) {
                                         return Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -204,21 +199,21 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                               height: MediaQuery.sizeOf(context)
                                                       .height *
                                                   0.88,
-                                              constraints: BoxConstraints(
+                                              constraints: const BoxConstraints(
                                                 maxWidth: 700.0,
                                               ),
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                boxShadow: [
+                                                boxShadow: const [
                                                   BoxShadow(
                                                     blurRadius: 4.0,
                                                     color: Color(0x320E151B),
                                                     offset: Offset(0.0, -2.0),
                                                   )
                                                 ],
-                                                borderRadius: BorderRadius.only(
+                                                borderRadius: const BorderRadius.only(
                                                   bottomLeft:
                                                       Radius.circular(0.0),
                                                   bottomRight:
@@ -243,7 +238,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           16.0,
@@ -300,7 +295,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                               .data!;
                                                                       return Container(
                                                                         decoration:
-                                                                            BoxDecoration(),
+                                                                            const BoxDecoration(),
                                                                         child: FutureBuilder<
                                                                             List<QbankAttemptsRow>>(
                                                                           future:
@@ -348,16 +343,16 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                       builder: (alertDialogContext) {
                                                                                         return WebViewAware(
                                                                                             child: AlertDialog(
-                                                                                          title: Text('إنهاء وتسليم'),
-                                                                                          content: Text('هل متأكد من إنهاء المحاولة'),
+                                                                                          title: const Text('إنهاء وتسليم'),
+                                                                                          content: const Text('هل متأكد من إنهاء المحاولة'),
                                                                                           actions: [
                                                                                             TextButton(
                                                                                               onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                              child: Text('لا'),
+                                                                                              child: const Text('لا'),
                                                                                             ),
                                                                                             TextButton(
                                                                                               onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                              child: Text('نعم'),
+                                                                                              child: const Text('نعم'),
                                                                                             ),
                                                                                           ],
                                                                                         ));
@@ -394,9 +389,9 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                   borderRadius: BorderRadius.circular(14.0),
                                                                                 ),
                                                                                 child: Align(
-                                                                                  alignment: AlignmentDirectional(-0.00, 0.00),
+                                                                                  alignment: const AlignmentDirectional(-0.00, 0.00),
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                                                                                     child: Text(
                                                                                       FFLocalizations.of(context).getText(
                                                                                         'xkpzpi1w' /* خروج وتسليم */,
@@ -461,7 +456,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                       ),
                                                                     ],
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         5.0)),
                                                               ),
@@ -474,7 +469,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                   Flexible(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -541,7 +536,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                     Flexible(
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             10.0,
                                                                             10.0,
                                                                             10.0,
@@ -585,7 +580,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                       child: Container(
                                                                                         constraints: BoxConstraints(
                                                                                           maxWidth: () {
@@ -598,9 +593,9 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                             }
                                                                                           }(),
                                                                                         ),
-                                                                                        decoration: BoxDecoration(),
+                                                                                        decoration: const BoxDecoration(),
                                                                                         child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                                                                                           child: Text(
                                                                                             '${qbankQbankRecord.order.toString()}- ${qbankQbankRecord.qtext}',
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium,
@@ -609,7 +604,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                       ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                       child: Container(
                                                                                         constraints: BoxConstraints(
                                                                                           maxWidth: () {
@@ -622,7 +617,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                             }
                                                                                           }(),
                                                                                         ),
-                                                                                        decoration: BoxDecoration(),
+                                                                                        decoration: const BoxDecoration(),
                                                                                         child: wrapWithModel(
                                                                                           model: _model.qbankAnswerModels.getModel(
                                                                                             qbankQbankRecord.reference.id,
@@ -643,7 +638,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                     ),
                                                                                   ],
                                                                                 ),
-                                                                              ].divide(SizedBox(width: 5.0)).around(SizedBox(width: 5.0)),
+                                                                              ].divide(const SizedBox(width: 5.0)).around(const SizedBox(width: 5.0)),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -660,9 +655,9 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                   ),
                                                 ]
                                                     .divide(
-                                                        SizedBox(height: 5.0))
+                                                        const SizedBox(height: 5.0))
                                                     .around(
-                                                        SizedBox(height: 5.0)),
+                                                        const SizedBox(height: 5.0)),
                                               ),
                                             ),
                                           ],
@@ -672,21 +667,21 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.00, 1.00),
                                               child: Container(
                                                 height:
                                                     MediaQuery.sizeOf(context)
                                                             .height *
                                                         0.88,
-                                                constraints: BoxConstraints(
+                                                constraints: const BoxConstraints(
                                                   maxWidth: 700.0,
                                                 ),
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
-                                                  boxShadow: [
+                                                  boxShadow: const [
                                                     BoxShadow(
                                                       blurRadius: 4.0,
                                                       color: Color(0x320E151B),
@@ -694,7 +689,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                     )
                                                   ],
                                                   borderRadius:
-                                                      BorderRadius.only(
+                                                      const BorderRadius.only(
                                                     bottomLeft:
                                                         Radius.circular(0.0),
                                                     bottomRight:
@@ -720,7 +715,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                     .max,
                                                             children: [
                                                               Padding(
-                                                                padding: EdgeInsetsDirectional
+                                                                padding: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         16.0,
@@ -770,9 +765,9 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                             ),
                                                                             child:
                                                                                 Align(
-                                                                              alignment: AlignmentDirectional(-0.00, 0.00),
+                                                                              alignment: const AlignmentDirectional(-0.00, 0.00),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                                                                                 child: Text(
                                                                                   FFLocalizations.of(context).getText(
                                                                                     'xqhpjcuq' /* عودة */,
@@ -804,16 +799,16 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                     builder: (alertDialogContext) {
                                                                                       return WebViewAware(
                                                                                           child: AlertDialog(
-                                                                                        title: Text('حذف وإعادة'),
-                                                                                        content: Text('هل أنت متأكد من رغبتك في حذف الدرجة السابقة وإعادة الاختبار؟'),
+                                                                                        title: const Text('حذف وإعادة'),
+                                                                                        content: const Text('هل أنت متأكد من رغبتك في حذف الدرجة السابقة وإعادة الاختبار؟'),
                                                                                         actions: [
                                                                                           TextButton(
                                                                                             onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                            child: Text('لا'),
+                                                                                            child: const Text('لا'),
                                                                                           ),
                                                                                           TextButton(
                                                                                             onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                            child: Text('نعم'),
+                                                                                            child: const Text('نعم'),
                                                                                           ),
                                                                                         ],
                                                                                       ));
@@ -847,9 +842,9 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                 borderRadius: BorderRadius.circular(14.0),
                                                                               ),
                                                                               child: Align(
-                                                                                alignment: AlignmentDirectional(-0.00, 0.00),
+                                                                                alignment: const AlignmentDirectional(-0.00, 0.00),
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'arj0o93c' /* إعادة الاختبار */,
@@ -863,12 +858,12 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                      ].divide(SizedBox(
+                                                                      ].divide(const SizedBox(
                                                                               height: 5.0)),
                                                                     ),
                                                                     Container(
                                                                       decoration:
-                                                                          BoxDecoration(),
+                                                                          const BoxDecoration(),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
@@ -903,7 +898,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                   }
                                                                                   List<QbankRecord> containerQbankRecordList = snapshot.data!;
                                                                                   return Container(
-                                                                                    decoration: BoxDecoration(),
+                                                                                    decoration: const BoxDecoration(),
                                                                                     child: CircularPercentIndicator(
                                                                                       percent: containerActivitiesProgressRowList.first.grade!,
                                                                                       radius: 37.5,
@@ -1008,7 +1003,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                         ),
                                                                       ],
                                                                     ),
-                                                                  ].divide(SizedBox(
+                                                                  ].divide(const SizedBox(
                                                                       width:
                                                                           5.0)),
                                                                 ),
@@ -1021,7 +1016,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                     Flexible(
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -1086,7 +1081,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                             .center,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             10.0,
                                                                             10.0,
                                                                             10.0,
@@ -1167,9 +1162,9 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                                 Icons.radio_button_checked_rounded,
                                                                                                 color: valueOrDefault<Color>(
                                                                                                   () {
-                                                                                                    if (containerQbankAttemptsRowList.length <= 0) {
+                                                                                                    if (containerQbankAttemptsRowList.isEmpty) {
                                                                                                       return FlutterFlowTheme.of(context).accent4;
-                                                                                                    } else if ((qbankQbankRecord.answer == containerQbankAttemptsRowList.first.qbankAnswer) && (containerQbankAttemptsRowList.length >= 1)) {
+                                                                                                    } else if ((qbankQbankRecord.answer == containerQbankAttemptsRowList.first.qbankAnswer) && (containerQbankAttemptsRowList.isNotEmpty)) {
                                                                                                       return FlutterFlowTheme.of(context).secondary;
                                                                                                     } else {
                                                                                                       return FlutterFlowTheme.of(context).alternate;
@@ -1183,7 +1178,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                           },
                                                                                         ),
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                           child: Container(
                                                                                             constraints: BoxConstraints(
                                                                                               maxWidth: () {
@@ -1196,9 +1191,9 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                                 }
                                                                                               }(),
                                                                                             ),
-                                                                                            decoration: BoxDecoration(),
+                                                                                            decoration: const BoxDecoration(),
                                                                                             child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                                                                                               child: Text(
                                                                                                 '${qbankQbankRecord.order.toString()}- ${qbankQbankRecord.qtext}',
                                                                                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -1209,7 +1204,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                       ],
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                       child: Container(
                                                                                         constraints: BoxConstraints(
                                                                                           maxWidth: () {
@@ -1222,7 +1217,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                             }
                                                                                           }(),
                                                                                         ),
-                                                                                        decoration: BoxDecoration(),
+                                                                                        decoration: const BoxDecoration(),
                                                                                         child: wrapWithModel(
                                                                                           model: _model.qbankAnswerCopyModels.getModel(
                                                                                             qbankQbankRecord.reference.id,
@@ -1271,12 +1266,12 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                             }
                                                                                             List<QbankAttemptsRow> containerQbankAttemptsRowList = snapshot.data!;
                                                                                             return Container(
-                                                                                              decoration: BoxDecoration(),
+                                                                                              decoration: const BoxDecoration(),
                                                                                               child: Container(
                                                                                                 width: 300.0,
-                                                                                                decoration: BoxDecoration(),
+                                                                                                decoration: const BoxDecoration(),
                                                                                                 child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                                                                                                   child: Text(
                                                                                                     'الإجابة الصحيحة : ${qbankQbankRecord.answer}',
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium,
@@ -1290,7 +1285,7 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                                                     ),
                                                                                   ],
                                                                                 ),
-                                                                              ].divide(SizedBox(width: 5.0)).around(SizedBox(width: 5.0)),
+                                                                              ].divide(const SizedBox(width: 5.0)).around(const SizedBox(width: 5.0)),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -1306,8 +1301,8 @@ class _TestContentWidgetState extends State<TestContentWidget> {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          SizedBox(height: 5.0))
-                                                      .around(SizedBox(
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
                                                           height: 5.0)),
                                                 ),
                                               ),

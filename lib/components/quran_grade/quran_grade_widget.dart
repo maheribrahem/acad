@@ -1,24 +1,21 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'quran_grade_model.dart';
 export 'quran_grade_model.dart';
 
 class QuranGradeWidget extends StatefulWidget {
   const QuranGradeWidget({
-    Key? key,
+    super.key,
     required this.user,
     required this.categRef,
     required this.progressActivRef,
-  }) : super(key: key);
+  });
 
   final DocumentReference? user;
   final DocumentReference? categRef;
@@ -59,9 +56,9 @@ class _QuranGradeWidgetState extends State<QuranGradeWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      decoration: BoxDecoration(),
+      decoration: const BoxDecoration(),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
         child: StreamBuilder<ActivitiesProgressRecord>(
           stream:
               ActivitiesProgressRecord.getDocument(widget.progressActivRef!),
@@ -87,7 +84,7 @@ class _QuranGradeWidgetState extends State<QuranGradeWidget> {
               focusNode: _model.textFieldFocusNode,
               onChanged: (_) => EasyDebounce.debounce(
                 '_model.textController',
-                Duration(milliseconds: 1000),
+                const Duration(milliseconds: 1000),
                 () async {
                   await widget.progressActivRef!
                       .update(createActivitiesProgressRecordData(

@@ -1,18 +1,14 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'settings_model.dart';
 export 'settings_model.dart';
 
 class SettingsWidget extends StatefulWidget {
-  const SettingsWidget({Key? key}) : super(key: key);
+  const SettingsWidget({super.key});
 
   @override
   _SettingsWidgetState createState() => _SettingsWidgetState();
@@ -73,7 +69,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(5.0, 25.0, 5.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 25.0, 5.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -103,8 +99,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       value: _model.switchListTileValue ??=
                           containerOnOEoffRecordList.first.registration,
                       onChanged: (newValue) async {
-                        setState(() => _model.switchListTileValue = newValue!);
-                        if (newValue!) {
+                        setState(() => _model.switchListTileValue = newValue);
+                        if (newValue) {
                           await containerOnOEoffRecordList.first.reference
                               .update(createOnOEoffRecordData(
                             registration: true,
@@ -138,7 +134,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   ),
                 ],
               ),
-            ].divide(SizedBox(height: 5.0)).around(SizedBox(height: 5.0)),
+            ].divide(const SizedBox(height: 5.0)).around(const SizedBox(height: 5.0)),
           ),
         );
       },

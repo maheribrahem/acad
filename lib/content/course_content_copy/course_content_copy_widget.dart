@@ -7,15 +7,12 @@ import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'course_content_copy_model.dart';
@@ -23,10 +20,10 @@ export 'course_content_copy_model.dart';
 
 class CourseContentCopyWidget extends StatefulWidget {
   const CourseContentCopyWidget({
-    Key? key,
+    super.key,
     this.output,
     required this.courseRef,
-  }) : super(key: key);
+  });
 
   final bool? output;
   final DocumentReference? courseRef;
@@ -57,8 +54,8 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(50.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -76,8 +73,8 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(50.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -95,8 +92,8 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(50.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -111,30 +108,19 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {});
       setAppLanguage(context, 'ar');
-      if (!((currentUserDisplayName != null && currentUserDisplayName != '') &&
-          (currentPhoneNumber != null && currentPhoneNumber != '') &&
-          (valueOrDefault(currentUserDocument?.gender, '') != null &&
-              valueOrDefault(currentUserDocument?.gender, '') != '') &&
-          (valueOrDefault(currentUserDocument?.fullname, '') != null &&
-              valueOrDefault(currentUserDocument?.fullname, '') != '') &&
-          (valueOrDefault(currentUserDocument?.state, '') != null &&
-              valueOrDefault(currentUserDocument?.state, '') != '') &&
-          (valueOrDefault(currentUserDocument?.city, '') != null &&
-              valueOrDefault(currentUserDocument?.city, '') != '') &&
-          (valueOrDefault(currentUserDocument?.schoolLevel, '') != null &&
-              valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
-          (valueOrDefault(currentUserDocument?.job, '') != null &&
-              valueOrDefault(currentUserDocument?.job, '') != '') &&
-          (valueOrDefault(currentUserDocument?.socialStatus, '') != null &&
-              valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
-          (valueOrDefault(currentUserDocument?.pastStudy, '') != null &&
-              valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
-          (valueOrDefault(currentUserDocument?.referral, '') != null &&
-              valueOrDefault(currentUserDocument?.referral, '') != '') &&
-          (valueOrDefault(currentUserDocument?.quranJuz, '') != null &&
-              valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
-          (valueOrDefault(currentUserDocument?.telegram, '') != null &&
-              valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
+      if (!((currentUserDisplayName != '') &&
+          (currentPhoneNumber != '') &&
+          (valueOrDefault(currentUserDocument?.gender, '') != '') &&
+          (valueOrDefault(currentUserDocument?.fullname, '') != '') &&
+          (valueOrDefault(currentUserDocument?.state, '') != '') &&
+          (valueOrDefault(currentUserDocument?.city, '') != '') &&
+          (valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
+          (valueOrDefault(currentUserDocument?.job, '') != '') &&
+          (valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
+          (valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
+          (valueOrDefault(currentUserDocument?.referral, '') != '') &&
+          (valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
+          (valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -149,7 +135,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                   : FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: ProfilecompWidget(),
+                child: const ProfilecompWidget(),
               ),
             ));
           },
@@ -228,7 +214,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                   child: wrapWithModel(
                     model: _model.nav0Model,
                     updateCallback: () => setState(() {}),
-                    child: Nav0Widget(),
+                    child: const Nav0Widget(),
                   ),
                 )),
                 body: Container(
@@ -251,13 +237,13 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 35.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -279,7 +265,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                     child: wrapWithModel(
                                       model: _model.topbarModel,
                                       updateCallback: () => setState(() {}),
-                                      child: TopbarWidget(),
+                                      child: const TopbarWidget(),
                                     ),
                                   ),
                                 ],
@@ -293,25 +279,25 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                 children: [
                                   Flexible(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Flexible(
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.00, 1.00),
                                               child: Container(
                                                 height: 900.0,
-                                                constraints: BoxConstraints(
+                                                constraints: const BoxConstraints(
                                                   maxWidth: 700.0,
                                                 ),
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
-                                                  boxShadow: [
+                                                  boxShadow: const [
                                                     BoxShadow(
                                                       blurRadius: 4.0,
                                                       color: Color(0x320E151B),
@@ -319,7 +305,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                     )
                                                   ],
                                                   borderRadius:
-                                                      BorderRadius.only(
+                                                      const BorderRadius.only(
                                                     bottomLeft:
                                                         Radius.circular(0.0),
                                                     bottomRight:
@@ -336,7 +322,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   16.0,
@@ -377,11 +363,11 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                               ),
                                                               child: Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         -0.00,
                                                                         0.00),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -407,13 +393,13 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                               ),
                                                             ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 5.0)),
                                                       ),
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   5.0,
@@ -443,7 +429,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             4.0,
@@ -465,7 +451,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -475,7 +461,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  Alignment(
+                                                                  const Alignment(
                                                                       0.0, 0),
                                                               child: TabBar(
                                                                 isScrollable:
@@ -491,7 +477,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                         context)
                                                                     .titleMedium,
                                                                 unselectedLabelStyle:
-                                                                    TextStyle(),
+                                                                    const TextStyle(),
                                                                 indicatorColor:
                                                                     FlutterFlowTheme.of(
                                                                             context)
@@ -588,7 +574,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                 children: [
                                                                                   Expanded(
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
                                                                                       child: InkWell(
                                                                                         splashColor: Colors.transparent,
                                                                                         focusColor: Colors.transparent,
@@ -616,7 +602,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                             height: 100.0,
                                                                                             decoration: BoxDecoration(
                                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                              boxShadow: [
+                                                                                              boxShadow: const [
                                                                                                 BoxShadow(
                                                                                                   blurRadius: 4.0,
                                                                                                   color: Color(0x230E151B),
@@ -637,11 +623,11 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                   ),
                                                                                                 ),
                                                                                                 Align(
-                                                                                                  alignment: AlignmentDirectional(-0.90, 0.85),
+                                                                                                  alignment: const AlignmentDirectional(-0.90, 0.85),
                                                                                                   child: Container(
                                                                                                     width: 32.0,
                                                                                                     height: 32.0,
-                                                                                                    decoration: BoxDecoration(
+                                                                                                    decoration: const BoxDecoration(
                                                                                                       color: Colors.white,
                                                                                                       boxShadow: [
                                                                                                         BoxShadow(
@@ -652,7 +638,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                       ],
                                                                                                       shape: BoxShape.circle,
                                                                                                     ),
-                                                                                                    child: Icon(
+                                                                                                    child: const Icon(
                                                                                                       Icons.play_arrow_rounded,
                                                                                                       color: Color(0xFF14181B),
                                                                                                       size: 20.0,
@@ -664,7 +650,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                   children: [
                                                                                                     Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
+                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
                                                                                                       child: Column(
                                                                                                         mainAxisSize: MainAxisSize.min,
                                                                                                         mainAxisAlignment: MainAxisAlignment.center,
@@ -680,7 +666,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                                 ),
                                                                                                           ),
                                                                                                           Padding(
-                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                                             child: Text(
                                                                                                               '${lesonColumnActivitiesRecord.time} دقيقة',
                                                                                                               style: FlutterFlowTheme.of(context).labelSmall.override(
@@ -704,7 +690,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                                 ),
                                                                                                               ),
                                                                                                               Padding(
-                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                                                 child: Text(
                                                                                                                   lesonColumnActivitiesRecord.teacher,
                                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -831,7 +817,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                               color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                             ),
                                                                                             child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
                                                                                               child: StreamBuilder<List<QbankRecord>>(
                                                                                                 stream: queryQbankRecord(
                                                                                                   queryBuilder: (qbankRecord) => qbankRecord.where(
@@ -881,7 +867,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                         height: 130.0,
                                                                                                         decoration: BoxDecoration(
                                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                          boxShadow: [
+                                                                                                          boxShadow: const [
                                                                                                             BoxShadow(
                                                                                                               blurRadius: 4.0,
                                                                                                               color: Color(0x230E151B),
@@ -901,11 +887,11 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                               ),
                                                                                                             ),
                                                                                                             Align(
-                                                                                                              alignment: AlignmentDirectional(-0.90, 0.85),
+                                                                                                              alignment: const AlignmentDirectional(-0.90, 0.85),
                                                                                                               child: Container(
                                                                                                                 width: 32.0,
                                                                                                                 height: 32.0,
-                                                                                                                decoration: BoxDecoration(
+                                                                                                                decoration: const BoxDecoration(
                                                                                                                   color: Colors.white,
                                                                                                                   boxShadow: [
                                                                                                                     BoxShadow(
@@ -916,7 +902,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                                   ],
                                                                                                                   shape: BoxShape.circle,
                                                                                                                 ),
-                                                                                                                child: Align(
+                                                                                                                child: const Align(
                                                                                                                   alignment: AlignmentDirectional(-0.00, 0.00),
                                                                                                                   child: FaIcon(
                                                                                                                     FontAwesomeIcons.clipboardCheck,
@@ -927,7 +913,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                               ),
                                                                                                             ),
                                                                                                             Padding(
-                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
                                                                                                               child: Column(
                                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -951,7 +937,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                                                 ),
                                                                                                                           ),
                                                                                                                           Padding(
-                                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                                                             child: Text(
                                                                                                                               'عدد الأسئلة : ${testCardQbankRecordList.length.toString()}',
                                                                                                                               style: FlutterFlowTheme.of(context).labelSmall.override(
@@ -963,7 +949,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                                             ),
                                                                                                                           ),
                                                                                                                           Padding(
-                                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                                                             child: Text(
                                                                                                                               'الوقت : ${testColumnActivitiesRecord.howLong.toString()}',
                                                                                                                               style: FlutterFlowTheme.of(context).labelSmall.override(
@@ -975,7 +961,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                                             ),
                                                                                                                           ),
                                                                                                                           Padding(
-                                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                                                             child: Text(
                                                                                                                               'المحاولات : ${testColumnActivitiesRecord.howMany.toString()}',
                                                                                                                               style: FlutterFlowTheme.of(context).labelSmall.override(
@@ -995,7 +981,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                                             children: [
                                                                                                                               Icon(
                                                                                                                                 Icons.done_all_outlined,
-                                                                                                                                color: testAttemptQbankAttemptsRowList.length >= 1 ? FlutterFlowTheme.of(context).secondary : FlutterFlowTheme.of(context).error,
+                                                                                                                                color: testAttemptQbankAttemptsRowList.isNotEmpty ? FlutterFlowTheme.of(context).secondary : FlutterFlowTheme.of(context).error,
                                                                                                                                 size: 40.0,
                                                                                                                               ),
                                                                                                                             ],
@@ -1087,7 +1073,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                 children: [
                                                                                   Expanded(
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
                                                                                       child: InkWell(
                                                                                         splashColor: Colors.transparent,
                                                                                         focusColor: Colors.transparent,
@@ -1106,7 +1092,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                             width: double.infinity,
                                                                                             decoration: BoxDecoration(
                                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                              boxShadow: [
+                                                                                              boxShadow: const [
                                                                                                 BoxShadow(
                                                                                                   blurRadius: 4.0,
                                                                                                   color: Color(0x230E151B),
@@ -1126,11 +1112,11 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                   ),
                                                                                                 ),
                                                                                                 Align(
-                                                                                                  alignment: AlignmentDirectional(-0.90, 0.85),
+                                                                                                  alignment: const AlignmentDirectional(-0.90, 0.85),
                                                                                                   child: Container(
                                                                                                     width: 32.0,
                                                                                                     height: 32.0,
-                                                                                                    decoration: BoxDecoration(
+                                                                                                    decoration: const BoxDecoration(
                                                                                                       color: Colors.white,
                                                                                                       boxShadow: [
                                                                                                         BoxShadow(
@@ -1141,7 +1127,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                       ],
                                                                                                       shape: BoxShape.circle,
                                                                                                     ),
-                                                                                                    child: Icon(
+                                                                                                    child: const Icon(
                                                                                                       Icons.attach_file,
                                                                                                       color: Color(0xFF14181B),
                                                                                                       size: 20.0,
@@ -1149,7 +1135,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                                                   ),
                                                                                                 ),
                                                                                                 Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(130.0, 16.0, 12.0, 0.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(130.0, 16.0, 12.0, 0.0),
                                                                                                   child: Column(
                                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -1217,7 +1203,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                     builder:
                                                                         (context) =>
                                                                             Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           8.0,
                                                                           8.0,
                                                                           0.0,
@@ -1448,7 +1434,7 @@ class _CourseContentCopyWidgetState extends State<CourseContentCopyWidget>
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        ].divide(SizedBox(height: 5.0)),
+                                                                        ].divide(const SizedBox(height: 5.0)),
                                                                       ),
                                                                     ),
                                                                   ),

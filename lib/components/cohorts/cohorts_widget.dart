@@ -1,24 +1,20 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'cohorts_model.dart';
 export 'cohorts_model.dart';
 
 class CohortsWidget extends StatefulWidget {
   const CohortsWidget({
-    Key? key,
+    super.key,
     required this.cohortRef,
-  }) : super(key: key);
+  });
 
   final DocumentReference? cohortRef;
 
@@ -89,12 +85,12 @@ class _CohortsWidgetState extends State<CohortsWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
+                      padding: const EdgeInsetsDirectional.fromSTEB(
                           10.0, 10.0, 10.0, 10.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
@@ -123,7 +119,7 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 8.0, 0.0),
                           child: TextFormField(
                             controller: _model.cohortsNameController ??=
@@ -133,7 +129,7 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                             focusNode: _model.cohortsNameFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.cohortsNameController',
-                              Duration(milliseconds: 1000),
+                              const Duration(milliseconds: 1000),
                               () async {
                                 await widget.cohortRef!
                                     .update(createCohortsRecordData(
@@ -149,7 +145,7 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                                             .primaryText,
                                       ),
                                     ),
-                                    duration: Duration(milliseconds: 4000),
+                                    duration: const Duration(milliseconds: 4000),
                                     backgroundColor:
                                         FlutterFlowTheme.of(context).secondary,
                                   ),
@@ -201,7 +197,7 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               5.0, 5.0, 5.0, 5.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -216,9 +212,9 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                                 ),
                                 options: FFButtonOptions(
                                   height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).alternate,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -228,7 +224,7 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                                         color: Colors.white,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -244,9 +240,9 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                                 ),
                                 options: FFButtonOptions(
                                   height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -256,7 +252,7 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                                         color: Colors.white,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -264,8 +260,8 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                                 ),
                               ),
                             ]
-                                .divide(SizedBox(width: 5.0))
-                                .around(SizedBox(width: 5.0)),
+                                .divide(const SizedBox(width: 5.0))
+                                .around(const SizedBox(width: 5.0)),
                           ),
                         ),
                       ],
@@ -294,7 +290,7 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   5.0, 5.0, 5.0, 5.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
@@ -336,7 +332,7 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                                               snapshot.data!;
                                           // Customize what your widget looks like with no search results.
                                           if (snapshot.data!.isEmpty) {
-                                            return Container(
+                                            return const SizedBox(
                                               height: 100,
                                               child: Center(
                                                 child: Text('No results.'),
@@ -403,7 +399,7 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(5.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: AutoSizeText(
@@ -433,16 +429,16 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                           ),
                           Container(
                             width: MediaQuery.sizeOf(context).width * 1.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
                               child: TextFormField(
                                 controller: _model.cohortsUserController,
                                 focusNode: _model.cohortsUserFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.cohortsUserController',
-                                  Duration(milliseconds: 1000),
+                                  const Duration(milliseconds: 1000),
                                   () => setState(() {}),
                                 ),
                                 obscureText: false,
@@ -512,7 +508,7 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   5.0, 5.0, 5.0, 5.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
@@ -553,7 +549,7 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                                               snapshot.data!;
                                           // Customize what your widget looks like with no search results.
                                           if (snapshot.data!.isEmpty) {
-                                            return Container(
+                                            return const SizedBox(
                                               height: 100,
                                               child: Center(
                                                 child: Text('No results.'),
@@ -620,7 +616,7 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(5.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: AutoSizeText(
@@ -650,16 +646,16 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                           ),
                           Container(
                             width: MediaQuery.sizeOf(context).width * 1.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
                               child: TextFormField(
                                 controller: _model.usersController,
                                 focusNode: _model.usersFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.usersController',
-                                  Duration(milliseconds: 1000),
+                                  const Duration(milliseconds: 1000),
                                   () => setState(() {}),
                                 ),
                                 obscureText: false,
@@ -715,7 +711,7 @@ class _CohortsWidgetState extends State<CohortsWidget> {
                   ],
                 ),
               ),
-            ].divide(SizedBox(height: 5.0)).around(SizedBox(height: 5.0)),
+            ].divide(const SizedBox(height: 5.0)).around(const SizedBox(height: 5.0)),
           ),
         );
       },

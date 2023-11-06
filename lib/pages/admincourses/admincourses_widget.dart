@@ -7,14 +7,11 @@ import '/components/showactivit/showactivit_widget.dart';
 import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'admincourses_model.dart';
@@ -22,11 +19,10 @@ export 'admincourses_model.dart';
 
 class AdmincoursesWidget extends StatefulWidget {
   const AdmincoursesWidget({
-    Key? key,
+    super.key,
     this.output,
     int? num,
-  })  : this.num = num ?? 0,
-        super(key: key);
+  })  : num = num ?? 0;
 
   final bool? output;
   final int num;
@@ -89,7 +85,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
               child: wrapWithModel(
                 model: _model.nav0Model,
                 updateCallback: () => setState(() {}),
-                child: Nav0Widget(),
+                child: const Nav0Widget(),
               ),
             )),
             body: Container(
@@ -112,13 +108,13 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 35.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -140,20 +136,20 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                 child: wrapWithModel(
                                   model: _model.topbarModel,
                                   updateCallback: () => setState(() {}),
-                                  child: TopbarWidget(),
+                                  child: const TopbarWidget(),
                                 ),
                               ),
                             ],
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               5.0, 5.0, 5.0, 5.0),
                           child: Container(
-                            constraints: BoxConstraints(
+                            constraints: const BoxConstraints(
                               maxWidth: 800.0,
                             ),
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: SingleChildScrollView(
                               primary: false,
                               child: Column(
@@ -166,7 +162,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                       Flexible(
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 5.0, 5.0, 5.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
@@ -194,7 +190,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child: AddCategWidget(),
+                                                      child: const AddCategWidget(),
                                                     ),
                                                   ));
                                                 },
@@ -203,14 +199,14 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                             },
                                             child: AnimatedContainer(
                                               duration:
-                                                  Duration(milliseconds: 600),
+                                                  const Duration(milliseconds: 600),
                                               curve: Curves.easeIn,
                                               height: 60.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                boxShadow: [
+                                                boxShadow: const [
                                                   BoxShadow(
                                                     blurRadius: 4.0,
                                                     color: Color(0x41000000),
@@ -221,7 +217,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 8.0, 12.0, 8.0),
                                                 child: Row(
@@ -237,7 +233,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       5.0,
                                                                       5.0,
@@ -313,7 +309,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                               columnCategRecordList[
                                                   columnIndex];
                                           return Container(
-                                            decoration: BoxDecoration(),
+                                            decoration: const BoxDecoration(),
                                             child: SingleChildScrollView(
                                               primary: false,
                                               child: Column(
@@ -326,7 +322,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                       Flexible(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       5.0,
                                                                       5.0,
@@ -334,7 +330,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                       5.0),
                                                           child:
                                                               AnimatedContainer(
-                                                            duration: Duration(
+                                                            duration: const Duration(
                                                                 milliseconds:
                                                                     600),
                                                             curve:
@@ -345,7 +341,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .secondaryBackground,
-                                                              boxShadow: [
+                                                              boxShadow: const [
                                                                 BoxShadow(
                                                                   blurRadius:
                                                                       4.0,
@@ -364,7 +360,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           8.0,
@@ -391,13 +387,13 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
-                                                                              Color(0x4C4B39EF),
+                                                                              const Color(0x4C4B39EF),
                                                                           borderRadius:
                                                                               BorderRadius.circular(8.0),
                                                                           border:
                                                                               Border.all(
                                                                             color:
-                                                                                Color(0xFF4B39EF),
+                                                                                const Color(0xFF4B39EF),
                                                                             width:
                                                                                 2.0,
                                                                           ),
@@ -408,7 +404,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
                                                                               child: ClipRRect(
                                                                                 borderRadius: BorderRadius.circular(6.0),
                                                                                 child: Image.network(
@@ -423,7 +419,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                         ),
                                                                       ),
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             12.0,
                                                                             0.0,
                                                                             0.0,
@@ -448,7 +444,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                             ),
                                                                             Expanded(
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                 child: Text(
                                                                                   columnCategRecord.cohorts.length.toString(),
                                                                                   style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -471,7 +467,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                             .max,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             7.0,
                                                                             0.0,
                                                                             0.0,
@@ -512,18 +508,18 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                   highlightColor: Colors.transparent,
                                                                                   onTap: () async {
                                                                                     if (valueOrDefault<bool>(currentUserDocument?.isSuper, false)) {
-                                                                                      if (iconSupjRecordList.length > 0) {
+                                                                                      if (iconSupjRecordList.isNotEmpty) {
                                                                                         await showDialog(
                                                                                           context: context,
                                                                                           builder: (alertDialogContext) {
                                                                                             return WebViewAware(
                                                                                                 child: AlertDialog(
-                                                                                              title: Text('لا يمكن'),
-                                                                                              content: Text('لا يمكنك حذف مقرر يحتوي على عناصر بداخله يجب حذف محتويات المقرر أولا قبل حذف المقرر'),
+                                                                                              title: const Text('لا يمكن'),
+                                                                                              content: const Text('لا يمكنك حذف مقرر يحتوي على عناصر بداخله يجب حذف محتويات المقرر أولا قبل حذف المقرر'),
                                                                                               actions: [
                                                                                                 TextButton(
                                                                                                   onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('تمام'),
+                                                                                                  child: const Text('تمام'),
                                                                                                 ),
                                                                                               ],
                                                                                             ));
@@ -535,16 +531,16 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                               builder: (alertDialogContext) {
                                                                                                 return WebViewAware(
                                                                                                     child: AlertDialog(
-                                                                                                  title: Text('!!! تحذير حذف  !!!'),
+                                                                                                  title: const Text('!!! تحذير حذف  !!!'),
                                                                                                   content: Text('هل أنت متأكد من حذف  ${columnCategRecord.name}'),
                                                                                                   actions: [
                                                                                                     TextButton(
                                                                                                       onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                      child: Text('لا تحذف'),
+                                                                                                      child: const Text('لا تحذف'),
                                                                                                     ),
                                                                                                     TextButton(
                                                                                                       onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                      child: Text('نعم احذف'),
+                                                                                                      child: const Text('نعم احذف'),
                                                                                                     ),
                                                                                                   ],
                                                                                                 ));
@@ -701,10 +697,10 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                         ),
                                                                       ),
                                                                     ]
-                                                                        .divide(SizedBox(
+                                                                        .divide(const SizedBox(
                                                                             width:
                                                                                 5.0))
-                                                                        .around(SizedBox(
+                                                                        .around(const SizedBox(
                                                                             width:
                                                                                 5.0)),
                                                                   ),
@@ -761,14 +757,14 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                   columnIndex];
                                                           return Container(
                                                             decoration:
-                                                                BoxDecoration(),
+                                                                const BoxDecoration(),
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           25.0,
                                                                           0.0,
@@ -782,7 +778,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                       Flexible(
                                                                         child:
                                                                             Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               5.0,
                                                                               5.0,
                                                                               5.0,
@@ -811,12 +807,12 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                             },
                                                                             child:
                                                                                 AnimatedContainer(
-                                                                              duration: Duration(milliseconds: 600),
+                                                                              duration: const Duration(milliseconds: 600),
                                                                               curve: Curves.easeIn,
                                                                               height: 60.0,
                                                                               decoration: BoxDecoration(
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                boxShadow: [
+                                                                                boxShadow: const [
                                                                                   BoxShadow(
                                                                                     blurRadius: 4.0,
                                                                                     color: Color(0x41000000),
@@ -826,7 +822,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                 borderRadius: BorderRadius.circular(14.0),
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -838,10 +834,10 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                           width: 44.0,
                                                                                           height: 44.0,
                                                                                           decoration: BoxDecoration(
-                                                                                            color: Color(0x4C4B39EF),
+                                                                                            color: const Color(0x4C4B39EF),
                                                                                             borderRadius: BorderRadius.circular(8.0),
                                                                                             border: Border.all(
-                                                                                              color: Color(0xFF4B39EF),
+                                                                                              color: const Color(0xFF4B39EF),
                                                                                               width: 2.0,
                                                                                             ),
                                                                                           ),
@@ -849,7 +845,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             children: [
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
                                                                                                 child: ClipRRect(
                                                                                                   borderRadius: BorderRadius.circular(6.0),
                                                                                                   child: Image.network(
@@ -864,7 +860,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                           ),
                                                                                         ),
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                           child: Column(
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -881,7 +877,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                               ),
                                                                                               Expanded(
                                                                                                 child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                                   child: Text(
                                                                                                     columnCategRecord.name,
                                                                                                     style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -908,7 +904,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                             mainAxisAlignment: MainAxisAlignment.end,
                                                                                             children: [
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 0.0, 0.0),
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 0.0, 0.0),
                                                                                                 child: Column(
                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -925,16 +921,16 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                                                 builder: (alertDialogContext) {
                                                                                                                   return WebViewAware(
                                                                                                                       child: AlertDialog(
-                                                                                                                    title: Text('!!! تحذير حذف !!!'),
+                                                                                                                    title: const Text('!!! تحذير حذف !!!'),
                                                                                                                     content: Text('هل أنت متأكد من حذف ${columnSupjRecord.name}'),
                                                                                                                     actions: [
                                                                                                                       TextButton(
                                                                                                                         onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                                        child: Text('لا تحذف'),
+                                                                                                                        child: const Text('لا تحذف'),
                                                                                                                       ),
                                                                                                                       TextButton(
                                                                                                                         onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                                        child: Text('نعم احذف'),
+                                                                                                                        child: const Text('نعم احذف'),
                                                                                                                       ),
                                                                                                                     ],
                                                                                                                   ));
@@ -959,7 +955,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 children: [
                                                                                                   Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 0.0, 0.0),
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 0.0, 0.0),
                                                                                                     child: Column(
                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                       mainAxisAlignment: MainAxisAlignment.center,
@@ -1043,12 +1039,12 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                                   size: 30.0,
                                                                                                 ),
                                                                                               ),
-                                                                                            ].divide(SizedBox(width: 5.0)).around(SizedBox(width: 5.0)),
+                                                                                            ].divide(const SizedBox(width: 5.0)).around(const SizedBox(width: 5.0)),
                                                                                           ),
                                                                                         ],
                                                                                       ),
                                                                                     ),
-                                                                                  ].divide(SizedBox(width: 5.0)).around(SizedBox(width: 5.0)),
+                                                                                  ].divide(const SizedBox(width: 5.0)).around(const SizedBox(width: 5.0)),
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -1118,7 +1114,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                           final columnActivitiesRecord =
                                                                               columnActivitiesRecordList[columnIndex];
                                                                           return Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 50.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -1129,14 +1125,14 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                               children: [
                                                                                 Flexible(
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                     child: AnimatedContainer(
-                                                                                      duration: Duration(milliseconds: 600),
+                                                                                      duration: const Duration(milliseconds: 600),
                                                                                       curve: Curves.easeIn,
                                                                                       height: 60.0,
                                                                                       decoration: BoxDecoration(
                                                                                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        boxShadow: [
+                                                                                        boxShadow: const [
                                                                                           BoxShadow(
                                                                                             blurRadius: 4.0,
                                                                                             color: Color(0x41000000),
@@ -1146,7 +1142,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                         borderRadius: BorderRadius.circular(14.0),
                                                                                       ),
                                                                                       child: Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
                                                                                         child: Row(
                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1158,10 +1154,10 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                                   width: 44.0,
                                                                                                   height: 44.0,
                                                                                                   decoration: BoxDecoration(
-                                                                                                    color: Color(0x4C4B39EF),
+                                                                                                    color: const Color(0x4C4B39EF),
                                                                                                     borderRadius: BorderRadius.circular(8.0),
                                                                                                     border: Border.all(
-                                                                                                      color: Color(0xFF4B39EF),
+                                                                                                      color: const Color(0xFF4B39EF),
                                                                                                       width: 2.0,
                                                                                                     ),
                                                                                                   ),
@@ -1169,7 +1165,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                                     children: [
                                                                                                       Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
                                                                                                         child: ClipRRect(
                                                                                                           borderRadius: BorderRadius.circular(6.0),
                                                                                                           child: Image.network(
@@ -1184,7 +1180,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                                   ),
                                                                                                 ),
                                                                                                 Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                                   child: Column(
                                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1201,7 +1197,7 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                                       ),
                                                                                                       Expanded(
                                                                                                         child: Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                                           child: Text(
                                                                                                             columnSupjRecord.name,
                                                                                                             style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -1222,10 +1218,10 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                                               child: Row(
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 mainAxisAlignment: MainAxisAlignment.end,
-                                                                                                children: <Widget>[].divide(SizedBox(width: 5.0)).around(SizedBox(width: 5.0)),
+                                                                                                children: <Widget>[].divide(const SizedBox(width: 5.0)).around(const SizedBox(width: 5.0)),
                                                                                               ),
                                                                                             ),
-                                                                                          ].divide(SizedBox(width: 5.0)).around(SizedBox(width: 5.0)),
+                                                                                          ].divide(const SizedBox(width: 5.0)).around(const SizedBox(width: 5.0)),
                                                                                         ),
                                                                                       ),
                                                                                     ),
@@ -1234,17 +1230,17 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                                               ],
                                                                             ),
                                                                           );
-                                                                        }).divide(SizedBox(height: 5.0)).around(SizedBox(
+                                                                        }).divide(const SizedBox(height: 5.0)).around(const SizedBox(
                                                                             height:
                                                                                 5.0)),
                                                                       );
                                                                     },
                                                                   ),
                                                               ]
-                                                                  .divide(SizedBox(
+                                                                  .divide(const SizedBox(
                                                                       height:
                                                                           5.0))
-                                                                  .around(SizedBox(
+                                                                  .around(const SizedBox(
                                                                       height:
                                                                           5.0)),
                                                             ),
@@ -1255,9 +1251,9 @@ class _AdmincoursesWidgetState extends State<AdmincoursesWidget> {
                                                   ),
                                                 ]
                                                     .divide(
-                                                        SizedBox(height: 5.0))
+                                                        const SizedBox(height: 5.0))
                                                     .around(
-                                                        SizedBox(height: 5.0)),
+                                                        const SizedBox(height: 5.0)),
                                               ),
                                             ),
                                           );

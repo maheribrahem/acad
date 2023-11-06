@@ -7,17 +7,14 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'searcher_model.dart';
 export 'searcher_model.dart';
 
 class SearcherWidget extends StatefulWidget {
-  const SearcherWidget({Key? key}) : super(key: key);
+  const SearcherWidget({super.key});
 
   @override
   _SearcherWidgetState createState() => _SearcherWidgetState();
@@ -42,8 +39,8 @@ class _SearcherWidgetState extends State<SearcherWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 100.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -95,11 +92,11 @@ class _SearcherWidgetState extends State<SearcherWidget>
             children: [
               Flexible(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                   child: Container(
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           blurRadius: 0.0,
                           color: Color(0xFFE0E3E7),
@@ -114,7 +111,7 @@ class _SearcherWidgetState extends State<SearcherWidget>
                       children: [
                         Flexible(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 3.0, 3.0, 3.0, 3.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -125,7 +122,7 @@ class _SearcherWidgetState extends State<SearcherWidget>
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 5.0, 5.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
@@ -141,7 +138,7 @@ class _SearcherWidgetState extends State<SearcherWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 5.0, 5.0),
                                       child: FlutterFlowChoiceChips(
                                         options: [
@@ -187,7 +184,7 @@ class _SearcherWidgetState extends State<SearcherWidget>
                                               BorderRadius.circular(16.0),
                                         ),
                                         unselectedChipStyle: ChipStyle(
-                                          backgroundColor: Color(0x00000000),
+                                          backgroundColor: const Color(0x00000000),
                                           textStyle: FlutterFlowTheme.of(
                                                   context)
                                               .bodyMedium
@@ -239,16 +236,16 @@ class _SearcherWidgetState extends State<SearcherWidget>
                             ),
                             Flexible(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
-                                child: Container(
+                                child: SizedBox(
                                   width: 100.0,
                                   child: TextFormField(
                                     controller: _model.emailController,
                                     focusNode: _model.emailFocusNode,
                                     onChanged: (_) => EasyDebounce.debounce(
                                       '_model.emailController',
-                                      Duration(milliseconds: 500),
+                                      const Duration(milliseconds: 500),
                                       () => setState(() {}),
                                     ),
                                     autofocus: true,
@@ -373,7 +370,7 @@ class _SearcherWidgetState extends State<SearcherWidget>
                                           FlutterFlowTheme.of(context).primary,
                                       borderWidth: 2.0,
                                       borderRadius: 8.0,
-                                      margin: EdgeInsetsDirectional.fromSTEB(
+                                      margin: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 4.0, 16.0, 4.0),
                                       hidesUnderline: true,
                                       isSearchable: false,
@@ -381,9 +378,9 @@ class _SearcherWidgetState extends State<SearcherWidget>
                                     );
                                   },
                                 ),
-                              ].divide(SizedBox(width: 3.0)),
+                              ].divide(const SizedBox(width: 3.0)),
                             ),
-                          ].divide(SizedBox(width: 3.0)),
+                          ].divide(const SizedBox(width: 3.0)),
                         ),
                       ],
                     ),

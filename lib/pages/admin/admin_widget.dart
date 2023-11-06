@@ -1,5 +1,4 @@
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/nav0/nav0_widget.dart';
 import '/components/settings/settings_widget.dart';
@@ -9,13 +8,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'admin_model.dart';
@@ -23,9 +20,9 @@ export 'admin_model.dart';
 
 class AdminWidget extends StatefulWidget {
   const AdminWidget({
-    Key? key,
+    super.key,
     this.output,
-  }) : super(key: key);
+  });
 
   final bool? output;
 
@@ -113,7 +110,7 @@ class _AdminWidgetState extends State<AdminWidget> {
                   child: wrapWithModel(
                     model: _model.nav0Model,
                     updateCallback: () => setState(() {}),
-                    child: Nav0Widget(),
+                    child: const Nav0Widget(),
                   ),
                 )),
                 body: Container(
@@ -136,13 +133,13 @@ class _AdminWidgetState extends State<AdminWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 35.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -164,7 +161,7 @@ class _AdminWidgetState extends State<AdminWidget> {
                                     child: wrapWithModel(
                                       model: _model.topbarModel,
                                       updateCallback: () => setState(() {}),
-                                      child: TopbarWidget(),
+                                      child: const TopbarWidget(),
                                     ),
                                   ),
                                 ],
@@ -182,16 +179,16 @@ class _AdminWidgetState extends State<AdminWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 10.0, 10.0, 10.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   1.0,
                                               height: 100.0,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 50.0, 0.0, 0.0),
                                                 child: Column(
@@ -289,10 +286,10 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                                         ),
                                                                   ),
                                                                 ]
-                                                                    .divide(SizedBox(
+                                                                    .divide(const SizedBox(
                                                                         height:
                                                                             5.0))
-                                                                    .around(SizedBox(
+                                                                    .around(const SizedBox(
                                                                         height:
                                                                             5.0)),
                                                               ),
@@ -360,10 +357,10 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                                       ),
                                                                 ),
                                                               ]
-                                                                  .divide(SizedBox(
+                                                                  .divide(const SizedBox(
                                                                       height:
                                                                           5.0))
-                                                                  .around(SizedBox(
+                                                                  .around(const SizedBox(
                                                                       height:
                                                                           5.0)),
                                                             ),
@@ -407,7 +404,7 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                                         .viewInsetsOf(
                                                                             context),
                                                                     child:
-                                                                        SettingsWidget(),
+                                                                        const SettingsWidget(),
                                                                   ),
                                                                 ));
                                                               },
@@ -463,10 +460,10 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                                       ),
                                                                 ),
                                                               ]
-                                                                  .divide(SizedBox(
+                                                                  .divide(const SizedBox(
                                                                       height:
                                                                           5.0))
-                                                                  .around(SizedBox(
+                                                                  .around(const SizedBox(
                                                                       height:
                                                                           5.0)),
                                                             ),
@@ -533,10 +530,10 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                                       ),
                                                                 ),
                                                               ]
-                                                                  .divide(SizedBox(
+                                                                  .divide(const SizedBox(
                                                                       height:
                                                                           5.0))
-                                                                  .around(SizedBox(
+                                                                  .around(const SizedBox(
                                                                       height:
                                                                           5.0)),
                                                             ),
@@ -591,10 +588,10 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                                     ),
                                                               ),
                                                             ]
-                                                                .divide(SizedBox(
+                                                                .divide(const SizedBox(
                                                                     height:
                                                                         5.0))
-                                                                .around(SizedBox(
+                                                                .around(const SizedBox(
                                                                     height:
                                                                         5.0)),
                                                           ),
@@ -648,10 +645,10 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                                     ),
                                                               ),
                                                             ]
-                                                                .divide(SizedBox(
+                                                                .divide(const SizedBox(
                                                                     height:
                                                                         5.0))
-                                                                .around(SizedBox(
+                                                                .around(const SizedBox(
                                                                     height:
                                                                         5.0)),
                                                           ),
@@ -660,7 +657,7 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                     ),
                                                     Container(
                                                       decoration:
-                                                          BoxDecoration(),
+                                                          const BoxDecoration(),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -715,7 +712,7 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                                           .data!;
                                                                   return Container(
                                                                     decoration:
-                                                                        BoxDecoration(),
+                                                                        const BoxDecoration(),
                                                                     child: FlutterFlowDropDown<
                                                                         String>(
                                                                       controller: _model
@@ -778,7 +775,7 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                                           2.0,
                                                                       borderRadius:
                                                                           8.0,
-                                                                      margin: EdgeInsetsDirectional.fromSTEB(
+                                                                      margin: const EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           4.0,
                                                                           16.0,
@@ -805,14 +802,14 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                       options: FFButtonOptions(
                                                         height: 40.0,
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     24.0,
                                                                     0.0,
                                                                     24.0,
                                                                     0.0),
                                                         iconPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -833,7 +830,7 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                                       .white,
                                                                 ),
                                                         elevation: 3.0,
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color: Colors
                                                               .transparent,
                                                           width: 1.0,
@@ -845,8 +842,8 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          SizedBox(height: 5.0))
-                                                      .around(SizedBox(
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
                                                           height: 5.0)),
                                                 ),
                                               ),

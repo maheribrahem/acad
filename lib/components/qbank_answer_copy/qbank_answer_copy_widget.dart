@@ -5,23 +5,20 @@ import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'qbank_answer_copy_model.dart';
 export 'qbank_answer_copy_model.dart';
 
 class QbankAnswerCopyWidget extends StatefulWidget {
   const QbankAnswerCopyWidget({
-    Key? key,
+    super.key,
     this.parameter1,
     required this.qBankRef,
     this.emptyAnswer,
     this.answer,
-  }) : super(key: key);
+  });
 
   final List<String>? parameter1;
   final DocumentReference? qBankRef;
@@ -88,7 +85,7 @@ class _QbankAnswerCopyWidgetState extends State<QbankAnswerCopyWidget> {
         }
         List<QbankAttemptsRow> containerQbankAttemptsRowList = snapshot.data!;
         return Container(
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
           child: StreamBuilder<QbankRecord>(
             stream: QbankRecord.getDocument(widget.qBankRef!),
             builder: (context, snapshot) {
@@ -107,9 +104,9 @@ class _QbankAnswerCopyWidgetState extends State<QbankAnswerCopyWidget> {
               }
               final containerQbankRecord = snapshot.data!;
               return Container(
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                   child: FlutterFlowChoiceChips(
                     options: widget.parameter1!
                         .map((label) => ChipData(label))
@@ -132,7 +129,7 @@ class _QbankAnswerCopyWidgetState extends State<QbankAnswerCopyWidget> {
                       borderRadius: BorderRadius.circular(16.0),
                     ),
                     unselectedChipStyle: ChipStyle(
-                      backgroundColor: Color(0x00000000),
+                      backgroundColor: const Color(0x00000000),
                       textStyle: FlutterFlowTheme.of(context)
                           .bodyMedium
                           .override(
@@ -153,7 +150,7 @@ class _QbankAnswerCopyWidgetState extends State<QbankAnswerCopyWidget> {
                     controller: _model.choiceChipsValueController ??=
                         FormFieldController<List<String>>(
                       [
-                        containerQbankAttemptsRowList.length > 0
+                        containerQbankAttemptsRowList.isNotEmpty
                             ? containerQbankAttemptsRowList.first.qbankAnswer!
                             : ''
                       ],

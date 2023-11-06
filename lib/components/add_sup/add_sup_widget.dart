@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -8,23 +7,20 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'add_sup_model.dart';
 export 'add_sup_model.dart';
 
 class AddSupWidget extends StatefulWidget {
   const AddSupWidget({
-    Key? key,
+    super.key,
     this.parameter1,
     this.supjRef,
     required this.categRef,
-  }) : super(key: key);
+  });
 
   final String? parameter1;
   final DocumentReference? supjRef;
@@ -89,7 +85,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
               Flexible(
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
                   child: StreamBuilder<SupjRecord>(
                     stream: SupjRecord.getDocument(widget.supjRef!),
                     builder: (context, snapshot) {
@@ -108,13 +104,13 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                       }
                       final issetSupjRecord = snapshot.data!;
                       return Container(
-                        constraints: BoxConstraints(
+                        constraints: const BoxConstraints(
                           maxWidth: 700.0,
                         ),
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               blurRadius: 5.0,
                               color: Color(0x3D2D3A21),
@@ -127,7 +123,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 8.0, 8.0, 8.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -135,7 +131,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -171,7 +167,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 12.0, 12.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -183,7 +179,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 8.0, 8.0, 8.0),
                                               child: TextFormField(
                                                 controller: _model
@@ -196,7 +192,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.supjNameController1',
-                                                  Duration(milliseconds: 2000),
+                                                  const Duration(milliseconds: 2000),
                                                   () => setState(() {}),
                                                 ),
                                                 autofocus: true,
@@ -219,7 +215,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 12.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -239,7 +235,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -249,7 +245,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -259,7 +255,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -268,7 +264,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                             14.0),
                                                   ),
                                                   contentPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(16.0, 4.0,
                                                               8.0, 12.0),
                                                 ),
@@ -291,7 +287,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 8.0, 8.0, 8.0),
                                               child: TextFormField(
                                                 controller: _model
@@ -305,7 +301,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.supjDiscripController1',
-                                                  Duration(milliseconds: 2000),
+                                                  const Duration(milliseconds: 2000),
                                                   () => setState(() {}),
                                                 ),
                                                 autofocus: true,
@@ -328,7 +324,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 12.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -348,7 +344,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -358,7 +354,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -368,7 +364,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -377,7 +373,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                             14.0),
                                                   ),
                                                   contentPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(16.0, 4.0,
                                                               8.0, 12.0),
                                                 ),
@@ -402,7 +398,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 8.0, 8.0, 8.0),
                                               child: TextFormField(
                                                 controller: _model
@@ -416,7 +412,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.supjDiscripController2',
-                                                  Duration(milliseconds: 2000),
+                                                  const Duration(milliseconds: 2000),
                                                   () => setState(() {}),
                                                 ),
                                                 autofocus: true,
@@ -439,7 +435,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 12.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -459,7 +455,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -469,7 +465,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -479,7 +475,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -488,7 +484,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                             14.0),
                                                   ),
                                                   contentPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(16.0, 4.0,
                                                               8.0, 12.0),
                                                 ),
@@ -525,7 +521,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                       .bodyMedium,
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 5.0, 0.0, 0.0),
                                                   child: StreamBuilder<
@@ -603,7 +599,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                         borderWidth: 2.0,
                                                         borderRadius: 8.0,
                                                         margin:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     4.0,
@@ -631,7 +627,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                       .secondaryText,
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 4.0, 12.0, 12.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -643,7 +639,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 4.0, 0.0),
                                             child: FlutterFlowIconButton(
                                               borderColor: Colors.transparent,
@@ -777,10 +773,10 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                           width: 90.0,
                                           height: 40.0,
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
@@ -794,7 +790,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                           elevation: 2.0,
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),
@@ -818,14 +814,14 @@ class _AddSupWidgetState extends State<AddSupWidget> {
               Flexible(
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
                   child: Container(
-                    constraints: BoxConstraints(
+                    constraints: const BoxConstraints(
                       maxWidth: 700.0,
                     ),
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           blurRadius: 5.0,
                           color: Color(0x3D2D3A21),
@@ -838,14 +834,14 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 8.0, 8.0, 8.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     5.0, 5.0, 5.0, 5.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
@@ -881,7 +877,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 12.0, 12.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -893,7 +889,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 8.0, 8.0, 8.0),
                                           child: TextFormField(
                                             controller:
@@ -903,7 +899,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                             onChanged: (_) =>
                                                 EasyDebounce.debounce(
                                               '_model.supjNameController2',
-                                              Duration(milliseconds: 2000),
+                                              const Duration(milliseconds: 2000),
                                               () => setState(() {}),
                                             ),
                                             autofocus: true,
@@ -925,7 +921,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                   .override(
                                                     fontFamily:
                                                         'Plus Jakarta Sans',
-                                                    color: Color(0xFF57636C),
+                                                    color: const Color(0xFF57636C),
                                                     fontSize: 12.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -940,7 +936,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -948,7 +944,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -957,7 +953,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -965,7 +961,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 4.0, 8.0, 12.0),
                                             ),
@@ -987,7 +983,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 8.0, 8.0, 8.0),
                                           child: TextFormField(
                                             controller:
@@ -997,7 +993,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                             onChanged: (_) =>
                                                 EasyDebounce.debounce(
                                               '_model.supjDiscripController3',
-                                              Duration(milliseconds: 2000),
+                                              const Duration(milliseconds: 2000),
                                               () => setState(() {}),
                                             ),
                                             autofocus: true,
@@ -1019,7 +1015,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                   .override(
                                                     fontFamily:
                                                         'Plus Jakarta Sans',
-                                                    color: Color(0xFF57636C),
+                                                    color: const Color(0xFF57636C),
                                                     fontSize: 12.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -1034,7 +1030,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1042,7 +1038,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1051,7 +1047,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1059,7 +1055,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 4.0, 8.0, 12.0),
                                             ),
@@ -1083,7 +1079,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 8.0, 8.0, 8.0),
                                           child: TextFormField(
                                             controller:
@@ -1093,7 +1089,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                             onChanged: (_) =>
                                                 EasyDebounce.debounce(
                                               '_model.supjDiscripController4',
-                                              Duration(milliseconds: 2000),
+                                              const Duration(milliseconds: 2000),
                                               () => setState(() {}),
                                             ),
                                             autofocus: true,
@@ -1115,7 +1111,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                   .override(
                                                     fontFamily:
                                                         'Plus Jakarta Sans',
-                                                    color: Color(0xFF57636C),
+                                                    color: const Color(0xFF57636C),
                                                     fontSize: 12.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -1130,7 +1126,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1138,7 +1134,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1147,7 +1143,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1155,7 +1151,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                     BorderRadius.circular(14.0),
                                               ),
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 4.0, 8.0, 12.0),
                                             ),
@@ -1190,7 +1186,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                       .bodyMedium,
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 5.0, 0.0, 0.0),
                                               child: StreamBuilder<
                                                   List<CohortsRecord>>(
@@ -1263,7 +1259,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                                     borderWidth: 2.0,
                                                     borderRadius: 8.0,
                                                     margin:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 16.0, 4.0),
                                                     hidesUnderline: true,
@@ -1287,7 +1283,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                               color: FlutterFlowTheme.of(context).secondaryText,
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 4.0, 12.0, 12.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -1298,7 +1294,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 4.0, 0.0),
                                         child: FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
@@ -1421,10 +1417,10 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                     options: FFButtonOptions(
                                       width: 90.0,
                                       height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).primary,
@@ -1437,7 +1433,7 @@ class _AddSupWidgetState extends State<AddSupWidget> {
                                             fontWeight: FontWeight.w600,
                                           ),
                                       elevation: 2.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),

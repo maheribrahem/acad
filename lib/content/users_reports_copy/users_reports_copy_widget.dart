@@ -1,19 +1,15 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/nav0/nav0_widget.dart';
 import '/components/profilecomp/profilecomp_widget.dart';
 import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -21,7 +17,7 @@ import 'users_reports_copy_model.dart';
 export 'users_reports_copy_model.dart';
 
 class UsersReportsCopyWidget extends StatefulWidget {
-  const UsersReportsCopyWidget({Key? key}) : super(key: key);
+  const UsersReportsCopyWidget({super.key});
 
   @override
   _UsersReportsCopyWidgetState createState() => _UsersReportsCopyWidgetState();
@@ -41,30 +37,19 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setAppLanguage(context, 'ar');
-      if (!((currentUserDisplayName != null && currentUserDisplayName != '') &&
-          (currentPhoneNumber != null && currentPhoneNumber != '') &&
-          (valueOrDefault(currentUserDocument?.gender, '') != null &&
-              valueOrDefault(currentUserDocument?.gender, '') != '') &&
-          (valueOrDefault(currentUserDocument?.fullname, '') != null &&
-              valueOrDefault(currentUserDocument?.fullname, '') != '') &&
-          (valueOrDefault(currentUserDocument?.state, '') != null &&
-              valueOrDefault(currentUserDocument?.state, '') != '') &&
-          (valueOrDefault(currentUserDocument?.city, '') != null &&
-              valueOrDefault(currentUserDocument?.city, '') != '') &&
-          (valueOrDefault(currentUserDocument?.schoolLevel, '') != null &&
-              valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
-          (valueOrDefault(currentUserDocument?.job, '') != null &&
-              valueOrDefault(currentUserDocument?.job, '') != '') &&
-          (valueOrDefault(currentUserDocument?.socialStatus, '') != null &&
-              valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
-          (valueOrDefault(currentUserDocument?.pastStudy, '') != null &&
-              valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
-          (valueOrDefault(currentUserDocument?.referral, '') != null &&
-              valueOrDefault(currentUserDocument?.referral, '') != '') &&
-          (valueOrDefault(currentUserDocument?.quranJuz, '') != null &&
-              valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
-          (valueOrDefault(currentUserDocument?.telegram, '') != null &&
-              valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
+      if (!((currentUserDisplayName != '') &&
+          (currentPhoneNumber != '') &&
+          (valueOrDefault(currentUserDocument?.gender, '') != '') &&
+          (valueOrDefault(currentUserDocument?.fullname, '') != '') &&
+          (valueOrDefault(currentUserDocument?.state, '') != '') &&
+          (valueOrDefault(currentUserDocument?.city, '') != '') &&
+          (valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
+          (valueOrDefault(currentUserDocument?.job, '') != '') &&
+          (valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
+          (valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
+          (valueOrDefault(currentUserDocument?.referral, '') != '') &&
+          (valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
+          (valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -79,7 +64,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                   : FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: ProfilecompWidget(),
+                child: const ProfilecompWidget(),
               ),
             ));
           },
@@ -158,7 +143,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                   child: wrapWithModel(
                     model: _model.nav0Model,
                     updateCallback: () => setState(() {}),
-                    child: Nav0Widget(),
+                    child: const Nav0Widget(),
                   ),
                 )),
                 body: Container(
@@ -181,13 +166,13 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 35.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -209,7 +194,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                     child: wrapWithModel(
                                       model: _model.topbarModel,
                                       updateCallback: () => setState(() {}),
-                                      child: TopbarWidget(),
+                                      child: const TopbarWidget(),
                                     ),
                                   ),
                                 ],
@@ -223,25 +208,25 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                 children: [
                                   Flexible(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Flexible(
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.00, 1.00),
                                               child: Container(
                                                 height: 900.0,
-                                                constraints: BoxConstraints(
+                                                constraints: const BoxConstraints(
                                                   maxWidth: 700.0,
                                                 ),
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBackground,
-                                                  boxShadow: [
+                                                  boxShadow: const [
                                                     BoxShadow(
                                                       blurRadius: 4.0,
                                                       color: Color(0x320E151B),
@@ -249,7 +234,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                     )
                                                   ],
                                                   borderRadius:
-                                                      BorderRadius.only(
+                                                      const BorderRadius.only(
                                                     bottomLeft:
                                                         Radius.circular(0.0),
                                                     bottomRight:
@@ -266,7 +251,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   16.0,
@@ -306,11 +291,11 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                               ),
                                                               child: Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         -0.00,
                                                                         0.00),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -336,14 +321,14 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                               ),
                                                             ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 5.0)),
                                                       ),
                                                     ),
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -353,7 +338,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  Alignment(
+                                                                  const Alignment(
                                                                       0.0, 0),
                                                               child: TabBar(
                                                                 isScrollable:
@@ -503,9 +488,9 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                     }
                                                                                     List<SupjRecord> containerSupjRecordList = snapshot.data!;
                                                                                     return Container(
-                                                                                      decoration: BoxDecoration(),
+                                                                                      decoration: const BoxDecoration(),
                                                                                       child: Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                                                                                         child: StreamBuilder<List<ActivitiesRecord>>(
                                                                                           stream: queryActivitiesRecord(
                                                                                             queryBuilder: (activitiesRecord) => activitiesRecord
@@ -542,7 +527,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                                 borderRadius: BorderRadius.circular(18.0),
                                                                                               ),
                                                                                               child: Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                                                                                                 child: Column(
                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                   children: [
@@ -591,7 +576,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                   },
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                                                                                   child: Container(
                                                                                     width: 100.0,
                                                                                     height: 130.0,
@@ -600,7 +585,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                       borderRadius: BorderRadius.circular(18.0),
                                                                                     ),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                                                                                       child: Column(
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         children: [
@@ -634,7 +619,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                                                                                   child: Container(
                                                                                     width: 100.0,
                                                                                     height: 130.0,
@@ -643,7 +628,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                       borderRadius: BorderRadius.circular(18.0),
                                                                                     ),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                                                                                       child: Column(
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         children: [
@@ -677,7 +662,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                                                                                   child: Container(
                                                                                     width: 100.0,
                                                                                     height: 130.0,
@@ -686,7 +671,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                       borderRadius: BorderRadius.circular(18.0),
                                                                                     ),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                                                                                       child: Column(
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         children: [
@@ -731,7 +716,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                         (context) =>
                                                                             Container(
                                                                       decoration:
-                                                                          BoxDecoration(),
+                                                                          const BoxDecoration(),
                                                                       child: StreamBuilder<
                                                                           List<
                                                                               CategRecord>>(
@@ -830,9 +815,9 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                             }
                                                                                             List<ActivitiesRecord> testRefsActivitiesRecordList = snapshot.data!;
                                                                                             return Container(
-                                                                                              decoration: BoxDecoration(),
+                                                                                              decoration: const BoxDecoration(),
                                                                                               child: Visibility(
-                                                                                                visible: testRefsActivitiesRecordList.length >= 1,
+                                                                                                visible: testRefsActivitiesRecordList.isNotEmpty,
                                                                                                 child: Row(
                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -849,16 +834,16 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                                                 builder: (alertDialogContext) {
                                                                                                                   return WebViewAware(
                                                                                                                       child: AlertDialog(
-                                                                                                                    title: Text('تنبيه'),
-                                                                                                                    content: Text('هذا الاختبار نهائي ولا يحتوي إلا على محاولة واحدة ..... هل تريد الاستمرار'),
+                                                                                                                    title: const Text('تنبيه'),
+                                                                                                                    content: const Text('هذا الاختبار نهائي ولا يحتوي إلا على محاولة واحدة ..... هل تريد الاستمرار'),
                                                                                                                     actions: [
                                                                                                                       TextButton(
                                                                                                                         onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                                        child: Text('خروج'),
+                                                                                                                        child: const Text('خروج'),
                                                                                                                       ),
                                                                                                                       TextButton(
                                                                                                                         onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                                        child: Text('استمرار'),
+                                                                                                                        child: const Text('استمرار'),
                                                                                                                       ),
                                                                                                                     ],
                                                                                                                   ));
@@ -878,9 +863,9 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                                           }
                                                                                                         },
                                                                                                         child: Container(
-                                                                                                          decoration: BoxDecoration(),
+                                                                                                          decoration: const BoxDecoration(),
                                                                                                           child: Padding(
-                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                             child: StreamBuilder<List<ActivitiesRecord>>(
                                                                                                               stream: queryActivitiesRecord(
                                                                                                                 queryBuilder: (activitiesRecord) => activitiesRecord
@@ -918,7 +903,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                                                     borderRadius: BorderRadius.circular(14.0),
                                                                                                                   ),
                                                                                                                   child: Visibility(
-                                                                                                                    visible: containerActivitiesRecordList.length >= 1,
+                                                                                                                    visible: containerActivitiesRecordList.isNotEmpty,
                                                                                                                     child: Container(
                                                                                                                       decoration: BoxDecoration(
                                                                                                                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -928,7 +913,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                                         children: [
                                                                                                                           Padding(
-                                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                                             child: Column(
                                                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                                                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -950,7 +935,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                                                               Row(
                                                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                                                 children: [
-                                                                                                                                  if ((containerActivitiesRecordList.length <= 0) || (usersReportsCopyActivitiesProgressRecordList.where((e) => e.activitID?.id == containerActivitiesRecordList.first.reference.id).toList().length <= 0))
+                                                                                                                                  if ((containerActivitiesRecordList.isEmpty) || (usersReportsCopyActivitiesProgressRecordList.where((e) => e.activitID?.id == containerActivitiesRecordList.first.reference.id).toList().isEmpty))
                                                                                                                                     CircularPercentIndicator(
                                                                                                                                       percent: 0.0,
                                                                                                                                       radius: 37.5,
@@ -966,7 +951,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                                                                         style: FlutterFlowTheme.of(context).headlineSmall,
                                                                                                                                       ),
                                                                                                                                     ),
-                                                                                                                                  if ((containerActivitiesRecordList.length >= 1) && (usersReportsCopyActivitiesProgressRecordList.where((e) => e.activitID?.id == containerActivitiesRecordList.first.reference.id).toList().length >= 1))
+                                                                                                                                  if ((containerActivitiesRecordList.isNotEmpty) && (usersReportsCopyActivitiesProgressRecordList.where((e) => e.activitID?.id == containerActivitiesRecordList.first.reference.id).toList().isNotEmpty))
                                                                                                                                     CircularPercentIndicator(
                                                                                                                                       percent: usersReportsCopyActivitiesProgressRecordList.where((e) => e.activitID?.id == containerActivitiesRecordList.first.reference.id).toList().first.grade > 1.0 ? 1.0 : usersReportsCopyActivitiesProgressRecordList.where((e) => e.activitID?.id == containerActivitiesRecordList.first.reference.id).toList().first.grade,
                                                                                                                                       radius: 37.5,
@@ -1060,7 +1045,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                             snapshot.data!;
                                                                         return Container(
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
                                                                               StreamBuilder<List<CategRecord>>(
                                                                             stream:
@@ -1124,9 +1109,9 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                               children: [
                                                                                                 Flexible(
                                                                                                   child: Container(
-                                                                                                    decoration: BoxDecoration(),
+                                                                                                    decoration: const BoxDecoration(),
                                                                                                     child: Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                       child: StreamBuilder<List<ActivitiesRecord>>(
                                                                                                         stream: queryActivitiesRecord(
                                                                                                           queryBuilder: (activitiesRecord) => activitiesRecord
@@ -1164,7 +1149,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                               children: [
                                                                                                                 Padding(
-                                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                                   child: Column(
                                                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -1177,7 +1162,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                                                               fontWeight: FontWeight.bold,
                                                                                                                             ),
                                                                                                                       ),
-                                                                                                                      if (usersReportsCopyActivitiesProgressRecordList.where((e) => e.supjID == columnSupjRecord.reference).toList().length >= 1)
+                                                                                                                      if (usersReportsCopyActivitiesProgressRecordList.where((e) => e.supjID == columnSupjRecord.reference).toList().isNotEmpty)
                                                                                                                         Row(
                                                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                                                           children: [
@@ -1210,7 +1195,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                                                                     fontWeight: FontWeight.bold,
                                                                                                                                   ),
                                                                                                                             ),
-                                                                                                                          ].divide(SizedBox(width: 10.0)),
+                                                                                                                          ].divide(const SizedBox(width: 10.0)),
                                                                                                                         ),
                                                                                                                     ],
                                                                                                                   ),
@@ -1221,7 +1206,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                                                     Row(
                                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                                       children: [
-                                                                                                                        if (usersReportsCopyActivitiesProgressRecordList.where((e) => e.supjID == columnSupjRecord.reference).toList().length <= 0)
+                                                                                                                        if (usersReportsCopyActivitiesProgressRecordList.where((e) => e.supjID == columnSupjRecord.reference).toList().isEmpty)
                                                                                                                           CircularPercentIndicator(
                                                                                                                             percent: 0.0,
                                                                                                                             radius: 37.5,
@@ -1237,7 +1222,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                                                               style: FlutterFlowTheme.of(context).headlineSmall,
                                                                                                                             ),
                                                                                                                           ),
-                                                                                                                        if (usersReportsCopyActivitiesProgressRecordList.where((e) => e.supjID == columnSupjRecord.reference).toList().length >= 1)
+                                                                                                                        if (usersReportsCopyActivitiesProgressRecordList.where((e) => e.supjID == columnSupjRecord.reference).toList().isNotEmpty)
                                                                                                                           CircularPercentIndicator(
                                                                                                                             percent: functions.attendanceGrade(usersReportsCopyActivitiesProgressRecordList.where((e) => e.supjID == columnSupjRecord.reference).toList().length.toDouble(), functions.sumList(usersReportsCopyActivitiesProgressRecordList.where((e) => e.supjID == columnSupjRecord.reference).toList().map((e) => e.grade).toList()), 0.0)!,
                                                                                                                             radius: 37.5,
@@ -1320,7 +1305,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                             snapshot.data!;
                                                                         return Container(
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
                                                                               StreamBuilder<List<CategRecord>>(
                                                                             stream:
@@ -1384,9 +1369,9 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                               children: [
                                                                                                 Flexible(
                                                                                                   child: Container(
-                                                                                                    decoration: BoxDecoration(),
+                                                                                                    decoration: const BoxDecoration(),
                                                                                                     child: Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                       child: StreamBuilder<List<ActivitiesRecord>>(
                                                                                                         stream: queryActivitiesRecord(
                                                                                                           queryBuilder: (activitiesRecord) => activitiesRecord
@@ -1424,7 +1409,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                               children: [
                                                                                                                 Padding(
-                                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                                   child: Column(
                                                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -1537,7 +1522,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                 children: [
                                                                                   Flexible(
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                       child: StreamBuilder<List<ActivitiesProgressRecord>>(
                                                                                         stream: queryActivitiesProgressRecord(
                                                                                           queryBuilder: (activitiesProgressRecord) => activitiesProgressRecord.where(
@@ -1572,7 +1557,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                               children: [
                                                                                                 Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                                   child: Column(
                                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -1604,7 +1589,7 @@ class _UsersReportsCopyWidgetState extends State<UsersReportsCopyWidget>
                                                                                                       progressColor: FlutterFlowTheme.of(context).primary,
                                                                                                       backgroundColor: FlutterFlowTheme.of(context).secondaryText,
                                                                                                       center: Text(
-                                                                                                        '${containerActivitiesProgressRecord?.grade?.toString()}%',
+                                                                                                        '${containerActivitiesProgressRecord.grade.toString()}%',
                                                                                                         style: FlutterFlowTheme.of(context).headlineSmall.override(
                                                                                                               fontFamily: 'Cairo',
                                                                                                               fontSize: 19.0,

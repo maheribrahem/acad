@@ -7,14 +7,11 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'courses_main_p_model.dart';
@@ -22,11 +19,11 @@ export 'courses_main_p_model.dart';
 
 class CoursesMainPWidget extends StatefulWidget {
   const CoursesMainPWidget({
-    Key? key,
+    super.key,
     this.output,
     this.supjRef,
     this.categRef,
-  }) : super(key: key);
+  });
 
   final bool? output;
   final DocumentReference? supjRef;
@@ -50,8 +47,8 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
           curve: Curves.elasticOut,
           delay: 0.ms,
           duration: 1230.ms,
-          begin: Offset(-44.99999999999999, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(-44.99999999999999, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -62,8 +59,8 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
           curve: Curves.elasticOut,
           delay: 0.ms,
           duration: 1500.ms,
-          begin: Offset(-44.99999999999999, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(-44.99999999999999, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -74,8 +71,8 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
           curve: Curves.elasticOut,
           delay: 0.ms,
           duration: 1500.ms,
-          begin: Offset(-44.99999999999999, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(-44.99999999999999, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -89,30 +86,19 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setAppLanguage(context, 'ar');
-      if (!((currentUserDisplayName != null && currentUserDisplayName != '') &&
-          (currentPhoneNumber != null && currentPhoneNumber != '') &&
-          (valueOrDefault(currentUserDocument?.gender, '') != null &&
-              valueOrDefault(currentUserDocument?.gender, '') != '') &&
-          (valueOrDefault(currentUserDocument?.fullname, '') != null &&
-              valueOrDefault(currentUserDocument?.fullname, '') != '') &&
-          (valueOrDefault(currentUserDocument?.state, '') != null &&
-              valueOrDefault(currentUserDocument?.state, '') != '') &&
-          (valueOrDefault(currentUserDocument?.city, '') != null &&
-              valueOrDefault(currentUserDocument?.city, '') != '') &&
-          (valueOrDefault(currentUserDocument?.schoolLevel, '') != null &&
-              valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
-          (valueOrDefault(currentUserDocument?.job, '') != null &&
-              valueOrDefault(currentUserDocument?.job, '') != '') &&
-          (valueOrDefault(currentUserDocument?.socialStatus, '') != null &&
-              valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
-          (valueOrDefault(currentUserDocument?.pastStudy, '') != null &&
-              valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
-          (valueOrDefault(currentUserDocument?.referral, '') != null &&
-              valueOrDefault(currentUserDocument?.referral, '') != '') &&
-          (valueOrDefault(currentUserDocument?.quranJuz, '') != null &&
-              valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
-          (valueOrDefault(currentUserDocument?.telegram, '') != null &&
-              valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
+      if (!((currentUserDisplayName != '') &&
+          (currentPhoneNumber != '') &&
+          (valueOrDefault(currentUserDocument?.gender, '') != '') &&
+          (valueOrDefault(currentUserDocument?.fullname, '') != '') &&
+          (valueOrDefault(currentUserDocument?.state, '') != '') &&
+          (valueOrDefault(currentUserDocument?.city, '') != '') &&
+          (valueOrDefault(currentUserDocument?.schoolLevel, '') != '') &&
+          (valueOrDefault(currentUserDocument?.job, '') != '') &&
+          (valueOrDefault(currentUserDocument?.socialStatus, '') != '') &&
+          (valueOrDefault(currentUserDocument?.pastStudy, '') != '') &&
+          (valueOrDefault(currentUserDocument?.referral, '') != '') &&
+          (valueOrDefault(currentUserDocument?.quranJuz, '') != '') &&
+          (valueOrDefault(currentUserDocument?.telegram, '') != ''))) {
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -127,7 +113,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                   : FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: ProfilecompWidget(),
+                child: const ProfilecompWidget(),
               ),
             ));
           },
@@ -181,7 +167,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
               child: wrapWithModel(
                 model: _model.nav0Model,
                 updateCallback: () => setState(() {}),
-                child: Nav0Widget(),
+                child: const Nav0Widget(),
               ),
             )),
             body: Container(
@@ -199,6 +185,12 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
               child: MouseRegion(
                 opaque: false,
                 cursor: MouseCursor.defer ?? MouseCursor.defer,
+                onEnter: ((event) async {
+                  setState(() => _model.mouseRegionHovered = true);
+                }),
+                onExit: ((event) async {
+                  setState(() => _model.mouseRegionHovered = false);
+                }),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -207,13 +199,13 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 35.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 0.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -235,14 +227,13 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                   child: wrapWithModel(
                                     model: _model.topbarModel,
                                     updateCallback: () => setState(() {}),
-                                    child: TopbarWidget(),
+                                    child: const TopbarWidget(),
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                          if (_model.categRefController.text == null ||
-                              _model.categRefController.text == '')
+                          if (_model.categRefController.text == '')
                             Expanded(
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -255,14 +246,14 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     9.0, 9.0, 9.0, 9.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   1.0,
                                               height: 100.0,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: SingleChildScrollView(
                                                 primary: false,
                                                 child: Column(
@@ -271,7 +262,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   30.0,
@@ -284,7 +275,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                           Expanded(
                                                             child: Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       -0.00,
                                                                       0.00),
                                                               child: Text(
@@ -315,7 +306,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   15.0,
                                                                   15.0,
@@ -384,7 +375,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                               return Stack(
                                                                 children: [
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -397,7 +388,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                       height:
                                                                           140.0,
                                                                       decoration:
-                                                                          BoxDecoration(),
+                                                                          const BoxDecoration(),
                                                                     ),
                                                                   ),
                                                                   InkWell(
@@ -446,7 +437,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                             BoxDecoration(
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
-                                                                          boxShadow: [
+                                                                          boxShadow: const [
                                                                             BoxShadow(
                                                                               blurRadius: 5.0,
                                                                               color: Color(0x33000000),
@@ -463,7 +454,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
                                                                                   child: Container(
                                                                                     width: 140.0,
                                                                                     height: 105.0,
@@ -481,14 +472,14 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                                 ),
                                                                                 Expanded(
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 10.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 10.0),
                                                                                     child: Column(
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                                                       crossAxisAlignment: CrossAxisAlignment.start,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 7.0, 0.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 7.0, 0.0),
                                                                                           child: Text(
                                                                                             offerListCategRecord.name,
                                                                                             textAlign: TextAlign.start,
@@ -531,8 +522,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                 ],
                               ),
                             ),
-                          if (_model.categRefController.text != null &&
-                              _model.categRefController.text != '')
+                          if (_model.categRefController.text != '')
                             Expanded(
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -545,7 +535,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     9.0, 9.0, 9.0, 9.0),
                                             child: StreamBuilder<CategRecord>(
                                               stream: CategRecord.getDocument(
@@ -576,7 +566,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                               .width *
                                                           1.0,
                                                   height: 100.0,
-                                                  decoration: BoxDecoration(),
+                                                  decoration: const BoxDecoration(),
                                                   child: SingleChildScrollView(
                                                     primary: false,
                                                     child: Column(
@@ -585,7 +575,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       30.0,
@@ -597,7 +587,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                     .max,
                                                             children: [
                                                               Padding(
-                                                                padding: EdgeInsetsDirectional
+                                                                padding: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         16.0,
@@ -647,7 +637,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondary,
                                                                           borderRadius:
-                                                                              BorderRadius.only(
+                                                                              const BorderRadius.only(
                                                                             bottomLeft:
                                                                                 Radius.circular(24.0),
                                                                             bottomRight:
@@ -660,12 +650,12 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                         ),
                                                                         child:
                                                                             Align(
-                                                                          alignment: AlignmentDirectional(
+                                                                          alignment: const AlignmentDirectional(
                                                                               -0.00,
                                                                               0.00),
                                                                           child:
                                                                               Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 16.0,
                                                                                 0.0,
                                                                                 16.0,
@@ -692,7 +682,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondary,
                                                                         borderRadius:
-                                                                            BorderRadius.only(
+                                                                            const BorderRadius.only(
                                                                           bottomLeft:
                                                                               Radius.circular(24.0),
                                                                           bottomRight:
@@ -705,12 +695,12 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                       ),
                                                                       child:
                                                                           Align(
-                                                                        alignment: AlignmentDirectional(
+                                                                        alignment: const AlignmentDirectional(
                                                                             -0.00,
                                                                             0.00),
                                                                         child:
                                                                             Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               16.0,
                                                                               0.0,
                                                                               16.0,
@@ -726,7 +716,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ].divide(SizedBox(
+                                                                  ].divide(const SizedBox(
                                                                       width:
                                                                           5.0)),
                                                                 ),
@@ -736,7 +726,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       15.0,
                                                                       15.0,
@@ -816,7 +806,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                   return Stack(
                                                                     children: [
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -828,7 +818,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                           height:
                                                                               140.0,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                         ),
                                                                       ),
                                                                       InkWell(
@@ -878,7 +868,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              boxShadow: [
+                                                                              boxShadow: const [
                                                                                 BoxShadow(
                                                                                   blurRadius: 5.0,
                                                                                   color: Color(0x33000000),
@@ -894,7 +884,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
                                                                                       child: Container(
                                                                                         width: 140.0,
                                                                                         height: 105.0,
@@ -912,14 +902,14 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                                     ),
                                                                                     Expanded(
                                                                                       child: Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 10.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 10.0),
                                                                                         child: Column(
                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                                                           crossAxisAlignment: CrossAxisAlignment.start,
                                                                                           children: [
                                                                                             Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 7.0, 0.0),
+                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 7.0, 0.0),
                                                                                               child: Text(
                                                                                                 offerListSupjRecord.name,
                                                                                                 textAlign: TextAlign.start,
@@ -938,8 +928,8 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                                                 text: offerListSupjRecord.teacherString,
                                                                                                 options: FFButtonOptions(
                                                                                                   height: 30.0,
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                         fontFamily: 'Cairo',
@@ -948,7 +938,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                                                         fontWeight: FontWeight.normal,
                                                                                                       ),
                                                                                                   elevation: 2.0,
-                                                                                                  borderSide: BorderSide(
+                                                                                                  borderSide: const BorderSide(
                                                                                                     color: Colors.transparent,
                                                                                                     width: 1.0,
                                                                                                   ),
@@ -1002,7 +992,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                               children: [
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 8.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.categRefController,
@@ -1073,7 +1063,7 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                 ))
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           8.0, 0.0, 8.0, 0.0),
                                       child: TextFormField(
                                         controller: _model.supjRefController,
@@ -1148,12 +1138,6 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                     ),
                   ],
                 ),
-                onEnter: ((event) async {
-                  setState(() => _model.mouseRegionHovered = true);
-                }),
-                onExit: ((event) async {
-                  setState(() => _model.mouseRegionHovered = false);
-                }),
               ),
             ),
           ),

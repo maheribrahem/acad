@@ -5,14 +5,11 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -23,7 +20,7 @@ export 'userslist_model.dart';
 
 class UserslistWidget extends StatefulWidget {
   const UserslistWidget({
-    Key? key,
+    super.key,
     this.parameter1,
     this.parameter2,
     this.parameter3,
@@ -32,7 +29,7 @@ class UserslistWidget extends StatefulWidget {
     this.parameter6,
     this.parameter7,
     this.parameter8,
-  }) : super(key: key);
+  });
 
   final int? parameter1;
   final String? parameter2;
@@ -66,8 +63,8 @@ class _UserslistWidgetState extends State<UserslistWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 100.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -106,7 +103,7 @@ class _UserslistWidgetState extends State<UserslistWidget>
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
       child: PagedListView<DocumentSnapshot<Object?>?, UsersRecord>(
         pagingController: _model.setListViewController(
           UsersRecord.collection
@@ -148,13 +145,13 @@ class _UserslistWidgetState extends State<UserslistWidget>
             final listViewUsersRecord =
                 _model.listViewPagingController!.itemList![listViewIndex];
             return Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
               child: Container(
                 width: double.infinity,
                 height: 70.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       blurRadius: 0.0,
                       color: Color(0xFFE0E3E7),
@@ -164,7 +161,7 @@ class _UserslistWidgetState extends State<UserslistWidget>
                   borderRadius: BorderRadius.circular(23.0),
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -200,15 +197,15 @@ class _UserslistWidgetState extends State<UserslistWidget>
                             width: 44.0,
                             height: 44.0,
                             decoration: BoxDecoration(
-                              color: Color(0x4C4B39EF),
+                              color: const Color(0x4C4B39EF),
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: Color(0xFF4B39EF),
+                                color: const Color(0xFF4B39EF),
                                 width: 2.0,
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   2.0, 2.0, 2.0, 2.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(40.0),
@@ -227,7 +224,7 @@ class _UserslistWidgetState extends State<UserslistWidget>
                             children: [
                               Flexible(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     listViewUsersRecord.displayName
@@ -248,7 +245,7 @@ class _UserslistWidgetState extends State<UserslistWidget>
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     12.0, 4.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -302,7 +299,7 @@ class _UserslistWidgetState extends State<UserslistWidget>
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       5.0, 5.0, 5.0, 5.0),
                                   child: FlutterFlowIconButton(
                                     borderColor: Colors.transparent,
@@ -358,7 +355,7 @@ class _UserslistWidgetState extends State<UserslistWidget>
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
                                     child: FlutterFlowIconButton(
                                       borderColor: Colors.transparent,
@@ -407,7 +404,7 @@ class _UserslistWidgetState extends State<UserslistWidget>
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
                                     child: FlutterFlowIconButton(
                                       borderColor: Colors.transparent,
@@ -457,12 +454,12 @@ class _UserslistWidgetState extends State<UserslistWidget>
                         },
                         child: Card(
                           clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color: Color(0xFFF1F4F8),
+                          color: const Color(0xFFF1F4F8),
                           elevation: 1.0,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40.0),
                           ),
-                          child: Padding(
+                          child: const Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 4.0, 4.0, 4.0, 4.0),
                             child: Icon(

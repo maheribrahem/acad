@@ -3,13 +3,11 @@ import '/components/nav0/nav0_widget.dart';
 import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'supadmin_model.dart';
@@ -17,10 +15,10 @@ export 'supadmin_model.dart';
 
 class SupadminWidget extends StatefulWidget {
   const SupadminWidget({
-    Key? key,
+    super.key,
     this.output,
     this.filter,
-  }) : super(key: key);
+  });
 
   final bool? output;
   final String? filter;
@@ -108,7 +106,7 @@ class _SupadminWidgetState extends State<SupadminWidget> {
                   child: wrapWithModel(
                     model: _model.nav0Model,
                     updateCallback: () => setState(() {}),
-                    child: Nav0Widget(),
+                    child: const Nav0Widget(),
                   ),
                 )),
                 body: Container(
@@ -131,13 +129,13 @@ class _SupadminWidgetState extends State<SupadminWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 35.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -159,7 +157,7 @@ class _SupadminWidgetState extends State<SupadminWidget> {
                                     child: wrapWithModel(
                                       model: _model.topbarModel,
                                       updateCallback: () => setState(() {}),
-                                      child: TopbarWidget(),
+                                      child: const TopbarWidget(),
                                     ),
                                   ),
                                 ],
@@ -180,7 +178,7 @@ class _SupadminWidgetState extends State<SupadminWidget> {
                                                     .width *
                                                 1.0,
                                             height: 100.0,
-                                            decoration: BoxDecoration(),
+                                            decoration: const BoxDecoration(),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -276,10 +274,10 @@ class _SupadminWidgetState extends State<SupadminWidget> {
                                                                       ),
                                                                 ),
                                                               ]
-                                                                  .divide(SizedBox(
+                                                                  .divide(const SizedBox(
                                                                       height:
                                                                           5.0))
-                                                                  .around(SizedBox(
+                                                                  .around(const SizedBox(
                                                                       height:
                                                                           5.0)),
                                                             ),
@@ -348,10 +346,10 @@ class _SupadminWidgetState extends State<SupadminWidget> {
                                                                     ),
                                                               ),
                                                             ]
-                                                                .divide(SizedBox(
+                                                                .divide(const SizedBox(
                                                                     height:
                                                                         5.0))
-                                                                .around(SizedBox(
+                                                                .around(const SizedBox(
                                                                     height:
                                                                         5.0)),
                                                           ),
@@ -419,10 +417,10 @@ class _SupadminWidgetState extends State<SupadminWidget> {
                                                                     ),
                                                               ),
                                                             ]
-                                                                .divide(SizedBox(
+                                                                .divide(const SizedBox(
                                                                     height:
                                                                         5.0))
-                                                                .around(SizedBox(
+                                                                .around(const SizedBox(
                                                                     height:
                                                                         5.0)),
                                                           ),
@@ -476,9 +474,9 @@ class _SupadminWidgetState extends State<SupadminWidget> {
                                                                   ),
                                                             ),
                                                           ]
-                                                              .divide(SizedBox(
+                                                              .divide(const SizedBox(
                                                                   height: 5.0))
-                                                              .around(SizedBox(
+                                                              .around(const SizedBox(
                                                                   height: 5.0)),
                                                         ),
                                                       ),

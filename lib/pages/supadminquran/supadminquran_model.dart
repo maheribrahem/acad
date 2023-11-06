@@ -1,29 +1,11 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/components/nav0/nav0_widget.dart';
-import '/components/profilecomp/profilecomp_widget.dart';
 import '/components/quran_create/quran_create_widget.dart';
 import '/components/quranupdate/quranupdate_widget.dart';
 import '/components/topbar/topbar_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'supadminquran_widget.dart' show SupadminquranWidget;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 
 class SupadminquranModel extends FlutterFlowModel<SupadminquranWidget> {
   ///  Local state fields for this page.
@@ -55,6 +37,7 @@ class SupadminquranModel extends FlutterFlowModel<SupadminquranWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     topbarModel = createModel(context, () => TopbarModel());
     quranupdateModels = FlutterFlowDynamicModels(() => QuranupdateModel());
@@ -62,6 +45,7 @@ class SupadminquranModel extends FlutterFlowModel<SupadminquranWidget> {
     nav0Model = createModel(context, () => Nav0Model());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     topbarModel.dispose();

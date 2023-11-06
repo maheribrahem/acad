@@ -1,18 +1,15 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'categ_switcher_model.dart';
 export 'categ_switcher_model.dart';
 
 class CategSwitcherWidget extends StatefulWidget {
   const CategSwitcherWidget({
-    Key? key,
+    super.key,
     this.hide,
-  }) : super(key: key);
+  });
 
   final bool? hide;
 
@@ -51,7 +48,7 @@ class _CategSwitcherWidgetState extends State<CategSwitcherWidget> {
     return Switch.adaptive(
       value: _model.switchValue ??= true,
       onChanged: (newValue) async {
-        setState(() => _model.switchValue = newValue!);
+        setState(() => _model.switchValue = newValue);
       },
       activeColor: FlutterFlowTheme.of(context).primary,
       activeTrackColor: FlutterFlowTheme.of(context).accent1,
