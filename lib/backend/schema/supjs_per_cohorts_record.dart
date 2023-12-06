@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -98,41 +97,6 @@ class SupjsPerCohortsRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       SupjsPerCohortsRecord._(reference, mapFromFirestore(data));
-
-  static SupjsPerCohortsRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      SupjsPerCohortsRecord.getDocumentFromData(
-        {
-          'cohort': snapshot.data['cohort'],
-          'supj1': snapshot.data['supj1'],
-          'supj2': snapshot.data['supj2'],
-          'supj3': snapshot.data['supj3'],
-          'supj4': snapshot.data['supj4'],
-          'supj5': snapshot.data['supj5'],
-          'supj6': snapshot.data['supj6'],
-          'supj7': snapshot.data['supj7'],
-          'supj8': snapshot.data['supj8'],
-          'supj9': snapshot.data['supj9'],
-        },
-        SupjsPerCohortsRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<SupjsPerCohortsRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'supjsPerCohorts',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

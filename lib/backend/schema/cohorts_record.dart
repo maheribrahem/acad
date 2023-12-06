@@ -1,13 +1,10 @@
 import 'dart:async';
 
-import '/backend/algolia/serialization_util.dart';
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class CohortsRecord extends FirestoreRecord {
   CohortsRecord._(
@@ -76,57 +73,6 @@ class CohortsRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       CohortsRecord._(reference, mapFromFirestore(data));
-
-  static CohortsRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      CohortsRecord.getDocumentFromData(
-        {
-          'cohortsid': snapshot.data['cohortsid'],
-          'name': snapshot.data['name'],
-          'users': safeGet(
-            () => convertAlgoliaParam<DocumentReference>(
-              snapshot.data['users'],
-              ParamType.DocumentReference,
-              true,
-            ).toList(),
-          ),
-          'categ': safeGet(
-            () => convertAlgoliaParam<DocumentReference>(
-              snapshot.data['categ'],
-              ParamType.DocumentReference,
-              true,
-            ).toList(),
-          ),
-          'created': convertAlgoliaParam(
-            snapshot.data['created'],
-            ParamType.DateTime,
-            false,
-          ),
-          'updated': convertAlgoliaParam(
-            snapshot.data['updated'],
-            ParamType.DateTime,
-            false,
-          ),
-        },
-        CohortsRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<CohortsRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'cohorts',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

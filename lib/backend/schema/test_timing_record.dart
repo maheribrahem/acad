@@ -1,13 +1,10 @@
 import 'dart:async';
 
-import '/backend/algolia/serialization_util.dart';
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class TestTimingRecord extends FirestoreRecord {
   TestTimingRecord._(
@@ -70,56 +67,6 @@ class TestTimingRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       TestTimingRecord._(reference, mapFromFirestore(data));
-
-  static TestTimingRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      TestTimingRecord.getDocumentFromData(
-        {
-          'testRef': convertAlgoliaParam(
-            snapshot.data['testRef'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'user': convertAlgoliaParam(
-            snapshot.data['user'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'origenTime': convertAlgoliaParam(
-            snapshot.data['origenTime'],
-            ParamType.int,
-            false,
-          ),
-          'timeTaken': convertAlgoliaParam(
-            snapshot.data['timeTaken'],
-            ParamType.int,
-            false,
-          ),
-          'startTime': convertAlgoliaParam(
-            snapshot.data['startTime'],
-            ParamType.DateTime,
-            false,
-          ),
-        },
-        TestTimingRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<TestTimingRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'testTiming',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

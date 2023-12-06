@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'autho_model.dart';
@@ -797,8 +796,7 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                                         userRefs: [
                                                           currentUserReference!
                                                         ],
-                                                        initialPageName:
-                                                            'homePage',
+                                                        initialPageName: 'home',
                                                         parameterData: {},
                                                       );
 
@@ -851,13 +849,15 @@ class _AuthoWidgetState extends State<AuthoWidget>
                                         if (!snapshot.hasData) {
                                           return Center(
                                             child: SizedBox(
-                                              width: 100.0,
-                                              height: 100.0,
-                                              child: SpinKitSquareCircle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                size: 100.0,
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: CircularProgressIndicator(
+                                                valueColor:
+                                                    AlwaysStoppedAnimation<
+                                                        Color>(
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                                ),
                                               ),
                                             ),
                                           );

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import '/backend/backend.dart';
+
 import '/backend/supabase/supabase.dart';
 
 import '../../flutter_flow/place.dart';
@@ -252,8 +253,12 @@ dynamic deserializeParam<T>(
             return QbankAttemptRow(data);
           case CategGradesRow:
             return CategGradesRow(data);
+          case QbankRow:
+            return QbankRow(data);
           case QbankAttemptsRow:
             return QbankAttemptsRow(data);
+          case UsersRow:
+            return UsersRow(data);
           case ActivitiesProgressRow:
             return ActivitiesProgressRow(data);
           default:

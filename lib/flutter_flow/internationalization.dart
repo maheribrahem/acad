@@ -244,7 +244,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Go to the telegram channel',
     },
   },
-  // lessonContent
+  // lessonContentCopy1
   {
     'fg69f524': {
       'ar': 'المقررات',
@@ -352,7 +352,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // homePage
+  // home
   {
     '5jn91lg2': {
       'ar': 'Home',
@@ -807,22 +807,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // adminUsesrs
   {
-    'v74prhnw': {
-      'ar': 'ملف كامل',
-      'en': '',
-    },
-    'cknghu5q': {
-      'ar': 'تم الفحص',
-      'en': '',
-    },
-    '2f6d7lpz': {
-      'ar': 'حساب حقيقي',
-      'en': '',
-    },
-    'i1b9brwv': {
-      'ar': 'كل الطلاب',
-      'en': '',
-    },
     'ztvf9d4h': {
       'ar': 'الكلمة المفتاحية',
       'en': '',
@@ -929,43 +913,83 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'عام',
       'en': '',
     },
-    'emfgm76q': {
+    'ft9wbvm6': {
       'ar': '0%',
       'en': '',
     },
-    'htiy7tbl': {
+    '07d3w0th': {
       'ar': 'الاختبارات',
       'en': '',
     },
-    'b3exgc4c': {
+    'bayyg5ym': {
       'ar': '0%',
       'en': '',
     },
-    'p82jcfjn': {
+    'u6izaew9': {
       'ar': 'الاختبارات',
       'en': '',
     },
-    'zyxwddbu': {
+    '669l87et': {
       'ar': '0%',
       'en': '',
     },
-    'nthdp0nz': {
+    '2gi4514t': {
       'ar': 'التدريبات',
       'en': '',
     },
-    'qpmwczcz': {
+    'hj06mch2': {
       'ar': '0%',
       'en': '',
     },
-    '7vgw0k07': {
+    '4r0ldpyl': {
       'ar': 'الحضور',
       'en': '',
     },
-    '1g65m4l8': {
+    'xi7gzj3j': {
       'ar': '0%',
       'en': '',
     },
-    '6vdxabq2': {
+    '59bmmas1': {
+      'ar': 'القرآن',
+      'en': '',
+    },
+    '32u5qlo3': {
+      'ar': '0%',
+      'en': '',
+    },
+    'dxvm4q7f': {
+      'ar': 'الاختبارات',
+      'en': '',
+    },
+    'zkn9tcus': {
+      'ar': '0%',
+      'en': '',
+    },
+    'svbotqzw': {
+      'ar': 'Button',
+      'en': '',
+    },
+    '787i78sj': {
+      'ar': '0%',
+      'en': '',
+    },
+    'ho7ylym6': {
+      'ar': 'التدريبات',
+      'en': '',
+    },
+    'lv3vlrbm': {
+      'ar': '0%',
+      'en': '',
+    },
+    'm3thpohs': {
+      'ar': 'الحضور',
+      'en': '',
+    },
+    'e3vnrrtd': {
+      'ar': '0%',
+      'en': '',
+    },
+    'dvueqyjz': {
       'ar': 'القرآن',
       'en': '',
     },
@@ -1040,42 +1064,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // supadminUsers
+  // supadminUsersCopy4
   {
-    'n38cja61': {
-      'ar': '1',
-      'en': '',
-    },
-    '2f0ohlbn': {
-      'ar': '1',
-      'en': '',
-    },
-    '5mx4f3pl': {
-      'ar': '1',
-      'en': '',
-    },
-    '0a1i6ew5': {
-      'ar': 'ملف كامل',
-      'en': '',
-    },
-    'rj0kbr8u': {
-      'ar': 'تم الفحص',
-      'en': '',
-    },
-    'jxvjaste': {
-      'ar': 'حساب حقيقي',
-      'en': '',
-    },
-    'lydcp49r': {
-      'ar': 'طلابي',
-      'en': '',
-    },
-    'kzzq93ag': {
-      'ar': 'الكلمة المفتاحية',
-      'en': '',
-    },
-    'w7qa9n4k': {
+    '9dxwegoi': {
       'ar': 'Label here...',
+      'en': '',
+    },
+    'qpmpqen0': {
+      'ar': 'إعادة',
+      'en': '',
+    },
+    'ed4t66m8': {
+      'ar': '+ 10',
+      'en': '',
+    },
+    'qf934bhy': {
+      'ar': '-10',
       'en': '',
     },
     'suwu7sxt': {
@@ -1123,11 +1127,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'Label here...',
       'en': '',
     },
-    'xrz4cstk': {
+    'k6b9onwq': {
+      'ar': 'حذف',
+      'en': '',
+    },
+    'gwk69eqk': {
       'ar': 'الطلاب المحتملون',
       'en': '',
     },
-    'vg0w7jkw': {
+    '4db7qahm': {
       'ar': 'Label here...',
       'en': '',
     },
@@ -1498,73 +1506,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Home',
     },
   },
-  // usersReportsCopy
-  {
-    '15f0jnup': {
-      'ar': 'عودة',
-      'en': '',
-    },
-    'qjwm1l88': {
-      'ar': 'عام',
-      'en': '',
-    },
-    '8gdm3mr1': {
-      'ar': '50%',
-      'en': '',
-    },
-    'oz8qucka': {
-      'ar': '50%',
-      'en': '',
-    },
-    'vvlvbzxk': {
-      'ar': 'التدريبات',
-      'en': '',
-    },
-    'p4fxvj17': {
-      'ar': '50%',
-      'en': '',
-    },
-    'tic8b319': {
-      'ar': 'الحضور',
-      'en': '',
-    },
-    'h4v3iwzx': {
-      'ar': '50%',
-      'en': '',
-    },
-    'mp97vvzy': {
-      'ar': 'القرآن',
-      'en': '',
-    },
-    'npeerkld': {
-      'ar': 'الاختبارات',
-      'en': '',
-    },
-    'j3pcbuor': {
-      'ar': '0%',
-      'en': '',
-    },
-    'bli6wd5u': {
-      'ar': 'التدريبات',
-      'en': '',
-    },
-    'x6fi7ce4': {
-      'ar': '0%',
-      'en': '',
-    },
-    'odrpr0si': {
-      'ar': 'الحضور/السماع',
-      'en': '',
-    },
-    'c0ndwmtr': {
-      'ar': 'القرآن',
-      'en': '',
-    },
-    'wgztdgg0': {
-      'ar': 'Home',
-      'en': '',
-    },
-  },
   // supadminGradesCopy
   {
     'e3702kfj': {
@@ -1590,6 +1531,246 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'f04hnanl': {
       'ar': 'Home',
       'en': '',
+    },
+  },
+  // reportMaker
+  {
+    '2fyylp6u': {
+      'ar': 'Home',
+      'en': '',
+    },
+  },
+  // supadminUsers
+  {
+    'ex3ljpf2': {
+      'ar': '1',
+      'en': '',
+    },
+    'ui6y85m9': {
+      'ar': '1',
+      'en': '',
+    },
+    's8w4jqss': {
+      'ar': '1',
+      'en': '',
+    },
+    '2yipmiih': {
+      'ar':
+          'اكتب @ في محرك البحث لإظهر الجميع\nكما يمكنك البحث عن الطلبة بالاسم أو الإيميل أو رقم الهاتف وسيظهر لك كل النتائج القريبة من كلمة البحث',
+      'en': '',
+    },
+    'ee7e2ius': {
+      'ar': 'الكلمة المفتاحية',
+      'en': '',
+    },
+    '8amvycag': {
+      'ar': 'Label here...',
+      'en': '',
+    },
+    'gu07cjrb': {
+      'ar': 'Home',
+      'en': '',
+    },
+  },
+  // supadminUsersCopy2
+  {
+    'grhhc7p7': {
+      'ar': 'Label here...',
+      'en': '',
+    },
+    '5jbbr16t': {
+      'ar': '+ 10',
+      'en': '',
+    },
+    'uhcmwkd8': {
+      'ar': '-10',
+      'en': '',
+    },
+    'gkk6vin1': {
+      'ar': 'Home',
+      'en': '',
+    },
+  },
+  // cohortsPageCopy
+  {
+    '3mpxmc6x': {
+      'ar': 'Label here...',
+      'en': '',
+    },
+    'yp5ge4u4': {
+      'ar': 'طلاب الدفعة',
+      'en': '',
+    },
+    'bt6w79zx': {
+      'ar': 'Label here...',
+      'en': '',
+    },
+    'iyj9uksi': {
+      'ar': 'الطلاب المحتملون',
+      'en': '',
+    },
+    'celg8axf': {
+      'ar': 'Label here...',
+      'en': '',
+    },
+    'hypz8cmq': {
+      'ar': 'Home',
+      'en': '',
+    },
+  },
+  // supadminUsersCopy3
+  {
+    'a1fd7wlh': {
+      'ar': 'Label here...',
+      'en': '',
+    },
+    '5qxi655i': {
+      'ar': 'إعادة',
+      'en': '',
+    },
+    'cp17d8ww': {
+      'ar': '+ 10',
+      'en': '',
+    },
+    '0qypyvmv': {
+      'ar': '-10',
+      'en': '',
+    },
+    'y2w8h04r': {
+      'ar': 'Home',
+      'en': '',
+    },
+  },
+  // homePage
+  {
+    'rnbw1whm': {
+      'ar': 'Home',
+      'en': '',
+    },
+  },
+  // lessonContent
+  {
+    'qeu7s3q7': {
+      'ar': 'المقررات',
+      'en': '',
+    },
+    'ouurzm85': {
+      'ar': 'عودة',
+      'en': '',
+    },
+    '22g8w5pl': {
+      'ar': 'Label here...',
+      'en': '',
+    },
+    'tdk406pt': {
+      'ar': 'audio',
+      'en': '',
+    },
+    '4yn25ip6': {
+      'ar': 'ملاحظات',
+      'en': 'Posts',
+    },
+    'jt9wpj3d': {
+      'ar': 'التدريبات',
+      'en': 'Activity',
+    },
+    'uz19pspv': {
+      'ar': 'المرفقات',
+      'en': 'Followers',
+    },
+    'mbjhe1ia': {
+      'ar': '01 باب الطهارة',
+      'en': '',
+    },
+    '93azk43n': {
+      'ar': '45Min',
+      'en': '',
+    },
+    'm8e1pg7y': {
+      'ar': 'الشيخ هشام فؤاد',
+      'en': '',
+    },
+    'avvhdkqb': {
+      'ar': 'مناقشة',
+      'en': '',
+    },
+    'c5pentji': {
+      'ar': 'قريبا...',
+      'en': '',
+    },
+    'jhytwwxc': {
+      'ar': 'Home',
+      'en': 'Home',
+    },
+  },
+  // lessonContentCopy0
+  {
+    'imqndd7c': {
+      'ar': 'المقررات',
+      'en': '',
+    },
+    'aw6vkjip': {
+      'ar': 'Label here...',
+      'en': '',
+    },
+    'vd2nloli': {
+      'ar': 'audio',
+      'en': '',
+    },
+    'ui44w5i4': {
+      'ar': 'ملاحظات',
+      'en': 'Posts',
+    },
+    'nyla17z6': {
+      'ar': 'التدريبات',
+      'en': 'Activity',
+    },
+    'ju3tzknt': {
+      'ar': 'المرفقات',
+      'en': 'Followers',
+    },
+    'afw7cnq8': {
+      'ar': '01 باب الطهارة',
+      'en': '',
+    },
+    '66z7evzr': {
+      'ar': '45Min',
+      'en': '',
+    },
+    'j689yvx7': {
+      'ar': 'الشيخ هشام فؤاد',
+      'en': '',
+    },
+    'we9nay0g': {
+      'ar': 'مناقشة',
+      'en': '',
+    },
+    'lm81kkm4': {
+      'ar': 'قريبا...',
+      'en': '',
+    },
+    '00xanlxe': {
+      'ar': 'Home',
+      'en': 'Home',
+    },
+  },
+  // testContentCopy
+  {
+    'cvuoit85': {
+      'ar': 'خروج وتسليم',
+      'en': '',
+    },
+    'flqtqb8j': {
+      'ar': 'عودة',
+      'en': '',
+    },
+    'jvts5wln': {
+      'ar': 'إعادة الاختبار',
+      'en': '',
+    },
+    '5ptfjk7i': {
+      'ar': 'Home',
+      'en': 'Home',
     },
   },
   // nav0
@@ -1631,7 +1812,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Exit',
     },
     'ykmaj08e': {
-      'ar': '2023-11-06/3:00AM',
+      'ar': '2023-12-01/1:00AM',
       'en': '',
     },
   },

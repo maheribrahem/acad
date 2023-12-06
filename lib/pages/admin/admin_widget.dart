@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/backend/custom_cloud_functions/custom_cloud_function_response_manager.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/nav0/nav0_widget.dart';
 import '/components/settings/settings_widget.dart';
@@ -8,10 +9,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -82,11 +83,12 @@ class _AdminWidgetState extends State<AdminWidget> {
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 100.0,
-                height: 100.0,
-                child: SpinKitSquareCircle(
-                  color: FlutterFlowTheme.of(context).primary,
-                  size: 100.0,
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
+                  ),
                 ),
               ),
             ),
@@ -693,15 +695,15 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                                       child:
                                                                           SizedBox(
                                                                         width:
-                                                                            100.0,
+                                                                            50.0,
                                                                         height:
-                                                                            100.0,
+                                                                            50.0,
                                                                         child:
-                                                                            SpinKitSquareCircle(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          size:
-                                                                              100.0,
+                                                                            CircularProgressIndicator(
+                                                                          valueColor:
+                                                                              AlwaysStoppedAnimation<Color>(
+                                                                            FlutterFlowTheme.of(context).primary,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     );
@@ -799,6 +801,94 @@ class _AdminWidgetState extends State<AdminWidget> {
                                                       onPressed: () async {},
                                                       text:
                                                           'تحميل عدد : ${adminActivitiesProgressRowList.length.toString()}',
+                                                      options: FFButtonOptions(
+                                                        height: 40.0,
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    24.0,
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Cairo',
+                                                                  color: Colors
+                                                                      .white,
+                                                                ),
+                                                        elevation: 3.0,
+                                                        borderSide: const BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                    ),
+                                                    FFButtonWidget(
+                                                      onPressed: () async {
+                                                        try {
+                                                          final result =
+                                                              await FirebaseFunctions
+                                                                  .instance
+                                                                  .httpsCallable(
+                                                                      'onUsersChange')
+                                                                  .call({});
+                                                          _model.cloudFunction5wx =
+                                                              OnUsersChangeCloudFunctionCallResponse(
+                                                            data: result.data,
+                                                            succeeded: true,
+                                                            resultAsString:
+                                                                result.data
+                                                                    .toString(),
+                                                            jsonBody:
+                                                                result.data,
+                                                          );
+                                                        } on FirebaseFunctionsException catch (error) {
+                                                          _model.cloudFunction5wx =
+                                                              OnUsersChangeCloudFunctionCallResponse(
+                                                            errorCode:
+                                                                error.code,
+                                                            succeeded: false,
+                                                          );
+                                                        }
+
+                                                        if (_model
+                                                            .cloudFunction5wx!
+                                                            .succeeded!) {
+                                                          setState(() {
+                                                            _model.function = _model
+                                                                .cloudFunction5wx
+                                                                ?.resultAsString;
+                                                          });
+                                                        } else {
+                                                          setState(() {
+                                                            _model.function = _model
+                                                                .cloudFunction5wx
+                                                                ?.resultAsString;
+                                                          });
+                                                        }
+
+                                                        setState(() {});
+                                                      },
+                                                      text: _model.function!,
                                                       options: FFButtonOptions(
                                                         height: 40.0,
                                                         padding:

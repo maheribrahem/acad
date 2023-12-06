@@ -1,6 +1,7 @@
 
 import '/backend/backend.dart';
 
+
 import '../../flutter_flow/nav/serialization_util.dart';
 
 dynamic convertAlgoliaParam<T>(

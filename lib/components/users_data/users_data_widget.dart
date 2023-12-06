@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -7,7 +8,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'users_data_model.dart';
@@ -76,11 +76,12 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 100.0,
-              height: 100.0,
-              child: SpinKitSquareCircle(
-                color: FlutterFlowTheme.of(context).primary,
-                size: 100.0,
+              width: 50.0,
+              height: 50.0,
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -1674,54 +1675,173 @@ class _UsersDataWidgetState extends State<UsersDataWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  FFButtonWidget(
-                                    onPressed: () async {
-                                      await containerUsersRecord.reference
-                                          .update(createUsersRecordData(
-                                        displayName:
-                                            _model.textController1.text,
-                                        phoneNumber:
-                                            _model.textController3.text,
-                                        born: _model.datePicked,
-                                        gender: _model.genderValue,
-                                        fullname: _model.textController2.text,
-                                        state: _model.textController4.text,
-                                        city: _model.textController5.text,
-                                        schoolLevel: _model.dropDownValue,
-                                        job: _model.textController6.text,
-                                        socialStatus: _model.socialstatusValue,
-                                        quranJuz: _model.quranValue,
-                                        referral: _model.textController7.text,
-                                        createdTime: getCurrentTimestamp,
-                                        telegram: _model.textController8.text,
-                                      ));
-                                      Navigator.pop(context);
-                                    },
-                                    text: FFLocalizations.of(context).getText(
-                                      'mxeqvrug' /* confirm */,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: 130.0,
-                                      height: 40.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
-                                      iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'Cairo',
-                                            color: Colors.white,
-                                          ),
-                                      borderSide: const BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1.0,
+                                  FutureBuilder<List<UsersRow>>(
+                                    future: UsersTable().queryRows(
+                                      queryFn: (q) => q.eq(
+                                        'email',
+                                        containerUsersRecord.email,
                                       ),
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      limit: 1,
                                     ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<UsersRow> cardUsersRowList =
+                                          snapshot.data!;
+                                      return Card(
+                                        clipBehavior:
+                                            Clip.antiAliasWithSaveLayer,
+                                        elevation: 4.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            await containerUsersRecord.reference
+                                                .update(createUsersRecordData(
+                                              displayName:
+                                                  _model.textController1.text,
+                                              phoneNumber:
+                                                  _model.textController3.text,
+                                              born: _model.datePicked,
+                                              gender: _model.genderValue,
+                                              fullname:
+                                                  _model.textController2.text,
+                                              state:
+                                                  _model.textController4.text,
+                                              city: _model.textController5.text,
+                                              schoolLevel: _model.dropDownValue,
+                                              job: _model.textController6.text,
+                                              socialStatus:
+                                                  _model.socialstatusValue,
+                                              quranJuz: _model.quranValue,
+                                              referral:
+                                                  _model.textController7.text,
+                                              createdTime: getCurrentTimestamp,
+                                              telegram:
+                                                  _model.textController8.text,
+                                            ));
+                                            if (cardUsersRowList.isNotEmpty) {
+                                              await UsersTable().update(
+                                                data: {
+                                                  'DocumentID':
+                                                      containerUsersRecord
+                                                          .reference.id,
+                                                  'born':
+                                                      supaSerialize<DateTime>(
+                                                          _model.datePicked),
+                                                  'city': _model
+                                                      .textController5.text,
+                                                  'display_name': _model
+                                                      .textController1.text,
+                                                  'fullname': _model
+                                                      .textController2.text,
+                                                  'gender': _model.genderValue,
+                                                  'job': _model
+                                                      .textController6.text,
+                                                  'quran_juz':
+                                                      _model.quranValue,
+                                                  'referral': _model
+                                                      .textController7.text,
+                                                  'school_level':
+                                                      _model.dropDownValue,
+                                                  'social_status':
+                                                      _model.socialstatusValue,
+                                                  'state': _model
+                                                      .textController4.text,
+                                                  'telegram': _model
+                                                      .textController8.text,
+                                                  'uid':
+                                                      containerUsersRecord.uid,
+                                                  'phone_num': _model
+                                                      .textController3.text,
+                                                },
+                                                matchingRows: (rows) => rows,
+                                              );
+                                            } else {
+                                              await UsersTable().insert({
+                                                'DocumentID':
+                                                    containerUsersRecord
+                                                        .reference.id,
+                                                'born': supaSerialize<DateTime>(
+                                                    _model.datePicked),
+                                                'city':
+                                                    _model.textController5.text,
+                                                'display_name':
+                                                    _model.textController1.text,
+                                                'fullname':
+                                                    _model.textController2.text,
+                                                'gender': _model.genderValue,
+                                                'job':
+                                                    _model.textController6.text,
+                                                'quran_juz': _model.quranValue,
+                                                'referral':
+                                                    _model.textController7.text,
+                                                'school_level':
+                                                    _model.dropDownValue,
+                                                'social_status':
+                                                    _model.socialstatusValue,
+                                                'state':
+                                                    _model.textController4.text,
+                                                'telegram':
+                                                    _model.textController8.text,
+                                                'uid': containerUsersRecord.uid,
+                                                'phone_num':
+                                                    _model.textController3.text,
+                                                'email':
+                                                    containerUsersRecord.email,
+                                              });
+                                            }
+
+                                            Navigator.pop(context);
+                                          },
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'mxeqvrug' /* confirm */,
+                                          ),
+                                          options: FFButtonOptions(
+                                            width: 130.0,
+                                            height: 40.0,
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            iconPadding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Cairo',
+                                                      color: Colors.white,
+                                                    ),
+                                            borderSide: const BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                        ),
+                                      );
+                                    },
                                   ),
                                 ],
                               ),

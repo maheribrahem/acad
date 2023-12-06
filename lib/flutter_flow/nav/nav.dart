@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
+
 import '/auth/base_auth_user_provider.dart';
 
 import '/backend/push_notifications/push_notifications_handler.dart'
@@ -102,14 +103,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'lessonContent',
-          path: '/lessonContent',
+          name: 'lessonContentCopy1',
+          path: '/lessonContentCopy1',
           requireAuth: true,
-          builder: (context, params) => LessonContentWidget(
+          builder: (context, params) => LessonContentCopy1Widget(
             activiRef: params.getParam('activiRef', ParamType.DocumentReference,
                 false, ['activities']),
             lessonsCount: params.getParam<DocumentReference>('lessonsCount',
                 ParamType.DocumentReference, true, ['activities']),
+            categRef: params.getParam(
+                'categRef', ParamType.DocumentReference, false, ['categ']),
           ),
         ),
         FFRoute(
@@ -138,10 +141,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'homePage',
-          path: '/homePage',
+          name: 'home',
+          path: '/home',
           requireAuth: true,
-          builder: (context, params) => HomePageWidget(
+          builder: (context, params) => HomeWidget(
             output: params.getParam('output', ParamType.bool),
           ),
         ),
@@ -220,6 +223,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => UsersReportsWidget(
             inspection: params.getParam(
                 'inspection', ParamType.DocumentReference, false, ['users']),
+            reCalculate: params.getParam('reCalculate', ParamType.bool),
+            categRefCalculate: params.getParam('categRefCalculate',
+                ParamType.DocumentReference, false, ['categ']),
           ),
         ),
         FFRoute(
@@ -241,10 +247,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'supadminUsers',
-          path: '/supadminUsers',
+          name: 'supadminUsersCopy4',
+          path: '/supadminUsersCopy4',
           requireAuth: true,
-          builder: (context, params) => SupadminUsersWidget(
+          builder: (context, params) => SupadminUsersCopy4Widget(
             output: params.getParam('output', ParamType.bool),
             filter: params.getParam('filter', ParamType.String),
           ),
@@ -308,6 +314,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => TestContentWidget(
             testRef: params.getParam(
                 'testRef', ParamType.DocumentReference, false, ['activities']),
+            categRef: params.getParam(
+                'categRef', ParamType.DocumentReference, false, ['categ']),
           ),
         ),
         FFRoute(
@@ -366,17 +374,100 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'usersReportsCopy',
-          path: '/usersReportsCopy',
-          requireAuth: true,
-          builder: (context, params) => const UsersReportsCopyWidget(),
-        ),
-        FFRoute(
           name: 'supadminGradesCopy',
           path: '/supadminGradesCopy',
           requireAuth: true,
           builder: (context, params) => SupadminGradesCopyWidget(
             output: params.getParam('output', ParamType.bool),
+          ),
+        ),
+        FFRoute(
+          name: 'reportMaker',
+          path: '/reportMaker',
+          requireAuth: true,
+          builder: (context, params) => ReportMakerWidget(
+            inspection: params.getParam(
+                'inspection', ParamType.DocumentReference, false, ['users']),
+          ),
+        ),
+        FFRoute(
+          name: 'supadminUsers',
+          path: '/supadminUsers',
+          requireAuth: true,
+          builder: (context, params) => SupadminUsersWidget(
+            output: params.getParam('output', ParamType.bool),
+            filter: params.getParam('filter', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'supadminUsersCopy2',
+          path: '/supadminUsersCopy2',
+          requireAuth: true,
+          builder: (context, params) => SupadminUsersCopy2Widget(
+            output: params.getParam('output', ParamType.bool),
+            filter: params.getParam('filter', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'cohortsPageCopy',
+          path: '/cohortsPageCopy',
+          requireAuth: true,
+          builder: (context, params) => CohortsPageCopyWidget(
+            cohortsRef: params.getParam(
+                'cohortsRef', ParamType.DocumentReference, false, ['cohorts']),
+          ),
+        ),
+        FFRoute(
+          name: 'supadminUsersCopy3',
+          path: '/supadminUsersCopy3',
+          requireAuth: true,
+          builder: (context, params) => SupadminUsersCopy3Widget(
+            output: params.getParam('output', ParamType.bool),
+            filter: params.getParam('filter', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'homePage',
+          path: '/homePage',
+          builder: (context, params) => const HomePageWidget(),
+        ),
+        FFRoute(
+          name: 'lessonContent',
+          path: '/lessonContent',
+          requireAuth: true,
+          builder: (context, params) => LessonContentWidget(
+            categRef: params.getParam(
+                'categRef', ParamType.DocumentReference, false, ['categ']),
+            lessonsREFs: params.getParam<DocumentReference>('lessonsREFs',
+                ParamType.DocumentReference, true, ['activities']),
+            activitREF: params.getParam('activitREF',
+                ParamType.DocumentReference, false, ['activities']),
+            supjREF: params.getParam(
+                'supjREF', ParamType.DocumentReference, false, ['supj']),
+          ),
+        ),
+        FFRoute(
+          name: 'lessonContentCopy0',
+          path: '/lessonContentCopy0',
+          requireAuth: true,
+          builder: (context, params) => LessonContentCopy0Widget(
+            activiRef: params.getParam('activiRef', ParamType.DocumentReference,
+                false, ['activities']),
+            lessonsCount: params.getParam<DocumentReference>('lessonsCount',
+                ParamType.DocumentReference, true, ['activities']),
+            categRef: params.getParam(
+                'categRef', ParamType.DocumentReference, false, ['categ']),
+          ),
+        ),
+        FFRoute(
+          name: 'testContentCopy',
+          path: '/testContentCopy',
+          requireAuth: true,
+          builder: (context, params) => TestContentCopyWidget(
+            testRef: params.getParam(
+                'testRef', ParamType.DocumentReference, false, ['activities']),
+            categRef: params.getParam(
+                'categRef', ParamType.DocumentReference, false, ['categ']),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

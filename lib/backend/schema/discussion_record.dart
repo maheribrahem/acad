@@ -1,13 +1,10 @@
 import 'dart:async';
 
-import '/backend/algolia/serialization_util.dart';
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class DiscussionRecord extends FirestoreRecord {
   DiscussionRecord._(
@@ -130,80 +127,6 @@ class DiscussionRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       DiscussionRecord._(reference, mapFromFirestore(data));
-
-  static DiscussionRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      DiscussionRecord.getDocumentFromData(
-        {
-          'sender': convertAlgoliaParam(
-            snapshot.data['sender'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'receiver': convertAlgoliaParam(
-            snapshot.data['receiver'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'mentoring': snapshot.data['mentoring'],
-          'text': snapshot.data['text'],
-          'sendTime': convertAlgoliaParam(
-            snapshot.data['sendTime'],
-            ParamType.DateTime,
-            false,
-          ),
-          'isSeen': snapshot.data['isSeen'],
-          'mentor': convertAlgoliaParam(
-            snapshot.data['mentor'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'classRef': convertAlgoliaParam(
-            snapshot.data['classRef'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'image': snapshot.data['image'],
-          'doc': snapshot.data['doc'],
-          'audio': snapshot.data['audio'],
-          'chattId': snapshot.data['chattId'],
-          'userA': convertAlgoliaParam(
-            snapshot.data['userA'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'userB': convertAlgoliaParam(
-            snapshot.data['userB'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'users': safeGet(
-            () => convertAlgoliaParam<DocumentReference>(
-              snapshot.data['users'],
-              ParamType.DocumentReference,
-              true,
-            ).toList(),
-          ),
-        },
-        DiscussionRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<DiscussionRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'discussion',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

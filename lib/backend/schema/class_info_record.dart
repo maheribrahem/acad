@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -80,38 +79,6 @@ class ClassInfoRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       ClassInfoRecord._(reference, mapFromFirestore(data));
-
-  static ClassInfoRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      ClassInfoRecord.getDocumentFromData(
-        {
-          'className': snapshot.data['className'],
-          'classID': snapshot.data['classID'],
-          'classImage': snapshot.data['classImage'],
-          'classVod': snapshot.data['classVod'],
-          'classAud': snapshot.data['classAud'],
-          'classSuperior': snapshot.data['classSuperior'],
-          'classDoc': snapshot.data['classDoc'],
-        },
-        ClassInfoRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<ClassInfoRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'classInfo',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

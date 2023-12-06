@@ -6,16 +6,17 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-class MentorsCall {
-  static Future<ApiCallResponse> call({
-    int? perPage,
-  }) async {
+class UsersSUPACall {
+  static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
-      callName: 'mentors',
+      callName: 'usersSUPA',
       apiUrl:
-          'https://firestore.googleapis.com/v1/projects/islamicacad-114/databases/(default)/documents/mentors?per_page=2',
+          'https://okpataglqwauvjmmzfeq.supabase.co/rest/v1/users?select=*&apikey',
       callType: ApiCallType.GET,
-      headers: {},
+      headers: {
+        'apikey':
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9rcGF0YWdscXdhdXZqbW16ZmVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTUxOTkwNjIsImV4cCI6MjAxMDc3NTA2Mn0.E-ujvPvDQETTIwAyo6nWYW3mwJklbb_yF2O7j29tPWQ',
+      },
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,

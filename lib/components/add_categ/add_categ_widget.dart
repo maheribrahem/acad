@@ -9,7 +9,6 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'add_categ_model.dart';
@@ -388,14 +387,17 @@ class _AddCategWidgetState extends State<AddCategWidget> {
                                                       if (!snapshot.hasData) {
                                                         return Center(
                                                           child: SizedBox(
-                                                            width: 100.0,
-                                                            height: 100.0,
+                                                            width: 50.0,
+                                                            height: 50.0,
                                                             child:
-                                                                SpinKitSquareCircle(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primary,
-                                                              size: 100.0,
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                              ),
                                                             ),
                                                           ),
                                                         );
@@ -493,14 +495,17 @@ class _AddCategWidgetState extends State<AddCategWidget> {
                                                   if (!snapshot.hasData) {
                                                     return Center(
                                                       child: SizedBox(
-                                                        width: 100.0,
-                                                        height: 100.0,
+                                                        width: 50.0,
+                                                        height: 50.0,
                                                         child:
-                                                            SpinKitSquareCircle(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          size: 100.0,
+                                                            CircularProgressIndicator(
+                                                          valueColor:
+                                                              AlwaysStoppedAnimation<
+                                                                  Color>(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                          ),
                                                         ),
                                                       ),
                                                     );
@@ -801,11 +806,12 @@ class _AddCategWidgetState extends State<AddCategWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 100.0,
-                            height: 100.0,
-                            child: SpinKitSquareCircle(
-                              color: FlutterFlowTheme.of(context).primary,
-                              size: 100.0,
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                FlutterFlowTheme.of(context).primary,
+                              ),
                             ),
                           ),
                         );
@@ -1164,14 +1170,17 @@ class _AddCategWidgetState extends State<AddCategWidget> {
                                                               .hasData) {
                                                             return Center(
                                                               child: SizedBox(
-                                                                width: 100.0,
-                                                                height: 100.0,
+                                                                width: 50.0,
+                                                                height: 50.0,
                                                                 child:
-                                                                    SpinKitSquareCircle(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  size: 100.0,
+                                                                    CircularProgressIndicator(
+                                                                  valueColor:
+                                                                      AlwaysStoppedAnimation<
+                                                                          Color>(
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                  ),
                                                                 ),
                                                               ),
                                                             );
@@ -1275,14 +1284,17 @@ class _AddCategWidgetState extends State<AddCategWidget> {
                                                       if (!snapshot.hasData) {
                                                         return Center(
                                                           child: SizedBox(
-                                                            width: 100.0,
-                                                            height: 100.0,
+                                                            width: 50.0,
+                                                            height: 50.0,
                                                             child:
-                                                                SpinKitSquareCircle(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primary,
-                                                              size: 100.0,
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                              ),
                                                             ),
                                                           ),
                                                         );

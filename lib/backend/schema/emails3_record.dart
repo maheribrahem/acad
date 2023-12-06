@@ -1,13 +1,10 @@
 import 'dart:async';
 
-import '/backend/algolia/serialization_util.dart';
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class Emails3Record extends FirestoreRecord {
   Emails3Record._(
@@ -58,42 +55,6 @@ class Emails3Record extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       Emails3Record._(reference, mapFromFirestore(data));
-
-  static Emails3Record fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      Emails3Record.getDocumentFromData(
-        {
-          'email': snapshot.data['email'],
-          'numm': convertAlgoliaParam(
-            snapshot.data['numm'],
-            ParamType.int,
-            false,
-          ),
-          'refrence': convertAlgoliaParam(
-            snapshot.data['refrence'],
-            ParamType.DocumentReference,
-            false,
-          ),
-        },
-        Emails3Record.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<Emails3Record>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'emails3',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

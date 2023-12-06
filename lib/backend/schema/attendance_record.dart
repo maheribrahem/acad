@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -74,39 +73,6 @@ class AttendanceRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       AttendanceRecord._(reference, mapFromFirestore(data));
-
-  static AttendanceRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      AttendanceRecord.getDocumentFromData(
-        {
-          'email': snapshot.data['email'],
-          'name': snapshot.data['name'],
-          'cohort': snapshot.data['cohort'],
-          'supjName': snapshot.data['supjName'],
-          'supnAttendance': safeGet(
-            () => snapshot.data['supnAttendance'].toList(),
-          ),
-          'mentor': snapshot.data['mentor'],
-        },
-        AttendanceRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<AttendanceRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'attendance',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

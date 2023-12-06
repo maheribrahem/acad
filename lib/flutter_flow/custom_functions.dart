@@ -25,6 +25,19 @@ int? decrementOrder(int? order) {
   return order! - 1;
 }
 
+double? attendanceGradeCopy(
+  double? total,
+  double? tests,
+) {
+  double? grade = ((tests!)) / total!;
+  print(grade);
+  if (grade > 1) {
+    return 1;
+  } else {
+    return grade;
+  }
+}
+
 int? incrementOrder(int? order) {
   return order! + 1;
 }
@@ -69,4 +82,28 @@ double? attendanceGrade(
   } else {
     return grade;
   }
+}
+
+List<String>? stringToListFunction(String? stringInput) {
+  List<String> resultList = stringInput!.split(',');
+  return resultList.map((item) => item.toLowerCase()).toSet().toList();
+}
+
+List<String>? filterList(
+  List<String>? listN1,
+  List<String>? listN2,
+) {
+  if (listN1 == null || listN2 == null) return null;
+
+  // Use a Set for faster lookup
+  Set<String> setN2 = listN2.map((item) => item.toLowerCase()).toSet();
+
+  // Filter listN1 based on items in setN2 and convert to lowercase
+  List<String> filteredList = listN1
+      .map((item) => item.toLowerCase())
+      .where((item) => setN2.contains(item))
+      .toSet()
+      .toList();
+
+  return filteredList;
 }

@@ -1,13 +1,10 @@
 import 'dart:async';
 
-import '/backend/algolia/serialization_util.dart';
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class GroupsRecord extends FirestoreRecord {
   GroupsRecord._(
@@ -66,43 +63,6 @@ class GroupsRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       GroupsRecord._(reference, mapFromFirestore(data));
-
-  static GroupsRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      GroupsRecord.getDocumentFromData(
-        {
-          'name': snapshot.data['name'],
-          'mentor': convertAlgoliaParam(
-            snapshot.data['mentor'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'groupid': snapshot.data['groupid'],
-          'members': safeGet(
-            () => (snapshot.data['members'] as Iterable)
-                .map((d) => UsersMentorStruct.fromAlgoliaData(d))
-                .toList(),
-          ),
-        },
-        GroupsRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<GroupsRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'groups',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

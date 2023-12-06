@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -44,32 +43,6 @@ class VersionRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       VersionRecord._(reference, mapFromFirestore(data));
-
-  static VersionRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      VersionRecord.getDocumentFromData(
-        {
-          'version': snapshot.data['version'],
-        },
-        VersionRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<VersionRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'version',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

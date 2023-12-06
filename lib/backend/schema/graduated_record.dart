@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -68,36 +67,6 @@ class GraduatedRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       GraduatedRecord._(reference, mapFromFirestore(data));
-
-  static GraduatedRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      GraduatedRecord.getDocumentFromData(
-        {
-          'name': snapshot.data['name'],
-          'email': snapshot.data['email'],
-          'grade': snapshot.data['grade'],
-          'graduationName': snapshot.data['graduationName'],
-          'total': snapshot.data['total'],
-        },
-        GraduatedRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<GraduatedRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'graduated',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

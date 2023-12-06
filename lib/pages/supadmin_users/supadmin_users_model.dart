@@ -12,14 +12,6 @@ class SupadminUsersModel extends FlutterFlowModel<SupadminUsersWidget> {
   late Nav0Model nav0Model;
   // Model for topbar component.
   late TopbarModel topbarModel;
-  // State field(s) for comp widget.
-  bool? compValue;
-  // State field(s) for checked widget.
-  bool? checkedValue;
-  // State field(s) for real widget.
-  bool? realValue;
-  // State field(s) for not widget.
-  bool? notValue;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController1;

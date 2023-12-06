@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -161,11 +160,12 @@ class _LessonContentCopyWidgetState extends State<LessonContentCopyWidget>
           return Scaffold(
             body: Center(
               child: SizedBox(
-                width: 100.0,
-                height: 100.0,
-                child: SpinKitSquareCircle(
-                  color: FlutterFlowTheme.of(context).primary,
-                  size: 100.0,
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
+                  ),
                 ),
               ),
             ),
@@ -328,17 +328,17 @@ class _LessonContentCopyWidgetState extends State<LessonContentCopyWidget>
                                                                 return Center(
                                                                   child:
                                                                       SizedBox(
-                                                                    width:
-                                                                        100.0,
+                                                                    width: 50.0,
                                                                     height:
-                                                                        100.0,
+                                                                        50.0,
                                                                     child:
-                                                                        SpinKitSquareCircle(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      size:
-                                                                          100.0,
+                                                                        CircularProgressIndicator(
+                                                                      valueColor:
+                                                                          AlwaysStoppedAnimation<
+                                                                              Color>(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 );
@@ -560,11 +560,12 @@ class _LessonContentCopyWidgetState extends State<LessonContentCopyWidget>
                                                                           return Center(
                                                                             child:
                                                                                 SizedBox(
-                                                                              width: 100.0,
-                                                                              height: 100.0,
-                                                                              child: SpinKitSquareCircle(
-                                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                                size: 100.0,
+                                                                              width: 50.0,
+                                                                              height: 50.0,
+                                                                              child: CircularProgressIndicator(
+                                                                                valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                  FlutterFlowTheme.of(context).primary,
+                                                                                ),
                                                                               ),
                                                                             ),
                                                                           );
@@ -649,13 +650,14 @@ class _LessonContentCopyWidgetState extends State<LessonContentCopyWidget>
                                                                           child:
                                                                               SizedBox(
                                                                             width:
-                                                                                100.0,
+                                                                                50.0,
                                                                             height:
-                                                                                100.0,
+                                                                                50.0,
                                                                             child:
-                                                                                SpinKitSquareCircle(
-                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                              size: 100.0,
+                                                                                CircularProgressIndicator(
+                                                                              valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         );
@@ -702,13 +704,14 @@ class _LessonContentCopyWidgetState extends State<LessonContentCopyWidget>
                                                                           child:
                                                                               SizedBox(
                                                                             width:
-                                                                                100.0,
+                                                                                50.0,
                                                                             height:
-                                                                                100.0,
+                                                                                50.0,
                                                                             child:
-                                                                                SpinKitSquareCircle(
-                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                              size: 100.0,
+                                                                                CircularProgressIndicator(
+                                                                              valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         );
@@ -750,11 +753,12 @@ class _LessonContentCopyWidgetState extends State<LessonContentCopyWidget>
                                                                             if (!snapshot.hasData) {
                                                                               return Center(
                                                                                 child: SizedBox(
-                                                                                  width: 100.0,
-                                                                                  height: 100.0,
-                                                                                  child: SpinKitSquareCircle(
-                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                    size: 100.0,
+                                                                                  width: 50.0,
+                                                                                  height: 50.0,
+                                                                                  child: CircularProgressIndicator(
+                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                      FlutterFlowTheme.of(context).primary,
+                                                                                    ),
                                                                                   ),
                                                                                 ),
                                                                               );
@@ -1355,11 +1359,12 @@ class _LessonContentCopyWidgetState extends State<LessonContentCopyWidget>
                                                                                                               if (!snapshot.hasData) {
                                                                                                                 return Center(
                                                                                                                   child: SizedBox(
-                                                                                                                    width: 100.0,
-                                                                                                                    height: 100.0,
-                                                                                                                    child: SpinKitSquareCircle(
-                                                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                                                      size: 100.0,
+                                                                                                                    width: 50.0,
+                                                                                                                    height: 50.0,
+                                                                                                                    child: CircularProgressIndicator(
+                                                                                                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                        FlutterFlowTheme.of(context).primary,
+                                                                                                                      ),
                                                                                                                     ),
                                                                                                                   ),
                                                                                                                 );
@@ -1417,11 +1422,12 @@ class _LessonContentCopyWidgetState extends State<LessonContentCopyWidget>
                                                                                                               if (!snapshot.hasData) {
                                                                                                                 return Center(
                                                                                                                   child: SizedBox(
-                                                                                                                    width: 100.0,
-                                                                                                                    height: 100.0,
-                                                                                                                    child: SpinKitSquareCircle(
-                                                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                                                      size: 100.0,
+                                                                                                                    width: 50.0,
+                                                                                                                    height: 50.0,
+                                                                                                                    child: CircularProgressIndicator(
+                                                                                                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                        FlutterFlowTheme.of(context).primary,
+                                                                                                                      ),
                                                                                                                     ),
                                                                                                                   ),
                                                                                                                 );
@@ -1516,11 +1522,12 @@ class _LessonContentCopyWidgetState extends State<LessonContentCopyWidget>
                                                                                   if (!snapshot.hasData) {
                                                                                     return Center(
                                                                                       child: SizedBox(
-                                                                                        width: 100.0,
-                                                                                        height: 100.0,
-                                                                                        child: SpinKitSquareCircle(
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          size: 100.0,
+                                                                                        width: 50.0,
+                                                                                        height: 50.0,
+                                                                                        child: CircularProgressIndicator(
+                                                                                          valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                            FlutterFlowTheme.of(context).primary,
+                                                                                          ),
                                                                                         ),
                                                                                       ),
                                                                                     );
@@ -1556,11 +1563,12 @@ class _LessonContentCopyWidgetState extends State<LessonContentCopyWidget>
                                                                                                 if (!snapshot.hasData) {
                                                                                                   return Center(
                                                                                                     child: SizedBox(
-                                                                                                      width: 100.0,
-                                                                                                      height: 100.0,
-                                                                                                      child: SpinKitSquareCircle(
-                                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                                        size: 100.0,
+                                                                                                      width: 50.0,
+                                                                                                      height: 50.0,
+                                                                                                      child: CircularProgressIndicator(
+                                                                                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                          FlutterFlowTheme.of(context).primary,
+                                                                                                        ),
                                                                                                       ),
                                                                                                     ),
                                                                                                   );
@@ -1577,11 +1585,12 @@ class _LessonContentCopyWidgetState extends State<LessonContentCopyWidget>
                                                                                                       if (!snapshot.hasData) {
                                                                                                         return Center(
                                                                                                           child: SizedBox(
-                                                                                                            width: 100.0,
-                                                                                                            height: 100.0,
-                                                                                                            child: SpinKitSquareCircle(
-                                                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                                                              size: 100.0,
+                                                                                                            width: 50.0,
+                                                                                                            height: 50.0,
+                                                                                                            child: CircularProgressIndicator(
+                                                                                                              valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                FlutterFlowTheme.of(context).primary,
+                                                                                                              ),
                                                                                                             ),
                                                                                                           ),
                                                                                                         );
@@ -1605,11 +1614,12 @@ class _LessonContentCopyWidgetState extends State<LessonContentCopyWidget>
                                                                                                               if (!snapshot.hasData) {
                                                                                                                 return Center(
                                                                                                                   child: SizedBox(
-                                                                                                                    width: 100.0,
-                                                                                                                    height: 100.0,
-                                                                                                                    child: SpinKitSquareCircle(
-                                                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                                                      size: 100.0,
+                                                                                                                    width: 50.0,
+                                                                                                                    height: 50.0,
+                                                                                                                    child: CircularProgressIndicator(
+                                                                                                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                        FlutterFlowTheme.of(context).primary,
+                                                                                                                      ),
                                                                                                                     ),
                                                                                                                   ),
                                                                                                                 );
@@ -1622,31 +1632,12 @@ class _LessonContentCopyWidgetState extends State<LessonContentCopyWidget>
                                                                                                                 highlightColor: Colors.transparent,
                                                                                                                 onTap: () async {
                                                                                                                   if (containerTestTimingRecordList.isNotEmpty) {
-                                                                                                                    context.pushNamed(
-                                                                                                                      'testContent',
-                                                                                                                      queryParameters: {
-                                                                                                                        'testRef': serializeParam(
-                                                                                                                          widget.activiRef,
-                                                                                                                          ParamType.DocumentReference,
-                                                                                                                        ),
-                                                                                                                      }.withoutNulls,
-                                                                                                                    );
                                                                                                                   } else {
                                                                                                                     await TestTimingRecord.collection.doc().set(createTestTimingRecordData(
                                                                                                                           testRef: testColomnActivitiesRecord.reference,
                                                                                                                           user: currentUserReference,
                                                                                                                         ));
                                                                                                                     await Future.delayed(const Duration(milliseconds: 1000));
-
-                                                                                                                    context.pushNamed(
-                                                                                                                      'testContent',
-                                                                                                                      queryParameters: {
-                                                                                                                        'testRef': serializeParam(
-                                                                                                                          widget.activiRef,
-                                                                                                                          ParamType.DocumentReference,
-                                                                                                                        ),
-                                                                                                                      }.withoutNulls,
-                                                                                                                    );
                                                                                                                   }
                                                                                                                 },
                                                                                                                 child: Material(
@@ -1837,11 +1828,12 @@ class _LessonContentCopyWidgetState extends State<LessonContentCopyWidget>
                                                                             if (!snapshot.hasData) {
                                                                               return Center(
                                                                                 child: SizedBox(
-                                                                                  width: 100.0,
-                                                                                  height: 100.0,
-                                                                                  child: SpinKitSquareCircle(
-                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                    size: 100.0,
+                                                                                  width: 50.0,
+                                                                                  height: 50.0,
+                                                                                  child: CircularProgressIndicator(
+                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                      FlutterFlowTheme.of(context).primary,
+                                                                                    ),
                                                                                   ),
                                                                                 ),
                                                                               );

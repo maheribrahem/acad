@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -62,35 +61,6 @@ class PassingStringsRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       PassingStringsRecord._(reference, mapFromFirestore(data));
-
-  static PassingStringsRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      PassingStringsRecord.getDocumentFromData(
-        {
-          'delete': snapshot.data['delete'],
-          'edit': snapshot.data['edit'],
-          'add': snapshot.data['add'],
-          'show': snapshot.data['show'],
-        },
-        PassingStringsRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<PassingStringsRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'passingStrings',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

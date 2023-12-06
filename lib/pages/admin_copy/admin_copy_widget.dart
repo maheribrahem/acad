@@ -11,7 +11,6 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -80,11 +79,12 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 100.0,
-                height: 100.0,
-                child: SpinKitSquareCircle(
-                  color: FlutterFlowTheme.of(context).primary,
-                  size: 100.0,
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
+                  ),
                 ),
               ),
             ),
@@ -691,15 +691,15 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                       child:
                                                                           SizedBox(
                                                                         width:
-                                                                            100.0,
+                                                                            50.0,
                                                                         height:
-                                                                            100.0,
+                                                                            50.0,
                                                                         child:
-                                                                            SpinKitSquareCircle(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          size:
-                                                                              100.0,
+                                                                            CircularProgressIndicator(
+                                                                          valueColor:
+                                                                              AlwaysStoppedAnimation<Color>(
+                                                                            FlutterFlowTheme.of(context).primary,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     );
@@ -887,14 +887,17 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                         if (!snapshot.hasData) {
                                                           return Center(
                                                             child: SizedBox(
-                                                              width: 100.0,
-                                                              height: 100.0,
+                                                              width: 50.0,
+                                                              height: 50.0,
                                                               child:
-                                                                  SpinKitSquareCircle(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                size: 100.0,
+                                                                  CircularProgressIndicator(
+                                                                valueColor:
+                                                                    AlwaysStoppedAnimation<
+                                                                        Color>(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                ),
                                                               ),
                                                             ),
                                                           );
@@ -935,15 +938,15 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                         child:
                                                                             SizedBox(
                                                                           width:
-                                                                              100.0,
+                                                                              50.0,
                                                                           height:
-                                                                              100.0,
+                                                                              50.0,
                                                                           child:
-                                                                              SpinKitSquareCircle(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                            size:
-                                                                                100.0,
+                                                                              CircularProgressIndicator(
+                                                                            valueColor:
+                                                                                AlwaysStoppedAnimation<Color>(
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       );
@@ -1032,15 +1035,15 @@ class _AdminCopyWidgetState extends State<AdminCopyWidget> {
                                                                       child:
                                                                           SizedBox(
                                                                         width:
-                                                                            100.0,
+                                                                            50.0,
                                                                         height:
-                                                                            100.0,
+                                                                            50.0,
                                                                         child:
-                                                                            SpinKitSquareCircle(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          size:
-                                                                              100.0,
+                                                                            CircularProgressIndicator(
+                                                                          valueColor:
+                                                                              AlwaysStoppedAnimation<Color>(
+                                                                            FlutterFlowTheme.of(context).primary,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     );

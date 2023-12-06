@@ -111,9 +111,10 @@ final parametersBuilderMap =
           'newV': getParameter<DocumentReference>(data, 'newV'),
         },
       ),
-  'lessonContent': (data) async => ParameterData(
+  'lessonContentCopy1': (data) async => ParameterData(
         allParams: {
           'activiRef': getParameter<DocumentReference>(data, 'activiRef'),
+          'categRef': getParameter<DocumentReference>(data, 'categRef'),
         },
       ),
   'phone': ParameterData.none(),
@@ -129,7 +130,7 @@ final parametersBuilderMap =
           'categRef': getParameter<DocumentReference>(data, 'categRef'),
         },
       ),
-  'homePage': (data) async => ParameterData(
+  'home': (data) async => ParameterData(
         allParams: {
           'output': getParameter<bool>(data, 'output'),
         },
@@ -177,6 +178,9 @@ final parametersBuilderMap =
   'usersReports': (data) async => ParameterData(
         allParams: {
           'inspection': getParameter<DocumentReference>(data, 'inspection'),
+          'reCalculate': getParameter<bool>(data, 'reCalculate'),
+          'categRefCalculate':
+              getParameter<DocumentReference>(data, 'categRefCalculate'),
         },
       ),
   'adminSupjTest': (data) async => ParameterData(
@@ -190,7 +194,7 @@ final parametersBuilderMap =
           'output': getParameter<bool>(data, 'output'),
         },
       ),
-  'supadminUsers': (data) async => ParameterData(
+  'supadminUsersCopy4': (data) async => ParameterData(
         allParams: {
           'output': getParameter<bool>(data, 'output'),
           'filter': getParameter<String>(data, 'filter'),
@@ -226,6 +230,7 @@ final parametersBuilderMap =
   'testContent': (data) async => ParameterData(
         allParams: {
           'testRef': getParameter<DocumentReference>(data, 'testRef'),
+          'categRef': getParameter<DocumentReference>(data, 'categRef'),
         },
       ),
   'adminCopy': (data) async => ParameterData(
@@ -260,10 +265,57 @@ final parametersBuilderMap =
           'activiRef': getParameter<DocumentReference>(data, 'activiRef'),
         },
       ),
-  'usersReportsCopy': ParameterData.none(),
   'supadminGradesCopy': (data) async => ParameterData(
         allParams: {
           'output': getParameter<bool>(data, 'output'),
+        },
+      ),
+  'reportMaker': (data) async => ParameterData(
+        allParams: {
+          'inspection': getParameter<DocumentReference>(data, 'inspection'),
+        },
+      ),
+  'supadminUsers': (data) async => ParameterData(
+        allParams: {
+          'output': getParameter<bool>(data, 'output'),
+          'filter': getParameter<String>(data, 'filter'),
+        },
+      ),
+  'supadminUsersCopy2': (data) async => ParameterData(
+        allParams: {
+          'output': getParameter<bool>(data, 'output'),
+          'filter': getParameter<String>(data, 'filter'),
+        },
+      ),
+  'cohortsPageCopy': (data) async => ParameterData(
+        allParams: {
+          'cohortsRef': getParameter<DocumentReference>(data, 'cohortsRef'),
+        },
+      ),
+  'supadminUsersCopy3': (data) async => ParameterData(
+        allParams: {
+          'output': getParameter<bool>(data, 'output'),
+          'filter': getParameter<String>(data, 'filter'),
+        },
+      ),
+  'homePage': ParameterData.none(),
+  'lessonContent': (data) async => ParameterData(
+        allParams: {
+          'categRef': getParameter<DocumentReference>(data, 'categRef'),
+          'activitREF': getParameter<DocumentReference>(data, 'activitREF'),
+          'supjREF': getParameter<DocumentReference>(data, 'supjREF'),
+        },
+      ),
+  'lessonContentCopy0': (data) async => ParameterData(
+        allParams: {
+          'activiRef': getParameter<DocumentReference>(data, 'activiRef'),
+          'categRef': getParameter<DocumentReference>(data, 'categRef'),
+        },
+      ),
+  'testContentCopy': (data) async => ParameterData(
+        allParams: {
+          'testRef': getParameter<DocumentReference>(data, 'testRef'),
+          'categRef': getParameter<DocumentReference>(data, 'categRef'),
         },
       ),
 };

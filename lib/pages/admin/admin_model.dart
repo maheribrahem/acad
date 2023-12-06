@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/backend/custom_cloud_functions/custom_cloud_function_response_manager.dart';
 import '/components/nav0/nav0_widget.dart';
 import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -20,6 +21,8 @@ class AdminModel extends FlutterFlowModel<AdminWidget> {
 
   DocumentReference? categRef;
 
+  String? function = '';
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -28,6 +31,8 @@ class AdminModel extends FlutterFlowModel<AdminWidget> {
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
+  // Stores action output result for [Cloud Function - onUsersChange] action in Button widget.
+  OnUsersChangeCloudFunctionCallResponse? cloudFunction5wx;
   // Model for nav0 component.
   late Nav0Model nav0Model;
 

@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -49,33 +48,6 @@ class EmailsRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       EmailsRecord._(reference, mapFromFirestore(data));
-
-  static EmailsRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      EmailsRecord.getDocumentFromData(
-        {
-          'email': snapshot.data['email'],
-          'name': snapshot.data['name'],
-        },
-        EmailsRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<EmailsRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'emails',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

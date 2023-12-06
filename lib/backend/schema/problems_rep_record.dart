@@ -1,13 +1,10 @@
 import 'dart:async';
 
-import '/backend/algolia/serialization_util.dart';
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class ProblemsRepRecord extends FirestoreRecord {
   ProblemsRepRecord._(
@@ -94,60 +91,6 @@ class ProblemsRepRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       ProblemsRepRecord._(reference, mapFromFirestore(data));
-
-  static ProblemsRepRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      ProblemsRepRecord.getDocumentFromData(
-        {
-          'mentorID': convertAlgoliaParam(
-            snapshot.data['mentorID'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'userID': convertAlgoliaParam(
-            snapshot.data['userID'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'problemText': snapshot.data['problemText'],
-          'solving': snapshot.data['solving'],
-          'solved': snapshot.data['solved'],
-          'adminSolver': convertAlgoliaParam(
-            snapshot.data['adminSolver'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'timeRized': convertAlgoliaParam(
-            snapshot.data['timeRized'],
-            ParamType.DateTime,
-            false,
-          ),
-          'timeSolved': convertAlgoliaParam(
-            snapshot.data['timeSolved'],
-            ParamType.DateTime,
-            false,
-          ),
-          'isProblem': snapshot.data['isProblem'],
-        },
-        ProblemsRepRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<ProblemsRepRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'problemsRep',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

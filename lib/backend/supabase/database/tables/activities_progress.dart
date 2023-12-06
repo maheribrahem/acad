@@ -47,4 +47,7 @@ class ActivitiesProgressRow extends SupabaseDataRow {
 
   String? get categID => getField<String>('categID');
   set categID(String? value) => setField<String>('categID', value);
+
+  bool? get isFinal => getField<bool>('isFinal');
+  set isFinal(bool? value) => setField<bool>('isFinal', value);
 }

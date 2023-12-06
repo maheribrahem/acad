@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'quran_grade_model.dart';
 export 'quran_grade_model.dart';
@@ -67,11 +66,12 @@ class _QuranGradeWidgetState extends State<QuranGradeWidget> {
             if (!snapshot.hasData) {
               return Center(
                 child: SizedBox(
-                  width: 100.0,
-                  height: 100.0,
-                  child: SpinKitSquareCircle(
-                    color: FlutterFlowTheme.of(context).primary,
-                    size: 100.0,
+                  width: 50.0,
+                  height: 50.0,
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      FlutterFlowTheme.of(context).primary,
+                    ),
                   ),
                 ),
               );

@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'question_model.dart';
 export 'question_model.dart';
@@ -56,11 +55,12 @@ class _QuestionWidgetState extends State<QuestionWidget> {
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 100.0,
-              height: 100.0,
-              child: SpinKitSquareCircle(
-                color: FlutterFlowTheme.of(context).primary,
-                size: 100.0,
+              width: 50.0,
+              height: 50.0,
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -114,11 +114,12 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                           if (!snapshot.hasData) {
                             return Center(
                               child: SizedBox(
-                                width: 100.0,
-                                height: 100.0,
-                                child: SpinKitSquareCircle(
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  size: 100.0,
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
                                 ),
                               ),
                             );

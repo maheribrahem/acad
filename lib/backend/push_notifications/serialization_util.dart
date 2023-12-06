@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import '/backend/backend.dart';
+
 import '/backend/supabase/supabase.dart';
 
 import '../../flutter_flow/place.dart';
@@ -148,9 +149,13 @@ T? getParameter<T>(Map<String, dynamic> data, String paramName) {
         return QbankAttemptRow(json.decode(param) as Map<String, dynamic>) as T;
       case CategGradesRow:
         return CategGradesRow(json.decode(param) as Map<String, dynamic>) as T;
+      case QbankRow:
+        return QbankRow(json.decode(param) as Map<String, dynamic>) as T;
       case QbankAttemptsRow:
         return QbankAttemptsRow(json.decode(param) as Map<String, dynamic>)
             as T;
+      case UsersRow:
+        return UsersRow(json.decode(param) as Map<String, dynamic>) as T;
       case ActivitiesProgressRow:
         return ActivitiesProgressRow(json.decode(param) as Map<String, dynamic>)
             as T;

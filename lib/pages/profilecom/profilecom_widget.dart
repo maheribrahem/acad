@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/backend/supabase/supabase.dart';
 import '/components/nav0/nav0_widget.dart';
 import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -543,7 +544,7 @@ class _ProfilecomWidgetState extends State<ProfilecomWidget>
                                                                                                     onPressed: () async {
                                                                                                       final datePickedDate = await showDatePicker(
                                                                                                         context: context,
-                                                                                                        initialDate: getCurrentTimestamp,
+                                                                                                        initialDate: (currentUserDocument?.born ?? DateTime.now()),
                                                                                                         firstDate: DateTime(1900),
                                                                                                         lastDate: DateTime(2050),
                                                                                                       );
@@ -1183,51 +1184,129 @@ class _ProfilecomWidgetState extends State<ProfilecomWidget>
                                                                                           ),
                                                                                           Padding(
                                                                                             padding: const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
-                                                                                            child: FFButtonWidget(
-                                                                                              onPressed: () async {
-                                                                                                await currentUserReference!.update(createUsersRecordData(
-                                                                                                  displayName: _model.usernameController.text,
-                                                                                                  photoUrl: _model.uploadedFileUrl,
-                                                                                                  phoneNumber: _model.phoneController.text,
-                                                                                                  born: _model.datePicked,
-                                                                                                  gender: _model.genderValue,
-                                                                                                  fullname: _model.fullnameController.text,
-                                                                                                  state: _model.governmentController.text,
-                                                                                                  city: _model.cityController.text,
-                                                                                                  schoolLevel: _model.dropDownValue,
-                                                                                                  job: _model.socialstatusValue,
-                                                                                                  socialStatus: _model.socialstatusValue,
-                                                                                                  quranJuz: _model.quranValue,
-                                                                                                  referral: _model.referrerController.text,
-                                                                                                  createdTime: getCurrentTimestamp,
-                                                                                                  pastStudy: _model.schoolnameController.text,
-                                                                                                  telegram: _model.telegramController.text,
-                                                                                                ));
-
-                                                                                                context.pushNamed('profile');
-                                                                                              },
-                                                                                              text: FFLocalizations.of(context).getText(
-                                                                                                '9c43t7fd' /* حفظ */,
-                                                                                              ),
-                                                                                              options: FFButtonOptions(
-                                                                                                width: 230.0,
-                                                                                                height: 60.0,
-                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                      fontFamily: 'Lexend Deca',
-                                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                      fontSize: 16.0,
-                                                                                                      fontWeight: FontWeight.w500,
-                                                                                                    ),
-                                                                                                elevation: 3.0,
-                                                                                                borderSide: const BorderSide(
-                                                                                                  color: Colors.transparent,
-                                                                                                  width: 1.0,
+                                                                                            child: FutureBuilder<List<UsersRow>>(
+                                                                                              future: UsersTable().queryRows(
+                                                                                                queryFn: (q) => q.eq(
+                                                                                                  'email',
+                                                                                                  currentUserEmail,
                                                                                                 ),
-                                                                                                borderRadius: BorderRadius.circular(40.0),
+                                                                                                limit: 1,
                                                                                               ),
+                                                                                              builder: (context, snapshot) {
+                                                                                                // Customize what your widget looks like when it's loading.
+                                                                                                if (!snapshot.hasData) {
+                                                                                                  return Center(
+                                                                                                    child: SizedBox(
+                                                                                                      width: 50.0,
+                                                                                                      height: 50.0,
+                                                                                                      child: CircularProgressIndicator(
+                                                                                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                          FlutterFlowTheme.of(context).primary,
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  );
+                                                                                                }
+                                                                                                List<UsersRow> cardUsersRowList = snapshot.data!;
+                                                                                                return Card(
+                                                                                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                                                                                  elevation: 4.0,
+                                                                                                  shape: RoundedRectangleBorder(
+                                                                                                    borderRadius: BorderRadius.circular(40.0),
+                                                                                                  ),
+                                                                                                  child: FFButtonWidget(
+                                                                                                    onPressed: () async {
+                                                                                                      await currentUserReference!.update(createUsersRecordData(
+                                                                                                        displayName: _model.usernameController.text,
+                                                                                                        photoUrl: _model.uploadedFileUrl,
+                                                                                                        phoneNumber: _model.phoneController.text,
+                                                                                                        born: _model.datePicked,
+                                                                                                        gender: _model.genderValue,
+                                                                                                        fullname: _model.fullnameController.text,
+                                                                                                        state: _model.governmentController.text,
+                                                                                                        city: _model.cityController.text,
+                                                                                                        schoolLevel: _model.dropDownValue,
+                                                                                                        job: _model.socialstatusValue,
+                                                                                                        socialStatus: _model.socialstatusValue,
+                                                                                                        quranJuz: _model.quranValue,
+                                                                                                        referral: _model.referrerController.text,
+                                                                                                        createdTime: getCurrentTimestamp,
+                                                                                                        pastStudy: _model.schoolnameController.text,
+                                                                                                        telegram: _model.telegramController.text,
+                                                                                                      ));
+                                                                                                      if (cardUsersRowList.isNotEmpty) {
+                                                                                                        await UsersTable().update(
+                                                                                                          data: {
+                                                                                                            'DocumentID': currentUserReference?.id,
+                                                                                                            'born': supaSerialize<DateTime>(_model.datePicked),
+                                                                                                            'city': _model.cityController.text,
+                                                                                                            'display_name': _model.usernameController.text,
+                                                                                                            'fullname': _model.fullnameController.text,
+                                                                                                            'gender': _model.genderValue,
+                                                                                                            'job': _model.jobController.text,
+                                                                                                            'past_study': _model.schoolnameController.text,
+                                                                                                            'photo_url': _model.uploadedFileUrl != '' ? _model.uploadedFileUrl : currentUserPhoto,
+                                                                                                            'quran_juz': _model.quranValue,
+                                                                                                            'referral': _model.referrerController.text,
+                                                                                                            'school_level': _model.dropDownValue,
+                                                                                                            'social_status': _model.socialstatusValue,
+                                                                                                            'state': _model.governmentController.text,
+                                                                                                            'telegram': _model.telegramController.text,
+                                                                                                            'uid': currentUserUid,
+                                                                                                            'phone_num': _model.phoneController.text,
+                                                                                                          },
+                                                                                                          matchingRows: (rows) => rows,
+                                                                                                        );
+                                                                                                      } else {
+                                                                                                        await UsersTable().insert({
+                                                                                                          'DocumentID': currentUserReference?.id,
+                                                                                                          'born': supaSerialize<DateTime>(_model.datePicked),
+                                                                                                          'city': _model.cityController.text,
+                                                                                                          'display_name': _model.usernameController.text,
+                                                                                                          'fullname': _model.fullnameController.text,
+                                                                                                          'gender': _model.genderValue,
+                                                                                                          'job': _model.jobController.text,
+                                                                                                          'past_study': _model.schoolnameController.text,
+                                                                                                          'photo_url': _model.uploadedFileUrl != '' ? _model.uploadedFileUrl : currentUserPhoto,
+                                                                                                          'quran_juz': _model.quranValue,
+                                                                                                          'referral': _model.referrerController.text,
+                                                                                                          'school_level': _model.dropDownValue,
+                                                                                                          'social_status': _model.socialstatusValue,
+                                                                                                          'state': _model.governmentController.text,
+                                                                                                          'telegram': _model.telegramController.text,
+                                                                                                          'uid': currentUserUid,
+                                                                                                          'phone_num': _model.phoneController.text,
+                                                                                                          'email': currentUserEmail,
+                                                                                                        });
+                                                                                                      }
+
+                                                                                                      context.pushNamed('profile');
+                                                                                                    },
+                                                                                                    text: FFLocalizations.of(context).getText(
+                                                                                                      '9c43t7fd' /* حفظ */,
+                                                                                                    ),
+                                                                                                    options: FFButtonOptions(
+                                                                                                      width: 230.0,
+                                                                                                      height: 60.0,
+                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                            fontFamily: 'Lexend Deca',
+                                                                                                            color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                            fontSize: 16.0,
+                                                                                                            fontWeight: FontWeight.w500,
+                                                                                                          ),
+                                                                                                      elevation: 3.0,
+                                                                                                      borderSide: const BorderSide(
+                                                                                                        color: Colors.transparent,
+                                                                                                        width: 1.0,
+                                                                                                      ),
+                                                                                                      borderRadius: BorderRadius.circular(40.0),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                );
+                                                                                              },
                                                                                             ),
                                                                                           ),
                                                                                         ],

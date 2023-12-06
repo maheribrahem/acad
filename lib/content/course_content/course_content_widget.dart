@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -186,11 +185,12 @@ class _CourseContentWidgetState extends State<CourseContentWidget>
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 100.0,
-                height: 100.0,
-                child: SpinKitSquareCircle(
-                  color: FlutterFlowTheme.of(context).primary,
-                  size: 100.0,
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
+                  ),
                 ),
               ),
             ),
@@ -550,171 +550,214 @@ class _CourseContentWidgetState extends State<CourseContentWidget>
                                                                                 if (!snapshot.hasData) {
                                                                                   return Center(
                                                                                     child: SizedBox(
-                                                                                      width: 100.0,
-                                                                                      height: 100.0,
-                                                                                      child: SpinKitSquareCircle(
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        size: 100.0,
+                                                                                      width: 50.0,
+                                                                                      height: 50.0,
+                                                                                      child: CircularProgressIndicator(
+                                                                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                          FlutterFlowTheme.of(context).primary,
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   );
                                                                                 }
-                                                                                List<ActivitiesRecord> lesonColumnActivitiesRecordList = snapshot.data!;
-                                                                                return SingleChildScrollView(
-                                                                                  primary: false,
-                                                                                  child: Column(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: List.generate(lesonColumnActivitiesRecordList.length, (lesonColumnIndex) {
-                                                                                      final lesonColumnActivitiesRecord = lesonColumnActivitiesRecordList[lesonColumnIndex];
-                                                                                      return Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        children: [
-                                                                                          Expanded(
-                                                                                            child: Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
-                                                                                              child: InkWell(
-                                                                                                splashColor: Colors.transparent,
-                                                                                                focusColor: Colors.transparent,
-                                                                                                hoverColor: Colors.transparent,
-                                                                                                highlightColor: Colors.transparent,
-                                                                                                onTap: () async {
-                                                                                                  context.pushNamed(
-                                                                                                    'lessonContent',
-                                                                                                    queryParameters: {
-                                                                                                      'activiRef': serializeParam(
-                                                                                                        lesonColumnActivitiesRecord.reference,
-                                                                                                        ParamType.DocumentReference,
-                                                                                                      ),
-                                                                                                    }.withoutNulls,
-                                                                                                  );
-                                                                                                },
-                                                                                                child: Material(
-                                                                                                  color: Colors.transparent,
-                                                                                                  elevation: 20.0,
-                                                                                                  shape: RoundedRectangleBorder(
-                                                                                                    borderRadius: BorderRadius.circular(18.0),
-                                                                                                  ),
-                                                                                                  child: Container(
-                                                                                                    width: double.infinity,
-                                                                                                    height: 100.0,
-                                                                                                    decoration: BoxDecoration(
-                                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                      boxShadow: const [
-                                                                                                        BoxShadow(
-                                                                                                          blurRadius: 4.0,
-                                                                                                          color: Color(0x230E151B),
-                                                                                                          offset: Offset(0.0, 2.0),
-                                                                                                        )
-                                                                                                      ],
-                                                                                                      borderRadius: BorderRadius.circular(18.0),
-                                                                                                    ),
-                                                                                                    child: Stack(
-                                                                                                      children: [
-                                                                                                        ClipRRect(
+                                                                                List<ActivitiesRecord> containerActivitiesRecordList = snapshot.data!;
+                                                                                return Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: StreamBuilder<List<ActivitiesRecord>>(
+                                                                                    stream: queryActivitiesRecord(
+                                                                                      queryBuilder: (activitiesRecord) => activitiesRecord
+                                                                                          .where(
+                                                                                            'type',
+                                                                                            isEqualTo: 'lesson',
+                                                                                          )
+                                                                                          .where(
+                                                                                            'supjRef',
+                                                                                            isEqualTo: widget.courseRef,
+                                                                                          )
+                                                                                          .orderBy('order'),
+                                                                                    ),
+                                                                                    builder: (context, snapshot) {
+                                                                                      // Customize what your widget looks like when it's loading.
+                                                                                      if (!snapshot.hasData) {
+                                                                                        return Center(
+                                                                                          child: SizedBox(
+                                                                                            width: 50.0,
+                                                                                            height: 50.0,
+                                                                                            child: CircularProgressIndicator(
+                                                                                              valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                FlutterFlowTheme.of(context).primary,
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        );
+                                                                                      }
+                                                                                      List<ActivitiesRecord> lesonColumnActivitiesRecordList = snapshot.data!;
+                                                                                      return SingleChildScrollView(
+                                                                                        primary: false,
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: List.generate(lesonColumnActivitiesRecordList.length, (lesonColumnIndex) {
+                                                                                            final lesonColumnActivitiesRecord = lesonColumnActivitiesRecordList[lesonColumnIndex];
+                                                                                            return Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                Expanded(
+                                                                                                  child: Padding(
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+                                                                                                    child: InkWell(
+                                                                                                      splashColor: Colors.transparent,
+                                                                                                      focusColor: Colors.transparent,
+                                                                                                      hoverColor: Colors.transparent,
+                                                                                                      highlightColor: Colors.transparent,
+                                                                                                      onTap: () async {
+                                                                                                        context.pushNamed(
+                                                                                                          'lessonContent',
+                                                                                                          queryParameters: {
+                                                                                                            'categRef': serializeParam(
+                                                                                                              courseContentSupjRecord.supCateg,
+                                                                                                              ParamType.DocumentReference,
+                                                                                                            ),
+                                                                                                            'activitREF': serializeParam(
+                                                                                                              lesonColumnActivitiesRecord.reference,
+                                                                                                              ParamType.DocumentReference,
+                                                                                                            ),
+                                                                                                            'supjREF': serializeParam(
+                                                                                                              widget.courseRef,
+                                                                                                              ParamType.DocumentReference,
+                                                                                                            ),
+                                                                                                          }.withoutNulls,
+                                                                                                        );
+                                                                                                      },
+                                                                                                      child: Material(
+                                                                                                        color: Colors.transparent,
+                                                                                                        elevation: 20.0,
+                                                                                                        shape: RoundedRectangleBorder(
                                                                                                           borderRadius: BorderRadius.circular(18.0),
-                                                                                                          child: Image.asset(
-                                                                                                            'assets/images/32318401_7922058.jpg',
-                                                                                                            width: 120.0,
-                                                                                                            height: 100.0,
-                                                                                                            fit: BoxFit.cover,
-                                                                                                          ),
                                                                                                         ),
-                                                                                                        Align(
-                                                                                                          alignment: const AlignmentDirectional(-0.90, 0.85),
-                                                                                                          child: Container(
-                                                                                                            width: 32.0,
-                                                                                                            height: 32.0,
-                                                                                                            decoration: const BoxDecoration(
-                                                                                                              color: Colors.white,
-                                                                                                              boxShadow: [
-                                                                                                                BoxShadow(
-                                                                                                                  blurRadius: 4.0,
-                                                                                                                  color: Color(0x230E151B),
-                                                                                                                  offset: Offset(0.0, 2.0),
-                                                                                                                )
-                                                                                                              ],
-                                                                                                              shape: BoxShape.circle,
-                                                                                                            ),
-                                                                                                            child: const Icon(
-                                                                                                              Icons.play_arrow_rounded,
-                                                                                                              color: Color(0xFF14181B),
-                                                                                                              size: 20.0,
-                                                                                                            ),
+                                                                                                        child: Container(
+                                                                                                          width: double.infinity,
+                                                                                                          height: 100.0,
+                                                                                                          decoration: BoxDecoration(
+                                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                            boxShadow: const [
+                                                                                                              BoxShadow(
+                                                                                                                blurRadius: 4.0,
+                                                                                                                color: Color(0x230E151B),
+                                                                                                                offset: Offset(0.0, 2.0),
+                                                                                                              )
+                                                                                                            ],
+                                                                                                            borderRadius: BorderRadius.circular(18.0),
                                                                                                           ),
-                                                                                                        ),
-                                                                                                        Row(
-                                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                          children: [
-                                                                                                            Padding(
-                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
-                                                                                                              child: Column(
-                                                                                                                mainAxisSize: MainAxisSize.min,
-                                                                                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                          child: Stack(
+                                                                                                            children: [
+                                                                                                              ClipRRect(
+                                                                                                                borderRadius: BorderRadius.circular(18.0),
+                                                                                                                child: Image.asset(
+                                                                                                                  'assets/images/32318401_7922058.jpg',
+                                                                                                                  width: 120.0,
+                                                                                                                  height: 100.0,
+                                                                                                                  fit: BoxFit.cover,
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                              Align(
+                                                                                                                alignment: const AlignmentDirectional(-0.90, 0.85),
+                                                                                                                child: Container(
+                                                                                                                  width: 32.0,
+                                                                                                                  height: 32.0,
+                                                                                                                  decoration: const BoxDecoration(
+                                                                                                                    color: Colors.white,
+                                                                                                                    boxShadow: [
+                                                                                                                      BoxShadow(
+                                                                                                                        blurRadius: 4.0,
+                                                                                                                        color: Color(0x230E151B),
+                                                                                                                        offset: Offset(0.0, 2.0),
+                                                                                                                      )
+                                                                                                                    ],
+                                                                                                                    shape: BoxShape.circle,
+                                                                                                                  ),
+                                                                                                                  child: const Icon(
+                                                                                                                    Icons.play_arrow_rounded,
+                                                                                                                    color: Color(0xFF14181B),
+                                                                                                                    size: 20.0,
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                              Row(
+                                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                                 children: [
-                                                                                                                  Text(
-                                                                                                                    '${lesonColumnActivitiesRecord.order.toString()} - ${lesonColumnActivitiesRecord.name}',
-                                                                                                                    style: FlutterFlowTheme.of(context).bodyLarge.override(
-                                                                                                                          fontFamily: 'Readex Pro',
-                                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                                          fontSize: 16.0,
-                                                                                                                          fontWeight: FontWeight.w500,
-                                                                                                                        ),
-                                                                                                                  ),
                                                                                                                   Padding(
-                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
-                                                                                                                    child: Text(
-                                                                                                                      '${lesonColumnActivitiesRecord.time} دقيقة',
-                                                                                                                      style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                                                            fontFamily: 'Readex Pro',
-                                                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                                            fontSize: 12.0,
-                                                                                                                            fontWeight: FontWeight.w500,
-                                                                                                                          ),
-                                                                                                                    ),
-                                                                                                                  ),
-                                                                                                                  Row(
-                                                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                                                    children: [
-                                                                                                                      ClipRRect(
-                                                                                                                        borderRadius: BorderRadius.circular(40.0),
-                                                                                                                        child: Image.network(
-                                                                                                                          'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHByb2ZpbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-                                                                                                                          width: 32.0,
-                                                                                                                          height: 32.0,
-                                                                                                                          fit: BoxFit.cover,
-                                                                                                                        ),
-                                                                                                                      ),
-                                                                                                                      Padding(
-                                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                                                        child: Text(
-                                                                                                                          lesonColumnActivitiesRecord.teacher,
-                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
+                                                                                                                    child: Column(
+                                                                                                                      mainAxisSize: MainAxisSize.min,
+                                                                                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                      children: [
+                                                                                                                        Text(
+                                                                                                                          '${lesonColumnActivitiesRecord.order.toString()} - ${lesonColumnActivitiesRecord.name}',
+                                                                                                                          style: FlutterFlowTheme.of(context).bodyLarge.override(
                                                                                                                                 fontFamily: 'Readex Pro',
-                                                                                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                                                                                fontSize: 14.0,
+                                                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                                fontSize: 16.0,
                                                                                                                                 fontWeight: FontWeight.w500,
                                                                                                                               ),
                                                                                                                         ),
-                                                                                                                      ),
-                                                                                                                    ],
+                                                                                                                        Padding(
+                                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                                                          child: Text(
+                                                                                                                            '${lesonColumnActivitiesRecord.time} دقيقة',
+                                                                                                                            style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                                                                  fontFamily: 'Readex Pro',
+                                                                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                                  fontSize: 12.0,
+                                                                                                                                  fontWeight: FontWeight.w500,
+                                                                                                                                ),
+                                                                                                                          ),
+                                                                                                                        ),
+                                                                                                                        Row(
+                                                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                                                          children: [
+                                                                                                                            ClipRRect(
+                                                                                                                              borderRadius: BorderRadius.circular(40.0),
+                                                                                                                              child: Image.network(
+                                                                                                                                'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHByb2ZpbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+                                                                                                                                width: 32.0,
+                                                                                                                                height: 32.0,
+                                                                                                                                fit: BoxFit.cover,
+                                                                                                                              ),
+                                                                                                                            ),
+                                                                                                                            Padding(
+                                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                                                              child: Text(
+                                                                                                                                lesonColumnActivitiesRecord.teacher,
+                                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                      fontFamily: 'Readex Pro',
+                                                                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                                                                      fontSize: 14.0,
+                                                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                                                    ),
+                                                                                                                              ),
+                                                                                                                            ),
+                                                                                                                          ],
+                                                                                                                        ),
+                                                                                                                      ],
+                                                                                                                    ),
                                                                                                                   ),
                                                                                                                 ],
                                                                                                               ),
-                                                                                                            ),
-                                                                                                          ],
+                                                                                                            ],
+                                                                                                          ),
                                                                                                         ),
-                                                                                                      ],
-                                                                                                    ),
+                                                                                                      ),
+                                                                                                    ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation1']!),
                                                                                                   ),
                                                                                                 ),
-                                                                                              ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation1']!),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ],
+                                                                                              ],
+                                                                                            );
+                                                                                          }),
+                                                                                        ),
                                                                                       );
-                                                                                    }),
+                                                                                    },
                                                                                   ),
                                                                                 );
                                                                               },
@@ -749,11 +792,12 @@ class _CourseContentWidgetState extends State<CourseContentWidget>
                                                                             if (!snapshot.hasData) {
                                                                               return Center(
                                                                                 child: SizedBox(
-                                                                                  width: 100.0,
-                                                                                  height: 100.0,
-                                                                                  child: SpinKitSquareCircle(
-                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                    size: 100.0,
+                                                                                  width: 50.0,
+                                                                                  height: 50.0,
+                                                                                  child: CircularProgressIndicator(
+                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                      FlutterFlowTheme.of(context).primary,
+                                                                                    ),
                                                                                   ),
                                                                                 ),
                                                                               );
@@ -793,11 +837,12 @@ class _CourseContentWidgetState extends State<CourseContentWidget>
                                                                                             if (!snapshot.hasData) {
                                                                                               return Center(
                                                                                                 child: SizedBox(
-                                                                                                  width: 100.0,
-                                                                                                  height: 100.0,
-                                                                                                  child: SpinKitSquareCircle(
-                                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                                    size: 100.0,
+                                                                                                  width: 50.0,
+                                                                                                  height: 50.0,
+                                                                                                  child: CircularProgressIndicator(
+                                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                      FlutterFlowTheme.of(context).primary,
+                                                                                                    ),
                                                                                                   ),
                                                                                                 ),
                                                                                               );
@@ -825,11 +870,12 @@ class _CourseContentWidgetState extends State<CourseContentWidget>
                                                                                                       if (!snapshot.hasData) {
                                                                                                         return Center(
                                                                                                           child: SizedBox(
-                                                                                                            width: 100.0,
-                                                                                                            height: 100.0,
-                                                                                                            child: SpinKitSquareCircle(
-                                                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                                                              size: 100.0,
+                                                                                                            width: 50.0,
+                                                                                                            height: 50.0,
+                                                                                                            child: CircularProgressIndicator(
+                                                                                                              valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                FlutterFlowTheme.of(context).primary,
+                                                                                                              ),
                                                                                                             ),
                                                                                                           ),
                                                                                                         );
@@ -846,6 +892,10 @@ class _CourseContentWidgetState extends State<CourseContentWidget>
                                                                                                             queryParameters: {
                                                                                                               'testRef': serializeParam(
                                                                                                                 testColumnActivitiesRecord.reference,
+                                                                                                                ParamType.DocumentReference,
+                                                                                                              ),
+                                                                                                              'categRef': serializeParam(
+                                                                                                                courseContentSupjRecord.supCateg,
                                                                                                                 ParamType.DocumentReference,
                                                                                                               ),
                                                                                                             }.withoutNulls,
@@ -1043,11 +1093,12 @@ class _CourseContentWidgetState extends State<CourseContentWidget>
                                                                             if (!snapshot.hasData) {
                                                                               return Center(
                                                                                 child: SizedBox(
-                                                                                  width: 100.0,
-                                                                                  height: 100.0,
-                                                                                  child: SpinKitSquareCircle(
-                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                    size: 100.0,
+                                                                                  width: 50.0,
+                                                                                  height: 50.0,
+                                                                                  child: CircularProgressIndicator(
+                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                      FlutterFlowTheme.of(context).primary,
+                                                                                    ),
                                                                                   ),
                                                                                 ),
                                                                               );

@@ -1,13 +1,10 @@
 import 'dart:async';
 
-import '/backend/algolia/serialization_util.dart';
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class QbankRecord extends FirestoreRecord {
   QbankRecord._(
@@ -75,51 +72,6 @@ class QbankRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       QbankRecord._(reference, mapFromFirestore(data));
-
-  static QbankRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      QbankRecord.getDocumentFromData(
-        {
-          'activid': convertAlgoliaParam(
-            snapshot.data['activid'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'Qtext': snapshot.data['Qtext'],
-          'options': safeGet(
-            () => snapshot.data['options'].toList(),
-          ),
-          'answer': snapshot.data['answer'],
-          'order': convertAlgoliaParam(
-            snapshot.data['order'],
-            ParamType.int,
-            false,
-          ),
-          'time': convertAlgoliaParam(
-            snapshot.data['time'],
-            ParamType.DateTime,
-            false,
-          ),
-        },
-        QbankRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<QbankRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'qbank',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

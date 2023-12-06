@@ -1,11 +1,12 @@
 import '/backend/backend.dart';
 import '/components/nav0/nav0_widget.dart';
-import '/components/topbar/topbar_widget.dart';
+import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'users_reports_copy_widget.dart' show UsersReportsCopyWidget;
+import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'report_maker_widget.dart' show ReportMakerWidget;
 import 'package:flutter/material.dart';
 
-class UsersReportsCopyModel extends FlutterFlowModel<UsersReportsCopyWidget> {
+class ReportMakerModel extends FlutterFlowModel<ReportMakerWidget> {
   ///  Local state fields for this page.
 
   List<SubTotalStruct> quran = [];
@@ -80,12 +81,15 @@ class UsersReportsCopyModel extends FlutterFlowModel<UsersReportsCopyWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for topbar component.
-  late TopbarModel topbarModel;
-  // State field(s) for TabBar widget.
-  TabController? tabBarController;
-  int get tabBarCurrentIndex =>
-      tabBarController != null ? tabBarController!.index : 0;
+  // State field(s) for Timer widget.
+  int timerMilliseconds = 60000;
+  String timerValue = StopWatchTimer.getDisplayTime(
+    60000,
+    hours: false,
+    milliSecond: false,
+  );
+  FlutterFlowTimerController timerController =
+      FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
   // Model for nav0 component.
   late Nav0Model nav0Model;
@@ -94,15 +98,13 @@ class UsersReportsCopyModel extends FlutterFlowModel<UsersReportsCopyWidget> {
 
   @override
   void initState(BuildContext context) {
-    topbarModel = createModel(context, () => TopbarModel());
     nav0Model = createModel(context, () => Nav0Model());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
-    topbarModel.dispose();
-    tabBarController?.dispose();
+    timerController.dispose();
     nav0Model.dispose();
   }
 

@@ -58,4 +58,10 @@ class CategGradesRow extends SupabaseDataRow {
 
   int? get extra => getField<int>('extra');
   set extra(int? value) => setField<int>('extra', value);
+
+  DateTime? get editedAt => getField<DateTime>('editedAt');
+  set editedAt(DateTime? value) => setField<DateTime>('editedAt', value);
+
+  String? get categName => getField<String>('categName');
+  set categName(String? value) => setField<String>('categName', value);
 }

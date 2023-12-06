@@ -1,10 +1,20 @@
+import '/backend/supabase/supabase.dart';
 import '/components/nav0/nav0_widget.dart';
 import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:async';
 import 'lesson_content_widget.dart' show LessonContentWidget;
 import 'package:flutter/material.dart';
 
 class LessonContentModel extends FlutterFlowModel<LessonContentWidget> {
+  ///  Local state fields for this page.
+
+  DocumentReference? activiREF;
+
+  DocumentReference? categREF;
+
+  int? lessonInt = 0;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -20,6 +30,8 @@ class LessonContentModel extends FlutterFlowModel<LessonContentWidget> {
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
+
+  Completer<List<ActivitiesProgressRow>>? requestCompleter;
 
   /// Initialization and disposal methods.
 
@@ -43,4 +55,19 @@ class LessonContentModel extends FlutterFlowModel<LessonContentWidget> {
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
+
+  Future waitForRequestCompleted({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(const Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = requestCompleter?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
 }

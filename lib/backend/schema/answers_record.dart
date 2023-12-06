@@ -1,13 +1,10 @@
 import 'dart:async';
 
-import '/backend/algolia/serialization_util.dart';
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class AnswersRecord extends FirestoreRecord {
   AnswersRecord._(
@@ -64,43 +61,6 @@ class AnswersRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       AnswersRecord._(reference, mapFromFirestore(data));
-
-  static AnswersRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      AnswersRecord.getDocumentFromData(
-        {
-          'answer': snapshot.data['answer'],
-          'isTrue': snapshot.data['isTrue'],
-          'Aorder': convertAlgoliaParam(
-            snapshot.data['Aorder'],
-            ParamType.int,
-            false,
-          ),
-          'questionID': convertAlgoliaParam(
-            snapshot.data['questionID'],
-            ParamType.DocumentReference,
-            false,
-          ),
-        },
-        AnswersRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<AnswersRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'answers',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

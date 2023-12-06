@@ -1,13 +1,10 @@
 import 'dart:async';
 
-import '/backend/algolia/serialization_util.dart';
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class SupjRecord extends FirestoreRecord {
   SupjRecord._(
@@ -99,57 +96,6 @@ class SupjRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       SupjRecord._(reference, mapFromFirestore(data));
-
-  static SupjRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      SupjRecord.getDocumentFromData(
-        {
-          'name': snapshot.data['name'],
-          'description': snapshot.data['description'],
-          'cover': snapshot.data['cover'],
-          'supId': snapshot.data['supId'],
-          'cohorts': safeGet(
-            () => convertAlgoliaParam<DocumentReference>(
-              snapshot.data['cohorts'],
-              ParamType.DocumentReference,
-              true,
-            ).toList(),
-          ),
-          'teachers': convertAlgoliaParam(
-            snapshot.data['teachers'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'supCateg': convertAlgoliaParam(
-            snapshot.data['supCateg'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'teacherString': snapshot.data['teacherString'],
-          'tags': safeGet(
-            () => snapshot.data['tags'].toList(),
-          ),
-          'visibility': snapshot.data['visibility'],
-        },
-        SupjRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<SupjRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'supj',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

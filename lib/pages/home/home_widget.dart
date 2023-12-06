@@ -1,5 +1,4 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/supabase/supabase.dart';
 import '/components/nav0/nav0_widget.dart';
 import '/components/profilecomp/profilecomp_widget.dart';
 import '/components/topbar/topbar_widget.dart';
@@ -8,14 +7,13 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'home_page_model.dart';
-export 'home_page_model.dart';
+import 'home_model.dart';
+export 'home_model.dart';
 
-class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({
+class HomeWidget extends StatefulWidget {
+  const HomeWidget({
     super.key,
     this.output,
   });
@@ -23,18 +21,18 @@ class HomePageWidget extends StatefulWidget {
   final bool? output;
 
   @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
+  _HomeWidgetState createState() => _HomeWidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
-  late HomePageModel _model;
+class _HomeWidgetState extends State<HomeWidget> {
+  late HomeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HomePageModel());
+    _model = createModel(context, () => HomeModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -98,7 +96,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     context.watch<FFAppState>();
 
     return Title(
-        title: 'homePage',
+        title: 'home',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
@@ -193,85 +191,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 .secondaryText,
                                             borderRadius:
                                                 BorderRadius.circular(9.0),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 10.0, 10.0, 10.0),
-                                            child: FutureBuilder<
-                                                List<QbankAttemptsRow>>(
-                                              future: QbankAttemptsTable()
-                                                  .queryRows(
-                                                queryFn: (q) => q.eq(
-                                                  'usersID',
-                                                  'K9kFsN3GJjY86kzljrGR35f7zlK2',
-                                                ),
-                                                limit: 5,
-                                              ),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 100.0,
-                                                      height: 100.0,
-                                                      child:
-                                                          SpinKitSquareCircle(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        size: 100.0,
-                                                      ),
-                                                    ),
-                                                  );
-                                                }
-                                                List<QbankAttemptsRow>
-                                                    columnQbankAttemptsRowList =
-                                                    snapshot.data!;
-                                                return Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: List.generate(
-                                                      columnQbankAttemptsRowList
-                                                          .length,
-                                                      (columnIndex) {
-                                                    final columnQbankAttemptsRow =
-                                                        columnQbankAttemptsRowList[
-                                                            columnIndex];
-                                                    return Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Text(
-                                                              columnQbankAttemptsRow
-                                                                  .usersID!,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                            Text(
-                                                              currentUserReference!
-                                                                  .id,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    );
-                                                  }),
-                                                );
-                                              },
-                                            ),
                                           ),
                                         ),
                                       ),

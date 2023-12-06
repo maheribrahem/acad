@@ -1,13 +1,10 @@
 import 'dart:async';
 
-import '/backend/algolia/serialization_util.dart';
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class QuestionRecord extends FirestoreRecord {
   QuestionRecord._(
@@ -58,42 +55,6 @@ class QuestionRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       QuestionRecord._(reference, mapFromFirestore(data));
-
-  static QuestionRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      QuestionRecord.getDocumentFromData(
-        {
-          'question': snapshot.data['question'],
-          'order': convertAlgoliaParam(
-            snapshot.data['order'],
-            ParamType.int,
-            false,
-          ),
-          'activitID': convertAlgoliaParam(
-            snapshot.data['activitID'],
-            ParamType.DocumentReference,
-            false,
-          ),
-        },
-        QuestionRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<QuestionRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'question',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

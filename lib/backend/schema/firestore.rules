@@ -228,8 +228,8 @@ service cloud.firestore {
     match /gradingOptions/{document} {
       allow create: if true;
       allow read: if true;
-      allow write: if false;
-      allow delete: if false;
+      allow write: if true;
+      allow delete: if true;
     }
 
     match /ff_user_push_notifications/{id} {

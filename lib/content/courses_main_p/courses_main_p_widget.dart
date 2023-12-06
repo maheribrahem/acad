@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'courses_main_p_model.dart';
@@ -331,14 +330,17 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                               .hasData) {
                                                             return Center(
                                                               child: SizedBox(
-                                                                width: 100.0,
-                                                                height: 100.0,
+                                                                width: 50.0,
+                                                                height: 50.0,
                                                                 child:
-                                                                    SpinKitSquareCircle(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  size: 100.0,
+                                                                    CircularProgressIndicator(
+                                                                  valueColor:
+                                                                      AlwaysStoppedAnimation<
+                                                                          Color>(
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                  ),
                                                                 ),
                                                               ),
                                                             );
@@ -545,15 +547,17 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                 if (!snapshot.hasData) {
                                                   return Center(
                                                     child: SizedBox(
-                                                      width: 100.0,
-                                                      height: 100.0,
+                                                      width: 50.0,
+                                                      height: 50.0,
                                                       child:
-                                                          SpinKitSquareCircle(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        size: 100.0,
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                        ),
                                                       ),
                                                     ),
                                                   );
@@ -758,17 +762,17 @@ class _CoursesMainPWidgetState extends State<CoursesMainPWidget>
                                                                 return Center(
                                                                   child:
                                                                       SizedBox(
-                                                                    width:
-                                                                        100.0,
+                                                                    width: 50.0,
                                                                     height:
-                                                                        100.0,
+                                                                        50.0,
                                                                     child:
-                                                                        SpinKitSquareCircle(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      size:
-                                                                          100.0,
+                                                                        CircularProgressIndicator(
+                                                                      valueColor:
+                                                                          AlwaysStoppedAnimation<
+                                                                              Color>(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 );

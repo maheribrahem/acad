@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -62,35 +61,6 @@ class OnOEoffRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       OnOEoffRecord._(reference, mapFromFirestore(data));
-
-  static OnOEoffRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      OnOEoffRecord.getDocumentFromData(
-        {
-          'registration': snapshot.data['registration'],
-          'registrationMessage': snapshot.data['registrationMessage'],
-          'isRegistrationButton': snapshot.data['isRegistrationButton'],
-          'registrationButtonLink': snapshot.data['registrationButtonLink'],
-        },
-        OnOEoffRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<OnOEoffRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'onOEoff',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

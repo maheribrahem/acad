@@ -172,6 +172,21 @@ class UsersRecord extends FirestoreRecord {
   List<DocumentReference> get cohorts => _cohorts ?? const [];
   bool hasCohorts() => _cohorts != null;
 
+  // "orderOFem" field.
+  int? _orderOFem;
+  int get orderOFem => _orderOFem ?? 0;
+  bool hasOrderOFem() => _orderOFem != null;
+
+  // "cohort" field.
+  String? _cohort;
+  String get cohort => _cohort ?? '';
+  bool hasCohort() => _cohort != null;
+
+  // "intForUpdating" field.
+  int? _intForUpdating;
+  int get intForUpdating => _intForUpdating ?? 0;
+  bool hasIntForUpdating() => _intForUpdating != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -204,6 +219,9 @@ class UsersRecord extends FirestoreRecord {
     _mentoorr = getDataList(snapshotData['mentoorr']);
     _searchTags = getDataList(snapshotData['searchTags']);
     _cohorts = getDataList(snapshotData['cohorts']);
+    _orderOFem = castToType<int>(snapshotData['orderOFem']);
+    _cohort = snapshotData['cohort'] as String?;
+    _intForUpdating = castToType<int>(snapshotData['intForUpdating']);
   }
 
   static CollectionReference get collection =>
@@ -282,6 +300,17 @@ class UsersRecord extends FirestoreRecord {
               true,
             ).toList(),
           ),
+          'orderOFem': convertAlgoliaParam(
+            snapshot.data['orderOFem'],
+            ParamType.int,
+            false,
+          ),
+          'cohort': snapshot.data['cohort'],
+          'intForUpdating': convertAlgoliaParam(
+            snapshot.data['intForUpdating'],
+            ParamType.int,
+            false,
+          ),
         },
         UsersRecord.collection.doc(snapshot.objectID),
       );
@@ -346,6 +375,9 @@ Map<String, dynamic> createUsersRecordData({
   bool? isReal,
   bool? isChecked,
   String? mentoor,
+  int? orderOFem,
+  String? cohort,
+  int? intForUpdating,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -377,6 +409,9 @@ Map<String, dynamic> createUsersRecordData({
       'isReal': isReal,
       'isChecked': isChecked,
       'mentoor': mentoor,
+      'orderOFem': orderOFem,
+      'cohort': cohort,
+      'intForUpdating': intForUpdating,
     }.withoutNulls,
   );
 
@@ -419,7 +454,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.mentoor == e2?.mentoor &&
         listEquality.equals(e1?.mentoorr, e2?.mentoorr) &&
         listEquality.equals(e1?.searchTags, e2?.searchTags) &&
-        listEquality.equals(e1?.cohorts, e2?.cohorts);
+        listEquality.equals(e1?.cohorts, e2?.cohorts) &&
+        e1?.orderOFem == e2?.orderOFem &&
+        e1?.cohort == e2?.cohort &&
+        e1?.intForUpdating == e2?.intForUpdating;
   }
 
   @override
@@ -454,7 +492,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.mentoor,
         e?.mentoorr,
         e?.searchTags,
-        e?.cohorts
+        e?.cohorts,
+        e?.orderOFem,
+        e?.cohort,
+        e?.intForUpdating
       ]);
 
   @override

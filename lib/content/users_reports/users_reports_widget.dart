@@ -6,11 +6,12 @@ import '/components/profilecomp/profilecomp_widget.dart';
 import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -21,9 +22,13 @@ class UsersReportsWidget extends StatefulWidget {
   const UsersReportsWidget({
     super.key,
     this.inspection,
-  });
+    bool? reCalculate,
+    this.categRefCalculate,
+  })  : reCalculate = reCalculate ?? false;
 
   final DocumentReference? inspection;
+  final bool reCalculate;
+  final DocumentReference? categRefCalculate;
 
   @override
   _UsersReportsWidgetState createState() => _UsersReportsWidgetState();
@@ -122,11 +127,12 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 100.0,
-                height: 100.0,
-                child: SpinKitSquareCircle(
-                  color: FlutterFlowTheme.of(context).primary,
-                  size: 100.0,
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
+                  ),
                 ),
               ),
             ),
@@ -346,15 +352,16 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                     child:
                                                                         SizedBox(
                                                                       width:
-                                                                          100.0,
+                                                                          50.0,
                                                                       height:
-                                                                          100.0,
+                                                                          50.0,
                                                                       child:
-                                                                          SpinKitSquareCircle(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                        size:
-                                                                            100.0,
+                                                                          CircularProgressIndicator(
+                                                                        valueColor:
+                                                                            AlwaysStoppedAnimation<Color>(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primary,
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   );
@@ -462,195 +469,358 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                     .tabBarController,
                                                                 children: [
                                                                   KeepAliveWidgetWrapper(
-                                                                    builder: (context) =>
-                                                                        StreamBuilder<
-                                                                            List<CategRecord>>(
-                                                                      stream:
-                                                                          queryCategRecord(
-                                                                        queryBuilder:
-                                                                            (categRecord) =>
-                                                                                categRecord.where(
-                                                                          'available',
-                                                                          isEqualTo:
-                                                                              true,
-                                                                        ),
+                                                                    builder:
+                                                                        (context) =>
+                                                                            Card(
+                                                                      clipBehavior:
+                                                                          Clip.antiAliasWithSaveLayer,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryBackground,
+                                                                      elevation:
+                                                                          4.0,
+                                                                      shape:
+                                                                          RoundedRectangleBorder(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
-                                                                      builder:
-                                                                          (context,
-                                                                              snapshot) {
-                                                                        // Customize what your widget looks like when it's loading.
-                                                                        if (!snapshot
-                                                                            .hasData) {
-                                                                          return Center(
-                                                                            child:
-                                                                                SizedBox(
-                                                                              width: 100.0,
-                                                                              height: 100.0,
-                                                                              child: SpinKitSquareCircle(
-                                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                                size: 100.0,
+                                                                      child: StreamBuilder<
+                                                                          List<
+                                                                              CategRecord>>(
+                                                                        stream:
+                                                                            queryCategRecord(
+                                                                          queryBuilder: (categRecord) =>
+                                                                              categRecord.where(
+                                                                            'available',
+                                                                            isEqualTo:
+                                                                                true,
+                                                                          ),
+                                                                        ),
+                                                                        builder:
+                                                                            (context,
+                                                                                snapshot) {
+                                                                          // Customize what your widget looks like when it's loading.
+                                                                          if (!snapshot
+                                                                              .hasData) {
+                                                                            return Center(
+                                                                              child: SizedBox(
+                                                                                width: 50.0,
+                                                                                height: 50.0,
+                                                                                child: CircularProgressIndicator(
+                                                                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                    FlutterFlowTheme.of(context).primary,
+                                                                                  ),
+                                                                                ),
                                                                               ),
-                                                                            ),
-                                                                          );
-                                                                        }
-                                                                        List<CategRecord>
-                                                                            columnCategRecordList =
-                                                                            snapshot.data!;
-                                                                        return SingleChildScrollView(
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children:
-                                                                                List.generate(columnCategRecordList.length, (columnIndex) {
-                                                                              final columnCategRecord = columnCategRecordList[columnIndex];
-                                                                              return Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                children: [
-                                                                                  Container(
-                                                                                    decoration: const BoxDecoration(),
-                                                                                    child: StreamBuilder<List<SupjRecord>>(
-                                                                                      stream: querySupjRecord(
-                                                                                        queryBuilder: (supjRecord) => supjRecord.where(
-                                                                                          'supCateg',
-                                                                                          isEqualTo: columnCategRecord.reference,
+                                                                            );
+                                                                          }
+                                                                          List<CategRecord>
+                                                                              columnCategRecordList =
+                                                                              snapshot.data!;
+                                                                          return SingleChildScrollView(
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: List.generate(columnCategRecordList.length, (columnIndex) {
+                                                                                final columnCategRecord = columnCategRecordList[columnIndex];
+                                                                                return FutureBuilder<List<CategGradesRow>>(
+                                                                                  future: CategGradesTable().queryRows(
+                                                                                    queryFn: (q) => q
+                                                                                        .eq(
+                                                                                          'userREF',
+                                                                                          currentUserReference?.id,
+                                                                                        )
+                                                                                        .eq(
+                                                                                          'categID',
+                                                                                          columnCategRecord.reference.id,
                                                                                         ),
+                                                                                  ),
+                                                                                  builder: (context, snapshot) {
+                                                                                    // Customize what your widget looks like when it's loading.
+                                                                                    if (!snapshot.hasData) {
+                                                                                      return Center(
+                                                                                        child: SizedBox(
+                                                                                          width: 50.0,
+                                                                                          height: 50.0,
+                                                                                          child: CircularProgressIndicator(
+                                                                                            valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                              FlutterFlowTheme.of(context).primary,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                      );
+                                                                                    }
+                                                                                    List<CategGradesRow> cardCategGradesRowList = snapshot.data!;
+                                                                                    return Card(
+                                                                                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                      elevation: 4.0,
+                                                                                      shape: RoundedRectangleBorder(
+                                                                                        borderRadius: BorderRadius.circular(8.0),
                                                                                       ),
-                                                                                      builder: (context, snapshot) {
-                                                                                        // Customize what your widget looks like when it's loading.
-                                                                                        if (!snapshot.hasData) {
-                                                                                          return Center(
-                                                                                            child: SizedBox(
-                                                                                              width: 100.0,
-                                                                                              height: 100.0,
-                                                                                              child: SpinKitSquareCircle(
-                                                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                                                size: 100.0,
-                                                                                              ),
-                                                                                            ),
-                                                                                          );
-                                                                                        }
-                                                                                        List<SupjRecord> supjSupjRecordList = snapshot.data!;
-                                                                                        return Container(
-                                                                                          decoration: const BoxDecoration(),
-                                                                                          child: StreamBuilder<List<ActivitiesRecord>>(
-                                                                                            stream: queryActivitiesRecord(
-                                                                                              queryBuilder: (activitiesRecord) => activitiesRecord.whereIn('supjRef', supjSupjRecordList.map((e) => e.reference).toList()),
-                                                                                            ),
-                                                                                            builder: (context, snapshot) {
-                                                                                              // Customize what your widget looks like when it's loading.
-                                                                                              if (!snapshot.hasData) {
-                                                                                                return Center(
-                                                                                                  child: SizedBox(
-                                                                                                    width: 100.0,
-                                                                                                    height: 100.0,
-                                                                                                    child: SpinKitSquareCircle(
-                                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                                      size: 100.0,
+                                                                                      child: Builder(
+                                                                                        builder: (context) {
+                                                                                          if (cardCategGradesRowList.isNotEmpty) {
+                                                                                            return Column(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                Container(
+                                                                                                  decoration: const BoxDecoration(),
+                                                                                                  child: StreamBuilder<List<SupjRecord>>(
+                                                                                                    stream: querySupjRecord(
+                                                                                                      queryBuilder: (supjRecord) => supjRecord.where(
+                                                                                                        'supCateg',
+                                                                                                        isEqualTo: columnCategRecord.reference,
+                                                                                                      ),
                                                                                                     ),
-                                                                                                  ),
-                                                                                                );
-                                                                                              }
-                                                                                              List<ActivitiesRecord> activiActivitiesRecordList = snapshot.data!;
-                                                                                              return Container(
-                                                                                                decoration: const BoxDecoration(),
-                                                                                                child: Column(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  children: [
-                                                                                                    Column(
-                                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                                      children: [
-                                                                                                        Text(
-                                                                                                          columnCategRecord.name,
-                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                fontFamily: 'Cairo',
-                                                                                                                fontSize: 24.0,
-                                                                                                                fontWeight: FontWeight.bold,
+                                                                                                    builder: (context, snapshot) {
+                                                                                                      // Customize what your widget looks like when it's loading.
+                                                                                                      if (!snapshot.hasData) {
+                                                                                                        return Center(
+                                                                                                          child: SizedBox(
+                                                                                                            width: 50.0,
+                                                                                                            height: 50.0,
+                                                                                                            child: CircularProgressIndicator(
+                                                                                                              valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                FlutterFlowTheme.of(context).primary,
                                                                                                               ),
-                                                                                                        ),
-                                                                                                        if ((false == true) &&
-                                                                                                            responsiveVisibility(
-                                                                                                              context: context,
-                                                                                                              phone: false,
-                                                                                                              tablet: false,
-                                                                                                              tabletLandscape: false,
-                                                                                                              desktop: false,
-                                                                                                            ))
-                                                                                                          Padding(
-                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                                                                                                            child: FutureBuilder<List<ActivitiesProgressRow>>(
-                                                                                                              future: ActivitiesProgressTable().queryRows(
-                                                                                                                queryFn: (q) => q
-                                                                                                                    .eq(
-                                                                                                                      'userID',
-                                                                                                                      currentUserReference?.id,
-                                                                                                                    )
-                                                                                                                    .in_(
-                                                                                                                      'activitID',
-                                                                                                                      activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().map((e) => e.reference.id).toList(),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      }
+                                                                                                      List<SupjRecord> supjSupjRecordList = snapshot.data!;
+                                                                                                      return Container(
+                                                                                                        decoration: const BoxDecoration(),
+                                                                                                        child: StreamBuilder<List<ActivitiesRecord>>(
+                                                                                                          stream: queryActivitiesRecord(
+                                                                                                            queryBuilder: (activitiesRecord) => activitiesRecord.whereIn('supjRef', supjSupjRecordList.map((e) => e.reference).toList()),
+                                                                                                          ),
+                                                                                                          builder: (context, snapshot) {
+                                                                                                            // Customize what your widget looks like when it's loading.
+                                                                                                            if (!snapshot.hasData) {
+                                                                                                              return Center(
+                                                                                                                child: SizedBox(
+                                                                                                                  width: 50.0,
+                                                                                                                  height: 50.0,
+                                                                                                                  child: CircularProgressIndicator(
+                                                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                      FlutterFlowTheme.of(context).primary,
                                                                                                                     ),
-                                                                                                              ),
-                                                                                                              builder: (context, snapshot) {
-                                                                                                                // Customize what your widget looks like when it's loading.
-                                                                                                                if (!snapshot.hasData) {
-                                                                                                                  return Center(
-                                                                                                                    child: SizedBox(
-                                                                                                                      width: 100.0,
-                                                                                                                      height: 100.0,
-                                                                                                                      child: SpinKitSquareCircle(
-                                                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                                                        size: 100.0,
-                                                                                                                      ),
-                                                                                                                    ),
-                                                                                                                  );
-                                                                                                                }
-                                                                                                                List<ActivitiesProgressRow> containerFinalsActivitiesProgressRowList = snapshot.data!;
-                                                                                                                return Container(
-                                                                                                                  width: 100.0,
-                                                                                                                  height: 130.0,
-                                                                                                                  decoration: BoxDecoration(
-                                                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                                    borderRadius: BorderRadius.circular(18.0),
                                                                                                                   ),
-                                                                                                                  child: FutureBuilder<List<ActivitiesProgressRow>>(
-                                                                                                                    future: ActivitiesProgressTable().queryRows(
-                                                                                                                      queryFn: (q) => q
-                                                                                                                          .eq(
-                                                                                                                            'userID',
-                                                                                                                            currentUserReference?.id,
-                                                                                                                          )
-                                                                                                                          .in_(
-                                                                                                                            'activitID',
-                                                                                                                            activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().map((e) => e.reference.id).toList(),
-                                                                                                                          ),
-                                                                                                                    ),
-                                                                                                                    builder: (context, snapshot) {
-                                                                                                                      // Customize what your widget looks like when it's loading.
-                                                                                                                      if (!snapshot.hasData) {
-                                                                                                                        return Center(
-                                                                                                                          child: SizedBox(
-                                                                                                                            width: 100.0,
-                                                                                                                            height: 100.0,
-                                                                                                                            child: SpinKitSquareCircle(
-                                                                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                                                                              size: 100.0,
+                                                                                                                ),
+                                                                                                              );
+                                                                                                            }
+                                                                                                            List<ActivitiesRecord> activiActivitiesRecordList = snapshot.data!;
+                                                                                                            return Container(
+                                                                                                              decoration: const BoxDecoration(),
+                                                                                                              child: Column(
+                                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                                children: [
+                                                                                                                  Column(
+                                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                                    children: [
+                                                                                                                      Text(
+                                                                                                                        columnCategRecord.name,
+                                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                              fontFamily: 'Cairo',
+                                                                                                                              fontSize: 24.0,
+                                                                                                                              fontWeight: FontWeight.bold,
                                                                                                                             ),
+                                                                                                                      ),
+                                                                                                                      if ((false == true) &&
+                                                                                                                          responsiveVisibility(
+                                                                                                                            context: context,
+                                                                                                                            phone: false,
+                                                                                                                            tablet: false,
+                                                                                                                            tabletLandscape: false,
+                                                                                                                            desktop: false,
+                                                                                                                          ))
+                                                                                                                        Padding(
+                                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                                          child: FutureBuilder<List<ActivitiesProgressRow>>(
+                                                                                                                            future: ActivitiesProgressTable().queryRows(
+                                                                                                                              queryFn: (q) => q
+                                                                                                                                  .eq(
+                                                                                                                                    'userID',
+                                                                                                                                    currentUserReference?.id,
+                                                                                                                                  )
+                                                                                                                                  .in_(
+                                                                                                                                    'activitID',
+                                                                                                                                    activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().map((e) => e.reference.id).toList(),
+                                                                                                                                  ),
+                                                                                                                            ),
+                                                                                                                            builder: (context, snapshot) {
+                                                                                                                              // Customize what your widget looks like when it's loading.
+                                                                                                                              if (!snapshot.hasData) {
+                                                                                                                                return Center(
+                                                                                                                                  child: SizedBox(
+                                                                                                                                    width: 50.0,
+                                                                                                                                    height: 50.0,
+                                                                                                                                    child: CircularProgressIndicator(
+                                                                                                                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                        FlutterFlowTheme.of(context).primary,
+                                                                                                                                      ),
+                                                                                                                                    ),
+                                                                                                                                  ),
+                                                                                                                                );
+                                                                                                                              }
+                                                                                                                              List<ActivitiesProgressRow> containerFinalsActivitiesProgressRowList = snapshot.data!;
+                                                                                                                              return Container(
+                                                                                                                                width: 100.0,
+                                                                                                                                height: 130.0,
+                                                                                                                                decoration: BoxDecoration(
+                                                                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                                  borderRadius: BorderRadius.circular(18.0),
+                                                                                                                                ),
+                                                                                                                                child: FutureBuilder<List<ActivitiesProgressRow>>(
+                                                                                                                                  future: ActivitiesProgressTable().queryRows(
+                                                                                                                                    queryFn: (q) => q
+                                                                                                                                        .eq(
+                                                                                                                                          'userID',
+                                                                                                                                          currentUserReference?.id,
+                                                                                                                                        )
+                                                                                                                                        .in_(
+                                                                                                                                          'activitID',
+                                                                                                                                          activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().map((e) => e.reference.id).toList(),
+                                                                                                                                        ),
+                                                                                                                                  ),
+                                                                                                                                  builder: (context, snapshot) {
+                                                                                                                                    // Customize what your widget looks like when it's loading.
+                                                                                                                                    if (!snapshot.hasData) {
+                                                                                                                                      return Center(
+                                                                                                                                        child: SizedBox(
+                                                                                                                                          width: 50.0,
+                                                                                                                                          height: 50.0,
+                                                                                                                                          child: CircularProgressIndicator(
+                                                                                                                                            valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                              FlutterFlowTheme.of(context).primary,
+                                                                                                                                            ),
+                                                                                                                                          ),
+                                                                                                                                        ),
+                                                                                                                                      );
+                                                                                                                                    }
+                                                                                                                                    List<ActivitiesProgressRow> containertestActivitiesProgressRowList = snapshot.data!;
+                                                                                                                                    return Container(
+                                                                                                                                      decoration: const BoxDecoration(),
+                                                                                                                                      child: FutureBuilder<List<ActivitiesProgressRow>>(
+                                                                                                                                        future: ActivitiesProgressTable().queryRows(
+                                                                                                                                          queryFn: (q) => q
+                                                                                                                                              .eq(
+                                                                                                                                                'userID',
+                                                                                                                                                currentUserReference?.id,
+                                                                                                                                              )
+                                                                                                                                              .in_(
+                                                                                                                                                'activitID',
+                                                                                                                                                activiActivitiesRecordList.where((e) => e.type == 'lesson').toList().map((e) => e.reference.id).toList(),
+                                                                                                                                              ),
+                                                                                                                                        ),
+                                                                                                                                        builder: (context, snapshot) {
+                                                                                                                                          // Customize what your widget looks like when it's loading.
+                                                                                                                                          if (!snapshot.hasData) {
+                                                                                                                                            return Center(
+                                                                                                                                              child: SizedBox(
+                                                                                                                                                width: 50.0,
+                                                                                                                                                height: 50.0,
+                                                                                                                                                child: CircularProgressIndicator(
+                                                                                                                                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                                    FlutterFlowTheme.of(context).primary,
+                                                                                                                                                  ),
+                                                                                                                                                ),
+                                                                                                                                              ),
+                                                                                                                                            );
+                                                                                                                                          }
+                                                                                                                                          List<ActivitiesProgressRow> containerAttendActivitiesProgressRowList = snapshot.data!;
+                                                                                                                                          return Container(
+                                                                                                                                            decoration: const BoxDecoration(),
+                                                                                                                                            child: Container(
+                                                                                                                                              decoration: const BoxDecoration(),
+                                                                                                                                              child: Padding(
+                                                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                                                                child: Column(
+                                                                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                                                                  children: [
+                                                                                                                                                    if ((containerFinalsActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerFinalsActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
+                                                                                                                                                      CircularPercentIndicator(
+                                                                                                                                                        percent: 0.0,
+                                                                                                                                                        radius: 37.5,
+                                                                                                                                                        lineWidth: 12.0,
+                                                                                                                                                        animation: true,
+                                                                                                                                                        animateFromLastPercent: true,
+                                                                                                                                                        progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                                        backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                                        center: Text(
+                                                                                                                                                          FFLocalizations.of(context).getText(
+                                                                                                                                                            'ft9wbvm6' /* 0% */,
+                                                                                                                                                          ),
+                                                                                                                                                          style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                                        ),
+                                                                                                                                                      ),
+                                                                                                                                                    if ((containerFinalsActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerFinalsActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
+                                                                                                                                                      CircularPercentIndicator(
+                                                                                                                                                        percent: 1 + 1,
+                                                                                                                                                        radius: 37.5,
+                                                                                                                                                        lineWidth: 12.0,
+                                                                                                                                                        animation: true,
+                                                                                                                                                        animateFromLastPercent: true,
+                                                                                                                                                        progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                                        backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                                        center: Text(
+                                                                                                                                                          '${formatNumber(
+                                                                                                                                                            functions.attendanceGrade(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().length.toDouble(), containerFinalsActivitiesProgressRowList.where((e) => e.type == 'test').toList().length.toDouble(), 0.0)! * 100,
+                                                                                                                                                            formatType: FormatType.custom,
+                                                                                                                                                            format: '#',
+                                                                                                                                                            locale: '',
+                                                                                                                                                          )}%',
+                                                                                                                                                          style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                                        ),
+                                                                                                                                                      ),
+                                                                                                                                                    Text(
+                                                                                                                                                      FFLocalizations.of(context).getText(
+                                                                                                                                                        '07d3w0th' /* الاختبارات */,
+                                                                                                                                                      ),
+                                                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                                            fontFamily: 'Cairo',
+                                                                                                                                                            fontSize: 22.0,
+                                                                                                                                                          ),
+                                                                                                                                                    ),
+                                                                                                                                                  ],
+                                                                                                                                                ),
+                                                                                                                                              ),
+                                                                                                                                            ),
+                                                                                                                                          );
+                                                                                                                                        },
+                                                                                                                                      ),
+                                                                                                                                    );
+                                                                                                                                  },
+                                                                                                                                ),
+                                                                                                                              );
+                                                                                                                            },
                                                                                                                           ),
-                                                                                                                        );
-                                                                                                                      }
-                                                                                                                      List<ActivitiesProgressRow> containertestActivitiesProgressRowList = snapshot.data!;
-                                                                                                                      return Container(
-                                                                                                                        decoration: const BoxDecoration(),
+                                                                                                                        ),
+                                                                                                                    ],
+                                                                                                                  ),
+                                                                                                                  Wrap(
+                                                                                                                    spacing: 0.0,
+                                                                                                                    runSpacing: 0.0,
+                                                                                                                    alignment: WrapAlignment.start,
+                                                                                                                    crossAxisAlignment: WrapCrossAlignment.start,
+                                                                                                                    direction: Axis.horizontal,
+                                                                                                                    runAlignment: WrapAlignment.start,
+                                                                                                                    verticalDirection: VerticalDirection.down,
+                                                                                                                    clipBehavior: Clip.none,
+                                                                                                                    children: [
+                                                                                                                      Padding(
+                                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                                                                                                                         child: FutureBuilder<List<ActivitiesProgressRow>>(
                                                                                                                           future: ActivitiesProgressTable().queryRows(
                                                                                                                             queryFn: (q) => q
                                                                                                                                 .eq(
                                                                                                                                   'userID',
-                                                                                                                                  currentUserReference?.id,
+                                                                                                                                  widget.inspection != null ? widget.inspection?.id : currentUserReference?.id,
                                                                                                                                 )
                                                                                                                                 .in_(
                                                                                                                                   'activitID',
-                                                                                                                                  activiActivitiesRecordList.where((e) => e.type == 'lesson').toList().map((e) => e.reference.id).toList(),
+                                                                                                                                  activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().map((e) => e.reference.id).toList(),
                                                                                                                                 ),
                                                                                                                           ),
                                                                                                                           builder: (context, snapshot) {
@@ -658,18 +828,125 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                             if (!snapshot.hasData) {
                                                                                                                               return Center(
                                                                                                                                 child: SizedBox(
-                                                                                                                                  width: 100.0,
-                                                                                                                                  height: 100.0,
-                                                                                                                                  child: SpinKitSquareCircle(
-                                                                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                                                                    size: 100.0,
+                                                                                                                                  width: 50.0,
+                                                                                                                                  height: 50.0,
+                                                                                                                                  child: CircularProgressIndicator(
+                                                                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                      FlutterFlowTheme.of(context).primary,
+                                                                                                                                    ),
                                                                                                                                   ),
                                                                                                                                 ),
                                                                                                                               );
                                                                                                                             }
-                                                                                                                            List<ActivitiesProgressRow> containerAttendActivitiesProgressRowList = snapshot.data!;
+                                                                                                                            List<ActivitiesProgressRow> containerActivitiesProgressRowList = snapshot.data!;
                                                                                                                             return Container(
-                                                                                                                              decoration: const BoxDecoration(),
+                                                                                                                              width: 100.0,
+                                                                                                                              height: 130.0,
+                                                                                                                              decoration: BoxDecoration(
+                                                                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                                borderRadius: BorderRadius.circular(18.0),
+                                                                                                                              ),
+                                                                                                                              child: Container(
+                                                                                                                                decoration: const BoxDecoration(),
+                                                                                                                                child: Column(
+                                                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                                                  children: [
+                                                                                                                                    Padding(
+                                                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                                                      child: Column(
+                                                                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                                                                        children: [
+                                                                                                                                          if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
+                                                                                                                                            CircularPercentIndicator(
+                                                                                                                                              percent: 0.0,
+                                                                                                                                              radius: 37.5,
+                                                                                                                                              lineWidth: 12.0,
+                                                                                                                                              animation: true,
+                                                                                                                                              animateFromLastPercent: true,
+                                                                                                                                              progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                              backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                              center: Text(
+                                                                                                                                                FFLocalizations.of(context).getText(
+                                                                                                                                                  'bayyg5ym' /* 0% */,
+                                                                                                                                                ),
+                                                                                                                                                style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                              ),
+                                                                                                                                            ),
+                                                                                                                                          if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
+                                                                                                                                            CircularPercentIndicator(
+                                                                                                                                              percent: functions.attendanceGradeCopy(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().length.toDouble(), functions.sumList(containerActivitiesProgressRowList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().map((e) => e.grade).withoutNulls.toList()))!,
+                                                                                                                                              radius: 37.5,
+                                                                                                                                              lineWidth: 12.0,
+                                                                                                                                              animation: true,
+                                                                                                                                              animateFromLastPercent: true,
+                                                                                                                                              progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                              backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                              center: Text(
+                                                                                                                                                '${formatNumber(
+                                                                                                                                                  functions.attendanceGradeCopy(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().length.toDouble(), functions.sumList(containerActivitiesProgressRowList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().map((e) => e.grade).withoutNulls.toList()))! * 100,
+                                                                                                                                                  formatType: FormatType.custom,
+                                                                                                                                                  format: '#',
+                                                                                                                                                  locale: '',
+                                                                                                                                                )}%',
+                                                                                                                                                style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                              ),
+                                                                                                                                            ),
+                                                                                                                                          Text(
+                                                                                                                                            FFLocalizations.of(context).getText(
+                                                                                                                                              'u6izaew9' /* الاختبارات */,
+                                                                                                                                            ),
+                                                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                                  fontFamily: 'Cairo',
+                                                                                                                                                  fontSize: 22.0,
+                                                                                                                                                ),
+                                                                                                                                          ),
+                                                                                                                                        ],
+                                                                                                                                      ),
+                                                                                                                                    ),
+                                                                                                                                  ],
+                                                                                                                                ),
+                                                                                                                              ),
+                                                                                                                            );
+                                                                                                                          },
+                                                                                                                        ),
+                                                                                                                      ),
+                                                                                                                      Padding(
+                                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                                        child: FutureBuilder<List<ActivitiesProgressRow>>(
+                                                                                                                          future: ActivitiesProgressTable().queryRows(
+                                                                                                                            queryFn: (q) => q
+                                                                                                                                .eq(
+                                                                                                                                  'userID',
+                                                                                                                                  widget.inspection != null ? widget.inspection?.id : currentUserReference?.id,
+                                                                                                                                )
+                                                                                                                                .in_(
+                                                                                                                                  'activitID',
+                                                                                                                                  activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().map((e) => e.reference.id).toList(),
+                                                                                                                                ),
+                                                                                                                          ),
+                                                                                                                          builder: (context, snapshot) {
+                                                                                                                            // Customize what your widget looks like when it's loading.
+                                                                                                                            if (!snapshot.hasData) {
+                                                                                                                              return Center(
+                                                                                                                                child: SizedBox(
+                                                                                                                                  width: 50.0,
+                                                                                                                                  height: 50.0,
+                                                                                                                                  child: CircularProgressIndicator(
+                                                                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                      FlutterFlowTheme.of(context).primary,
+                                                                                                                                    ),
+                                                                                                                                  ),
+                                                                                                                                ),
+                                                                                                                              );
+                                                                                                                            }
+                                                                                                                            List<ActivitiesProgressRow> containerActivitiesProgressRowList = snapshot.data!;
+                                                                                                                            return Container(
+                                                                                                                              width: 100.0,
+                                                                                                                              height: 130.0,
+                                                                                                                              decoration: BoxDecoration(
+                                                                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                                borderRadius: BorderRadius.circular(18.0),
+                                                                                                                              ),
                                                                                                                               child: Container(
                                                                                                                                 decoration: const BoxDecoration(),
                                                                                                                                 child: Padding(
@@ -677,7 +954,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                                   child: Column(
                                                                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                                                                     children: [
-                                                                                                                                      if ((containerFinalsActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerFinalsActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
+                                                                                                                                      if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
                                                                                                                                         CircularPercentIndicator(
                                                                                                                                           percent: 0.0,
                                                                                                                                           radius: 37.5,
@@ -688,14 +965,14 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                                           backgroundColor: FlutterFlowTheme.of(context).accent4,
                                                                                                                                           center: Text(
                                                                                                                                             FFLocalizations.of(context).getText(
-                                                                                                                                              'emfgm76q' /* 0% */,
+                                                                                                                                              '669l87et' /* 0% */,
                                                                                                                                             ),
                                                                                                                                             style: FlutterFlowTheme.of(context).headlineSmall,
                                                                                                                                           ),
                                                                                                                                         ),
-                                                                                                                                      if ((containerFinalsActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerFinalsActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
+                                                                                                                                      if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
                                                                                                                                         CircularPercentIndicator(
-                                                                                                                                          percent: 1 + 1,
+                                                                                                                                          percent: functions.attendanceGrade(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.type == 'test').toList().length.toDouble(), 0.0)!,
                                                                                                                                           radius: 37.5,
                                                                                                                                           lineWidth: 12.0,
                                                                                                                                           animation: true,
@@ -704,7 +981,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                                           backgroundColor: FlutterFlowTheme.of(context).accent4,
                                                                                                                                           center: Text(
                                                                                                                                             '${formatNumber(
-                                                                                                                                              functions.attendanceGrade(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().length.toDouble(), containerFinalsActivitiesProgressRowList.where((e) => e.type == 'test').toList().length.toDouble(), 0.0)! * 100,
+                                                                                                                                              functions.attendanceGrade(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.type == 'test').toList().length.toDouble(), 0.0)! * 100,
                                                                                                                                               formatType: FormatType.custom,
                                                                                                                                               format: '#',
                                                                                                                                               locale: '',
@@ -714,7 +991,7 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                                         ),
                                                                                                                                       Text(
                                                                                                                                         FFLocalizations.of(context).getText(
-                                                                                                                                          'htiy7tbl' /* الاختبارات */,
+                                                                                                                                          '2gi4514t' /* التدريبات */,
                                                                                                                                         ),
                                                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                                               fontFamily: 'Cairo',
@@ -728,391 +1005,927 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                             );
                                                                                                                           },
                                                                                                                         ),
-                                                                                                                      );
-                                                                                                                    },
+                                                                                                                      ),
+                                                                                                                      Padding(
+                                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                                        child: FutureBuilder<List<ActivitiesProgressRow>>(
+                                                                                                                          future: ActivitiesProgressTable().queryRows(
+                                                                                                                            queryFn: (q) => q
+                                                                                                                                .eq(
+                                                                                                                                  'userID',
+                                                                                                                                  widget.inspection != null ? widget.inspection?.id : currentUserReference?.id,
+                                                                                                                                )
+                                                                                                                                .in_(
+                                                                                                                                  'activitID',
+                                                                                                                                  activiActivitiesRecordList.where((e) => e.type == 'lesson').toList().map((e) => e.reference.id).toList(),
+                                                                                                                                ),
+                                                                                                                          ),
+                                                                                                                          builder: (context, snapshot) {
+                                                                                                                            // Customize what your widget looks like when it's loading.
+                                                                                                                            if (!snapshot.hasData) {
+                                                                                                                              return Center(
+                                                                                                                                child: SizedBox(
+                                                                                                                                  width: 50.0,
+                                                                                                                                  height: 50.0,
+                                                                                                                                  child: CircularProgressIndicator(
+                                                                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                      FlutterFlowTheme.of(context).primary,
+                                                                                                                                    ),
+                                                                                                                                  ),
+                                                                                                                                ),
+                                                                                                                              );
+                                                                                                                            }
+                                                                                                                            List<ActivitiesProgressRow> containerActivitiesProgressRowList = snapshot.data!;
+                                                                                                                            return Container(
+                                                                                                                              width: 100.0,
+                                                                                                                              height: 130.0,
+                                                                                                                              decoration: BoxDecoration(
+                                                                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                                borderRadius: BorderRadius.circular(18.0),
+                                                                                                                              ),
+                                                                                                                              child: Container(
+                                                                                                                                decoration: const BoxDecoration(),
+                                                                                                                                child: Padding(
+                                                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                                                  child: Column(
+                                                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                                                    children: [
+                                                                                                                                      if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
+                                                                                                                                        CircularPercentIndicator(
+                                                                                                                                          percent: 0.0,
+                                                                                                                                          radius: 37.5,
+                                                                                                                                          lineWidth: 12.0,
+                                                                                                                                          animation: true,
+                                                                                                                                          animateFromLastPercent: true,
+                                                                                                                                          progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                          backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                          center: Text(
+                                                                                                                                            FFLocalizations.of(context).getText(
+                                                                                                                                              'hj06mch2' /* 0% */,
+                                                                                                                                            ),
+                                                                                                                                            style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                          ),
+                                                                                                                                        ),
+                                                                                                                                      if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
+                                                                                                                                        CircularPercentIndicator(
+                                                                                                                                          percent: functions.attendanceGrade(activiActivitiesRecordList.where((e) => e.type == 'lesson').toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().length.toDouble())!,
+                                                                                                                                          radius: 37.5,
+                                                                                                                                          lineWidth: 12.0,
+                                                                                                                                          animation: true,
+                                                                                                                                          animateFromLastPercent: true,
+                                                                                                                                          progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                          backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                          center: Text(
+                                                                                                                                            '${formatNumber(
+                                                                                                                                              functions.attendanceGrade(activiActivitiesRecordList.where((e) => e.type == 'lesson').toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().length.toDouble())! * 100,
+                                                                                                                                              formatType: FormatType.custom,
+                                                                                                                                              format: '#',
+                                                                                                                                              locale: '',
+                                                                                                                                            )}%',
+                                                                                                                                            style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                          ),
+                                                                                                                                        ),
+                                                                                                                                      Text(
+                                                                                                                                        FFLocalizations.of(context).getText(
+                                                                                                                                          '4r0ldpyl' /* الحضور */,
+                                                                                                                                        ),
+                                                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                              fontFamily: 'Cairo',
+                                                                                                                                              fontSize: 22.0,
+                                                                                                                                            ),
+                                                                                                                                      ),
+                                                                                                                                    ],
+                                                                                                                                  ),
+                                                                                                                                ),
+                                                                                                                              ),
+                                                                                                                            );
+                                                                                                                          },
+                                                                                                                        ),
+                                                                                                                      ),
+                                                                                                                      Padding(
+                                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                                        child: Container(
+                                                                                                                          width: 100.0,
+                                                                                                                          height: 130.0,
+                                                                                                                          decoration: BoxDecoration(
+                                                                                                                            color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                            borderRadius: BorderRadius.circular(18.0),
+                                                                                                                          ),
+                                                                                                                          child: Padding(
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                                            child: Column(
+                                                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                                                              children: [
+                                                                                                                                if (usersReportsActivitiesProgressRowList.where((e) => e.categID == columnCategRecord.reference.id).toList().isEmpty)
+                                                                                                                                  CircularPercentIndicator(
+                                                                                                                                    percent: 0.0,
+                                                                                                                                    radius: 37.5,
+                                                                                                                                    lineWidth: 12.0,
+                                                                                                                                    animation: true,
+                                                                                                                                    animateFromLastPercent: true,
+                                                                                                                                    progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                                    center: Text(
+                                                                                                                                      FFLocalizations.of(context).getText(
+                                                                                                                                        'xi7gzj3j' /* 0% */,
+                                                                                                                                      ),
+                                                                                                                                      style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                                                                                                                            fontFamily: 'Cairo',
+                                                                                                                                            fontSize: 19.0,
+                                                                                                                                          ),
+                                                                                                                                    ),
+                                                                                                                                  ),
+                                                                                                                                if (usersReportsActivitiesProgressRowList.where((e) => e.categID == columnCategRecord.reference.id).toList().isNotEmpty)
+                                                                                                                                  CircularPercentIndicator(
+                                                                                                                                    percent: usersReportsActivitiesProgressRowList.where((e) => (e.categID == columnCategRecord.reference.id) && (e.type == 'quran')).toList().first.grade! / 100,
+                                                                                                                                    radius: 37.5,
+                                                                                                                                    lineWidth: 12.0,
+                                                                                                                                    animation: true,
+                                                                                                                                    animateFromLastPercent: true,
+                                                                                                                                    progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                                    center: Text(
+                                                                                                                                      '${usersReportsActivitiesProgressRowList.where((e) => (e.categID == columnCategRecord.reference.id) && (e.type == 'quran')).toList().first.grade?.toString()}%',
+                                                                                                                                      style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                                                                                                                            fontFamily: 'Cairo',
+                                                                                                                                            fontSize: 19.0,
+                                                                                                                                          ),
+                                                                                                                                    ),
+                                                                                                                                  ),
+                                                                                                                                Text(
+                                                                                                                                  FFLocalizations.of(context).getText(
+                                                                                                                                    '59bmmas1' /* القرآن */,
+                                                                                                                                  ),
+                                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                        fontFamily: 'Cairo',
+                                                                                                                                        fontSize: 22.0,
+                                                                                                                                      ),
+                                                                                                                                ),
+                                                                                                                              ],
+                                                                                                                            ),
+                                                                                                                          ),
+                                                                                                                        ),
+                                                                                                                      ),
+                                                                                                                    ],
+                                                                                                                  ),
+                                                                                                                ],
+                                                                                                              ),
+                                                                                                            );
+                                                                                                          },
+                                                                                                        ),
+                                                                                                      );
+                                                                                                    },
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            );
+                                                                                          } else {
+                                                                                            return Column(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                Column(
+                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                  children: [
+                                                                                                    Container(
+                                                                                                      decoration: const BoxDecoration(),
+                                                                                                      child: StreamBuilder<List<SupjRecord>>(
+                                                                                                        stream: querySupjRecord(
+                                                                                                          queryBuilder: (supjRecord) => supjRecord.where(
+                                                                                                            'supCateg',
+                                                                                                            isEqualTo: columnCategRecord.reference,
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        builder: (context, snapshot) {
+                                                                                                          // Customize what your widget looks like when it's loading.
+                                                                                                          if (!snapshot.hasData) {
+                                                                                                            return Center(
+                                                                                                              child: SizedBox(
+                                                                                                                width: 50.0,
+                                                                                                                height: 50.0,
+                                                                                                                child: CircularProgressIndicator(
+                                                                                                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                    FlutterFlowTheme.of(context).primary,
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                            );
+                                                                                                          }
+                                                                                                          List<SupjRecord> supjSupjRecordList = snapshot.data!;
+                                                                                                          return Container(
+                                                                                                            decoration: const BoxDecoration(),
+                                                                                                            child: StreamBuilder<List<ActivitiesRecord>>(
+                                                                                                              stream: queryActivitiesRecord(
+                                                                                                                queryBuilder: (activitiesRecord) => activitiesRecord.whereIn('supjRef', supjSupjRecordList.map((e) => e.reference).toList()),
+                                                                                                              ),
+                                                                                                              builder: (context, snapshot) {
+                                                                                                                // Customize what your widget looks like when it's loading.
+                                                                                                                if (!snapshot.hasData) {
+                                                                                                                  return Center(
+                                                                                                                    child: SizedBox(
+                                                                                                                      width: 50.0,
+                                                                                                                      height: 50.0,
+                                                                                                                      child: CircularProgressIndicator(
+                                                                                                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                          FlutterFlowTheme.of(context).primary,
+                                                                                                                        ),
+                                                                                                                      ),
+                                                                                                                    ),
+                                                                                                                  );
+                                                                                                                }
+                                                                                                                List<ActivitiesRecord> activiActivitiesRecordList = snapshot.data!;
+                                                                                                                return Container(
+                                                                                                                  decoration: const BoxDecoration(),
+                                                                                                                  child: Column(
+                                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                                    children: [
+                                                                                                                      Column(
+                                                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                                                        children: [
+                                                                                                                          Text(
+                                                                                                                            columnCategRecord.name,
+                                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                  fontFamily: 'Cairo',
+                                                                                                                                  fontSize: 24.0,
+                                                                                                                                  fontWeight: FontWeight.bold,
+                                                                                                                                ),
+                                                                                                                          ),
+                                                                                                                          if ((false == true) &&
+                                                                                                                              responsiveVisibility(
+                                                                                                                                context: context,
+                                                                                                                                phone: false,
+                                                                                                                                tablet: false,
+                                                                                                                                tabletLandscape: false,
+                                                                                                                                desktop: false,
+                                                                                                                              ))
+                                                                                                                            Padding(
+                                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                                              child: FutureBuilder<List<ActivitiesProgressRow>>(
+                                                                                                                                future: ActivitiesProgressTable().queryRows(
+                                                                                                                                  queryFn: (q) => q
+                                                                                                                                      .eq(
+                                                                                                                                        'userID',
+                                                                                                                                        currentUserReference?.id,
+                                                                                                                                      )
+                                                                                                                                      .in_(
+                                                                                                                                        'activitID',
+                                                                                                                                        activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().map((e) => e.reference.id).toList(),
+                                                                                                                                      ),
+                                                                                                                                ),
+                                                                                                                                builder: (context, snapshot) {
+                                                                                                                                  // Customize what your widget looks like when it's loading.
+                                                                                                                                  if (!snapshot.hasData) {
+                                                                                                                                    return Center(
+                                                                                                                                      child: SizedBox(
+                                                                                                                                        width: 50.0,
+                                                                                                                                        height: 50.0,
+                                                                                                                                        child: CircularProgressIndicator(
+                                                                                                                                          valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                            FlutterFlowTheme.of(context).primary,
+                                                                                                                                          ),
+                                                                                                                                        ),
+                                                                                                                                      ),
+                                                                                                                                    );
+                                                                                                                                  }
+                                                                                                                                  List<ActivitiesProgressRow> containerFinalsActivitiesProgressRowList = snapshot.data!;
+                                                                                                                                  return Container(
+                                                                                                                                    width: 100.0,
+                                                                                                                                    height: 130.0,
+                                                                                                                                    decoration: BoxDecoration(
+                                                                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                                      borderRadius: BorderRadius.circular(18.0),
+                                                                                                                                    ),
+                                                                                                                                    child: FutureBuilder<List<ActivitiesProgressRow>>(
+                                                                                                                                      future: ActivitiesProgressTable().queryRows(
+                                                                                                                                        queryFn: (q) => q
+                                                                                                                                            .eq(
+                                                                                                                                              'userID',
+                                                                                                                                              currentUserReference?.id,
+                                                                                                                                            )
+                                                                                                                                            .in_(
+                                                                                                                                              'activitID',
+                                                                                                                                              activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().map((e) => e.reference.id).toList(),
+                                                                                                                                            ),
+                                                                                                                                      ),
+                                                                                                                                      builder: (context, snapshot) {
+                                                                                                                                        // Customize what your widget looks like when it's loading.
+                                                                                                                                        if (!snapshot.hasData) {
+                                                                                                                                          return Center(
+                                                                                                                                            child: SizedBox(
+                                                                                                                                              width: 50.0,
+                                                                                                                                              height: 50.0,
+                                                                                                                                              child: CircularProgressIndicator(
+                                                                                                                                                valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                                  FlutterFlowTheme.of(context).primary,
+                                                                                                                                                ),
+                                                                                                                                              ),
+                                                                                                                                            ),
+                                                                                                                                          );
+                                                                                                                                        }
+                                                                                                                                        List<ActivitiesProgressRow> containertestActivitiesProgressRowList = snapshot.data!;
+                                                                                                                                        return Container(
+                                                                                                                                          decoration: const BoxDecoration(),
+                                                                                                                                          child: FutureBuilder<List<ActivitiesProgressRow>>(
+                                                                                                                                            future: ActivitiesProgressTable().queryRows(
+                                                                                                                                              queryFn: (q) => q
+                                                                                                                                                  .eq(
+                                                                                                                                                    'userID',
+                                                                                                                                                    currentUserReference?.id,
+                                                                                                                                                  )
+                                                                                                                                                  .in_(
+                                                                                                                                                    'activitID',
+                                                                                                                                                    activiActivitiesRecordList.where((e) => e.type == 'lesson').toList().map((e) => e.reference.id).toList(),
+                                                                                                                                                  ),
+                                                                                                                                            ),
+                                                                                                                                            builder: (context, snapshot) {
+                                                                                                                                              // Customize what your widget looks like when it's loading.
+                                                                                                                                              if (!snapshot.hasData) {
+                                                                                                                                                return Center(
+                                                                                                                                                  child: SizedBox(
+                                                                                                                                                    width: 50.0,
+                                                                                                                                                    height: 50.0,
+                                                                                                                                                    child: CircularProgressIndicator(
+                                                                                                                                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                                        FlutterFlowTheme.of(context).primary,
+                                                                                                                                                      ),
+                                                                                                                                                    ),
+                                                                                                                                                  ),
+                                                                                                                                                );
+                                                                                                                                              }
+                                                                                                                                              List<ActivitiesProgressRow> containerAttendActivitiesProgressRowList = snapshot.data!;
+                                                                                                                                              return Container(
+                                                                                                                                                decoration: const BoxDecoration(),
+                                                                                                                                                child: Container(
+                                                                                                                                                  decoration: const BoxDecoration(),
+                                                                                                                                                  child: Padding(
+                                                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                                                                    child: Column(
+                                                                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                                                                      children: [
+                                                                                                                                                        if ((containerFinalsActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerFinalsActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
+                                                                                                                                                          CircularPercentIndicator(
+                                                                                                                                                            percent: 0.0,
+                                                                                                                                                            radius: 37.5,
+                                                                                                                                                            lineWidth: 12.0,
+                                                                                                                                                            animation: true,
+                                                                                                                                                            animateFromLastPercent: true,
+                                                                                                                                                            progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                                            backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                                            center: Text(
+                                                                                                                                                              FFLocalizations.of(context).getText(
+                                                                                                                                                                '32u5qlo3' /* 0% */,
+                                                                                                                                                              ),
+                                                                                                                                                              style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                                            ),
+                                                                                                                                                          ),
+                                                                                                                                                        if ((containerFinalsActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerFinalsActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
+                                                                                                                                                          CircularPercentIndicator(
+                                                                                                                                                            percent: 1 + 1,
+                                                                                                                                                            radius: 37.5,
+                                                                                                                                                            lineWidth: 12.0,
+                                                                                                                                                            animation: true,
+                                                                                                                                                            animateFromLastPercent: true,
+                                                                                                                                                            progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                                            backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                                            center: Text(
+                                                                                                                                                              '${formatNumber(
+                                                                                                                                                                functions.attendanceGrade(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().length.toDouble(), containerFinalsActivitiesProgressRowList.where((e) => e.type == 'test').toList().length.toDouble(), 0.0)! * 100,
+                                                                                                                                                                formatType: FormatType.custom,
+                                                                                                                                                                format: '#',
+                                                                                                                                                                locale: '',
+                                                                                                                                                              )}%',
+                                                                                                                                                              style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                                            ),
+                                                                                                                                                          ),
+                                                                                                                                                        Text(
+                                                                                                                                                          FFLocalizations.of(context).getText(
+                                                                                                                                                            'dxvm4q7f' /* الاختبارات */,
+                                                                                                                                                          ),
+                                                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                                                fontFamily: 'Cairo',
+                                                                                                                                                                fontSize: 22.0,
+                                                                                                                                                              ),
+                                                                                                                                                        ),
+                                                                                                                                                      ],
+                                                                                                                                                    ),
+                                                                                                                                                  ),
+                                                                                                                                                ),
+                                                                                                                                              );
+                                                                                                                                            },
+                                                                                                                                          ),
+                                                                                                                                        );
+                                                                                                                                      },
+                                                                                                                                    ),
+                                                                                                                                  );
+                                                                                                                                },
+                                                                                                                              ),
+                                                                                                                            ),
+                                                                                                                        ],
+                                                                                                                      ),
+                                                                                                                      Wrap(
+                                                                                                                        spacing: 0.0,
+                                                                                                                        runSpacing: 0.0,
+                                                                                                                        alignment: WrapAlignment.start,
+                                                                                                                        crossAxisAlignment: WrapCrossAlignment.start,
+                                                                                                                        direction: Axis.horizontal,
+                                                                                                                        runAlignment: WrapAlignment.start,
+                                                                                                                        verticalDirection: VerticalDirection.down,
+                                                                                                                        clipBehavior: Clip.none,
+                                                                                                                        children: [
+                                                                                                                          Padding(
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                                            child: FutureBuilder<List<ActivitiesProgressRow>>(
+                                                                                                                              future: ActivitiesProgressTable().queryRows(
+                                                                                                                                queryFn: (q) => q
+                                                                                                                                    .eq(
+                                                                                                                                      'userID',
+                                                                                                                                      widget.inspection != null ? widget.inspection?.id : currentUserReference?.id,
+                                                                                                                                    )
+                                                                                                                                    .in_(
+                                                                                                                                      'activitID',
+                                                                                                                                      activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().map((e) => e.reference.id).toList(),
+                                                                                                                                    ),
+                                                                                                                              ),
+                                                                                                                              builder: (context, snapshot) {
+                                                                                                                                // Customize what your widget looks like when it's loading.
+                                                                                                                                if (!snapshot.hasData) {
+                                                                                                                                  return Center(
+                                                                                                                                    child: SizedBox(
+                                                                                                                                      width: 50.0,
+                                                                                                                                      height: 50.0,
+                                                                                                                                      child: CircularProgressIndicator(
+                                                                                                                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                          FlutterFlowTheme.of(context).primary,
+                                                                                                                                        ),
+                                                                                                                                      ),
+                                                                                                                                    ),
+                                                                                                                                  );
+                                                                                                                                }
+                                                                                                                                List<ActivitiesProgressRow> containerActivitiesProgressRowList = snapshot.data!;
+                                                                                                                                return Container(
+                                                                                                                                  width: 100.0,
+                                                                                                                                  decoration: BoxDecoration(
+                                                                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                                    borderRadius: BorderRadius.circular(18.0),
+                                                                                                                                  ),
+                                                                                                                                  child: Container(
+                                                                                                                                    decoration: const BoxDecoration(),
+                                                                                                                                    child: Column(
+                                                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                                                      children: [
+                                                                                                                                        Padding(
+                                                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                                                          child: Column(
+                                                                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                                                                            children: [
+                                                                                                                                              if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
+                                                                                                                                                CircularPercentIndicator(
+                                                                                                                                                  percent: 0.0,
+                                                                                                                                                  radius: 37.5,
+                                                                                                                                                  lineWidth: 12.0,
+                                                                                                                                                  animation: true,
+                                                                                                                                                  animateFromLastPercent: true,
+                                                                                                                                                  progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                                  backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                                  center: Text(
+                                                                                                                                                    FFLocalizations.of(context).getText(
+                                                                                                                                                      'zkn9tcus' /* 0% */,
+                                                                                                                                                    ),
+                                                                                                                                                    style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                                  ),
+                                                                                                                                                ),
+                                                                                                                                              if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
+                                                                                                                                                CircularPercentIndicator(
+                                                                                                                                                  percent: functions.attendanceGradeCopy(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().length.toDouble(), functions.sumList(containerActivitiesProgressRowList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().map((e) => e.grade).withoutNulls.toList()))!,
+                                                                                                                                                  radius: 37.5,
+                                                                                                                                                  lineWidth: 12.0,
+                                                                                                                                                  animation: true,
+                                                                                                                                                  animateFromLastPercent: true,
+                                                                                                                                                  progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                                  backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                                  center: Text(
+                                                                                                                                                    '${formatNumber(
+                                                                                                                                                      functions.attendanceGradeCopy(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().length.toDouble(), functions.sumList(containerActivitiesProgressRowList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().map((e) => e.grade).withoutNulls.toList()))! * 100,
+                                                                                                                                                      formatType: FormatType.custom,
+                                                                                                                                                      format: '#',
+                                                                                                                                                      locale: '',
+                                                                                                                                                    )}%',
+                                                                                                                                                    style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                                  ),
+                                                                                                                                                ),
+                                                                                                                                              FutureBuilder<List<CategGradesRow>>(
+                                                                                                                                                future: (_model.requestCompleter ??= Completer<List<CategGradesRow>>()
+                                                                                                                                                      ..complete(CategGradesTable().queryRows(
+                                                                                                                                                        queryFn: (q) => q
+                                                                                                                                                            .eq(
+                                                                                                                                                              'userREF',
+                                                                                                                                                              currentUserReference?.id,
+                                                                                                                                                            )
+                                                                                                                                                            .eq(
+                                                                                                                                                              'categID',
+                                                                                                                                                              columnCategRecord.reference.id,
+                                                                                                                                                            ),
+                                                                                                                                                      )))
+                                                                                                                                                    .future,
+                                                                                                                                                builder: (context, snapshot) {
+                                                                                                                                                  // Customize what your widget looks like when it's loading.
+                                                                                                                                                  if (!snapshot.hasData) {
+                                                                                                                                                    return Center(
+                                                                                                                                                      child: SizedBox(
+                                                                                                                                                        width: 50.0,
+                                                                                                                                                        height: 50.0,
+                                                                                                                                                        child: CircularProgressIndicator(
+                                                                                                                                                          valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                                            FlutterFlowTheme.of(context).primary,
+                                                                                                                                                          ),
+                                                                                                                                                        ),
+                                                                                                                                                      ),
+                                                                                                                                                    );
+                                                                                                                                                  }
+                                                                                                                                                  List<CategGradesRow> cardtestCategGradesRowList = snapshot.data!;
+                                                                                                                                                  return Card(
+                                                                                                                                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                                                                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                                                    elevation: 4.0,
+                                                                                                                                                    shape: RoundedRectangleBorder(
+                                                                                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                                                                                    ),
+                                                                                                                                                    child: Column(
+                                                                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                                                                      children: [
+                                                                                                                                                        if (valueOrDefault<int>(
+                                                                                                                                                              cardtestCategGradesRowList.length,
+                                                                                                                                                              0,
+                                                                                                                                                            ) >=
+                                                                                                                                                            1)
+                                                                                                                                                          Text(
+                                                                                                                                                            valueOrDefault<String>(
+                                                                                                                                                              cardtestCategGradesRowList.first.gpa,
+                                                                                                                                                              '0',
+                                                                                                                                                            ),
+                                                                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                                                  fontFamily: 'Cairo',
+                                                                                                                                                                  fontSize: 22.0,
+                                                                                                                                                                ),
+                                                                                                                                                          ),
+                                                                                                                                                        if (valueOrDefault<int>(
+                                                                                                                                                              cardtestCategGradesRowList.length,
+                                                                                                                                                              0,
+                                                                                                                                                            ) <
+                                                                                                                                                            1)
+                                                                                                                                                          FFButtonWidget(
+                                                                                                                                                            onPressed: () async {
+                                                                                                                                                              ScaffoldMessenger.of(context).clearSnackBars();
+                                                                                                                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                                                                                SnackBar(
+                                                                                                                                                                  content: Text(
+                                                                                                                                                                    'start',
+                                                                                                                                                                    style: TextStyle(
+                                                                                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                                                                    ),
+                                                                                                                                                                  ),
+                                                                                                                                                                  duration: const Duration(milliseconds: 4000),
+                                                                                                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                                                                                ),
+                                                                                                                                                              );
+                                                                                                                                                              await CategGradesTable().insert({
+                                                                                                                                                                'GPA': functions.attendanceGradeCopy(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().length.toDouble(), functions.sumList(containerActivitiesProgressRowList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().map((e) => e.grade).withoutNulls.toList()))?.toString(),
+                                                                                                                                                                'categID': columnCategRecord.reference.id,
+                                                                                                                                                                'userREF': currentUserReference?.id,
+                                                                                                                                                                'UID': currentUserUid,
+                                                                                                                                                              });
+                                                                                                                                                              ScaffoldMessenger.of(context).clearSnackBars();
+                                                                                                                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                                                                                SnackBar(
+                                                                                                                                                                  content: Text(
+                                                                                                                                                                    'done',
+                                                                                                                                                                    style: TextStyle(
+                                                                                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                                                                    ),
+                                                                                                                                                                  ),
+                                                                                                                                                                  duration: const Duration(milliseconds: 4000),
+                                                                                                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                                                                                ),
+                                                                                                                                                              );
+                                                                                                                                                              setState(() => _model.requestCompleter = null);
+                                                                                                                                                              await _model.waitForRequestCompleted();
+                                                                                                                                                            },
+                                                                                                                                                            text: FFLocalizations.of(context).getText(
+                                                                                                                                                              'svbotqzw' /* Button */,
+                                                                                                                                                            ),
+                                                                                                                                                            options: FFButtonOptions(
+                                                                                                                                                              height: 40.0,
+                                                                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                                                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                                                                                    fontFamily: 'Cairo',
+                                                                                                                                                                    color: Colors.white,
+                                                                                                                                                                  ),
+                                                                                                                                                              elevation: 3.0,
+                                                                                                                                                              borderSide: const BorderSide(
+                                                                                                                                                                color: Colors.transparent,
+                                                                                                                                                                width: 1.0,
+                                                                                                                                                              ),
+                                                                                                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                                                                                                            ),
+                                                                                                                                                          ),
+                                                                                                                                                      ],
+                                                                                                                                                    ),
+                                                                                                                                                  );
+                                                                                                                                                },
+                                                                                                                                              ),
+                                                                                                                                            ],
+                                                                                                                                          ),
+                                                                                                                                        ),
+                                                                                                                                      ],
+                                                                                                                                    ),
+                                                                                                                                  ),
+                                                                                                                                );
+                                                                                                                              },
+                                                                                                                            ),
+                                                                                                                          ),
+                                                                                                                          Padding(
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                                            child: FutureBuilder<List<ActivitiesProgressRow>>(
+                                                                                                                              future: ActivitiesProgressTable().queryRows(
+                                                                                                                                queryFn: (q) => q
+                                                                                                                                    .eq(
+                                                                                                                                      'userID',
+                                                                                                                                      widget.inspection != null ? widget.inspection?.id : currentUserReference?.id,
+                                                                                                                                    )
+                                                                                                                                    .in_(
+                                                                                                                                      'activitID',
+                                                                                                                                      activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().map((e) => e.reference.id).toList(),
+                                                                                                                                    ),
+                                                                                                                              ),
+                                                                                                                              builder: (context, snapshot) {
+                                                                                                                                // Customize what your widget looks like when it's loading.
+                                                                                                                                if (!snapshot.hasData) {
+                                                                                                                                  return Center(
+                                                                                                                                    child: SizedBox(
+                                                                                                                                      width: 50.0,
+                                                                                                                                      height: 50.0,
+                                                                                                                                      child: CircularProgressIndicator(
+                                                                                                                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                          FlutterFlowTheme.of(context).primary,
+                                                                                                                                        ),
+                                                                                                                                      ),
+                                                                                                                                    ),
+                                                                                                                                  );
+                                                                                                                                }
+                                                                                                                                List<ActivitiesProgressRow> containerActivitiesProgressRowList = snapshot.data!;
+                                                                                                                                return Container(
+                                                                                                                                  width: 100.0,
+                                                                                                                                  height: 130.0,
+                                                                                                                                  decoration: BoxDecoration(
+                                                                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                                    borderRadius: BorderRadius.circular(18.0),
+                                                                                                                                  ),
+                                                                                                                                  child: Container(
+                                                                                                                                    decoration: const BoxDecoration(),
+                                                                                                                                    child: Padding(
+                                                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                                                      child: Column(
+                                                                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                                                                        children: [
+                                                                                                                                          if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
+                                                                                                                                            CircularPercentIndicator(
+                                                                                                                                              percent: 0.0,
+                                                                                                                                              radius: 37.5,
+                                                                                                                                              lineWidth: 12.0,
+                                                                                                                                              animation: true,
+                                                                                                                                              animateFromLastPercent: true,
+                                                                                                                                              progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                              backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                              center: Text(
+                                                                                                                                                FFLocalizations.of(context).getText(
+                                                                                                                                                  '787i78sj' /* 0% */,
+                                                                                                                                                ),
+                                                                                                                                                style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                              ),
+                                                                                                                                            ),
+                                                                                                                                          if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
+                                                                                                                                            CircularPercentIndicator(
+                                                                                                                                              percent: functions.attendanceGrade(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.type == 'test').toList().length.toDouble(), 0.0)!,
+                                                                                                                                              radius: 37.5,
+                                                                                                                                              lineWidth: 12.0,
+                                                                                                                                              animation: true,
+                                                                                                                                              animateFromLastPercent: true,
+                                                                                                                                              progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                              backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                              center: Text(
+                                                                                                                                                '${formatNumber(
+                                                                                                                                                  functions.attendanceGrade(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.type == 'test').toList().length.toDouble(), 0.0)! * 100,
+                                                                                                                                                  formatType: FormatType.custom,
+                                                                                                                                                  format: '#',
+                                                                                                                                                  locale: '',
+                                                                                                                                                )}%',
+                                                                                                                                                style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                              ),
+                                                                                                                                            ),
+                                                                                                                                          Text(
+                                                                                                                                            FFLocalizations.of(context).getText(
+                                                                                                                                              'ho7ylym6' /* التدريبات */,
+                                                                                                                                            ),
+                                                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                                  fontFamily: 'Cairo',
+                                                                                                                                                  fontSize: 22.0,
+                                                                                                                                                ),
+                                                                                                                                          ),
+                                                                                                                                        ],
+                                                                                                                                      ),
+                                                                                                                                    ),
+                                                                                                                                  ),
+                                                                                                                                );
+                                                                                                                              },
+                                                                                                                            ),
+                                                                                                                          ),
+                                                                                                                          Padding(
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                                            child: FutureBuilder<List<ActivitiesProgressRow>>(
+                                                                                                                              future: ActivitiesProgressTable().queryRows(
+                                                                                                                                queryFn: (q) => q
+                                                                                                                                    .eq(
+                                                                                                                                      'userID',
+                                                                                                                                      widget.inspection != null ? widget.inspection?.id : currentUserReference?.id,
+                                                                                                                                    )
+                                                                                                                                    .in_(
+                                                                                                                                      'activitID',
+                                                                                                                                      activiActivitiesRecordList.where((e) => e.type == 'lesson').toList().map((e) => e.reference.id).toList(),
+                                                                                                                                    ),
+                                                                                                                              ),
+                                                                                                                              builder: (context, snapshot) {
+                                                                                                                                // Customize what your widget looks like when it's loading.
+                                                                                                                                if (!snapshot.hasData) {
+                                                                                                                                  return Center(
+                                                                                                                                    child: SizedBox(
+                                                                                                                                      width: 50.0,
+                                                                                                                                      height: 50.0,
+                                                                                                                                      child: CircularProgressIndicator(
+                                                                                                                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                          FlutterFlowTheme.of(context).primary,
+                                                                                                                                        ),
+                                                                                                                                      ),
+                                                                                                                                    ),
+                                                                                                                                  );
+                                                                                                                                }
+                                                                                                                                List<ActivitiesProgressRow> containerActivitiesProgressRowList = snapshot.data!;
+                                                                                                                                return Container(
+                                                                                                                                  width: 100.0,
+                                                                                                                                  height: 130.0,
+                                                                                                                                  decoration: BoxDecoration(
+                                                                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                                    borderRadius: BorderRadius.circular(18.0),
+                                                                                                                                  ),
+                                                                                                                                  child: Container(
+                                                                                                                                    decoration: const BoxDecoration(),
+                                                                                                                                    child: Padding(
+                                                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                                                      child: Column(
+                                                                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                                                                        children: [
+                                                                                                                                          if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
+                                                                                                                                            CircularPercentIndicator(
+                                                                                                                                              percent: 0.0,
+                                                                                                                                              radius: 37.5,
+                                                                                                                                              lineWidth: 12.0,
+                                                                                                                                              animation: true,
+                                                                                                                                              animateFromLastPercent: true,
+                                                                                                                                              progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                              backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                              center: Text(
+                                                                                                                                                FFLocalizations.of(context).getText(
+                                                                                                                                                  'lv3vlrbm' /* 0% */,
+                                                                                                                                                ),
+                                                                                                                                                style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                              ),
+                                                                                                                                            ),
+                                                                                                                                          if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
+                                                                                                                                            CircularPercentIndicator(
+                                                                                                                                              percent: functions.attendanceGrade(activiActivitiesRecordList.where((e) => e.type == 'lesson').toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().length.toDouble())!,
+                                                                                                                                              radius: 37.5,
+                                                                                                                                              lineWidth: 12.0,
+                                                                                                                                              animation: true,
+                                                                                                                                              animateFromLastPercent: true,
+                                                                                                                                              progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                              backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                              center: Text(
+                                                                                                                                                '${formatNumber(
+                                                                                                                                                  functions.attendanceGrade(activiActivitiesRecordList.where((e) => e.type == 'lesson').toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().length.toDouble())! * 100,
+                                                                                                                                                  formatType: FormatType.custom,
+                                                                                                                                                  format: '#',
+                                                                                                                                                  locale: '',
+                                                                                                                                                )}%',
+                                                                                                                                                style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                              ),
+                                                                                                                                            ),
+                                                                                                                                          Text(
+                                                                                                                                            FFLocalizations.of(context).getText(
+                                                                                                                                              'm3thpohs' /* الحضور */,
+                                                                                                                                            ),
+                                                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                                  fontFamily: 'Cairo',
+                                                                                                                                                  fontSize: 22.0,
+                                                                                                                                                ),
+                                                                                                                                          ),
+                                                                                                                                        ],
+                                                                                                                                      ),
+                                                                                                                                    ),
+                                                                                                                                  ),
+                                                                                                                                );
+                                                                                                                              },
+                                                                                                                            ),
+                                                                                                                          ),
+                                                                                                                          Padding(
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                                            child: Container(
+                                                                                                                              width: 100.0,
+                                                                                                                              height: 130.0,
+                                                                                                                              decoration: BoxDecoration(
+                                                                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                                borderRadius: BorderRadius.circular(18.0),
+                                                                                                                              ),
+                                                                                                                              child: Padding(
+                                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                                                child: Column(
+                                                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                                                  children: [
+                                                                                                                                    if (usersReportsActivitiesProgressRowList.where((e) => e.categID == columnCategRecord.reference.id).toList().isEmpty)
+                                                                                                                                      CircularPercentIndicator(
+                                                                                                                                        percent: 0.0,
+                                                                                                                                        radius: 37.5,
+                                                                                                                                        lineWidth: 12.0,
+                                                                                                                                        animation: true,
+                                                                                                                                        animateFromLastPercent: true,
+                                                                                                                                        progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                        backgroundColor: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                                        center: Text(
+                                                                                                                                          FFLocalizations.of(context).getText(
+                                                                                                                                            'e3vnrrtd' /* 0% */,
+                                                                                                                                          ),
+                                                                                                                                          style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                                                                                                                                fontFamily: 'Cairo',
+                                                                                                                                                fontSize: 19.0,
+                                                                                                                                              ),
+                                                                                                                                        ),
+                                                                                                                                      ),
+                                                                                                                                    if (usersReportsActivitiesProgressRowList.where((e) => e.categID == columnCategRecord.reference.id).toList().isNotEmpty)
+                                                                                                                                      CircularPercentIndicator(
+                                                                                                                                        percent: usersReportsActivitiesProgressRowList.where((e) => (e.categID == columnCategRecord.reference.id) && (e.type == 'quran')).toList().first.grade! / 100,
+                                                                                                                                        radius: 37.5,
+                                                                                                                                        lineWidth: 12.0,
+                                                                                                                                        animation: true,
+                                                                                                                                        animateFromLastPercent: true,
+                                                                                                                                        progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                        backgroundColor: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                                        center: Text(
+                                                                                                                                          '${usersReportsActivitiesProgressRowList.where((e) => (e.categID == columnCategRecord.reference.id) && (e.type == 'quran')).toList().first.grade?.toString()}%',
+                                                                                                                                          style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                                                                                                                                fontFamily: 'Cairo',
+                                                                                                                                                fontSize: 19.0,
+                                                                                                                                              ),
+                                                                                                                                        ),
+                                                                                                                                      ),
+                                                                                                                                    Text(
+                                                                                                                                      FFLocalizations.of(context).getText(
+                                                                                                                                        'dvueqyjz' /* القرآن */,
+                                                                                                                                      ),
+                                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                            fontFamily: 'Cairo',
+                                                                                                                                            fontSize: 22.0,
+                                                                                                                                          ),
+                                                                                                                                    ),
+                                                                                                                                  ],
+                                                                                                                                ),
+                                                                                                                              ),
+                                                                                                                            ),
+                                                                                                                          ),
+                                                                                                                        ],
+                                                                                                                      ),
+                                                                                                                    ],
                                                                                                                   ),
                                                                                                                 );
                                                                                                               },
                                                                                                             ),
-                                                                                                          ),
-                                                                                                      ],
-                                                                                                    ),
-                                                                                                    Wrap(
-                                                                                                      spacing: 0.0,
-                                                                                                      runSpacing: 0.0,
-                                                                                                      alignment: WrapAlignment.start,
-                                                                                                      crossAxisAlignment: WrapCrossAlignment.start,
-                                                                                                      direction: Axis.horizontal,
-                                                                                                      runAlignment: WrapAlignment.start,
-                                                                                                      verticalDirection: VerticalDirection.down,
-                                                                                                      clipBehavior: Clip.none,
-                                                                                                      children: [
-                                                                                                        Padding(
-                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                                                                                                          child: FutureBuilder<List<ActivitiesProgressRow>>(
-                                                                                                            future: ActivitiesProgressTable().queryRows(
-                                                                                                              queryFn: (q) => q
-                                                                                                                  .eq(
-                                                                                                                    'userID',
-                                                                                                                    widget.inspection != null ? widget.inspection?.id : currentUserReference?.id,
-                                                                                                                  )
-                                                                                                                  .in_(
-                                                                                                                    'activitID',
-                                                                                                                    activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal == true)).toList().map((e) => e.reference.id).toList(),
-                                                                                                                  ),
-                                                                                                            ),
-                                                                                                            builder: (context, snapshot) {
-                                                                                                              // Customize what your widget looks like when it's loading.
-                                                                                                              if (!snapshot.hasData) {
-                                                                                                                return Center(
-                                                                                                                  child: SizedBox(
-                                                                                                                    width: 100.0,
-                                                                                                                    height: 100.0,
-                                                                                                                    child: SpinKitSquareCircle(
-                                                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                                                      size: 100.0,
-                                                                                                                    ),
-                                                                                                                  ),
-                                                                                                                );
-                                                                                                              }
-                                                                                                              List<ActivitiesProgressRow> containerActivitiesProgressRowList = snapshot.data!;
-                                                                                                              return Container(
-                                                                                                                width: 100.0,
-                                                                                                                height: 130.0,
-                                                                                                                decoration: BoxDecoration(
-                                                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                                  borderRadius: BorderRadius.circular(18.0),
-                                                                                                                ),
-                                                                                                                child: Container(
-                                                                                                                  decoration: const BoxDecoration(),
-                                                                                                                  child: Padding(
-                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                                                                                                                    child: Column(
-                                                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                                                      children: [
-                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
-                                                                                                                          CircularPercentIndicator(
-                                                                                                                            percent: 0.0,
-                                                                                                                            radius: 37.5,
-                                                                                                                            lineWidth: 12.0,
-                                                                                                                            animation: true,
-                                                                                                                            animateFromLastPercent: true,
-                                                                                                                            progressColor: FlutterFlowTheme.of(context).primary,
-                                                                                                                            backgroundColor: FlutterFlowTheme.of(context).accent4,
-                                                                                                                            center: Text(
-                                                                                                                              FFLocalizations.of(context).getText(
-                                                                                                                                'b3exgc4c' /* 0% */,
-                                                                                                                              ),
-                                                                                                                              style: FlutterFlowTheme.of(context).headlineSmall,
-                                                                                                                            ),
-                                                                                                                          ),
-                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
-                                                                                                                          CircularPercentIndicator(
-                                                                                                                            percent: functions.attendanceGrade(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.type == 'test').toList().length.toDouble(), 0.0)!,
-                                                                                                                            radius: 37.5,
-                                                                                                                            lineWidth: 12.0,
-                                                                                                                            animation: true,
-                                                                                                                            animateFromLastPercent: true,
-                                                                                                                            progressColor: FlutterFlowTheme.of(context).primary,
-                                                                                                                            backgroundColor: FlutterFlowTheme.of(context).accent4,
-                                                                                                                            center: Text(
-                                                                                                                              '${formatNumber(
-                                                                                                                                functions.attendanceGrade(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.type == 'test').toList().length.toDouble(), 0.0)! * 100,
-                                                                                                                                formatType: FormatType.custom,
-                                                                                                                                format: '#',
-                                                                                                                                locale: '',
-                                                                                                                              )}%',
-                                                                                                                              style: FlutterFlowTheme.of(context).headlineSmall,
-                                                                                                                            ),
-                                                                                                                          ),
-                                                                                                                        Text(
-                                                                                                                          FFLocalizations.of(context).getText(
-                                                                                                                            'p82jcfjn' /* الاختبارات */,
-                                                                                                                          ),
-                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                                fontFamily: 'Cairo',
-                                                                                                                                fontSize: 22.0,
-                                                                                                                              ),
-                                                                                                                        ),
-                                                                                                                      ],
-                                                                                                                    ),
-                                                                                                                  ),
-                                                                                                                ),
-                                                                                                              );
-                                                                                                            },
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                        Padding(
-                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                                                                                                          child: FutureBuilder<List<ActivitiesProgressRow>>(
-                                                                                                            future: ActivitiesProgressTable().queryRows(
-                                                                                                              queryFn: (q) => q
-                                                                                                                  .eq(
-                                                                                                                    'userID',
-                                                                                                                    widget.inspection != null ? widget.inspection?.id : currentUserReference?.id,
-                                                                                                                  )
-                                                                                                                  .in_(
-                                                                                                                    'activitID',
-                                                                                                                    activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().map((e) => e.reference.id).toList(),
-                                                                                                                  ),
-                                                                                                            ),
-                                                                                                            builder: (context, snapshot) {
-                                                                                                              // Customize what your widget looks like when it's loading.
-                                                                                                              if (!snapshot.hasData) {
-                                                                                                                return Center(
-                                                                                                                  child: SizedBox(
-                                                                                                                    width: 100.0,
-                                                                                                                    height: 100.0,
-                                                                                                                    child: SpinKitSquareCircle(
-                                                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                                                      size: 100.0,
-                                                                                                                    ),
-                                                                                                                  ),
-                                                                                                                );
-                                                                                                              }
-                                                                                                              List<ActivitiesProgressRow> containerActivitiesProgressRowList = snapshot.data!;
-                                                                                                              return Container(
-                                                                                                                width: 100.0,
-                                                                                                                height: 130.0,
-                                                                                                                decoration: BoxDecoration(
-                                                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                                  borderRadius: BorderRadius.circular(18.0),
-                                                                                                                ),
-                                                                                                                child: Container(
-                                                                                                                  decoration: const BoxDecoration(),
-                                                                                                                  child: Padding(
-                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                                                                                                                    child: Column(
-                                                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                                                      children: [
-                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
-                                                                                                                          CircularPercentIndicator(
-                                                                                                                            percent: 0.0,
-                                                                                                                            radius: 37.5,
-                                                                                                                            lineWidth: 12.0,
-                                                                                                                            animation: true,
-                                                                                                                            animateFromLastPercent: true,
-                                                                                                                            progressColor: FlutterFlowTheme.of(context).primary,
-                                                                                                                            backgroundColor: FlutterFlowTheme.of(context).accent4,
-                                                                                                                            center: Text(
-                                                                                                                              FFLocalizations.of(context).getText(
-                                                                                                                                'zyxwddbu' /* 0% */,
-                                                                                                                              ),
-                                                                                                                              style: FlutterFlowTheme.of(context).headlineSmall,
-                                                                                                                            ),
-                                                                                                                          ),
-                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
-                                                                                                                          CircularPercentIndicator(
-                                                                                                                            percent: functions.attendanceGrade(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.type == 'test').toList().length.toDouble(), 0.0)!,
-                                                                                                                            radius: 37.5,
-                                                                                                                            lineWidth: 12.0,
-                                                                                                                            animation: true,
-                                                                                                                            animateFromLastPercent: true,
-                                                                                                                            progressColor: FlutterFlowTheme.of(context).primary,
-                                                                                                                            backgroundColor: FlutterFlowTheme.of(context).accent4,
-                                                                                                                            center: Text(
-                                                                                                                              '${formatNumber(
-                                                                                                                                functions.attendanceGrade(activiActivitiesRecordList.where((e) => (e.type == 'test') && (e.isFinal != true)).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.type == 'test').toList().length.toDouble(), 0.0)! * 100,
-                                                                                                                                formatType: FormatType.custom,
-                                                                                                                                format: '#',
-                                                                                                                                locale: '',
-                                                                                                                              )}%',
-                                                                                                                              style: FlutterFlowTheme.of(context).headlineSmall,
-                                                                                                                            ),
-                                                                                                                          ),
-                                                                                                                        Text(
-                                                                                                                          FFLocalizations.of(context).getText(
-                                                                                                                            'nthdp0nz' /* التدريبات */,
-                                                                                                                          ),
-                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                                fontFamily: 'Cairo',
-                                                                                                                                fontSize: 22.0,
-                                                                                                                              ),
-                                                                                                                        ),
-                                                                                                                      ],
-                                                                                                                    ),
-                                                                                                                  ),
-                                                                                                                ),
-                                                                                                              );
-                                                                                                            },
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                        Padding(
-                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                                                                                                          child: FutureBuilder<List<ActivitiesProgressRow>>(
-                                                                                                            future: ActivitiesProgressTable().queryRows(
-                                                                                                              queryFn: (q) => q
-                                                                                                                  .eq(
-                                                                                                                    'userID',
-                                                                                                                    widget.inspection != null ? widget.inspection?.id : currentUserReference?.id,
-                                                                                                                  )
-                                                                                                                  .in_(
-                                                                                                                    'activitID',
-                                                                                                                    activiActivitiesRecordList.where((e) => e.type == 'lesson').toList().map((e) => e.reference.id).toList(),
-                                                                                                                  ),
-                                                                                                            ),
-                                                                                                            builder: (context, snapshot) {
-                                                                                                              // Customize what your widget looks like when it's loading.
-                                                                                                              if (!snapshot.hasData) {
-                                                                                                                return Center(
-                                                                                                                  child: SizedBox(
-                                                                                                                    width: 100.0,
-                                                                                                                    height: 100.0,
-                                                                                                                    child: SpinKitSquareCircle(
-                                                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                                                      size: 100.0,
-                                                                                                                    ),
-                                                                                                                  ),
-                                                                                                                );
-                                                                                                              }
-                                                                                                              List<ActivitiesProgressRow> containerActivitiesProgressRowList = snapshot.data!;
-                                                                                                              return Container(
-                                                                                                                width: 100.0,
-                                                                                                                height: 130.0,
-                                                                                                                decoration: BoxDecoration(
-                                                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                                  borderRadius: BorderRadius.circular(18.0),
-                                                                                                                ),
-                                                                                                                child: Container(
-                                                                                                                  decoration: const BoxDecoration(),
-                                                                                                                  child: Padding(
-                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                                                                                                                    child: Column(
-                                                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                                                      children: [
-                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isEmpty) && (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isEmpty))
-                                                                                                                          CircularPercentIndicator(
-                                                                                                                            percent: 0.0,
-                                                                                                                            radius: 37.5,
-                                                                                                                            lineWidth: 12.0,
-                                                                                                                            animation: true,
-                                                                                                                            animateFromLastPercent: true,
-                                                                                                                            progressColor: FlutterFlowTheme.of(context).primary,
-                                                                                                                            backgroundColor: FlutterFlowTheme.of(context).accent4,
-                                                                                                                            center: Text(
-                                                                                                                              FFLocalizations.of(context).getText(
-                                                                                                                                'qpmwczcz' /* 0% */,
-                                                                                                                              ),
-                                                                                                                              style: FlutterFlowTheme.of(context).headlineSmall,
-                                                                                                                            ),
-                                                                                                                          ),
-                                                                                                                        if ((containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().isNotEmpty) || (containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().isNotEmpty))
-                                                                                                                          CircularPercentIndicator(
-                                                                                                                            percent: functions.attendanceGrade(activiActivitiesRecordList.where((e) => e.type == 'lesson').toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().length.toDouble())!,
-                                                                                                                            radius: 37.5,
-                                                                                                                            lineWidth: 12.0,
-                                                                                                                            animation: true,
-                                                                                                                            animateFromLastPercent: true,
-                                                                                                                            progressColor: FlutterFlowTheme.of(context).primary,
-                                                                                                                            backgroundColor: FlutterFlowTheme.of(context).accent4,
-                                                                                                                            center: Text(
-                                                                                                                              '${formatNumber(
-                                                                                                                                functions.attendanceGrade(activiActivitiesRecordList.where((e) => e.type == 'lesson').toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.isSeen!).toList().length.toDouble(), containerActivitiesProgressRowList.where((e) => e.isAttended!).toList().length.toDouble())! * 100,
-                                                                                                                                formatType: FormatType.custom,
-                                                                                                                                format: '#',
-                                                                                                                                locale: '',
-                                                                                                                              )}%',
-                                                                                                                              style: FlutterFlowTheme.of(context).headlineSmall,
-                                                                                                                            ),
-                                                                                                                          ),
-                                                                                                                        Text(
-                                                                                                                          FFLocalizations.of(context).getText(
-                                                                                                                            '7vgw0k07' /* الحضور */,
-                                                                                                                          ),
-                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                                fontFamily: 'Cairo',
-                                                                                                                                fontSize: 22.0,
-                                                                                                                              ),
-                                                                                                                        ),
-                                                                                                                      ],
-                                                                                                                    ),
-                                                                                                                  ),
-                                                                                                                ),
-                                                                                                              );
-                                                                                                            },
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                        Padding(
-                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                                                                                                          child: Container(
-                                                                                                            width: 100.0,
-                                                                                                            height: 130.0,
-                                                                                                            decoration: BoxDecoration(
-                                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                              borderRadius: BorderRadius.circular(18.0),
-                                                                                                            ),
-                                                                                                            child: Padding(
-                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                                                                                                              child: Column(
-                                                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                                                children: [
-                                                                                                                  if (usersReportsActivitiesProgressRowList.where((e) => e.categID == columnCategRecord.reference.id).toList().isEmpty)
-                                                                                                                    CircularPercentIndicator(
-                                                                                                                      percent: 0.0,
-                                                                                                                      radius: 37.5,
-                                                                                                                      lineWidth: 12.0,
-                                                                                                                      animation: true,
-                                                                                                                      animateFromLastPercent: true,
-                                                                                                                      progressColor: FlutterFlowTheme.of(context).primary,
-                                                                                                                      backgroundColor: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                                      center: Text(
-                                                                                                                        FFLocalizations.of(context).getText(
-                                                                                                                          '1g65m4l8' /* 0% */,
-                                                                                                                        ),
-                                                                                                                        style: FlutterFlowTheme.of(context).headlineSmall.override(
-                                                                                                                              fontFamily: 'Cairo',
-                                                                                                                              fontSize: 19.0,
-                                                                                                                            ),
-                                                                                                                      ),
-                                                                                                                    ),
-                                                                                                                  if (usersReportsActivitiesProgressRowList.where((e) => e.categID == columnCategRecord.reference.id).toList().isNotEmpty)
-                                                                                                                    CircularPercentIndicator(
-                                                                                                                      percent: usersReportsActivitiesProgressRowList.where((e) => (e.categID == columnCategRecord.reference.id) && (e.type == 'quran')).toList().first.grade! / 100,
-                                                                                                                      radius: 37.5,
-                                                                                                                      lineWidth: 12.0,
-                                                                                                                      animation: true,
-                                                                                                                      animateFromLastPercent: true,
-                                                                                                                      progressColor: FlutterFlowTheme.of(context).primary,
-                                                                                                                      backgroundColor: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                                      center: Text(
-                                                                                                                        '${usersReportsActivitiesProgressRowList.where((e) => (e.categID == columnCategRecord.reference.id) && (e.type == 'quran')).toList().first.grade?.toString()}%',
-                                                                                                                        style: FlutterFlowTheme.of(context).headlineSmall.override(
-                                                                                                                              fontFamily: 'Cairo',
-                                                                                                                              fontSize: 19.0,
-                                                                                                                            ),
-                                                                                                                      ),
-                                                                                                                    ),
-                                                                                                                  Text(
-                                                                                                                    FFLocalizations.of(context).getText(
-                                                                                                                      '6vdxabq2' /* القرآن */,
-                                                                                                                    ),
-                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                          fontFamily: 'Cairo',
-                                                                                                                          fontSize: 22.0,
-                                                                                                                        ),
-                                                                                                                  ),
-                                                                                                                ],
-                                                                                                              ),
-                                                                                                            ),
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                      ],
+                                                                                                          );
+                                                                                                        },
+                                                                                                      ),
                                                                                                     ),
                                                                                                   ],
                                                                                                 ),
-                                                                                              );
-                                                                                            },
-                                                                                          ),
-                                                                                        );
-                                                                                      },
-                                                                                    ),
-                                                                                  ),
-                                                                                ],
-                                                                              );
-                                                                            }).divide(const SizedBox(height: 50.0)),
-                                                                          ),
-                                                                        );
-                                                                      },
+                                                                                              ],
+                                                                                            );
+                                                                                          }
+                                                                                        },
+                                                                                      ),
+                                                                                    );
+                                                                                  },
+                                                                                );
+                                                                              }).divide(const SizedBox(height: 50.0)),
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                   KeepAliveWidgetWrapper(
@@ -1141,11 +1954,12 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                               .hasData) {
                                                                             return Center(
                                                                               child: SizedBox(
-                                                                                width: 100.0,
-                                                                                height: 100.0,
-                                                                                child: SpinKitSquareCircle(
-                                                                                  color: FlutterFlowTheme.of(context).primary,
-                                                                                  size: 100.0,
+                                                                                width: 50.0,
+                                                                                height: 50.0,
+                                                                                child: CircularProgressIndicator(
+                                                                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                    FlutterFlowTheme.of(context).primary,
+                                                                                  ),
                                                                                 ),
                                                                               ),
                                                                             );
@@ -1184,11 +1998,12 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                         if (!snapshot.hasData) {
                                                                                           return Center(
                                                                                             child: SizedBox(
-                                                                                              width: 100.0,
-                                                                                              height: 100.0,
-                                                                                              child: SpinKitSquareCircle(
-                                                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                                                size: 100.0,
+                                                                                              width: 50.0,
+                                                                                              height: 50.0,
+                                                                                              child: CircularProgressIndicator(
+                                                                                                valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                  FlutterFlowTheme.of(context).primary,
+                                                                                                ),
                                                                                               ),
                                                                                             ),
                                                                                           );
@@ -1219,11 +2034,12 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                 if (!snapshot.hasData) {
                                                                                                   return Center(
                                                                                                     child: SizedBox(
-                                                                                                      width: 100.0,
-                                                                                                      height: 100.0,
-                                                                                                      child: SpinKitSquareCircle(
-                                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                                        size: 100.0,
+                                                                                                      width: 50.0,
+                                                                                                      height: 50.0,
+                                                                                                      child: CircularProgressIndicator(
+                                                                                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                          FlutterFlowTheme.of(context).primary,
+                                                                                                        ),
                                                                                                       ),
                                                                                                     ),
                                                                                                   );
@@ -1263,11 +2079,12 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                   if (!snapshot.hasData) {
                                                                                                                     return Center(
                                                                                                                       child: SizedBox(
-                                                                                                                        width: 100.0,
-                                                                                                                        height: 100.0,
-                                                                                                                        child: SpinKitSquareCircle(
-                                                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                                                          size: 100.0,
+                                                                                                                        width: 50.0,
+                                                                                                                        height: 50.0,
+                                                                                                                        child: CircularProgressIndicator(
+                                                                                                                          valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                            FlutterFlowTheme.of(context).primary,
+                                                                                                                          ),
                                                                                                                         ),
                                                                                                                       ),
                                                                                                                     );
@@ -1326,6 +2143,10 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                                     testRefsActivitiesRecordList.first.reference,
                                                                                                                                     ParamType.DocumentReference,
                                                                                                                                   ),
+                                                                                                                                  'categRef': serializeParam(
+                                                                                                                                    columnSupjRecord.supCateg,
+                                                                                                                                    ParamType.DocumentReference,
+                                                                                                                                  ),
                                                                                                                                 }.withoutNulls,
                                                                                                                               );
                                                                                                                             } else {
@@ -1334,6 +2155,10 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                                                 queryParameters: {
                                                                                                                                   'testRef': serializeParam(
                                                                                                                                     testRefsActivitiesRecordList.first.reference,
+                                                                                                                                    ParamType.DocumentReference,
+                                                                                                                                  ),
+                                                                                                                                  'categRef': serializeParam(
+                                                                                                                                    columnSupjRecord.supCateg,
                                                                                                                                     ParamType.DocumentReference,
                                                                                                                                   ),
                                                                                                                                 }.withoutNulls,
@@ -1470,11 +2295,12 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                           return Center(
                                                                             child:
                                                                                 SizedBox(
-                                                                              width: 100.0,
-                                                                              height: 100.0,
-                                                                              child: SpinKitSquareCircle(
-                                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                                size: 100.0,
+                                                                              width: 50.0,
+                                                                              height: 50.0,
+                                                                              child: CircularProgressIndicator(
+                                                                                valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                  FlutterFlowTheme.of(context).primary,
+                                                                                ),
                                                                               ),
                                                                             ),
                                                                           );
@@ -1500,11 +2326,12 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                               if (!snapshot.hasData) {
                                                                                 return Center(
                                                                                   child: SizedBox(
-                                                                                    width: 100.0,
-                                                                                    height: 100.0,
-                                                                                    child: SpinKitSquareCircle(
-                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                      size: 100.0,
+                                                                                    width: 50.0,
+                                                                                    height: 50.0,
+                                                                                    child: CircularProgressIndicator(
+                                                                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                        FlutterFlowTheme.of(context).primary,
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 );
@@ -1539,11 +2366,12 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                             if (!snapshot.hasData) {
                                                                                               return Center(
                                                                                                 child: SizedBox(
-                                                                                                  width: 100.0,
-                                                                                                  height: 100.0,
-                                                                                                  child: SpinKitSquareCircle(
-                                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                                    size: 100.0,
+                                                                                                  width: 50.0,
+                                                                                                  height: 50.0,
+                                                                                                  child: CircularProgressIndicator(
+                                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                      FlutterFlowTheme.of(context).primary,
+                                                                                                    ),
                                                                                                   ),
                                                                                                 ),
                                                                                               );
@@ -1579,11 +2407,12 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                               if (!snapshot.hasData) {
                                                                                                                 return Center(
                                                                                                                   child: SizedBox(
-                                                                                                                    width: 100.0,
-                                                                                                                    height: 100.0,
-                                                                                                                    child: SpinKitSquareCircle(
-                                                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                                                      size: 100.0,
+                                                                                                                    width: 50.0,
+                                                                                                                    height: 50.0,
+                                                                                                                    child: CircularProgressIndicator(
+                                                                                                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                        FlutterFlowTheme.of(context).primary,
+                                                                                                                      ),
                                                                                                                     ),
                                                                                                                   ),
                                                                                                                 );
@@ -1743,11 +2572,12 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                           return Center(
                                                                             child:
                                                                                 SizedBox(
-                                                                              width: 100.0,
-                                                                              height: 100.0,
-                                                                              child: SpinKitSquareCircle(
-                                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                                size: 100.0,
+                                                                              width: 50.0,
+                                                                              height: 50.0,
+                                                                              child: CircularProgressIndicator(
+                                                                                valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                  FlutterFlowTheme.of(context).primary,
+                                                                                ),
                                                                               ),
                                                                             ),
                                                                           );
@@ -1773,11 +2603,12 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                               if (!snapshot.hasData) {
                                                                                 return Center(
                                                                                   child: SizedBox(
-                                                                                    width: 100.0,
-                                                                                    height: 100.0,
-                                                                                    child: SpinKitSquareCircle(
-                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                      size: 100.0,
+                                                                                    width: 50.0,
+                                                                                    height: 50.0,
+                                                                                    child: CircularProgressIndicator(
+                                                                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                        FlutterFlowTheme.of(context).primary,
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 );
@@ -1812,11 +2643,12 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                             if (!snapshot.hasData) {
                                                                                               return Center(
                                                                                                 child: SizedBox(
-                                                                                                  width: 100.0,
-                                                                                                  height: 100.0,
-                                                                                                  child: SpinKitSquareCircle(
-                                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                                    size: 100.0,
+                                                                                                  width: 50.0,
+                                                                                                  height: 50.0,
+                                                                                                  child: CircularProgressIndicator(
+                                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                      FlutterFlowTheme.of(context).primary,
+                                                                                                    ),
                                                                                                   ),
                                                                                                 ),
                                                                                               );
@@ -1852,11 +2684,12 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                                                               if (!snapshot.hasData) {
                                                                                                                 return Center(
                                                                                                                   child: SizedBox(
-                                                                                                                    width: 100.0,
-                                                                                                                    height: 100.0,
-                                                                                                                    child: SpinKitSquareCircle(
-                                                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                                                      size: 100.0,
+                                                                                                                    width: 50.0,
+                                                                                                                    height: 50.0,
+                                                                                                                    child: CircularProgressIndicator(
+                                                                                                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                        FlutterFlowTheme.of(context).primary,
+                                                                                                                      ),
                                                                                                                     ),
                                                                                                                   ),
                                                                                                                 );
@@ -1959,11 +2792,12 @@ class _UsersReportsWidgetState extends State<UsersReportsWidget>
                                                                           return Center(
                                                                             child:
                                                                                 SizedBox(
-                                                                              width: 100.0,
-                                                                              height: 100.0,
-                                                                              child: SpinKitSquareCircle(
-                                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                                size: 100.0,
+                                                                              width: 50.0,
+                                                                              height: 50.0,
+                                                                              child: CircularProgressIndicator(
+                                                                                valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                  FlutterFlowTheme.of(context).primary,
+                                                                                ),
                                                                               ),
                                                                             ),
                                                                           );

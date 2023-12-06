@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/components/nav0/nav0_widget.dart';
 import '/components/topbar/topbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -6,28 +7,28 @@ import 'admin_usesrs_widget.dart' show AdminUsesrsWidget;
 import 'package:flutter/material.dart';
 
 class AdminUsesrsModel extends FlutterFlowModel<AdminUsesrsWidget> {
+  ///  Local state fields for this page.
+
+  int? totalUsers = 0;
+
+  String searchString = '';
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
   // Model for topbar component.
   late TopbarModel topbarModel;
-  // State field(s) for mentorr widget.
-  bool? mentorrValue;
-  // State field(s) for comp widget.
-  bool? compValue;
-  // State field(s) for checked widget.
-  bool? checkedValue;
-  // State field(s) for real widget.
-  bool? realValue;
-  // State field(s) for not widget.
-  bool? notValue;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
+  // Algolia Search Results from action on TextField
+  List<UsersRecord>? algoliaSearchResults1 = [];
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
+  // Algolia Search Results from action on DropDown
+  List<UsersRecord>? algoliaSearchResults2 = [];
   // State field(s) for mentoor widget.
   FocusNode? mentoorFocusNode;
   TextEditingController? mentoorController;

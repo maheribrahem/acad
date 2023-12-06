@@ -1,13 +1,10 @@
 import 'dart:async';
 
-import '/backend/algolia/serialization_util.dart';
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class ChatMessagesRecord extends FirestoreRecord {
   ChatMessagesRecord._(
@@ -76,49 +73,6 @@ class ChatMessagesRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       ChatMessagesRecord._(reference, mapFromFirestore(data));
-
-  static ChatMessagesRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      ChatMessagesRecord.getDocumentFromData(
-        {
-          'user': convertAlgoliaParam(
-            snapshot.data['user'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'chat': convertAlgoliaParam(
-            snapshot.data['chat'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'text': snapshot.data['text'],
-          'image': snapshot.data['image'],
-          'timestamp': convertAlgoliaParam(
-            snapshot.data['timestamp'],
-            ParamType.DateTime,
-            false,
-          ),
-          'isSeen': snapshot.data['isSeen'],
-        },
-        ChatMessagesRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<ChatMessagesRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'chat_messages',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

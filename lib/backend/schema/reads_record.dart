@@ -1,13 +1,10 @@
 import 'dart:async';
 
-import '/backend/algolia/serialization_util.dart';
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class ReadsRecord extends FirestoreRecord {
   ReadsRecord._(
@@ -63,43 +60,6 @@ class ReadsRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       ReadsRecord._(reference, mapFromFirestore(data));
-
-  static ReadsRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      ReadsRecord.getDocumentFromData(
-        {
-          'name': snapshot.data['name'],
-          'reads': convertAlgoliaParam(
-            snapshot.data['reads'],
-            ParamType.int,
-            false,
-          ),
-          'timeStamp': convertAlgoliaParam(
-            snapshot.data['timeStamp'],
-            ParamType.DateTime,
-            false,
-          ),
-          'admin': snapshot.data['admin'],
-        },
-        ReadsRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<ReadsRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'reads',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

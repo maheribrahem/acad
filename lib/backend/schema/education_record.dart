@@ -1,13 +1,10 @@
 import 'dart:async';
 
-import '/backend/algolia/serialization_util.dart';
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class EducationRecord extends FirestoreRecord {
   EducationRecord._(
@@ -112,63 +109,6 @@ class EducationRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       EducationRecord._(reference, mapFromFirestore(data));
-
-  static EducationRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      EducationRecord.getDocumentFromData(
-        {
-          'sender': convertAlgoliaParam(
-            snapshot.data['sender'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'receiver': convertAlgoliaParam(
-            snapshot.data['receiver'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'mentoring': snapshot.data['mentoring'],
-          'text': snapshot.data['text'],
-          'sendTime': convertAlgoliaParam(
-            snapshot.data['sendTime'],
-            ParamType.DateTime,
-            false,
-          ),
-          'isSeen': snapshot.data['isSeen'],
-          'mentor': convertAlgoliaParam(
-            snapshot.data['mentor'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'classRef': convertAlgoliaParam(
-            snapshot.data['classRef'],
-            ParamType.DocumentReference,
-            false,
-          ),
-          'image': snapshot.data['image'],
-          'doc': snapshot.data['doc'],
-          'audio': snapshot.data['audio'],
-          'chattId': snapshot.data['chattId'],
-        },
-        EducationRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<EducationRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'education',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

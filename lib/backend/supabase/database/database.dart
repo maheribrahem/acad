@@ -7,5 +7,7 @@ export 'table.dart';
 
 export 'tables/qbank_attempt.dart';
 export 'tables/categ_grades.dart';
+export 'tables/qbank.dart';
 export 'tables/qbank_attempts.dart';
+export 'tables/users.dart';
 export 'tables/activities_progress.dart';
